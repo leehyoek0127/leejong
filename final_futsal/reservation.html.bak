@@ -399,7 +399,7 @@ $(function(){
 		display : inline;
 		margin-right : 50px;
 		font-size : 22px;
-		height: 60px;
+		
 		font-weight: 700;
 		transition: all 0.3s ease-out;
 		
@@ -909,7 +909,7 @@ font-size:16px;
 						</ul>
 					</li>
 					<li class="borderRightLeft"><a href="qna.html" >고객센터</a>
-						<ul>
+						<ul style="width:210px;">
 							<li><a href="#" >공지사항</a></li>
 							<li><a href="#" >Q&A</a></li>
 							<li><a href="#" >풋살구장등록</a></li>

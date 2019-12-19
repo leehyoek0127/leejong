@@ -66,7 +66,7 @@ table,th,td{
 }
 .ab{background-color:#EAEAEA; font-size:11px;}
  body{
-  	background-image:url("../img/bgkorea_copy.jpg");
+  	background-image:url("img/bgkorea_copy.jpg");
 	
 	background-position: center top;
 	background-attachment:scroll;
