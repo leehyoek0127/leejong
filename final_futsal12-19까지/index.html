@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Material Form Example</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/materialFormStyles.css">
+    <link href='https://fonts.googleapis.com/css?family=roboto' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.infinitecarousel.js"></script>
+
+<link rel="stylesheet" href="css/css/style.css" media="screen">
+
+<script>
+$(function(){
+		 var shrinkHeader = 30;
+		  $(window).scroll(function() {
+			var scroll = getCurrentScroll();
+			  if ( scroll >= shrinkHeader ) {
+				   $('#navtop').addClass('shrink');
+				   
+				}
+				else {
+					$('#navtop').removeClass('shrink');
+					
+				}
+	});
+	function getCurrentScroll() {
+		return window.pageYOffset || document.documentElement.scrollTop;
+		}
+	});
+$(function(){
+		$('#carousel1').infiniteCarousel();
+	});
+
+
+
+</script>
+
+<style type="text/css">
+	.borderRightLeft {
+		display: inline-block;
+		color: #474E51;
+		position: relative;
+		top:10px; left: 50px;
+	}
+
+	.borderRightLeft::after {
+		 content: '';
+		 position: absolute;
+		 width: 100%;
+		 transform: scaleX(0);
+		 height: 2px;
+		 bottom: 20px;
+		 left: 0;
+		 background-color: #AA1212;
+		 transform-origin: bottom left;
+		 transition: transform .3s ease-in-out;
+	 }
+
+	.borderRightLeft:hover::after {
+		 transform: scaleX(1);
+		 transform-origin: bottom right;
+	 }
+
+
+
+.slideDown {
+		width: 120px;
+		height: 40px;
+		color: #AA1212;
+		padding: 0 14px;
+		text-align: center;
+		line-height: 40px;
+		position: relative;
+		transition: 0.2s ease-in-out;
+		overflow: hidden;
+	}
+
+	.slideDown::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateY(-100%);
+		background-color: #AA1212;
+		transition: transform 0.2s ease-out;
+		z-index:-1;
+	}
+
+	.slideDown:hover {
+		color: #fff;
+		transition: 0.2s ease-out;
+		
+	}
+
+	.slideDown:hover::after {
+		transform: translateY(0);
+		transition: transform 0.2s ease-in;
+		
+
+	}
+
+
+
+body {
+		margin:0;
+	}
+
+	ul {
+		list-style-type:none;
+	}
+	#header {
+	text-align : center;
+		width : 100%; height : 460;
+		
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		height: 60px;
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 100px; height : 99%;
+		color : #ffffff;
+		font-size : 17px;
+		font-weight: 700;
+		position: relative;
+		top:15px;
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 6px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 31.5%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 32%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 32%; height:100%
+	}
+	
+/*============================================================================*/
+	#main {
+		width : 1270px;
+		height : 1000px;
+		
+		margin : 0 auto;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 19%;
+		height : 98%;
+		margin : 6px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 500px;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+
+		width : 98%;
+		height : 100px;
+		
+		margin: 3px;
+		
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 130px;
+		
+		margin: 3px;
+		
+		overflow:hidden;
+	}
+
+	#banner3 {
+		width : 98%;
+		height : 190px;
+		
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		float : left;
+		width : 79%;
+		height : 98%;
+		margin : 6px;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+		position: relative;
+		top:10px;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 100%;
+		
+		margin : 3px;
+		
+		
+	}
+	#matList a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+	#list {
+		clear:both;
+	}
+
+#carousel1 {
+	width:400px;
+	height:250px;
+	overflow:scroll;
+	border:2px solid #999;
+}
+
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+<div class="container" id="formOutterWrapper">
+<h1>jQuery Material Form Example</h1>
+        <div class="container" id="formInnerWrapper">
+                <form id="materialForm" class="form" method="post" action="" role="form" autocomplete="off">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="labels" for="firstName">First Name</label>
+                            <input type="text" class="formInput" id="firstName" name="firstName">
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="labels" for="lastName">Last Name</label>
+                            <input type="text" class="formInput" id="lastName" name="lastName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="labels" for="email">Email</label>
+                            <input type="text" class="formInput" id="email" name="email">
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="labels" for="phone">Phone</label>
+                            <input type="tel" class="formInput" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label class="labels" for="description">Project Description</label>
+                            <input type="text" class="formInput" id="description" name="description">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary green flatButton" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+  </div>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="js/materialForm.js"></script>
+More script and css style
+: <a href="http://www.htmldrive.net/" title="HTML DRIVE - Free DHMTL Scripts,Jquery plugins,Javascript,CSS,CSS3,Html5 Library">www.htmldrive.net </a>
+
+</body>
+</html>

@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="orbit-1.2.3.css">
 	<link rel="stylesheet" href="css/demo-style.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400'>
+    <link rel="stylesheet" href="css/selectstyle.css">
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/js/datepicker.js"></script>
@@ -22,6 +24,8 @@
 	<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
 	<script type="text/javascript" src="jquery.orbit-1.2.3.min.js"></script>
 
+	<!-- select box -->
+	<script src="js/selectindex.js"></script>
 	<!--회원가입스크립트랑 스타일-->
 	<script type='text/javascript'>
 		$(function() {
@@ -71,31 +75,32 @@
     return window.pageYOffset || document.documentElement.scrollTop;
     }
 });
+
+$(function(){
+		 var shrinkHeader = 30;
+		 var shrinkhollow = 465;
+		  $(window).scroll(function() {
+			var scroll = getCurrentScroll();
+			  if ( scroll >= shrinkHeader ) {
+				   $('#navtop').addClass('shrink');  
+				}
+				else {
+					$('#navtop').removeClass('shrink');	
+				}
+			   if(scroll>= shrinkhollow ){
+					$('#navtop').addClass('shrinkhollow');  
+				}
+				else {
+					$('#navtop').removeClass('shrinkhollow');	
+				}
+	});
+	function getCurrentScroll() {
+		return window.pageYOffset || document.documentElement.scrollTop;
+		}
+	});
     </script>
 	
 	<style>
-	select {
-    width: 200px; 
-    padding: .8em .5em;
-    font-family: inherit;
-    background: url('이미지 경로') no-repeat 95% 50%;
-    border: 1px solid #999;
-    border-radius: 0px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-	}
-
-	select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url(이미지 경로) no-repeat 95% 50%;
-	}
-
-	select::-ms-expand {
-    display: none;
-	}
 
 	html {
 	box-sizing: border-box;
@@ -344,9 +349,8 @@
 	}
 	#navtop {
 		width : 100%; height : 60px;
-		background-color: #363636;
-		color : #ffffff;
 		background-color: rgba(0, 0, 0, 0.45);
+		color : #ffffff;
 		position : fixed;
 		left : 0; top : 50px;
 		z-index : 99999;
@@ -356,11 +360,17 @@
 	}
 	#navtop.shrink {
 		top:0px;
+		background-color: rgba(0, 0, 0, 0.45);
 		-webkit-transition: all 0.3s;
 		-moz-transition: all 0.3s;
 		transition: all 0.3s;
-		
-    
+	}
+	#navtop.shrinkhollow{
+		top:0px;
+		background-color: #333;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
 	}
 	#navtop_logo.shrink {
 		width : 60px; height : 100%;
@@ -453,7 +463,7 @@
 
 	#main {
 		width : 1270px;
-		height : 1680px;
+		height : 1520px;
 		margin : 0 400px;
 		
 	}
@@ -552,7 +562,7 @@
     }
 
     .depthButton:hover {
-    color: #5778F3;
+    color: #cc0000;
     transform: translateY(-1px);
     box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
     }
@@ -713,15 +723,26 @@ height:700px;
 #section_2{
 float:right;
 width:100%;
-height:280px;
+height:160px;
 text-align:right;
 font-size:16px;
 }
 #section_3{
+float:left;
+width:50%;
+height:280px;
+font-size:16px;
+}
+#section_4{
+float:left;
+width:30%;
+height:460px;
+font-size:16px;
+}
+#section_5{
 float:right;
 width:100%;
-height:280px;
-text-align:right;
+height:30px;
 font-size:16px;
 }
 #rightline{
@@ -807,10 +828,20 @@ font-weight:bold;
 	
 	font-size:16px;
 	text-align:right;
-	margin: 0 auto;
+	
 	
 }
 
+#section_4 table {
+	
+	font-size:16px;
+	text-align:right;
+	
+}
+#section_5 table{
+font-size:16px;
+	text-align:right;
+}
 .borderCenter {
     position: relative;
 	float:right;
@@ -833,6 +864,11 @@ font-weight:bold;
     width: 100%;
     opacity: 1;
 }
+
+<!-- selectbox 꾸미기 -->
+
+<!-- ---------------------------------------- -->
+
   </style>
 
 
@@ -954,7 +990,7 @@ href="#">아이디찾기</A> </p>
 		<div class="vcal-body" data-calendar-area="month"></div></div>
         <p class="demo-picked">
 		
-		<div class="borderCenter"><div class="fonlist">날짜선택:</h2>
+		<div class="borderCenter"><div class="fonlist">날짜선택:
 			<span data-calendar-label="picked"></span></div>
 
 		</div></p>
@@ -968,147 +1004,320 @@ href="#">아이디찾기</A> </p>
 			});
 		})
 	</script>
-</div>
+</div><hr>
 
 
 <div id="section_2" align=right>
 <table>
 <tr>
-<td colspan=2><br></td>
+<td colspan=2></td>
 </tr>
 <tr>
-	<td colspan=2><select>
-    <option selected>구장선택</option>
-    <option>A구장</option>
-    <option>B구장</option>
-    <option>C구장</option>
-</select></td>
+	<td colspan=2> 
+
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >구장 </option>
+<option value="1">A구장</option>
+<option value="2" >B구장</option>
+<option value="3">C구장</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
 </tr>
+
 <tr>
-<td colspan=2><select>
-    <option selected>시간선택</option>
-    <option>10:00 AM</option>
-    <option>12:00 PM</option>
-    <option>2:00 PM</option>
-	<option>4:00 PM</option>
-	<option>6:00 PM</option>
-	<option>8:00 PM</option>
-</select></td>
+<td colspan=2> 
+<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >시간 </option>
+<option value="1">10:00 AM</option>
+<option value="2" >12:00 PM</option>
+<option value="3">2:00 PM</option>
+<option value="4">4:00 PM</option>
+<option value="5">6:00 PM</option>
+<option value="6">8:00 PM</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
 </tr>
+
+
 <tr>
-<td colspan=2><br></td>
-</tr>
-<tr><td colspan=2 align=right><div class="borderCenter">합계 : 70,000 (원) <br> (  구장대여 1시간 65,000 (원)+옵션선택 5,000 (원)  )</div></td></tr>
+<td colspan=2 align=right><br><div class="borderCenter"><h4>합계 : 80,000(원) [구장대여 1시간 65,000 + 옵션선택 5,000]</h4></div></div></td></tr>
 </table>
+</div><hr>
+<!-- ------------------------------------------------- -->
+<div id="section_3" align="left">
+<table>
+<tr>
+	<td align="center"><br><h3>매치등록 </h3></td>
+</tr>
+<tr>
+	<td align="center"><br>매치를 등록하면 경기를 희망하는 팀의 연락을 받을 수 있습니다. </td>
+</tr>
+<tr>
 
+<td> 
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >매치형태</option>
+<option value="1">5 vs 5</option>
+<option value="2" >6 vs 6</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
+</tr>
+<tr>
+
+<td> 
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >신청 가능 팀</option>
+<option value="1">1 팀</option>
+<option value="2" >2 팀</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
+</tr>
+
+<tr>
+<td> 
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >팀수준</option>
+<option value="1">상</option>
+<option value="2" >중상</option>
+<option value="2" >중</option>
+<option value="2" >중하</option>
+<option value="2" >하</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
+</tr>
+
+<tr>
+<td align="center"> 유니폼
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >상의</option>
+<option value="1">Red</option>
+<option value="2" >Blue</option>
+<option value="2" >Green</option>
+<option value="2" >Yellow</option>
+<option value="2" >White</option>
+<option value="2" >직접입력</option>
+  </select>
+
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
 </div>
 
+<div class="cont_heg_50"></div>
+<div class="cont_select_center">
 
-<div id="section_3">
-<hr><hr><table>
-<tr>
-	<td><p><div class="doublebor2"><br><hr><hr><img src="img/match.png"> 매치등록 </td></div>
- </p></td>
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >하의</option>
+<option value="1">Red</option>
+<option value="2" >Blue</option>
+<option value="2" >Green</option>
+<option value="2" >Yellow</option>
+<option value="2" >White</option>
+<option value="2" >직접입력</option>
+  </select>
+  <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+
+<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >스타킹</option>
+<option value="1">Black</option>
+<option value="2" >White</option>
+<option value="2" >직접입력</option>
+ </select>
+  <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
 </tr>
+
 <tr>
-	<td><div class="doublebor3"><img src="img/wow.png"> 매치를 등록하면 경기를 희망하는 팀의 연락을 받을 수 있습니다. <img src="img/wow.png"></td></div>
-</tr>
-<tr>
-	<td ><div class="doublebor3"><select>
-    <option selected>매치형태</option>
-    <option>5 vs 5</option>
-    <option>6 vs 6</option>
-</select></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><select>
-    <option selected>신청 가능 팀 선택</option>
-    <option>1 팀</option>
-    <option>2 팀</option>
-</select></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><select>
-    <option selected>팀수준선택</option>
-    <option>상</option>
-      <option>중상</option>
-	    <option>중</option>
-		  <option>중하</option>
-		    <option>하</option>
-</select></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><img src="img/tshirt.png">유니폼선택<img src="img/tshirt.png"><br> 
-<select>
-    <option>상의색상</option>
-    <option>Red</option>
-      <option>Blue/option>
-	    <option>Green</option>
-		  <option>Yellow</option>
-		    <option>White</option>
-			<option>직접입력</option>
-</select>
-<select>
-    <option>하의색상</option>
-    <option>Red</option>
-      <option>Blue</option>
-	    <option>Green</option>
-		  <option>Yellow</option>
-		    <option>White</option>
-			<option>직접입력</option>
-</select>
-<select>
-    <option>스타킹색상</option>
-    <option>Black</option>
-      <option>White</option>
-	  <option>직접입력</option>
-</select></td>
-</tr>
-<tr>
-	<td><div class="doublebor3"><textarea name="won" rows=5 cols=85 class = box placeholder="원하는 매칭시간/개인 연락처/팀 소개등 메모" onfocus="this.placeholder = ''" onblur="this.placeholder = '원하는 매칭시간/개인 연락처/팀 소개등 메모'"></textarea></td></div>
-</tr>
-<tr>
-	<td><pre><p><div class="doublebor2"><hr><hr><img src="img/yong.png"> 용병모집 </td></div></p></pre>
-</tr>
-<tr>
-	<td><div class="doublebor3"><img src="img/wow.png"> 용병모집을 등록하면 커뮤니티의 용병모집란에 자동 등록 됩니다. <img src="img/wow.png"></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><select>
-    <option selected>모집인원 선택</option>
-    <option>1명</option>
-      <option>2명</option>
-	    <option>3명</option>
-		  <option>4명</option>
-		    <option>5명</option>
-			 <option>6명</option>
-      <option>7명</option>
-	    <option>8명</option>
-		  <option>9명</option>
-		    <option>10명</option>
-</select></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><select>
-    <option selected>팀수준선택</option>
-    <option>상</option>
-      <option>중상</option>
-	    <option>중</option>
-		  <option>중하</option>
-		    <option>하</option>
-</select></td></div>
-</tr>
-<tr>
-	<td><div class="doublebor3"><textarea name="won" rows=5 cols=85 class = box placeholder="원하는 매칭시간/개인 연락처/팀 소개등 메모" onfocus="this.placeholder = ''" onblur="this.placeholder = '원하는 매칭시간/개인 연락처/팀 소개등 메모'"></textarea><hr><hr><br></td></div></div>
-</tr>
-<tr>
-	<td><div class="depthButton" align="right">결 제</div></td>
+	<td align="rignt"><br><textarea name="won" rows=5 cols=65 class = box placeholder="원하는 매칭시간/개인 연락처/팀 소개등 메모" onfocus="this.placeholder = ''" onblur="this.placeholder = '원하는 매칭시간/개인 연락처/팀 소개등 메모'"></textarea></td>
 </tr>
 </table>
 </div>
+
+<!-- --------------------------------------------- -->
+<div id="section_4" align="left">
+<table>
+<tr>
+	<td align="center"><br><h3>용병모집 </h3></td>
+</tr>
+<tr>
+	<td align="center"><br>용병모집을 등록하면 커뮤니티의 용병모집란에 자동 등록 됩니다. </td>
+</tr>
+<tr>
+
+<td> 
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >모집인원</option>
+<option value="1">1명</option>
+<option value="2" >2명</option>
+<option value="2" >3명</option>
+<option value="2" >4명</option>
+<option value="2" >5명</option>
+<option value="2" >6명</option>
+<option value="2" >7명</option>
+<option value="2" >8명</option>
+<option value="2" >9명</option>
+<option value="2" >10명</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
 </div>
+  </div>
+</div>
+</td>
+</tr>
+
+
+<tr>
+
+<td> 
+	<div class="cont_heg_50"></div>
+<div class="cont_select_center">
+
+<div class="select_mate" data-mate-select="active" >
+<select name="" onclick="return false;" id="">
+<option value=""  >팀수준</option>
+<option value="1">상</option>
+<option value="2" >중상</option>
+<option value="2" >중</option>
+<option value="2" >중하</option>
+<option value="2" >하</option>
+  </select>
+
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
+</div>
+  </div>
+</div>
+</td>
+</tr>
+<tr>
+	<td align="rignt"><br><textarea name="won" rows=5 cols=65 class = box placeholder="원하는 매칭시간/개인 연락처/팀 소개등 메모" onfocus="this.placeholder = ''" onblur="this.placeholder = '원하는 매칭시간/개인 연락처/팀 소개등 메모'"></textarea><br></td>
+</tr>
+</table>
+</div>
+<div id="section_5" align="right">
+<tr>
+<td align="right"><hr><br>
+<div class="depthButton">결 제</div>
+</td>
+</tr>
 </section>
 </section>
+
 <img src="img/bot.png">
   
  </body>
