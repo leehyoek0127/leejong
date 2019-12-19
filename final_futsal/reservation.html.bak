@@ -909,7 +909,7 @@ font-size:16px;
 						</ul>
 					</li>
 					<li class="borderRightLeft"><a href="qna.html" >고객센터</a>
-						<ul style="width:210px;">
+						<ul>
 							<li><a href="#" >공지사항</a></li>
 							<li><a href="#" >Q&A</a></li>
 							<li><a href="#" >풋살구장등록</a></li>
