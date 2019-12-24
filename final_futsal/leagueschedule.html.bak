@@ -981,9 +981,9 @@ function schedulebutton(){
 				<ul class="menu">
 					<li class="borderRightLeft"><a href="reservation.html" >대관</a>
 						<ul>
-							<li><a href="#" >Documents</a></li>
-							<li><a href="#" >Messages</a></li>
-							<li><a href="#" >Sign Out</a></li>
+							<li><a href="#" >시설검색</a></li>
+							<li><a href="#" >대관신청</a></li>
+							<li><a href="#" >시설소개</a></li>
 						</ul>
 					</li>
 					<li class="borderRightLeft"><a href="yonglist.html" >매치/용병</a>
@@ -995,8 +995,21 @@ function schedulebutton(){
 					
 					</li>
 					<li class="borderRightLeft"><a href="" >리그</a></li>
-					<li class="borderRightLeft"><a href="gal.html" >팀커뮤니티</a></li>
-					<li class="borderRightLeft"><a href="qna.html" >고객센터</a></li>
+					<li class="borderRightLeft"><a href="gal.html" >팀커뮤니티</a>
+						<ul>
+							<li><a href="#" >팀갤러리</a></li>
+							<li><a href="#" >팀게시판</a></li>
+							<li><a href="#" >팀관리</a></li>
+							<li><a href="#" >팀가입하기</a></li>
+						</ul>
+					</li>
+					<li class="borderRightLeft"><a href="qna.html" >고객센터</a>
+						<ul style="width:210px;">
+							<li><a href="#" >공지사항</a></li>
+							<li><a href="#" >Q&A</a></li>
+							<li><a href="#" >풋살구장등록</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		

@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="orbit-1.2.3.css">
 	<link rel="stylesheet" href="css/demo-style.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
+	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400'>
     <link rel="stylesheet" href="css/selectstyle.css">
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -173,30 +174,7 @@ $(function(){
     transform: translateX(25px);
     }
 
-    .borderRightLeft {
-		display: inline-block;
-		color: #474E51;
-		position: relative;
-		top:10px; left: 50px;
-	}
-
-	.borderRightLeft::after {
-		 content: '';
-		 position: absolute;
-		 width: 100%;
-		 transform: scaleX(0);
-		 height: 4px;
-		 bottom: -10px;
-		 left: 0;
-		 background-color: #AA1212;
-		 transform-origin: bottom left;
-		 transition: transform .3s ease-in-out;
-	 }
-
-	.borderRightLeft:hover::after {
-		 transform: scaleX(1);
-		 transform-origin: bottom right;
-	 }
+    
 
     .textRightLeft {
     height: 40px;

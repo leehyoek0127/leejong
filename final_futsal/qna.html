@@ -8,6 +8,7 @@
   <meta name="Description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
   <title>qna</title>
 
 
@@ -286,31 +287,7 @@
 
 
 
-  	/*주메뉴 마우스오버하면 밑줄기능*/
-	.borderRightLeft {
-		display: inline-block;
-		color: #474E51;
-		position: relative;
-		top:10px; left: 50px;
-	}
-
-	.borderRightLeft::after {
-		 content: '';
-		 position: absolute;
-		 width: 100%;
-		 transform: scaleX(0);
-		 height: 4px;
-		 bottom: -10px;
-		 left: 0;
-		 background-color: #AA1212;
-		 transform-origin: bottom left;
-		 transition: transform .3s ease-in-out;
-	 }
-
-	.borderRightLeft:hover::after {
-		 transform: scaleX(1);
-		 transform-origin: bottom right;
-	 }
+  	
 
 	/*소메뉴 마우스오버하면 배경색 바뀌는 기능*/
 	.slideDown {

@@ -178,6 +178,7 @@ $(function(){
 		color: #474E51;
 		position: relative;
 		top:10px; left: 50px;
+		height:50px;
 	}
 
 	.borderRightLeft::after {
@@ -185,8 +186,8 @@ $(function(){
 		 position: absolute;
 		 width: 100%;
 		 transform: scaleX(0);
-		 height: 2px;
-		 bottom: 20px;
+		 height: 4px;
+		 bottom: 5px;
 		 left: 0;
 		 background-color: #AA1212;
 		 transform-origin: bottom left;

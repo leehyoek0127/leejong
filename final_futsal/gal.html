@@ -12,7 +12,7 @@
 
 
 
-
+<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 <!-- 광호Q&A -->
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -291,31 +291,7 @@ ul{ padding-left: 0px;
 
 
 
-  	/*주메뉴 마우스오버하면 밑줄기능*/
-	.borderRightLeft {
-		display: inline-block;
-		color: #474E51;
-		position: relative;
-		top:10px; left: 50px;
-	}
-
-	.borderRightLeft::after {
-		 content: '';
-		 position: absolute;
-		 width: 100%;
-		 transform: scaleX(0);
-		 height: 4px;
-		 bottom: -10px;
-		 left: 0;
-		 background-color: #AA1212;
-		 transform-origin: bottom left;
-		 transition: transform .3s ease-in-out;
-	 }
-
-	.borderRightLeft:hover::after {
-		 transform: scaleX(1);
-		 transform-origin: bottom right;
-	 }
+  	
 
 	/*소메뉴 마우스오버하면 배경색 바뀌는 기능*/
 	.slideDown {

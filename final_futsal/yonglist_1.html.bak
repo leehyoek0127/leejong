@@ -11,7 +11,7 @@
   <title>yonglist</title>
 
 
-
+<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 
 <!-- 광호Q&A -->
 <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -437,9 +437,9 @@
 	}
 	#navtop_login {
 		float : right;
-		width : 100px; height : 99%;
+		width : 152px; height : 99%;
 		color : #ffffff;
-		font-size : 17px;
+		font-size : 13px;
 		font-weight: 700;
 		position: relative;
 		top:15px;
