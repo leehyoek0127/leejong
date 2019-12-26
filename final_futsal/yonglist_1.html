@@ -76,8 +76,9 @@
 	<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
 
 
-
-<!--회원가입스크립트랑 스타일-->
+	<!----------------------------서브메뉴마우스오버기능-------------------------->
+	<link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
+	<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
 	<script type='text/javascript'>
 		$(function() {
 		  $('#forgot_username_link').tipsy({gravity: 'w'});   
@@ -106,6 +107,7 @@
 				
 			});
 	</script>
+	<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
 
 
 
@@ -292,44 +294,7 @@
   	
 	
 
-	/*소메뉴 마우스오버하면 배경색 바뀌는 기능*/
-	.slideDown {
-		width: 120px;
-		height: 40px;
-		color: #AA1212;
-		padding: 0 14px;
-		text-align: center;
-		line-height: 40px;
-		position: relative;
-		transition: 0.2s ease-in-out;
-		overflow: hidden;
-	}
-
-	.slideDown::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		transform: translateY(-100%);
-		background-color: #AA1212;
-		transition: transform 0.2s ease-out;
-		z-index:-1;
-	}
-
-	.slideDown:hover {
-		color: #fff;
-		transition: 0.2s ease-out;
-		
-	}
-
-	.slideDown:hover::after {
-		transform: translateY(0);
-		transition: transform 0.2s ease-in;
-		
-
-	}
+	
 
 
 
@@ -622,7 +587,7 @@
 							<li><a href="#" >시설소개</a></li>
 						</ul>
 					</li>
-					<li class="borderRightLeft"><a href="yonglist.html" >매치/용병</a>
+					<li class="borderRightLeft"><a href="yonglist_1.html" >매치/용병</a>
 						<ul>
 							<li><a href="#" >팀매치신청</a></li>
 							<li><a href="#" >용병등록</a></li>

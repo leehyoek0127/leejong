@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="orbit-1.2.3.css">
 	<link rel="stylesheet" href="css/demo-style.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
+	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="img/png" href="img/favicon.ico"/>
@@ -47,10 +48,16 @@
 	<script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
 	<script src="js/leaguetablemain.js"></script>
+	<script src="js/login.js"></script>
 
 	<!-- select box -->
 	<script src="js/selectindex.js"></script>
-	<!--회원가입스크립트랑 스타일-->
+
+
+
+	<!----------------------------서브메뉴마우스오버기능-------------------------->
+	<link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
+	<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
 	<script type='text/javascript'>
 		$(function() {
 		  $('#forgot_username_link').tipsy({gravity: 'w'});   
@@ -79,7 +86,7 @@
 				
 			});
 	</script>
-
+	<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
 
 
 
@@ -307,30 +314,7 @@ $(function(){
     transform: translateX(25px);
     }
 
-    .borderRightLeft {
-		display: inline-block;
-		color: #474E51;
-		position: relative;
-		top:10px; left: 50px;
-	}
-
-	.borderRightLeft::after {
-		 content: '';
-		 position: absolute;
-		 width: 100%;
-		 transform: scaleX(0);
-		 height: 4px;
-		 bottom: -10px;
-		 left: 0;
-		 background-color: #AA1212;
-		 transform-origin: bottom left;
-		 transition: transform .3s ease-in-out;
-	 }
-
-	.borderRightLeft:hover::after {
-		 transform: scaleX(1);
-		 transform-origin: bottom right;
-	 }
+    
 
     .textRightLeft {
     height: 40px;
@@ -789,7 +773,7 @@ $(function(){
 	 list-style-type:none;
 	   text-align:center;
 	   font-size:10pt;
-	    Line-height:170%;
+	    
 		    margin-bottom: 30px;
 	}
 
@@ -986,7 +970,7 @@ function schedulebutton(){
 							<li><a href="#" >시설소개</a></li>
 						</ul>
 					</li>
-					<li class="borderRightLeft"><a href="yonglist.html" >매치/용병</a>
+					<li class="borderRightLeft"><a href="yonglist_1.html" >매치/용병</a>
 						<ul>
 							<li><a href="#" >팀매치신청</a></li>
 							<li><a href="#" >용병등록</a></li>
