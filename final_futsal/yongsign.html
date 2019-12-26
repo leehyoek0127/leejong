@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
+	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
@@ -196,30 +197,7 @@ $(function(){
 
   </script>
   <style>
-  .borderRightLeft {
-    display: inline-block;
-    color: #474E51;
-    position: relative;
-	top:10px; left: 50px;
-}
-
-.borderRightLeft::after {
-     content: '';
-     position: absolute;
-     width: 100%;
-     transform: scaleX(0);
-     height: 2px;
-     bottom: 20px;
-     left: 0;
-     background-color: #AA1212;
-     transform-origin: bottom left;
-     transition: transform .3s ease-in-out;
- }
-
-.borderRightLeft:hover::after {
-     transform: scaleX(1);
-     transform-origin: bottom right;
- }
+ 
 
 .textRightLeft {
     height: 40px;

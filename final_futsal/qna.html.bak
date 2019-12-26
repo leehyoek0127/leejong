@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
+  <title>qna</title>
+
+
+
+
+<!-- 광호Q&A -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 뭔지 모르지만 스크립트 -->
+  <script> 
+		(function ($) {
+		  // custom css expression for a case-insensitive contains()
+		  jQuery.expr[':'].Contains = function(a,i,m){
+			  return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+		  };
+		 
+		  function filterList(header, list) { 
+		  // header is any element, list is an unordered list
+			// create and add the filter form to the header
+			var form = $("<form>").attr({"class":"filterform","action":"#"}),
+				input = $("<input>").attr({"class":"filterinput","type":"text"});
+			$(form).append(input).appendTo(header);
+		 
+			$(input)
+			  .change( function () {
+				var filter = $(this).val();
+				if(filter) {
+			  
+				  $matches = $(list).find('a:Contains(' + filter + ')').parent();
+				  $('subli', list).not($matches).slideUp();
+				  $matches.slideDown();
+					
+				} else {
+				  $(list).find("subli").slideDown();
+				}
+				return false;
+			  })
+			.keyup( function () {
+				// fire the above change event after every letter
+				$(this).change();
+			});
+		  }
+		 
+		 
+		  //ondomready
+		  $(function () {
+			filterList($("#form"), $("#list"));
+		  });
+		}(jQuery));
+ 
+  </script> 
+
+
+
+
+
+  
+	
+<!--서브메뉴부르는css-->
+	<link rel="stylesheet" href="css/style2.css" media="screen">
+
+<!--배너2 자동슬라이드-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
+
+
+	<!----------------------------서브메뉴마우스오버기능-------------------------->
+	<link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
+	<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
+	<script type='text/javascript'>
+		$(function() {
+		  $('#forgot_username_link').tipsy({gravity: 'w'});   
+		});
+	</script>
+	<link href="css/front.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="js/jquery2.js" type="text/javascript"></script>
+	<script type="text/javascript">
+			$(document).ready(function() {
+
+				$(".signin").click(function(e) {          
+					e.preventDefault();
+					$("fieldset#signin_menu").toggle();
+					$(".signin").toggleClass("menu-open");
+				});
+				
+				$("fieldset#signin_menu").mouseup(function() {
+					return false
+				});
+				$(document).mouseup(function(e) {
+					if($(e.target).parent("a.signin").length==0) {
+						$(".signin").removeClass("menu-open");
+						$("fieldset#signin_menu").hide();
+					}
+				});			
+				
+			});
+	</script>
+	<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
+
+
+
+
+  <script>
+  	/*스크롤 내리면 메뉴 위치 이동하는 기능*/
+	$(function(){
+		 var shrinkHeader = 30;
+		  $(window).scroll(function() {
+			var scroll = getCurrentScroll();
+			  if ( scroll >= shrinkHeader ) {
+				   $('#navtop').addClass('shrink');
+				   
+				}
+				else {
+					$('#navtop').removeClass('shrink');
+					
+				}
+	});
+	function getCurrentScroll() {
+		return window.pageYOffset || document.documentElement.scrollTop;
+		}
+	});
+
+
+
+
+
+
+	/*배너2 자동슬라이드 기능*/
+	$(function(){
+		$('#carousel1').infiniteCarousel();
+	});
+
+
+
+
+
+  </script>
+  <style>
+
+/*Q&A부분 스타일*/
+#wrap {
+      position:relative;
+	}
+	.product-head h1{font-size:14px; font-family:Arial, Helvetica, sans-serif; margin-bottom:3px; margin-left:3px;}
+	
+    .product-head {
+      font-size:13px;
+	  padding:2px;
+	  
+	  width:180px;
+    }
+    .filterform input{
+	
+		 font-size:13px;
+		 padding:2px;
+		 border:1px solid #999;
+    }
+	.subli li{
+		padding:5px;
+		margin:10px 5px;
+		list-style:none;
+		width:190px;
+		border-top:1px solid #ccc;
+		font-size:15px;
+		}
+	.subli_img{
+		width:60px;height:60px;
+	}
+	
+		
+	
+	.picbig{
+		width:860px;height:800px;float:left;margin:0px 0px;font-size:13px;font-weight:400;
+		list-style-image:none;list-style-type:none;display:block;margin-top:16px;
+
+	}
+	.picli{
+		font-size:13px;font-weight:400;height:304px;width:210px;text-align:left;
+		position:relative;margin-left:9px;list-style-type:none;display:list-item;
+		overflow:hidden;float:left; margin-top: 20px;
+
+	}
+	.pic dt{
+		cursor:pointer;display:table-cell;font-weight:700;
+	}
+	.nick{
+		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
+	}
+	.date{
+		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
+	}
+	.clear{
+		clear:both;}
+	
+	#logo{
+		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
+	}
+	
+	.nav_ban ul{
+		 width:100%;	float:left;
+	}
+	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; 
+	}
+
+	.sec_ban2{
+	width:100%; float:left;
+	text-align:center;
+	}
+	.article_pic{
+		float:left; width:900px;  background-color:white;
+		text-align:left;
+	}
+
+	.cbox{
+		width:100%;border-width: 1pt;border-color:black;border-style:solid;float:left;
+	}
+	aside{
+		width:200px;height:750px;
+		float:left;
+	}
+
+
+	#tabletitle{
+		width:100%;,font-size:13px;height:40px;
+	}
+	table{
+		width:100%;
+	}
+	.thgongji{
+		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
+	}
+	.thno{
+		width:118px;height:40px;padding:2px;text-align:left;
+	}
+	.thtitle{
+		width:506px;height:40px;padding:2px;text-align:left;
+	}
+	.thname{
+	width:118px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate{
+	width:140px;height:40px;padding:2px;text-align:center;
+	}
+	.thview{
+	width:68px;height:40px;padding:2px;text-align:center;
+	}
+	.imgst{
+	width:210px; height:200px;
+	}
+	.reimg{
+	width:70px;height:25px;}
+	.secretimg{
+	width:30px;height:25px;
+	}
+	.numlist ul{
+		display:inline;font-size:13px;margin:0 auto;
+	}
+	.numlist li{
+		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
+		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+
+	/*소메뉴 마우스오버하면 배경색 바뀌는 기능*/
+	.slideDown {
+		width: 120px;
+		height: 40px;
+		color: #AA1212;
+		padding: 0 14px;
+		text-align: center;
+		line-height: 40px;
+		position: relative;
+		transition: 0.2s ease-in-out;
+		overflow: hidden;
+	}
+
+	.slideDown::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateY(-100%);
+		background-color: #AA1212;
+		transition: transform 0.2s ease-out;
+		z-index:-1;
+	}
+
+	.slideDown:hover {
+		color: #fff;
+		transition: 0.2s ease-out;
+		
+	}
+
+	.slideDown:hover::after {
+		transform: translateY(0);
+		transition: transform 0.2s ease-in;
+		
+
+	}
+
+
+
+
+
+
+
+
+
+/*============================================================================*/
+  	body {
+		margin:0;
+	}
+
+	ul {
+		list-style-type:none;
+		padding-left:0;
+	}
+	#header {
+	text-align : center;
+		width : 100%; height : 460;
+		
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 152px; height : 99%;
+		color : #ffffff;
+		font-size : 13px;
+		font-weight: 700;
+		position: relative;
+		top:15px;
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 6px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 33.3%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 33.3%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 33.4%; height:100%
+	}
+	
+/*============================================================================*/
+	#main {
+		width : 1270px;
+		
+		
+		margin : 0 400px;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 250px;
+		height : 1500px;
+		margin : 6px 100px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 100%;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+		position:sticky;
+		top:100px;
+		width : 98%;
+		height : 100px;
+		
+		margin: 3px;
+		
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 130px;
+		
+		margin: 3px;
+		
+		overflow:hidden;
+	}
+
+	#banner3 {
+		position:sticky;
+		top:200px;
+		width : 98%;
+		height : 190px;
+		
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		float : left;
+		width : 79%;
+		height : 98%;
+		margin : 6px;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+		position: relative;
+		top:10px;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 100%;
+		
+		margin : 3px;
+		
+		
+	}
+	#matList a {
+		
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+	#list {
+		clear:both;
+	}
+
+/*배너2 자동슬라이드 스타일*/
+#carousel1 {
+	width:400px;
+	height:250px;
+	overflow:scroll;
+	border:2px solid #999;
+}
+
+  </style>
+ </head>
+
+
+
+
+ <body>
+ 	<header id="header">
+	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
+					<source src="img/video element.mp4" type="video/mp4"> 
+				</video>
+		<div id="navtop">
+			<div id="navtop_logo">
+				 <a href="" ><img src="img/logo2.png" width="95px" height="120px"></a>
+			</div>
+			<div id="navtop_menu">
+				<ul class="menu">
+					<li class="borderRightLeft"><a href="reservation.html" >대관</a>
+						<ul>
+							<li><a href="#" >시설검색</a></li>
+							<li><a href="#" >대관신청</a></li>
+							<li><a href="#" >시설소개</a></li>
+						</ul>
+					</li>
+					<li class="borderRightLeft"><a href="yonglist_1.html" >매치/용병</a>
+						<ul>
+							<li><a href="#" >팀매치신청</a></li>
+							<li><a href="#" >용병등록</a></li>
+							<li><a href="#" >팀원모집</a></li>
+						</ul>
+					
+					</li>
+					<li class="borderRightLeft"><a href="" >리그</a></li>
+					<li class="borderRightLeft"><a href="gal.html" >팀커뮤니티</a>
+						<ul>
+							<li><a href="#" >팀갤러리</a></li>
+							<li><a href="#" >팀게시판</a></li>
+							<li><a href="#" >팀관리</a></li>
+							<li><a href="#" >팀가입하기</a></li>
+						</ul>
+					</li>
+					<li class="borderRightLeft"><a href="qna.html" >고객센터</a>
+						<ul style="width:210px;">
+							<li><a href="#" >공지사항</a></li>
+							<li><a href="#" >Q&A</a></li>
+							<li><a href="#" >풋살구장등록</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="navtop_login">
+				<a href="sign.html" style="float:left; line-height:25px;">회원가입</a>
+
+				<div id="container" style="float:left;">
+  <div id="topnav" class="topnav"><a href="login" class="signin"><span>로그인</span></a> </div>
+  
+  
+  <fieldset id="signin_menu">
+    <form method="post" id="signin" action="sign.html">
+      <label for="username">아이디</label>
+      <input id="username" name="username" value="" title="username" tabindex="4" type="text">
+      </p>
+      <p>
+        <label for="password">비밀번호</label>
+        <input id="password" name="password" value="" title="password" tabindex="5" type="password">
+      </p>
+      <p class="remember">
+        <input id="signin_submit" value="로그인" tabindex="6" type="submit">
+        <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
+        <label for="remember">로그인상태유지</label>
+      </p>
+      <p class="forgot"> <a href="#" id="resend_password_link">비밀번호찾기</a> </p>
+      <p class="forgot-username"> <A id=forgot_username_link 
+title="If you remember your password, try logging in with your email" 
+href="#">아이디찾기</A> </p>
+    </form>
+  </fieldset>
+</div>
+				
+				
+				
+			</div>
+		</div>
+		<div id="navmid">
+				<div id="navmid_1" class="slideDown"><a href="">공지사항</a></div>
+				<div id="navmid_2" class="slideDown"><a href="">Q&A</a></div>
+				<div id="navmid_3" class="slideDown"><a href="">풋살구장등록</a></div>
+		</div>
+	</header>
+	<div id="mainleft">
+			
+
+			<div id="leftbanner">
+				<div id="banner1">
+					<img src="img/20191211.png" width="100%" height="100%"/>
+				</div>
+				
+				<div id="banner3">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+				</div>
+			</div>
+
+
+		</div>
+	<section id="main">
+		
+
+		<section id="mainright">
+			<div id="matList">
+
+				<div class="sec_ban2">
+			<ul class="nav_ban">
+			<li><img src="img/qna.jpg" style="width:100%; height:200px"></li>
+		</ul>
+		
+	
+		</div>
+
+			
+
+		
+	
+		
+
+
+		
+		
+		
+		<div class="cbox">
+
+		<table class="table table-striped">
+		
+			<tbody>
+			<tr>
+				<td>제목</td>
+				<td >
+					<div class="form-group has-success">
+					  <input type="text" class="form-control" id="qnatitle">
+					</div>
+				</td>
+				</tr>
+				<tr>
+				<td>작성자</td>
+				<td >	
+					<div class="form-group has-success">
+					  <input type="text" class="form-control" id="qnaid" maxlength="10" style="width:250px">
+					</div>
+				</td>
+				</tr>
+				<tr>
+				<td >비밀번호</td>
+				<td ><div class="form-group has-warning" style="height:45px">
+					 
+					  <input type="text" class="form-control" id="qnapw" maxlength="10" style="width:250px">
+					   <label class="control-label" for="inputWarning1">글 수정, 삭제,비밀글 확인시 사용됩니다.</label>
+					</div>
+				</td>
+				</tr>
+				<tr>
+				<td >비밀글 설정</td>
+				<td><div class="has-warning">
+					  <div class="checkbox">
+						<label>
+						  <input type="checkbox" id="secret" value="sc">
+						  비밀글 설정시 체크박스에 표시
+						</label>
+					  </div>
+					</div>
+				</td>
+			
+				</tr>
+				<tr>
+				<td>내용</td>
+				<td><textarea class="form-control" rows="7"></textarea></td>
+				
+				</tr>
+
+			</tbody>
+		</table>
+
+	
+		
+		<a class="btn btn-default" style="float:right;margin-left:5px;">목록</a> <a class="btn btn-default pull-right">글쓰기</a>
+		<br><br><br><br><br><br>
+		<table class="table table-striped">
+			<thead>
+				<tr id="tabletitle">
+					<th scope="col" class="thno"><span>No</span></th>
+					<th scope="col" class="thtitle" style="text-align:center">
+						<span >제목</span>		
+					</th>
+					<th scope="col" class="thname">
+						<span >작성자</span>		
+					</th>
+					<th scope="col" class="thdate">
+						<span >작성일</span>		
+					</th>
+					<th scope="col" class="thview">
+						<span >조회</span>		
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td class="thgongji">580</td>
+				<td class="thtitle"> <a href>풋살장 구장 등록은 사업자번호가 필요한가요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">박**</td>
+				<td class="thdate">2019. 12. 10</td>
+				<td class="thview">5</td>
+				</tr>
+				<tr>
+				<td class="thgongji">579</td>
+				<td class="thtitle"><img src="img/re.png" class="reimg"><a href>풋살장 구장 등록은 사업자번호가 필요한가요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">김 팡 호</td>
+				<td class="thdate">2019. 12. 10</td>
+				<td class="thview">1</td>
+				</tr>
+				<tr>
+				<td class="thgongji">578</td>
+				<td class="thtitle"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a></td>
+				<td class="thname">이**</td>
+				<td class="thdate">2019. 12. 08</td>
+				<td class="thview">55</td>
+				</tr>
+				<tr>
+				<td class="thgongji">577</td>
+				<td class="thtitle"><img src="img/re.png" class="reimg"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a></td>
+				<td class="thname">김 팡 호</td>
+				<td class="thdate">2019. 12. 05</td>
+				<td class="thview">578</td>
+				</tr>
+				<tr>
+				<td class="thgongji">576</td>
+				<td class="thtitle"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">정**</td>
+				<td class="thdate">2019. 12. 02</td>
+				<td class="thview">5</td>
+				</tr>
+				<tr>
+				<td class="thgongji">575</td>
+				<td class="thtitle"><img src="img/re.png" class="reimg"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">김 팡 호</td>
+				<td class="thdate">2019. 12. 03</td>
+				<td class="thview">2</td>
+				</tr>
+				<tr>
+				<td class="thgongji">578</td>
+				<td class="thtitle"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a></td>
+				<td class="thname">이**</td>
+				<td class="thdate">2019. 12. 08</td>
+				<td class="thview">55</td>
+				</tr>
+				<tr>
+				<td class="thgongji">577</td>
+				<td class="thtitle"><img src="img/re.png" class="reimg"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a></td>
+				<td class="thname">김 팡 호</td>
+				<td class="thdate">2019. 12. 05</td>
+				<td class="thview">578</td>
+				</tr>
+				<tr>
+				<td class="thgongji">576</td>
+				<td class="thtitle"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">정**</td>
+				<td class="thdate">2019. 12. 02</td>
+				<td class="thview">5</td>
+				</tr>
+				<tr>
+				<td class="thgongji">575</td>
+				<td class="thtitle"><img src="img/re.png" class="reimg"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg"></td>
+				<td class="thname">김 팡 호</td>
+				<td class="thdate">2019. 12. 03</td>
+				<td class="thview">2</td>
+				</tr>
+				<tr></tr>
+			</tbody>
+		</table>
+		<div class="text-center">
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">10</a></li>
+					<li><a href="#">다음 ></a></li>
+				</ul>
+			</div>
+		
+			<select class="form-control" style="width:200px; float:left;margin-left : 150px;"><option>
+			전체기간</select>
+			<select class="form-control" style="width:200px; float:left; margin-left:10px;"><option>
+			제목+내용</select>
+			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="검색어를 입력하세요" class="form-control" style="width:300px; float:left;margin-left:10px;" >
+			<input class="btn btn-default" type="button" value="검 색" style="float:left; margin-left:10px;">
+		</form>
+		</div>
+			</div>	
+			</div>
+		</section>
+  </section>
+	<img src="img/bot.png">
+ </body>
+</html>
