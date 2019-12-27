@@ -1,0 +1,29 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>servletTest1</servlet-name>
+        <servlet-class>HunderedServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletTest1</servlet-name>
+        <url-pattern>/hund</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+        <servlet-name>servletTest2</servlet-name>
+        <servlet-class>AdderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletTest2</servlet-name>
+        <url-pattern>/adder</url-pattern>
+    </servlet-mapping>
+
+	<servlet>
+        <servlet-name>movie1</servlet-name>
+        <servlet-class>movie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>movie1</servlet-name>
+        <url-pattern>/movie</url-pattern>
+    </servlet-mapping>
+ 
+</web-app> 

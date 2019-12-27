@@ -744,7 +744,80 @@ scope속성은 범위
 \붙이는건 <pre>처럼 그대로 출력하려고 쓰는것
 
 
+======================================================================================================
+12/27 금요일
+*************jstl에서의 if문****************
+<c:if var="변수명" test="조건식">
+	실행문장
+</c:if>
+********************************************
 
+
+*************jstl에서의 switch문***************************
+<c:choose>
+  <c:when test="조건식">          <<c:when이 case
+    실행문장1
+  </c:when>
+  <c:when test="조건식">
+    실행문장2
+  </c:when>
+  <c:otherwise>                   <<c:otherwise가 default
+    실행문장3
+  </c:otherwise>
+</c:choose>
+***********************************************************
+
+
+*************jstl에서의 for문***************************************************************
+<c:forEach var="변수(i같은) begin="시작값" end="끝값">
+  실행문장
+</c:forEach>
+********************************************************************************************
+<c:forEach var="안에서쓸변수" items = "${MENU}">     <<전페이지에서 받은 배열
+  ${"안세서쓸변수"}
+<c:forEach>					     <<배열 수만큼 알아서 반복한다.
+
+<ul>
+<c:forEach var="안에서쓸변수" items = "${MENU}">     
+  <li> ${"안세서쓸변수"} </li>
+<c:forEach>
+</ul>						     <<이런식으로 목록으로 만드는것도 좋다.
+********************************************************************************************
+
+fmt:fotmatNumber    <<대충하자
+숫자포맷
+
+
+******************jsp:useBean*********************************
+어레이리스트
+<jsp:useBean id = "color" class = "java.util.ArrayList" >
+	<%
+	  color.add("red");
+	  color.add("orange");
+	  color.add("green");
+	  color.add("blue");
+	  color.add("violet");
+	%>
+</jsp:useBean>
+
+jsp:useBean은 java클래스파일을 가져다 쓰는 태그
+**************************************************************
+
+-d . $(FileName)
+<<에디트플러스 사용자도구 인수부분에 이렇게 써두면 package폴더 자동생성해서 그 안에 class파일 만든다.
+
+WEB-INF/classes/javabean 안에 있는 클래스파일(ScoreBean) 사용해서 객체(score)만들기
+<jsp:useBean id="score" class="javabean.ScoreBean" scope = "page" />
+
+객체(score)에 set하기 jsp:setProperty
+<jsp:setProperty name="score" property = "name" value = "나군" />
+
+객체(score)에서 get하기 jsp:getProperty *********3가지 방법********
+	<jsp:getProperty name="score" property = "name" />
+
+	${score.name}
+
+	${score["name"]}
 
 
 
