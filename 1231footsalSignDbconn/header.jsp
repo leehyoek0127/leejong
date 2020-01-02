@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%String uss="GUEST";%>
+<%
+//2020_01_02 수정부분
+	String uss = (String)session.getAttribute("id");
+	String log = "로그인";
+	if(uss==null)
+		uss="GUEST";
+	 else
+	 	log="로그아웃";
+		//수정부분 끝
+%>
 <body>
 	<header id="header">
 	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
@@ -51,7 +60,7 @@
 			<a href="sign.html" style="float:left; line-height:25px;">회원가입</a>
 
 				<div id="container" style="float:left;">
-					 <div id="topnav" class="topnav"><a href="login" class="signin"><span>로그인</span></a></div>
+					 <div id="topnav" class="topnav"><a href="login" class="signin"><span><%=log%></span></a></div>
   
   
 						  <fieldset id="signin_menu">

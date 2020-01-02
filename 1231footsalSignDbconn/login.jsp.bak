@@ -8,7 +8,7 @@
   Statement stmt = null;
   try {
 	  Class.forName("com.mysql.jdbc.Driver");
-	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal","root","0000");
+	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal","root","159357");
 	  if (conn == null)
 		  throw new Exception("데이터베이스에 연결할 수 없습니다.<BR>");
 	  stmt = conn.createStatement();
@@ -19,12 +19,12 @@
 		  String name = rs.getString("name");
 		  session.setAttribute("id",id);
 		  session.setAttribute("pw",pw);
-		  
-		  RequestDispatcher dispatcher = request.getRequestDispatcher("logincom.jsp");
+		  //수정부분 01-02 
+		  RequestDispatcher dispatcher = request.getRequestDispatcher("sign.jsp");
 		  dispatcher.forward(request,response);
-
+			//수정부분 끝
 	  }else {
-		out.println("<script>alert('아이디나 비밀번호가 틀렸습니다'); location.href='login.jsp';</script>");
+		out.println("<script>alert('아이디나 비밀번호가 틀렸습니다'); location.href='sign.jsp';</script>");
 		
 	  }
 		  
