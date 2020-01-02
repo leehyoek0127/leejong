@@ -1,0 +1,5 @@
+2020_01_02 회원가입화면 수정사항
+1. front (css 파일) #topnav a.sign 에서 패딩 o px; 고정
+2. login.jsp 에서 파일 참고 
+3. sign .jsp 에서 위에 수정사항 변경 후  <div id="topnav" class="topnav"><a href="login" class="signin"> 검색 , 
+로그인을  <%=log%>  로수정
