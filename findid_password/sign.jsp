@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%String uss="GUEST";%>
 <!doctype html>
 <html lang="en">
  <head>
@@ -130,7 +131,11 @@
 			return;
 		}
 		url = "confirmId.jsp?id=" + join.id.value;
+		
 		open( url, "confirm", "toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, resizable=no, width=300, height=200");
+		
+		
+		
 		
 		
 	}
@@ -146,6 +151,8 @@
 		var hp3_len=join.hp3.value.length
 		var em1_len=join.em1.value.length
 		var em2_len=join.em2.value.length
+		
+		
 
 		if ((idlen <8) || (idlen >14))
 		{
@@ -187,6 +194,9 @@
 		{
 			alert("이메일주소를 입력하세요.")
 			join.em1.focus()
+		}
+		else if(join.hidden.value!=1){
+			alert("아이디중복확인을 하세요.")
 		}
 		
 
@@ -323,89 +333,8 @@
   </style>
  </head>
  <body>
- 	<header id="header">
-	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
-					<source src="img/video element.mp4" type="video/mp4"> 
-				</video>
-		<div id="navtop">
-			<div id="navtop_logo">
-				 <a href="" ><img src="img/logo2.png" width="95px" height="120px"></a>
-			</div>
-			<div id="navtop_menu">
-				<ul class="menu">
-					<li class="borderRightLeft"><a href="reservation.html" >대관</a>
-						<ul>
-							<li><a href="#" >시설검색</a></li>
-							<li><a href="#" >대관신청</a></li>
-							<li><a href="#" >시설소개</a></li>
-						</ul>
-					</li>
-					<li class="borderRightLeft"><a href="yonglist_1.html" >매치/용병</a>
-						<ul>
-							<li><a href="#" >팀매치신청</a></li>
-							<li><a href="#" >용병등록</a></li>
-							<li><a href="#" >팀원모집</a></li>
-						</ul>
-					
-					</li>
-					<li class="borderRightLeft"><a href="" >리그</a></li>
-					<li class="borderRightLeft"><a href="gal.html" >팀커뮤니티</a>
-						<ul>
-							<li><a href="#" >팀갤러리</a></li>
-							<li><a href="#" >팀게시판</a></li>
-							<li><a href="#" >팀관리</a></li>
-							<li><a href="#" >팀가입하기</a></li>
-						</ul>
-					</li>
-					<li class="borderRightLeft"><a href="qna.html" >고객센터</a>
-						<ul style="width:210px;">
-							<li><a href="#" >공지사항</a></li>
-							<li><a href="#" >Q&A</a></li>
-							<li><a href="#" >풋살구장등록</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div id="navtop_login">
-			<!--회원상태 창-->
-			<a href="logincom.jsp" style="float:left;line-height:25px;">게스트</a>
-
-			<a href="sign.html" style="float:left; line-height:25px;">회원가입</a>
-
-				<div id="container" style="float:left;">
-					 <div id="topnav" class="topnav"><a href="login" class="signin"><span>로그인</span></a></div>
-  
-  
-						  <fieldset id="signin_menu">
-							<form name = "login" method="post" id="signin" action="login.jsp">
-							  <label for="username">아이디</label>
-							  <input id="username" name="username" value="" title="username" tabindex="4" type="text">
-							  </p>
-							  <p>
-								<label for="password">비밀번호</label>
-								<input id="password" name="password" value="" title="password" tabindex="5" type="password">
-							  </p>
-							  <p class="remember">
-								<input id="signin_submit" value="로그인" tabindex="6" type="submit">
-								<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
-								<label for="remember">로그인상태유지</label>
-							  </p>
-							  <p class="forgot"> <a href="#" id="resend_password_link">비밀번호찾기</a> </p>
-							  <p class="forgot-username"> <A id=forgot_username_link 
-						title="If you remember your password, try logging in with your email" 
-						href="#">아이디찾기</A> </p>
-											</form>
-										  </fieldset>
-				</div>		
-			</div>
-		</div>
-
-		</div>
-		<div id="navmid">
-				<div id="navmid_1" class="slideDown"><a href="">팀매치신청</a></div>
-				<div id="navmid_2" class="slideDown"><a href="">용병등록</a></div>
-				<div id="navmid_3" class="slideDown"><a href="">팀원모집</a></div>
-		</div>
+ 	<header>
+		<jsp:include page="header.jsp"/>
 	</header>
 	<div id="mainleft">
 			
@@ -432,69 +361,82 @@
         <div class="container" id="formInnerWrapper">
                 <form name = "join" id="materialForm" class="form" method="post" action="signInsert.jsp" role="form" autocomplete="off">
                     <div class="form-group">
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             
                         </div>
-						<div class="col-xs-6">
+						<div class="col-xs-8">
                             <label class="labels" for="id">아이디</label>
                             <input type="text" class="formInput" id="id" name="id">
                         </div>
-						<div class="col-xs-3">
+						<div class="col-xs-2">
                             <input type="button" value = "중복확인" id="idcheck" name="idcheck" onClick="confirmId()">
                         </div>
 					</div>
                     <div class="form-group">
-                        <div class="col-xs-12">
+						<div class="col-xs-2">
+                            
+                        </div>
+                        <div class="col-xs-8">
                             <label class="labels" for="name">이름</label>
                             <input type="text" class="formInput" id="name" name="name">
 							
                         </div>
+						<div class="col-xs-2">
+                            
+                        </div>
 					</div>
                     <div class="form-group">
-                        <div class="col-xs-6">
+						<div class="col-xs-2">
+                            
+                        </div>
+                        <div class="col-xs-4">
                             <label class="labels" for="pw">비밀번호</label>
                             <input type="text" class="formInput" id="pw" name="pw">
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-4">
                             <label class="labels" for="pwch">비밀번호재확인</label>
                             <input type="tel" class="formInput" id="pwch" name="pwch">
                         </div>
                     </div>
                     
 					<div class="form-group">
-                        <div class="col-xs-3">
+						<div class="col-xs-2">
+                            
+                        </div>
+                        <div class="col-xs-2">
                             <label class="labels" for="hp1">휴대폰번호</label>
                             <input type="text" class="formInput" id="hp1" name="hp1">
                         </div>
 						<div class="col-xs-1" style="position:relative; top:-17px; right:-25px;">
 							<h3>-</h3>
 						</div>
-						<div class="col-xs-3">
+						<div class="col-xs-2">
                             <label class="labels" for="hp2"></label>
                             <input type="text" class="formInput" id="hp2" name="hp2">
                         </div>
 						<div class="col-xs-1" style="position:relative; top:-17px; right:-25px;">
 							<h3>-</h3>
 						</div>
-						<div class="col-xs-3">
+						<div class="col-xs-2">
                             <label class="labels" for="hp3"></label>
                             <input type="text" class="formInput" id="hp3" name="hp3">
                         </div>
                     </div>
 
 					<div class="form-group">
+						<div class="col-xs-2">
+                            
+                        </div>
 						<div class="col-xs-3">
                             <label class="labels" for="em1">이메일</label>
                             <input type="text" class="formInput" id="em1" name="em1">
                         </div>
-						<div class="col-xs-1" style="position:relative; top:-5px; right:-25px;">
-							<h5>@</h5>
-						</div>
+						
 						<div class="col-xs-3">
                             
                             <input type="text" class="formInput" id="em2" name="em2">
                         </div>
-						<div class="col-xs-3">
+						<div class="col-xs-2">
                             
                             <select name="mail" class=formInput onChange=mailaddr(join.mail)>
 								<option value="">직접입력
@@ -505,42 +447,63 @@
                         </div>
 					</div>
 					<div class="form-group">
-						
-							<div class="col-xs-2">
-								<input type ="radio" name="gender" value="female" checked style="float:left;">여성
+						<div class="col-xs-2">
+                            
+                        </div>
+						<div class="col-xs-2" style="font-size:18px; font-weight:800;">
+                            성별
+                        </div>
+						<div class="col-xs-6 radio">
+							<div class="col-xs-3">
+								<label>
+									<input type ="radio" name="gender" value="female" checked>여성
+								</label>
 							</div>
-							<div class="col-xs-2">
-								<input type ="radio" name="gender" value="male" style="float:left;">남성
+							<div class="col-xs-3">
+								<label>
+									<input type ="radio" name="gender" value="male">남성
+								</label>
 							</div>
+						</div>
+
 						
 					</div>
 					<div class="form-group">
+						<div class="col-xs-2">
+                            
+                        </div>
 						
-							<div class="col-xs-6">
-								<label class="labels" for="hp">우편번호</label>
-								<input type="text" class="formInput" id="hp" name="hp">
-							</div>
-							<div class="col-xs-6">
-								<input type="button" value="주소검색" class=btn2>
-							</div>
+						<div class="col-xs-7">
+							<label class="labels" for="hp">우편번호</label>
+							<input type="text" class="formInput" id="hp" name="hp">
+						</div>
+						<div class="col-xs-2">
+							<input type="button" value="주소검색" class=btn2>
+						</div>
 						
 					</div>
 					<div class="form-group">
+						<div class="col-xs-2">
+                            
+                        </div>
 						
-							<div class="col-xs-6">
-								<label class="labels" for="adr1">기본주소</label>
-								<input type="text" class="formInput" id="adr1" name="adr1">
-							</div>
-							<div class="col-xs-6">
-								<label class="labels" for="adr2">상세주소</label>
-								<input type="text" class="formInput" id="adr2" name="adr2">
-							</div>
+						<div class="col-xs-4">
+							<label class="labels" for="adr1">기본주소</label>
+							<input type="text" class="formInput" id="adr1" name="adr1">
+						</div>
+						<div class="col-xs-4">
+							<label class="labels" for="adr2">상세주소</label>
+							<input type="text" class="formInput" id="adr2" name="adr2">
+						</div>
 						
 
 					</div>
 					<div class="form-group">
+						<div class="col-xs-2">
+                            
+                        </div>
 						
-							<div class="col-xs-3" style="font-size:14px;">
+							<div class="col-xs-2" style="font-size:14px;">
 								생년월일
 							</div>
 
@@ -698,7 +661,6 @@
 						</div>
 						<div class="col-xs-6">
 							<select name="passwd2" size="1" class = formInput style="width:350px; height:30px;">
-								<option value="Q00">기억에 남는 추억의 장소는?
 								<option value="Q01">기억에 남는 추억의 장소는?
 								<option value="Q02">자신의 인생 좌우명은?
 								<option value="Q03">자신의 보물 제1호는?
@@ -740,6 +702,7 @@
 							<input type = "reset" value="초기화" class = fbtn>
                         </div>
                     </div>
+					<input type="hidden" name="hidden" value="" />
                 </form>
         </div>
   </div>
