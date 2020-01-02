@@ -6,6 +6,6 @@
  session.removeAttribute("pw");
  session.removeAttribute("name");
 
- response.sendRedirect("login.html");
+ response.sendRedirect("sign.jsp");
 
 %>
