@@ -110,6 +110,9 @@
 		}
 	});
 	</script>
+	<!-- -----------------다음 주소 api ----------------------------------------->
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- ------------------------------------------------------------------------- -->
  </head>
  <body>
  	<header>
@@ -269,7 +272,7 @@
                         </div>
                         <div class="col-xs-3">
                             <label class="labels" for="adr0"></label>
-                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소">
+                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소" readonly>
 							
                         </div>
 						<div class="col-xs-5">

@@ -58,7 +58,7 @@
 			</div>
 			<div id="navtop_login">
 			<!--회원상태 창-->
-			<a href="logincom.jsp" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>님 환영합니다.</a>
+			<a href="logincom.jsp" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>∨</a>
 
 			
 

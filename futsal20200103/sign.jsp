@@ -257,7 +257,7 @@
 						
 						<div class="col-xs-2">
 							<label class="labels" for="hp"></label>
-							<input type="text" id="sample6_postcode" class="formInput" id="hp" name="hp" placeholder="우편번호">
+							<input type="text" id="sample6_postcode" class="formInput" id="hp" name="hp" placeholder="우편번호" readonly>
 						</div>
 						<div class="col-xs-2">
 							<input type="button" value="우편번호 찾기" class="btn btn-default" onclick="sample6_execDaumPostcode()">
@@ -272,7 +272,7 @@
                         </div>
                         <div class="col-xs-3">
                             <label class="labels" for="adr0"></label>
-                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소">
+                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소" readonly>
 							
                         </div>
 						<div class="col-xs-5">
