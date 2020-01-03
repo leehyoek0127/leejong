@@ -110,9 +110,9 @@
 		}
 	});
 	</script>
-
-  
-  
+	<!-- -----------------다음 주소 api ----------------------------------------->
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- ------------------------------------------------------------------------- -->
  </head>
  <body>
  	<header>
@@ -173,11 +173,11 @@
                         </div>
                         <div class="col-xs-4">
                             <label class="labels" for="pw">비밀번호</label>
-                            <input type="text" class="formInput" id="pw" name="pw">
+                            <input type="password" class="formInput" id="pw" name="pw">
                         </div>
                         <div class="col-xs-4">
                             <label class="labels" for="pwch">비밀번호재확인</label>
-                            <input type="tel" class="formInput" id="pwch" name="pwch">
+                            <input type="password" class="formInput" id="pwch" name="pwch">
                         </div>
                     </div>
                     
@@ -255,31 +255,32 @@
                             
                         </div>
 						
-						<div class="col-xs-7">
-							<label class="labels" for="hp">우편번호</label>
-							<input type="text" class="formInput" id="hp" name="hp">
+						<div class="col-xs-2">
+							<label class="labels" for="hp"></label>
+							<input type="text" id="sample6_postcode" class="formInput" id="hp" name="hp" placeholder="우편번호">
 						</div>
 						<div class="col-xs-2">
-							<input type="button" value="주소검색" class="btn btn-default">
+							<input type="button" value="우편번호 찾기" class="btn btn-default" onclick="sample6_execDaumPostcode()">
+						</div>
+						<div class="col-xs-5">
 						</div>
 						
 					</div>
-					<div class="form-group">
+					 <div class="form-group">
 						<div class="col-xs-2">
                             
                         </div>
-						
-						<div class="col-xs-4">
-							<label class="labels" for="adr1">기본주소</label>
-							<input type="text" class="formInput" id="adr1" name="adr1">
-						</div>
-						<div class="col-xs-4">
-							<label class="labels" for="adr2">상세주소</label>
-							<input type="text" class="formInput" id="adr2" name="adr2">
-						</div>
-						
-
+                        <div class="col-xs-3">
+                            <label class="labels" for="adr0"></label>
+                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소">
+							
+                        </div>
+						<div class="col-xs-5">
+                            <label class="labels" for="adr1"></label>
+							<input type="text" class="formInput" id="sample6_detailAddress" name="adr2" placeholder="상세주소">
+                        </div>
 					</div>
+					
 					<div class="form-group">
 						<div class="col-xs-2">
                             
