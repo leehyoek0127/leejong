@@ -488,22 +488,9 @@
 								</div>
 								<div class="col-xs-7">
 									<select name="bank" size="1" class = formInput style="width:350px; height:30px;">
-										<option value="001">한국은행
-										<option value="002">산업은행
-										<option value="003">기업은행
-										<option value="004">국민은행
-										<option value="005">외환은행
-										<option value="007">수협중앙회
-										<option value="008">농협중앙회
-										<option value="011">농.축협
-										<option value="020">우리은행
-										<option value="023">SC제일은행
-										<option value="027">한국씨티은행
-										<option value="045">새마을금고
-										<option value="048">신협중앙회
-										<option value="071">우체국
-										<option value="081">하나은행
-										<option value="088">신한은행
+										<option value="kb">국민은행
+										<option value="nong">농협은행
+										<option value="sin">신한은행
 									</select>
 								</div>
 							</div>
