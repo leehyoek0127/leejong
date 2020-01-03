@@ -4,11 +4,13 @@
 	String uss = (String)session.getAttribute("id");
 	String log = "로그인";
 	if(uss!=null)
-		log="로그아웃";
-	 
-	 	
+		log="로그아웃"; 	
 		//수정부분 끝
 %>
+
+<!--마이페이지 접근 위한 css 파일 분리-->
+<link href="css/front.css" media="screen, projection" rel="stylesheet" type="text/css">
+
 <body>
 	<header id="header">
 	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
@@ -58,31 +60,36 @@
 			
 
 			<a href="sign.jsp" style="float:left; line-height:25px;">회원가입</a>
-
-				<div id="container" style="float:left;">
-					 <div id="topnav" class="topnav"><a href="login" class="signin"><span><%=log%></span></a></div>
-  
-  
-						  <fieldset id="signin_menu">
-							<form name = "login" method="post" id="signin" action="login.jsp">
-							  <label for="username">아이디</label>
-							  <input id="username" name="username" value="" title="username" tabindex="4" type="text">
-							  </p>
-							  <p>
+			<div id="container" style="float:left;">
+				<div id="topnav" class="topnav">
+					<a href="login" class="signin">
+						<span><%=log%></span>
+					</a>
+				</div>
+					<fieldset id="signin_menu">
+						<form name = "login" method="post" id="signin" action="login.jsp">
+							<p>
+								<label for="username">아이디</label>
+								<input id="username" name="username" value="" title="username" tabindex="4" type="text">
+							</p>
+							<p>
 								<label for="password">비밀번호</label>
 								<input id="password" name="password" value="" title="password" tabindex="5" type="password">
-							  </p>
-							  <p class="remember">
+							</p>
+							<p class="remember">
 								<input id="signin_submit" value="로그인" tabindex="6" type="submit">
 								<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
 								<label for="remember">로그인상태유지</label>
-							  </p>
-							  <p class="forgot"> <a href="findpass.jsp" id="resend_password_link">비밀번호찾기</a> </p>
-							  <p class="forgot-username"> <A id=forgot_username_link 
-						title="If you remember your password, try logging in with your email" 
-						href="findid.jsp">아이디찾기</A> </p>
-											</form>
-										  </fieldset>
+							</p>
+							<p class="forgot"> 
+								<a href="findpass.jsp" id="resend_password_link">비밀번호찾기</a>
+							</p>
+							<p class="forgot-username">
+								<A id=forgot_username_link title="If you remember your password, try logging in with your email" href="findid.jsp">아이디찾기
+								</A>
+							</p>
+						</form>				
+					</fieldset>
 				</div>		
 			</div>
 		</div>

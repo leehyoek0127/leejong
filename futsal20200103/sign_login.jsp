@@ -10,7 +10,9 @@
 	 	log="로그아웃";
 		//수정부분 끝
 %>
-
+<!--마이페이지 접근 위한 css 파일 추가-->	
+<link href="css/frontlogin.css" media="screen, projection" rel="stylesheet" type="text/css">
+ 
  <body>
  	
 	<header id="header">
@@ -58,20 +60,52 @@
 			</div>
 			<div id="navtop_login">
 			<!--회원상태 창-->
-			<a href="logincom.jsp" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>∨</a>
+			<a href="login" class="signin" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>님 ∨</a>
+				<fieldset id="signin_menu">
+						<form name = "login" method="post" id="signin" >
+						
+							<p class="forgot"> 
+								<a href="logincom.jsp" id="signin">My Page</a>
+							</p>
+							<p class="forgot">
+								<a id="booking"href="">예약조회
+								</a>
+							</p>
+							<p class="forgot">
+								<a id="board"href="">환불계좌등록
+								</a>
+							</p>
+						</form>				
+					</fieldset>
+					
+				<a href="alam" class="mypage" style="float:left;line-height:25px;"><u><img src="img/alam.png" style="width:30px;height:30px;"/></u></a>
+					<fieldset id="mypage_menu">
+						<form name = "alam" method="post" id="mypage" >
+						
+							<p class="forgot"> 
+								<a href="" id="mypage">내가 쓴 게시물</a>
+							</p>
+							<p class="forgot">
+								<a id="bookingclub"href="">즐겨찾는구장
+								</a>
+							</p>
+							
+						</form>				
+					</fieldset>
 
-			
-
+				
+				
 				<div id="container" style="float:left;">
-					 <div id="topnav" class="topnav"><a href="logout.jsp" ><span><%=log%></span></a></div>
-			
-  
-						 
-				</div>		
+					 <div id="topnav" class="topnav">
+						 <a href="logout.jsp" >
+							<span><%=log%></span>
+						 </a>
+						</div> 
+					</div>		
+				</div>
 			</div>
 		</div>
 
-		</div>
 		<div id="navmid">
 				<div id="navmid_1" class="slideDown"><a href="">팀매치신청</a></div>
 				<div id="navmid_2" class="slideDown"><a href="">용병등록</a></div>

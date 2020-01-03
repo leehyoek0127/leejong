@@ -37,12 +37,32 @@ a img {
 	*background:transparent url("images/signin-nav-bg-ie.png") no-repeat 0 0;
 	*padding:4px 12px 6px;
 }
+#topnav a.mypage {
+	
+	padding:4px 6px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	*background:transparent url("images/signin-nav-bg-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
 #topnav a.signin:hover {
 	
 	*background:transparent url("images/signin-nav-bg-hover-ie.png") no-repeat 0 0;
 	*padding:4px 12px 6px;
 }
+#topnav a.mypage:hover {
+	
+	*background:transparent url("images/signin-nav-bg-hover-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
 #topnav a.signin, #topnav a.signin:hover {
+	*background-position:0 3px!important;
+}
+#topnav a.mypage, #topnav a.mypage:hover {
 	*background-position:0 3px!important;
 }
 
@@ -51,6 +71,16 @@ a.signin {
 	margin-left:3px;
 }
 a.signin span {
+	background-image:url("images/toggle_down_light.png");
+	background-repeat:no-repeat;
+	background-position:100% 50%;
+	padding:0px;
+}
+a.mypage {
+	position:relative;
+	margin-left:3px;
+}
+a.mypage span {
 	background-image:url("images/toggle_down_light.png");
 	background-repeat:no-repeat;
 	background-position:100% 50%;
@@ -72,6 +102,17 @@ a.signin.menu-open span {
 	background-image:url("images/toggle_up_dark.png");
 	color:#b54a4a;
 }
+#small_mypage {
+	display:inline;
+	float:none;
+	line-height:23px;
+	margin:25px 0 0;
+	width:170px;
+}
+a.mypage.menu-open span {
+	background-image:url("images/toggle_up_dark.png");
+	color:#b54a4a;
+}
 
 #signin_menu {
 	-moz-border-radius-topleft:5px;
@@ -86,13 +127,13 @@ a.signin.menu-open span {
 	width:224px;
 	z-index:100;
 	border:1px transparent;
-	text-align:left;
+	text-align:center;
 	padding:12px;
 	top: 39.5px; 
 	right: -19px; 
 	margin-top:5px;
 	margin-right: 0px;
-	*margin-right: -1px;	
+	margin-right: 70px;	
 	font-size:15px;
 }
 
@@ -192,11 +233,31 @@ a.signin.menu-open span {
 	margin:0 5px 0 0;
 	font-weight:bold;
 }
+#mypage_submit {
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	background:#bf1919a3 url('images/bg-btn-blue.png') repeat-x scroll 0 0;
+	border:1px solid #bf1919a3;
+	color:#fff;
+	text-shadow:0 -1px 0 #bf1919a3;
+	padding:4px 10px 5px;
+	font-size:11px;
+	margin:0 5px 0 0;
+	font-weight:bold;
+}
 #signin_submit::-moz-focus-inner {
 padding:0;
 border:0;
 }
 #signin_submit:hover, #signin_submit:focus {
+	background-position:0 -5px;
+	cursor:pointer;
+}
+#mypage_submit::-moz-focus-inner {
+padding:0;
+border:0;
+}
+#mypage_submit:hover, #mypage_submit:focus {
 	background-position:0 -5px;
 	cursor:pointer;
 }
