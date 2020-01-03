@@ -24,28 +24,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>yonglist</title>
+	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
+	<!-- 광호Q&A -->
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+	<link rel="stylesheet" href="yonglist_1_body.css">
+	<!----------------------------바디 스타일------------------------------------>
 
-<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
-
-<!-- 광호Q&A -->
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-
-
-
-
-
-  <!--기본적인 body등의 css-->
-<link rel="stylesheet" href="css/basicStyle.css" media="screen">
+    <!--기본적인 body등의 css-->
+	<link rel="stylesheet" href="css/basicStyle.css" media="screen">
 	
-<!--서브메뉴부르는css-->
+	<!--서브메뉴부르는css-->
 	<link rel="stylesheet" href="css/style2.css" media="screen">
 
-<!--배너2 자동슬라이드-->
+	<!--배너2 자동슬라이드-->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
 
@@ -82,12 +77,7 @@
 			});
 	</script>
 	<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
-
-
-
-
-
-  <script>
+    <script>
   	/*스크롤 내리면 메뉴 위치 이동하는 기능------따로빼면 작동xxxxxx*/
 	$(function(){
 		 var shrinkHeader = 30;
@@ -111,126 +101,11 @@
 		return window.pageYOffset || document.documentElement.scrollTop;
 		}
 	});
-  </script>
-  <style>
-
-
+    </script>
+    <style>	
 	
-		
-	
-	
-	.nick{
-		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
-	}
-	.date{
-		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
-	}
-	.clear{
-		clear:both;}
-	
-	#logo{
-		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
-	}
-	
-	.nav_ban ul{
-		 width:100%;	float:left;
-	}
-	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; 
-	}
-
-	
-	.article_pic{
-		float:left; width:900px;  background-color:white;
-		text-align:left;
-	}
-
-	.cbox{
-		width:100%;border-width: 1pt;border-color:black;border-style:solid;float:left;
-	}
-	aside{
-		width:200px;height:750px;
-		float:left;
-	}
-
-
-	#tabletitle{
-		width:100%;,font-size:13px;height:40px;
-	}
-	table{
-		width:100%;
-	}
-	.thgongji{
-		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
-	}
-	.thno{
-		width:208px;height:40px;padding:2px;text-align:left;
-	}
-	.thtitle{
-		width:306px;height:40px;padding:2px;text-align:left; text-align:center;
-	}
-	.thname{
-	width:118px;height:40px;padding:2px;text-align:center;
-	}
-	.thdate{
-	width:140px;height:40px;padding:2px;text-align:center;
-	}
-	.thview{
-	width:68px;height:40px;padding:2px;text-align:center;
-	}
-	.imgst{
-	width:210px; height:200px;
-	}
-	.reimg{
-	width:70px;height:25px;}
-	.secretimg{
-	width:30px;height:25px;
-	}
-	.numlist ul{
-		display:inline;font-size:13px;margin:0 auto;
-	}
-	.numlist li{
-		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
-		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  	
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </style>
+    </style>
  </head>
-
-
-
-
  <body>
  	<header>
 		<jsp:include page="<%=includeurl%>" />
@@ -247,36 +122,13 @@
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 				</div>
 			</div>
-
-
 		</div>
 	<section id="main">
-		
-
 		<section id="mainright">
 			<div id="matList">
-
-
-			
-
-		
-	
-		
-
-
-		
-		
-		
 		<div class="cbox">
-
-	
-
-	
-		
-	
 		<table class="table table-striped">
 			<thead>
-
 				<tr id="tabletitle">
 					<th scope="col" class="thno"><span>지점</span></th>
 					<th scope="col" class="thno"><span>구장</span></th>
@@ -296,7 +148,6 @@
 						<th scope="col" class="thview">
 						<span >마감</span>		
 					</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -523,8 +374,6 @@
 				<td class="thview">하</td>
 				<td class="thview">진행중</td>
 				</tr>
-
-			
 				<tr></tr>
 			</tbody>
 		</table>
