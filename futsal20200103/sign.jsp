@@ -493,6 +493,42 @@
 
 
 
+					
+
+					<div class="form-group">
+						<div class="col-xs-2" style="font-size:14px;">
+								
+						</div>
+						<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+							은행명
+						</div>
+						<div class="col-xs-7">
+							<select name="bank" size="1" class = formInput style="width:350px; height:30px;">
+								<option value="kb">국민은행
+								<option value="nong">농협은행
+								<option value="sin">신한은행
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-2" style="font-size:14px;">
+								
+						</div>
+						<div class="col-xs-5">
+							<label class="labels" for="accountnumber">계좌번호</label>
+                            <input type="text" class="formInput" id="accountnumber" name="accountnumber">
+						</div>
+						<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+							
+						</div>
+						<div class="col-xs-2">
+							<label class="labels" for="accountholder">예금주</label>
+                            <input type="text" class="formInput" id="accountholder" name="accountholder">
+						</div>
+
+					</div>
+
+
 
 
 
@@ -509,6 +545,7 @@
 						</div>
                     </div>
 					<input type="hidden" name="hidden" value="" />
+
                 </form>
         </div>
   </div>

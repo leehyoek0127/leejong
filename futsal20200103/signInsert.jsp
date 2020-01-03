@@ -21,6 +21,10 @@
   String team = request.getParameter("team");
   String[] hobbyarr = request.getParameterValues("hobby");
   String hobby="";
+  String bank = request.getParameter("bank");
+  String accountnumber = request.getParameter("accountnumber");
+  String accountholder = request.getParameter("accountholder");
+
   if(hobbyarr!=null){
 	  for(int i=0; i<hobbyarr.length; i++){
 		hobby += hobbyarr[i]+" ";
@@ -41,8 +45,9 @@
 	  stmt = conn.createStatement();
 
 	  String command = String.format("insert into sign "+
-								"(id, name, pw, hp1, hp2, hp3, em1, em2, gender, hp, adr1, adr2, yy, mm, dd, pic, lv, team, hobby, passwd2, passwd2ans, chuchun) values ('"+id+"','"+name+"','"+pw+"','"+hp1+"','"+hp2+"','"+hp3+"','"+em1+"','"+em2+"','"+gender+"','"+hp+"','"+adr1+"','"+adr2+"','"+yy+"','"+mm+"','"+dd+"','"+pic+"','"+lv+"','"+team+"','"+hobby+"','"+passwd2+"','"+passwd2ans+"','"+chuchun+"');");
-		  						
+								"(id, name, pw, hp1, hp2, hp3, em1, em2, gender, hp, adr1, adr2, yy, mm, dd, pic, lv, team, hobby, passwd2, passwd2ans, chuchun, bank, accountnumber, accountholder) values ('"+id+"','"+name+"','"+pw+"','"+hp1+"','"+hp2+"','"+hp3+"','"+em1+"','"+em2+"','"+gender+"','"+hp+"','"+adr1+"','"+adr2+"','"+yy+"','"+mm+"','"+dd+"','"+pic+"','"+lv+"','"+team+"','"+hobby+"','"+passwd2+"','"+passwd2ans+"','"+chuchun+"','"+bank+"','"+accountnumber+"','"+accountholder+"');");
+
+					
 								
 	  int rowNum = stmt.executeUpdate(command);
 	  if(rowNum < 1){
