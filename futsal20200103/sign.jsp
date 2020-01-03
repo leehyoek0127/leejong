@@ -110,9 +110,36 @@
 		}
 	});
 	</script>
+	<!---------------------------------------------다음 주소검색---------------------------------------->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-  
-  
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+	<!-------------------------------------------------------------------------------------------------->
  </head>
  <body>
  	<header>
@@ -173,11 +200,11 @@
                         </div>
                         <div class="col-xs-4">
                             <label class="labels" for="pw">비밀번호</label>
-                            <input type="text" class="formInput" id="pw" name="pw">
+                            <input type="password" class="formInput" id="pw" name="pw">
                         </div>
                         <div class="col-xs-4">
                             <label class="labels" for="pwch">비밀번호재확인</label>
-                            <input type="tel" class="formInput" id="pwch" name="pwch">
+                            <input type="password" class="formInput" id="pwch" name="pwch">
                         </div>
                     </div>
                     
@@ -255,31 +282,32 @@
                             
                         </div>
 						
-						<div class="col-xs-7">
-							<label class="labels" for="hp">우편번호</label>
-							<input type="text" class="formInput" id="hp" name="hp">
+						<div class="col-xs-2">
+							<label class="labels" for="hp"></label>
+							<input type="text" id="sample6_postcode" class="formInput" id="hp" name="hp" placeholder="우편번호">
 						</div>
 						<div class="col-xs-2">
-							<input type="button" value="주소검색" class="btn btn-default">
+							<input type="button" value="우편번호 찾기" class="btn btn-default" onclick="sample6_execDaumPostcode()">
+						</div>
+						<div class="col-xs-5">
 						</div>
 						
 					</div>
-					<div class="form-group">
+					 <div class="form-group">
 						<div class="col-xs-2">
                             
                         </div>
-						
-						<div class="col-xs-4">
-							<label class="labels" for="adr1">기본주소</label>
-							<input type="text" class="formInput" id="adr1" name="adr1">
-						</div>
-						<div class="col-xs-4">
-							<label class="labels" for="adr2">상세주소</label>
-							<input type="text" class="formInput" id="adr2" name="adr2">
-						</div>
-						
-
+                        <div class="col-xs-3">
+                            <label class="labels" for="adr0"></label>
+                            <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소">
+							
+                        </div>
+						<div class="col-xs-5">
+                            <label class="labels" for="adr1"></label>
+							<input type="text" class="formInput" id="sample6_detailAddress" name="adr2" placeholder="상세주소">
+                        </div>
 					</div>
+					
 					<div class="form-group">
 						<div class="col-xs-2">
                             
