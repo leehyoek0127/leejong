@@ -6,6 +6,14 @@ String url = (String)session.getAttribute("url");
  session.removeAttribute("id");
  session.removeAttribute("pw");
  session.removeAttribute("name");
+ session.removeAttribute("em1");
+ session.removeAttribute("em2");
+ session.removeAttribute("hp1");
+ session.removeAttribute("hp2");
+ session.removeAttribute("hp3");
+ if(url.equals("/futsal20200103/logincom.jsp")){
+ 	url="league.jsp";
+ }
 
  
 RequestDispatcher dispatcher = request.getRequestDispatcher(url);
