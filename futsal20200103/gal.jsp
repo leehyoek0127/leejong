@@ -42,7 +42,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
+<!--2020.01.03 추가 css 분리-->
+<link rel="stylesheet" href="css/logform.css" media="screen">
+<link rel="stylesheet" href="css/galstyle.css" media="screen">
+<!--2020.01.03 추가 javascript.가입기능 분리-->
+<script type="text/javascript" src="js/signjs.js"></script>
  
 
 
@@ -122,104 +126,7 @@
 	});
   </script>
 
-  <style>
-
-
-/*갤러리 팀아이콘에 쓰는 css*/
-	ul{ padding-left: 0px;
-	}
-	.subli ul{
-		padding-left:0px;
-	}
-	.subli_img{
-		width:60px;height:60px;
-	}
-	
-		
-	
-	/*갤러리 사진에 쓰는 css*/
-	.picli{
-		font-size:13px;font-weight:400;height:304px;width:210px;text-align:left;
-		position:relative;margin-left:40px;list-style-type:none;display:list-item;
-		overflow:hidden;float:left; margin-top: 20px;
-
-	}
-	.pic dt{
-		cursor:pointer;display:table-cell;font-weight:700;
-	}
-	
-	
-	.clear{
-		clear:both;}
-	
-	
-	
-	.nav_ban ul{
-		 width:100%;	float:left;
-	}
-	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; margin:100px;
-	}
-
-	.sec_ban2{
-	width:100%; float:left;
-	text-align:center;
-	}
-	.article_pic{
-		float:left; width:780px;  background-color:white;
-		text-align:left;
-	}
-
-	.cbox{
-		width:100%;height:120px;border-width: 1pt;border-color:black;border-style:solid;float:left;
-	}
-	aside{
-		width:200px;height:750px;
-		float:left;
-	}
-
-
-	#tabletitle{
-		width:100%;,font-size:13px;height:40px;
-	}
-	table{
-		width:100%;
-	}
-	.thgongji{
-		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
-	}
-	.thno{
-		width:118px;height:40px;padding:2px;text-align:left;
-	}
-	.thtitle{
-		width:506px;height:40px;padding:2px;text-align:left;
-	}
-	.thname{
-	width:118px;height:40px;padding:2px;text-align:center;
-	}
-	.thdate{
-	width:80px;height:40px;padding:2px;text-align:center;
-	}
-	.thview{
-	width:68px;height:40px;padding:2px;text-align:center;
-	}
-	.imgst{
-	width:210px; height:200px;
-	}
-	.reimg{
-	width:70px;height:25px;}
-	.secretimg{
-	width:30px;height:25px;
-	}
-	.numlist ul{
-		display:inline;font-size:13px;margin:0 auto;
-	}
-	.numlist li{
-		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
-		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
-	}
-
-
-  </style>
+  
  </head>
 
 
