@@ -27,25 +27,27 @@
 	<script type="text/javascript" src="/js/datepicker.js"></script>
 	<script type="text/javascript" src="/js/common/common.js"></script>
 	<script type="text/javascript" src="/js/common/form_check.js"></script>
-  <link rel="stylesheet" type="text/css" href="css\join.css"/>
-  <link rel="stylesheet" href="css/classic.css">
+	<link rel="stylesheet" type="text/css" href="css\join.css"/>
+	<link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
 	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	
 
 
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.infinitecarousel.js"></script>
-<!--기본적인 body등의 css-->
-<link rel="stylesheet" href="css/basicStyle.css" media="screen">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="yongsign_body.css">
+	<!----------------------------바디 스타일------------------------------------>
+	<script type="text/javascript" src="jquery.infinitecarousel.js"></script>
+	<!--기본적인 body등의 css-->
+	<link rel="stylesheet" href="css/basicStyle.css" media="screen">
 	<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
 	<script type='text/javascript'>
 		$(function() {
@@ -81,7 +83,7 @@
 
 
 
-  <script>
+	<script>
   	
   	/*스크롤 내리면 메뉴 위치 이동하는 기능------따로빼면 작동xxxxxx*/
 	$(function(){
@@ -109,7 +111,7 @@
 
 
 
-var alerttext
+	var alerttext
 	function idcheck()
 	{
 		var idlen=join.id.value.length
@@ -201,151 +203,9 @@ var alerttext
 				)
 		}
 	}
-
-
-
-
-  </script>
+	</script>
   <style>
- 
-
-
-
-@keyframes animButtonSpan {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    33% {
-        transform: translateX(20px);
-        opacity: 0;
-    }
-
-    66% {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-.textAnimationLeft {
-    height: 40px;
-    width: 120px;
-    text-align: center;
-    overflow: hidden;
-    background: #474E51;
-    position: relative;
-    line-height: 40px;
-    color: #fff;
-	float:right;
-}
-
-.textAnimationLeft:hover::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateX(-100%);
-    background: #5778F3;
-    transition: transform .25s ease-in;
-}
-
-.textAnimationLeft:hover::before {
-    transform: translateX(0);
-}
-
-.textAnimationLeft span {
-    position: relative;
-    z-index: 1;
-    display: block;
-}
-
-.textAnimationLeft:hover span {
-    animation: animButtonSpan 0.4s;
-}
-
-@keyframes animButtonSpan {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    35% {
-        transform: translateX(20px);
-        opacity: 0;
-    }
-
-    50.001% {
-        transform: translateX(-20px);
-    }
-
-    60% {
-        transform: translateX(0px);
-    }
-
-}
-
-
-
-.slideDown {
-    width: 120px;
-    height: 40px;
-    color: #AA1212;
-    padding: 0 14px;
-    text-align: center;
-    line-height: 40px;
-    position: relative;
-    transition: 0.2s ease-in-out;
-    overflow: hidden;
-	
-	
-}
-
-.slideDown::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-100%);
-    background-color: #AA1212;
-    transition: transform 0.2s ease-out;
-    z-index:-1;
-}
-
-.slideDown:hover {
-    color: #fff;
-    transition: 0.2s ease-out;
-	
-}
-
-.slideDown:hover::after {
-    transform: translateY(0);
-    transition: transform 0.2s ease-in;
-	
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-	
+ 	
   </style>
  </head>
  <body>

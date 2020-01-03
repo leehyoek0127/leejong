@@ -21,8 +21,10 @@
   String team = request.getParameter("team");
   String[] hobbyarr = request.getParameterValues("hobby");
   String hobby="";
-  for(int i=0; i<hobbyarr.length; i++){
-	hobby += hobbyarr[i]+" ";
+  if(hobbyarr!=null){
+	  for(int i=0; i<hobbyarr.length; i++){
+		hobby += hobbyarr[i]+" ";
+	  }
   }
   String passwd2 = request.getParameter("passwd2");
   String passwd2ans = request.getParameter("passwd2ans");
