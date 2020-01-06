@@ -85,7 +85,7 @@ input{
 
 }
 
-#formOutterWrapper input:focus{
+#formOutterWrapper input[type='text']:focus{
     outline:none;
     color:#3498db;
     border-bottom:2px solid #AA1212;
