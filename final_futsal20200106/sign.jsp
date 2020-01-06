@@ -32,6 +32,9 @@
   <link rel="stylesheet" type="text/css" href="css\join.css"/>
   <link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/classic.date.css">
+	<link rel="stylesheet" href="css/signbutton.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/signformrelocation.css">
 	<link rel="stylesheet" href="css/classic.time.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
 	<link rel="stylesheet" href="css/materialFormStyles.css">
@@ -42,6 +45,7 @@
 
 <!--기본적인 body등의 css-->
 <link rel="stylesheet" href="css/basicStyle.css" media="screen">
+<link rel="stylesheet" href="css/navmid33.css">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
@@ -123,7 +127,7 @@
 
 			<div id="leftbanner">
 				<div id="banner1">
-					<img src="img/20191211.png" width="100%" height="100%"/>
+					<img src="img/20191211.jpg" width="100%" height="100%"/>
 				</div>
 			
 				<div id="banner3">
@@ -139,7 +143,7 @@
 		<section id="mainright">
 			<div id="matList">
 				<div class="container" id="formOutterWrapper">
-<h1>그린풋살파크 회원가입</h1>
+<center><h2>그린풋살파크 회원가입</h2></center>
         <div class="container" id="formInnerWrapper">
                 <form name = "join" id="materialForm" class="form" method="post" action="signInsert.jsp" role="form" autocomplete="off">
                     <div class="form-group">
@@ -232,7 +236,7 @@
 						<div class="col-xs-2">
                             
                         </div>
-						<div class="col-xs-2" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
                             성별
                         </div>
 						<div class="col-xs-6 radio">
@@ -286,7 +290,7 @@
                             
                         </div>
 						
-							<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+							<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 								생년월일
 							</div>
 
@@ -364,7 +368,7 @@
 
 								  </select>
 							</div>
-							<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+							<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 								사진
 							</div>
 							<div class="col-xs-3">
@@ -378,7 +382,7 @@
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							실력
 						</div>
 						<div class="col-xs-3">
@@ -390,7 +394,7 @@
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-2" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							소속팀존재유무
 						</div>
 						<div class="col-xs-6 radio">
@@ -414,7 +418,7 @@
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-2" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							선호포지션
 						</div>
 						<div class="col-xs-8 checkbox">
@@ -449,7 +453,7 @@
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-2" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							비밀번호확인질문
 						</div>
 						<div class="col-xs-6">
@@ -481,25 +485,12 @@
                             <input type="text" class="formInput" id="passwd2ans" name="passwd2ans">
 						</div>
 					</div>
+	
 					<div class="form-group">
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-8">
-							<label class="labels" for="chuchun">추천인아이디</label>
-                            <input type="text" class="formInput" id="chuchun" name="chuchun">
-						</div>
-					</div>
-
-
-
-					
-
-					<div class="form-group">
-						<div class="col-xs-2" style="font-size:14px;">
-								
-						</div>
-						<div class="col-xs-1" style="font-size:16px; font-weight:400;">
+						<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							은행명
 						</div>
 						<div class="col-xs-7">
@@ -545,17 +536,19 @@
 
 
 
-                    <div class="form-group">
-						<div class="col-xs-8" style="font-size:14px;">
+                    <div class="form-group" style="margin-4">
+						<div class="col-xs-4" style="font-size:14px;">
 								
 						</div>
-                        <div class="col-xs-1">
-                            <input type ="button" value = "가입" class="btn btn-primary" onClick="joinsubmit()">
+					
+                        <div class="col-xs-3" style="margin-left:90px;">
+				
+                            <input type ="button" value = "가입" class="signbutton signbutton5" onClick="joinsubmit()">
+							 <input type ="button" value = "취소" class="signbutton signbuttoncancel" onClick="script: location.href='sign.jsp'">
 							
                         </div>
-						<div class="col-xs-1" style="font-size:14px;">
-							<input type = "reset" value="초기화" class="btn btn-danger">
-						</div>
+						
+				
                     </div>
 					<input type="hidden" name="hidden" value="" />
 
@@ -576,6 +569,8 @@
 	
 	
 
-	<img src="img/bot.png">
+	<footer>
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>

@@ -10,6 +10,7 @@
 	select[class="btn btn-default"]{
 		position: relative;
 		top: -10px;
+		font-size:12px;
 	}
 	select[name="passwd2"]{
 		position: relative;
@@ -22,8 +23,4 @@
 	select[name="mail"]{
 		position: relative;
 		top: 4px;
-	}
-	input[class="btn btn-primary"]{
-		width:300px;
-		height:50px;
 	}
