@@ -69,24 +69,21 @@
 					<fieldset id="signin_menu">
 						<form name = "login" method="post" id="signin" action="login.jsp">
 							<p>
-								<label for="username">아이디</label>
+								<label for="username" style="font-size:14px;">아이디</label>
 								<input id="username" name="username" value="" title="username" tabindex="4" type="text">
 							</p>
 							<p>
-								<label for="password">비밀번호</label>
+								<label for="password" style="font-size:14px;">비밀번호</label>
 								<input id="password" name="password" value="" title="password" tabindex="5" type="password">
 							</p>
 							<p class="remember">
 								<input id="signin_submit" value="로그인" tabindex="6" type="submit">
 								<input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
-								<label for="remember">로그인상태유지</label>
+								<label for="remember" style="font-size:13px;">로그인상태유지</label>
 							</p>
-							<p class="forgot"> 
-								<a href="findpass.jsp" id="resend_password_link">비밀번호찾기</a>
-							</p>
-							<p class="forgot-username">
-								<A id=forgot_username_link title="If you remember your password, try logging in with your email" href="findid.jsp">아이디찾기
-								</A>
+							<p>
+								<A id=forgot_username_link title="If you remember your password, try logging in with your email" href="findid.jsp" class="forgot-username" style="color:white; font-size:13px; word-spacing:15px; letter-spacing:1px;"> 아이디찾기 | </A>
+								<a href="findpass.jsp" id="resend_password_link" class="forgot" style="color:white; font-size:13px;">비밀번호찾기</a>
 							</p>
 						</form>				
 					</fieldset>

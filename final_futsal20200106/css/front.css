@@ -81,7 +81,7 @@ a.signin.menu-open span {
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	display:none;
-	background-color:rgba(0, 0, 0, 0.29);
+	background-color:#232121cf;
 	position:absolute;
 	width:224px;
 	z-index:100;
@@ -129,6 +129,7 @@ a.signin.menu-open span {
 	margin:0 0 5px;
 	padding:5px;
 	width:203px;
+	color:#000000;
 	
 }
 #mypage_menu input[type=text], #mypage_menu input[type=password] {
@@ -188,7 +189,7 @@ a.signin.menu-open span {
 	color:#fff;
 	text-shadow:0 -1px 0 #bf1919a3;
 	padding:4px 10px 5px;
-	font-size:11px;
+	font-size:14px;
 	margin:0 5px 0 0;
 	font-weight:bold;
 }
