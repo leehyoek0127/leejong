@@ -471,11 +471,10 @@
 						<div class="form-group">
 							<div class="col-xs-8" style="font-size:14px;">			
 							</div>
-							<div class="col-xs-1">
+							<div class="col-xs-3">
 								<input type ="button" value = "수정" class="signbutton signbutton5" onClick="joinsubmit()">		
-							</div>
-							<div class="col-xs-1" style="font-size:14px;">
-								<input type = "reset" value="초기화" class="signbutton signbuttoncancel">
+							
+								<input type = "button" value="취소" class="signbutton signbuttoncancel" onClick="script: location.href='sign.jsp'">
 							</div>
 						</div>
 						<input type="hidden" name="hidden" value="" />
