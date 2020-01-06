@@ -491,7 +491,6 @@
 						</div>
 						<div class="col-xs-6">
 							<select name="passwd2" size="1" class = formInput style="width:350px; height:30px;">
-								<option value="Q00">기억에 남는 추억의 장소는?
 								<option value="Q01">기억에 남는 추억의 장소는?
 								<option value="Q02">자신의 인생 좌우명은?
 								<option value="Q03">자신의 보물 제1호는?
