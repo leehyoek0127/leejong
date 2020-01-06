@@ -189,19 +189,28 @@
 						<div class="col-xs-2">
                             
                         </div>
-                        <div class="col-xs-2">
-                            <label class="labels" for="hp1">휴대폰번호</label>
-                            <input type="text" class="formInput" id="hp1" name="hp1">
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400; width:182px;">
+                            휴대폰번호
                         </div>
-						<div class="col-xs-1" style="position:relative; top:-17px; right:-25px;">
-							<h3>-</h3>
+                        <div class="col-xs-2">
+						<select class="formInput" id="hp1" name="hp1">
+						<option>010</option>
+						<option>011</option>
+						<option>016</option>
+						<option>017</option>
+						<option>018</option>
+						<option>019</option>
+						</select>
+                        </div>
+						<div style="float:left;">
+							-
 						</div>
 						<div class="col-xs-2">
                             <label class="labels" for="hp2"></label>
                             <input type="text" class="formInput" id="hp2" name="hp2">
                         </div>
-						<div class="col-xs-1" style="position:relative; top:-17px; right:-25px;">
-							<h3>-</h3>
+						<div style="float:left;">
+							-
 						</div>
 						<div class="col-xs-2">
                             <label class="labels" for="hp3"></label>
@@ -225,10 +234,10 @@
 						<div class="col-xs-2">
                             
                             <select name="mail" class=formInput onChange=mailaddr(join.mail)>
-								<option value="">직접입력
-								<option>naver.com
-								<option>hanmail.net
-								<option>gmail.com
+								<option value="">직접입력</option>
+								<option>naver.com</option>
+								<option>hanmail.net</option>
+								<option>gmail.com</option>
 							</select>
                         </div>
 					</div>
