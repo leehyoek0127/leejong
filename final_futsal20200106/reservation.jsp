@@ -43,7 +43,17 @@
 	<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
 	<link rel="stylesheet" href="reservation_body.css">
     <!----------------------------바디 스타일------------------------------------>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
 
+<!--2020.01.03 추가 css 분리-->
+<link rel="stylesheet" href="css/logform.css" media="screen">
+<!--2020.01.03 추가 javascript.가입기능 분리-->
+<script type="text/javascript" src="js/signjs.js"></script>
     <!--기본적인 body등의 css-->
     <link rel="stylesheet" href="css/basicStyle.css" media="screen">
 	<!-- select box -->
