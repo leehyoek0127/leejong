@@ -57,6 +57,27 @@
 <link rel="stylesheet" href="css/logform.css" media="screen">
 <!--2020.01.03 추가 javascript.가입기능 분리-->
 <script type="text/javascript" src="js/signjs.js"></script>
+<!----------------------------alam form 추가 2020.01.06-------------------------->
+	<script type="text/javascript">
+			$(document).ready(function() {
+				$(".mypage").click(function(e) {          
+					e.preventDefault();
+					$("fieldset#mypage_menu").toggle();
+					$(".mypage").toggleClass("menu-open");
+				});		
+				$("fieldset#mypage_menu").mouseup(function() {
+					return false
+				});
+				$(document).mouseup(function(e) {
+					if($(e.target).parent("a.mypage").length!=0) {
+						$(".mypage").removeClass("menu-open");
+						$("fieldset#mypage_menu").hide();
+					}
+				});			
+				
+			});
+	</script>
+<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
 	<!----------------------------서브메뉴마우스오버기능-------------------------->
 	<link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
 	<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
@@ -151,7 +172,7 @@
                             
                         </div>
 						<div class="col-xs-7">
-                            <label class="labels" for="id">아이디</label>
+                            <label class="labels" for="id">아이디<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
                             <input type="text" class="formInput" id="id" name="id">
                         </div>
 						<div class="col-xs-2">
@@ -163,7 +184,7 @@
                             
                         </div>
                         <div class="col-xs-8">
-                            <label class="labels" for="name">이름</label>
+                            <label class="labels" for="name">이름<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
                             <input type="text" class="formInput" id="name" name="name">
 							
                         </div>
@@ -176,11 +197,11 @@
                             
                         </div>
                         <div class="col-xs-4">
-                            <label class="labels" for="pw">비밀번호</label>
+                            <label class="labels" for="pw">비밀번호<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
                             <input type="password" class="formInput" id="pw" name="pw">
                         </div>
                         <div class="col-xs-4">
-                            <label class="labels" for="pwch">비밀번호재확인</label>
+                            <label class="labels" for="pwch">비밀번호재확인<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
                             <input type="password" class="formInput" id="pwch" name="pwch">
                         </div>
                     </div>
@@ -190,7 +211,7 @@
                             
                         </div>
 						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400; width:182px;">
-                            휴대폰번호
+                            휴대폰번호<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
                         </div>
                         <div class="col-xs-2">
 						<select class="formInput" id="hp1" name="hp1">
@@ -223,7 +244,7 @@
                             
                         </div>
 						<div class="col-xs-3">
-                            <label class="labels" for="em1">이메일</label>
+                            <label class="labels" for="em1">이메일<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
                             <input type="text" class="formInput" id="em1" name="em1">
                         </div>
 						
@@ -267,6 +288,9 @@
 						<div class="col-xs-2">
                             
                         </div>
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400; width:182px;">
+                            주소<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                        </div>
 						
 						<div class="col-xs-2">
 							<label class="labels" for="hp"></label>
@@ -280,15 +304,15 @@
 						
 					</div>
 					 <div class="form-group">
-						<div class="col-xs-2">
+						<div class="col-xs-4">
                             
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2" style="width:200px;">
                             <label class="labels" for="adr0"></label>
                             <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소" readonly>
 							
                         </div>
-						<div class="col-xs-5">
+						<div class="col-xs-4">
                             <label class="labels" for="adr1"></label>
 							<input type="text" class="formInput" id="sample6_detailAddress" name="adr2" placeholder="상세주소">
                         </div>
@@ -499,6 +523,9 @@
 						<div class="col-xs-2" style="font-size:14px;">
 								
 						</div>
+						<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400; width:182px;">
+                            환불계좌정보<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                        </div>
 						<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
 							은행명
 						</div>
@@ -524,17 +551,19 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-xs-2" style="font-size:14px;">
+						<div class="col-xs-4" style="font-size:14px;">
 								
 						</div>
-						<div class="col-xs-5">
+					
+				
+						<div class="col-xs-3" style="margin-left:-10px;">
 							<label class="labels" for="accountnumber">계좌번호</label>
                             <input type="text" class="formInput" id="accountnumber" name="accountnumber">
 						</div>
 						<div class="col-xs-1" style="font-size:16px; font-weight:400;">
 							
 						</div>
-						<div class="col-xs-2">
+						<div class="col-xs-2" style="width:203px;">
 							<label class="labels" for="accountholder">예금주</label>
                             <input type="text" class="formInput" id="accountholder" name="accountholder">
 						</div>
