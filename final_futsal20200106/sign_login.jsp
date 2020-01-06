@@ -60,6 +60,13 @@
 			</div>
 			<div id="navtop_login">
 			<!--회원상태 창-->
+			<div id="container" style="float:left;">
+					<div id="topnav" class="topnav">
+						 <a href="logout.jsp" >
+							<span><%=log%></span>
+						 </a>
+					</div> 
+			</div>		
 			<a href="login" class="signin" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>님 ∨</a>
 				<fieldset id="signin_menu">
 						<form name = "login" method="post" id="signin" >
@@ -95,13 +102,7 @@
 
 				
 				
-				<div id="container" style="float:left;">
-					 <div id="topnav" class="topnav">
-						 <a href="logout.jsp" >
-							<span><%=log%></span>
-						 </a>
-						</div> 
-					</div>		
+					
 				</div>
 			</div>
 		</div>

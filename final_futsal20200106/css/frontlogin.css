@@ -1,7 +1,7 @@
 
 #container {
 	width:70px;
-	margin:0 auto;
+	margin:0 20px;
 	position: relative;
 }
 
@@ -78,7 +78,7 @@ a.signin span {
 }
 a.mypage {
 	position:relative;
-	margin-left:3px;
+	margin:0 10px;
 }
 a.mypage span {
 	background-image:url("images/toggle_down_light.png");

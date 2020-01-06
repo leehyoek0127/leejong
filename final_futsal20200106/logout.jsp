@@ -12,9 +12,11 @@ String url = (String)session.getAttribute("url");
  session.removeAttribute("hp2");
  session.removeAttribute("hp3");
 
-
- 
-RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-dispatcher.forward(request,response);
-
+if(url.equals("/futsal0106/logincom.jsp")){
+	 response.sendRedirect("gal.jsp");
+}
+ else{
+	RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+	dispatcher.forward(request,response);
+ }
 %>
