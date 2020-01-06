@@ -16,6 +16,7 @@
  <body>
  	<jsp:include page="quickbar.jsp" />
 	<header id="header">
+
 	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
 					<source src="img/video element.mp4" type="video/mp4"> 
 				</video>
@@ -85,7 +86,7 @@
 						</form>				
 					</fieldset>
 					
-				<a href="alampage" class="mypage" style="float:left;line-height:25px;"><u><img src="img/alam.png" style="width:30px;height:30px;margin-left:10px;"/></u></a>
+				<a href="alampage" class="mypage" style="float:left;line-height:25px;"><img src="img/alam.png" style="width:30px;height:30px;margin-left:10px;"/></a>
 					<fieldset id="mypage_menu">
 						<form name = "alampage" method="post" id="mypage" >
 						

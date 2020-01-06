@@ -46,6 +46,8 @@
 	<script type="text/javascript" src="js/signjs.js"></script>	
 <!--서브메뉴부르는css-->
 	<link rel="stylesheet" href="css/style2.css" media="screen">
+<!--2020.01.06footer css추가 -->
+	<link rel="stylesheet" href="css/footer.css">
 <!--배너2 자동슬라이드-->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
@@ -135,7 +137,7 @@
 	<div id="mainleft">
 		<div id="leftbanner">
 			<div id="banner1">
-				<img src="img/20191211.png" width="100%" height="100%"/>
+				<img src="img/20191211.jpg" width="100%" height="100%"/>
 			</div>	
 			<div id="banner3">
 				<iframe 
@@ -205,7 +207,7 @@
 						</ul>
 					</div>
 					<div class="galsearch">
-						<img src="img/search.png" id="leaguesearchimg" >
+						<img src="img/search.jpg" id="leaguesearchimg" >
 							<select class="form-control" id="leagueyear" name="lyear" >
 								<option>2019</option>
 								<option>2018</option>
@@ -396,6 +398,10 @@
 				</div>
 			</section>
 		 </section>
-		<img src="img/bot.png">
+		
+		<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
+	<jsp:include page="quickbar.jsp" />
 	</body>
 </html>

@@ -52,7 +52,7 @@
 	<link rel="stylesheet" href="css/materialFormStyles.css">
 	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<script src="js/materialForm.js"></script>
-	
+	<link rel="stylesheet" href="css/signbutton.css">
 
 
 <!--기본적인 body등의 css-->
@@ -136,7 +136,7 @@
 	<div id="mainleft">
 		<div id="leftbanner">
 			<div id="banner1">
-				<img src="img/20191211.png" width="100%" height="100%"/>
+				<img src="img/20191211.jpg" width="100%" height="100%"/>
 			</div>
 			<div id="banner3">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -147,7 +147,7 @@
 		<section id="mainright">
 			<div id="matList">
 				<div class="container" id="formOutterWrapper">
-					<h1>${id}의 마이페이지 입니다.</h1>
+					<h1 align=center>${id}'s My page</h1>
 					<div class="container" id="formInnerWrapper">
 					    <form name = "join" id="materialForm" class="form" method="post" action="signInsert.jsp" role="form" autocomplete="off">
 							<div class="form-group">
@@ -472,10 +472,10 @@
 							<div class="col-xs-8" style="font-size:14px;">			
 							</div>
 							<div class="col-xs-1">
-								<input type ="button" value = "가입" class="btn btn-primary" onClick="joinsubmit()">		
+								<input type ="button" value = "수정" class="signbutton signbutton5" onClick="joinsubmit()">		
 							</div>
 							<div class="col-xs-1" style="font-size:14px;">
-								<input type = "reset" value="초기화" class="btn btn-danger">
+								<input type = "reset" value="초기화" class="signbutton signbuttoncancel">
 							</div>
 						</div>
 						<input type="hidden" name="hidden" value="" />
@@ -488,6 +488,6 @@
 			</script>		
 			</section>		
 		</section>
-		<img src="img/bot.png">
+	
 	</body>
  </html>

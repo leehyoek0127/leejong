@@ -75,6 +75,9 @@
 					if($(e.target).parent("a.signin").length==0) {
 						$(".signin").removeClass("menu-open");
 						$("fieldset#signin_menu").hide();
+						//console.log($(e.target).parent("a.mypage").length);
+
+
 					}
 				});			
 				
@@ -95,6 +98,7 @@
 					if($(e.target).parent("a.mypage").length==0) {
 						$(".mypage").removeClass("menu-open");
 						$("fieldset#mypage_menu").hide();
+						console.log($(e.target).parent("a.signin").length);
 					}
 				});			
 				
@@ -277,9 +281,10 @@
 				</div>
 			</section>
 		</section>
-	<img src="img/bot.png">
-<footer>
-<jsp:include page="Footer.jsp"/>
-</footer>
+	
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
+	<jsp:include page="quickbar.jsp" />
 </body>
 </html>
