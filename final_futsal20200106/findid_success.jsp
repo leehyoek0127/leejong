@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/classic.css">
   <link rel="stylesheet" href="css/classic.date.css">
   <link rel="stylesheet" href="css/classic.time.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/style2.css" media="screen">
   <link rel="stylesheet" href="css/findid_materialFormStyles.css">
   <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
@@ -100,7 +101,7 @@
 
 			<div id="leftbanner">
 				<div id="banner1">
-					<img src="img/20191211.png" width="100%" height="100%"/>
+					<img src="img/20191211.jpg" width="100%" height="100%"/>
 				</div>
 			
 				<div id="banner3">
@@ -141,10 +142,10 @@
 
 		
 	</section>
-	
-	
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
 
-	<img src="img/bot.png">
  </body>
 </html>
 

@@ -28,6 +28,7 @@
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
 	<link rel="stylesheet" href="orbit-1.2.3.css">
+	<link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/demo-style.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
 	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
@@ -151,7 +152,7 @@
  
 <div id="mainleft">
 <div id="leftbanner">
-<div id="banner1"><img src="img/20191211.png" width="100%" height="100%"/></div>
+<div id="banner1"><img src="img/20191211.jpg" width="100%" height="100%"/></div>
 <div id="banner3">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div></div></div>
 
@@ -424,7 +425,9 @@
 </section>
 </section>
 
-  <img src="img/bot.png">
+ <footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>
 

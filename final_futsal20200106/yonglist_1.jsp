@@ -24,6 +24,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>yonglist</title>
+  <link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
 	<!-- 광호Q&A -->
 	<!-- 합쳐지고 최소화된 최신 CSS -->
@@ -115,7 +116,7 @@
 
 			<div id="leftbanner">
 				<div id="banner1">
-					<img src="img/20191211.png" width="100%" height="100%"/>
+					<img src="img/20191211.jpg" width="100%" height="100%"/>
 				</div>
 				
 				<div id="banner3">
@@ -405,6 +406,8 @@
 			</div>
 		</section>
   </section>
-	<img src="img/bot.png">
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>
