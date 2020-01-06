@@ -211,7 +211,7 @@ a.mypage.menu-open span {
 	clear:both;
 	margin:5px 0;
 }
-#mypage_menu p.forgot, #signin_menu p.complete {
+#mypage_menu p.forgot, #mypage_menu p.complete {
 	clear:both;
 	margin:5px 0;
 }
