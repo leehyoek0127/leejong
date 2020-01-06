@@ -39,13 +39,13 @@
   Statement stmt = null;
   try {
 	  Class.forName("com.mysql.jdbc.Driver");
-	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal","root","0000");
+	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal","root","1234");
 	  if (conn == null)
 		  throw new Exception("데이터베이스에 연결할 수 없습니다.<BR>");
 	  stmt = conn.createStatement();
 
 	  String command = String.format("insert into sign "+
-								"(id, name, pw, hp1, hp2, hp3, em1, em2, gender, hp, adr1, adr2, yy, mm, dd, pic, lv, team, hobby, passwd2, passwd2ans, chuchun, bank, accountnumber, accountholder) values ('"+id+"','"+name+"','"+pw+"','"+hp1+"','"+hp2+"','"+hp3+"','"+em1+"','"+em2+"','"+gender+"','"+hp+"','"+adr1+"','"+adr2+"','"+yy+"','"+mm+"','"+dd+"','"+pic+"','"+lv+"','"+team+"','"+hobby+"','"+passwd2+"','"+passwd2ans+"','"+chuchun+"','"+bank+"','"+accountnumber+"','"+accountholder+"');");
+								"(id, name, pw, hp1, hp2, hp3, em1, em2, gender, hp, adr1, adr2, yy, mm, dd, pic, lv, team, hobby, passwd2, passwd2ans, bank, accountnumber, accountholder) values ('"+id+"','"+name+"','"+pw+"','"+hp1+"','"+hp2+"','"+hp3+"','"+em1+"','"+em2+"','"+gender+"','"+hp+"','"+adr1+"','"+adr2+"','"+yy+"','"+mm+"','"+dd+"','"+pic+"','"+lv+"','"+team+"','"+hobby+"','"+passwd2+"','"+passwd2ans+"','"+bank+"','"+accountnumber+"','"+accountholder+"');");
 
 					
 								
