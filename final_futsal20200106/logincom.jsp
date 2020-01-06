@@ -154,7 +154,7 @@
 							    <div class="col-xs-2">                     
 								</div>
 								<div class="col-xs-4">
-									<label class="labels active" for="id">
+									<label class="labels active" for="id" >
 										아이디
 									</label>
 							       <input type="text" class="formInput" id="id" name="id" value="${id}" readonly>
@@ -215,9 +215,9 @@
 							<div class="form-group">
 								<div class="col-xs-2"> 
 								</div>
-								<div class="col-xs-2" style="font-size:16px; font-weight:400;">
-								  성별
-								</div>
+								<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+                            성별
+                        </div>
 								<div class="col-xs-6 radio">
 									<div class="col-xs-3">
 										<label>
@@ -264,9 +264,9 @@
 							<div class="form-group">
 								<div class="col-xs-2">    
 								</div>
-								<div class="col-xs-1" style="font-size:16px; font-weight:400;">
-									생년월일
-								</div>
+								<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+								생년월일
+							</div>
 								<div class="col-xs-3">
 									<select name = "yy" class="btn btn-default">
 										  <option >1984
@@ -340,9 +340,9 @@
 										  <option value="31">31
 										</select>
 									</div>
-									<div class="col-xs-1" style="font-size:16px; font-weight:400;">
-										사진
-									</div>
+									<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+								사진
+							</div>
 									<div class="col-xs-3">
 										<input type ="file" name="pic">
 									</div>
@@ -350,9 +350,9 @@
 								<div class="form-group">
 									<div class="col-xs-2" style="font-size:14px;">		
 									</div>
-									<div class="col-xs-1" style="font-size:16px; font-weight:400;">
-										실력
-									</div>
+									<div class="col-xs-1" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+							실력
+						</div>
 							<div class="col-xs-3">
 								<select name="lv"  class = formInput>
 									<option value="5">
@@ -371,9 +371,9 @@
 						<div class="form-group">
 							<div class="col-xs-2" style="font-size:14px;">		
 							</div>
-							<div class="col-xs-2" style="font-size:16px; font-weight:400;">
-								소속팀존재유무
-							</div>
+							<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+							소속팀존재유무
+						</div>
 							<div class="col-xs-6 radio">
 								<div class="col-xs-3">
 									<label>
@@ -392,9 +392,9 @@
 						<div class="form-group">
 							<div class="col-xs-2" style="font-size:14px;">		
 							</div>
-							<div class="col-xs-2" style="font-size:16px; font-weight:400;">
-								선호포지션
-							</div>
+							<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+							선호포지션
+						</div>
 							<div class="col-xs-8 checkbox">
 								<div class="col-xs-2">
 									<label>
@@ -425,9 +425,9 @@
 						<div class="form-group">
 							<div class="col-xs-2" style="font-size:14px;">		
 							</div>
-							<div class="col-xs-2" style="font-size:16px; font-weight:400;">
-								비밀번호확인질문
-							</div>
+							<div class="col-xs-2" style="font-size:12px; letter-spacing:4px; font-weight:400;">
+							비밀번호확인질문
+						</div>
 							<div class="col-xs-6">
 								<select name="passwd2" size="1" class = formInput style="width:350px; height:30px;">
 									<option value="Q00">기억에 남는 추억의 장소는?

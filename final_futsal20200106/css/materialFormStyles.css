@@ -97,7 +97,8 @@ input{
 }
 #formOutterWrapper .active{
     transform:translateY(-140%);
-    font-size:14px;
+    font-size:12px;
+	letter-spacing:4px;
 }
 
 #submit :hover{
