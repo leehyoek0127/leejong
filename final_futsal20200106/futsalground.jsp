@@ -35,6 +35,7 @@
 	<link rel="stylesheet" type="text/css" href="css\join.css"/>
 	<link rel="stylesheet" type="text/css" href="css\sign.css"/>
 	<link rel="stylesheet" type="text/css" href="css\subject.css"/>
+	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/materialFormStyles.css">
 	<link rel="stylesheet" href="css/groundregistration_css.css">
 	<link href="css/front.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -358,6 +359,8 @@
 	</div>
 	</section>
 	</section>
-<img src="img/bot.png">
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>

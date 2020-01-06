@@ -25,6 +25,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>League</title>
+  <link rel="stylesheet" href="css/footer.css">
 <!--기본적인 body등의 css-->
 	<link rel="stylesheet" href="css/basicStyle.css" media="screen">
 <!--Q&A에 펠요한 css-->
@@ -396,6 +397,9 @@
 				</div>
 			</section>
 		 </section>
-		<img src="img/bot.png">
+		<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
+
 	</body>
 </html>

@@ -28,6 +28,7 @@
 	<script type="text/javascript" src="/js/common/common.js"></script>
 	<script type="text/javascript" src="/js/common/form_check.js"></script>
 	<link rel="stylesheet" type="text/css" href="css\join.css"/>
+	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
@@ -377,6 +378,8 @@
 	
 	
 
-	<img src="img/bot.png">
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>

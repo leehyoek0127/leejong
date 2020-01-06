@@ -25,6 +25,7 @@
 	<meta content="Chrissy Collins" name="author">
 	<meta content="A pure vanilla JS calendar by @chrisssycollins" name="description">
 	<link href="css/vanillaCalendar.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
@@ -500,8 +501,9 @@
 </tr>
 </section>
 </section>
-
-<img src="img/bot.png">
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
   
  </body>
 </html>

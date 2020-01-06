@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/classic.css">
 	<link rel="stylesheet" href="css/classic.date.css">
 	<link rel="stylesheet" href="css/classic.time.css">
+	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/style2.css" media="screen">
 	<link rel="stylesheet" href="css/findpass_materialFormStyles.css">
 	<link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
@@ -212,6 +213,8 @@
 </div>
 </section>
 </section>
-<img src="img/bot.png">
+<footer id="footer">
+	<jsp:include page="Footer.jsp" />
+	</footer>
  </body>
 </html>
