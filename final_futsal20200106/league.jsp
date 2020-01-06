@@ -136,7 +136,7 @@
 	<div id="mainleft">
 		<div id="leftbanner">
 			<div id="banner1">
-				<img src="img/20191211.png" width="100%" height="100%"/>
+				<img src="img/20191211.jpg" width="100%" height="100%"/>
 			</div>	
 			<div id="banner3">
 				<iframe 
