@@ -12,6 +12,7 @@
 <link href="css/front.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 <body>
+	<jsp:include page="quickbar.jsp" />
 	<header id="header">
 	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
 					<source src="img/video element.mp4" type="video/mp4"> 
