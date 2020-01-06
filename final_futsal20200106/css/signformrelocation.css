@@ -23,3 +23,7 @@
 		position: relative;
 		top: 4px;
 	}
+	input[class="btn btn-primary"]{
+		width:300px;
+		height:50px;
+	}
