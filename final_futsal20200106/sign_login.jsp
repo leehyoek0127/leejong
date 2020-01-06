@@ -40,7 +40,7 @@
 						</ul>
 					
 					</li>
-					<li class="borderRightLeft"><a href="" >리그</a></li>
+					<li class="borderRightLeft"><a href="league.jsp" >리그</a></li>
 					<li class="borderRightLeft"><a href="gal.jsp" >팀커뮤니티</a>
 						<ul>
 							<li><a href="#" >팀갤러리</a></li>

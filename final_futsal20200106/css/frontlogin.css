@@ -145,20 +145,19 @@ a.mypage.menu-open span {
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	display:none;
-	background-color:rgba(0, 0, 0, 0.29);
+	background-color:#232121cf;
 	position:absolute;
-	width:224px;
+	width:225px;
 	z-index:100;
 	border:1px transparent;
-	text-align:left;
+	text-align:center;
 	padding:12px;
 	top: 39.5px; 
 	right: -19px; 
 	margin-top:5px;
 	margin-right: 0px;
-	*margin-right: -1px;
-	
-	font-size:11px;
+	margin-right: 70px;	
+	font-size:15px;
 }
 
 #signin_menu input[type=text], #signin_menu input[type=password] {
@@ -211,7 +210,7 @@ a.mypage.menu-open span {
 	clear:both;
 	margin:5px 0;
 }
-#mypage_menu p.forgot, #mypage_menu p.complete {
+#mypage_menu p.forgot, #signin_menu p.complete {
 	clear:both;
 	margin:5px 0;
 }
