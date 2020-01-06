@@ -83,7 +83,7 @@ a.signin.menu-open span {
 	display:none;
 	background-color:#232121cf;
 	position:absolute;
-	width:224px;
+	width:255px;
 	z-index:100;
 	border:1px transparent;
 	text-align:left;
@@ -96,8 +96,8 @@ a.signin.menu-open span {
 	font-size:15px;
     padding-top: 30px;
     padding-bottom: 38px;
-    padding-left: 20px;
-    padding-right: 12px;
+    padding-left: 22px;
+    padding-right: 10px;
 }
 
 #mypage_menu {
