@@ -605,10 +605,12 @@
 		
 	</section>
 	
-	
 
-	<footer>
+	<footer id="footer">
 	<jsp:include page="Footer.jsp" />
 	</footer>
+	<jsp:include page="quickbar.jsp" />
  </body>
+
 </html>
+	
