@@ -123,6 +123,14 @@
 	});
   </script>
   
+  <style>
+	.box {
+		width:450px;
+	}
+  </style>
+
+
+
  </head>
  <body>
 	<header>
@@ -343,9 +351,9 @@
 <tr>
 <td align="center"> 유니폼
 	<div class="cont_heg_50"></div>
-<div class="cont_select_center">
+<div class="cont_select_center" style="float:left;">
 
-<div class="select_mate" data-mate-select="active" >
+<div class="select_mate" data-mate-select="active" style="min-width:150px; width:150px;">
 <select name="" onclick="return false;" id="">
 <option value=""  >상의</option>
 <option value="1">Red</option>
@@ -368,9 +376,9 @@
 </div>
 
 <div class="cont_heg_50"></div>
-<div class="cont_select_center">
+<div class="cont_select_center" style="float:left;">
 
-<div class="select_mate" data-mate-select="active" >
+<div class="select_mate" data-mate-select="active" style="min-width:150px; width:150px;">
 <select name="" onclick="return false;" id="">
 <option value=""  >하의</option>
 <option value="1">Red</option>
@@ -391,9 +399,9 @@
 </div>
 
 <div class="cont_heg_50"></div>
-<div class="cont_select_center">
+<div class="cont_select_center" style="float:left;">
 
-<div class="select_mate" data-mate-select="active" >
+<div class="select_mate" data-mate-select="active" style="min-width:150px; width:150px;">
 <select name="" onclick="return false;" id="">
 <option value=""  >스타킹</option>
 <option value="1">Black</option>
