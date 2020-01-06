@@ -458,16 +458,7 @@
 								<input type="text" class="formInput" id="passwd2ans" name="passwd2ans">
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-2" style="font-size:14px;">	
-							</div>
-							<div class="col-xs-8">
-								<label class="labels" for="chuchun">
-									추천인아이디
-								</label>
-								<input type="text" class="formInput" id="chuchun" name="chuchun">
-							</div>
-						</div>
+						
 						<div class="form-group">
 							<div class="col-xs-8" style="font-size:14px;">			
 							</div>
