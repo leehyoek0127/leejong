@@ -67,7 +67,7 @@
 						 </a>
 					</div> 
 			</div>		
-			<a href="login" class="signin" style="float:left;line-height:25px;"><u><%=uss%>&nbsp</u>님 ∨</a>
+			<a href="login" class="signin" style="float:left;line-height:25px;"><u style="font-size:17px;     font-weight: 300;"><%=uss%></u> ∨</a>
 				<fieldset id="signin_menu">
 						<form name = "login" method="post" id="signin" >
 						
@@ -85,18 +85,21 @@
 						</form>				
 					</fieldset>
 					
-				<a href="alam" class="mypage" style="float:left;line-height:25px;"><u><img src="img/alam.png" style="width:30px;height:30px;"/></u></a>
+				<a href="alampage" class="mypage" style="float:left;line-height:25px;"><u><img src="img/alam.png" style="width:30px;height:30px;margin-left:10px;"/></u></a>
 					<fieldset id="mypage_menu">
-						<form name = "alam" method="post" id="mypage" >
+						<form name = "alampage" method="post" id="mypage" >
 						
 							<p class="forgot"> 
-								<a href="" id="mypage">내가 쓴 게시물</a>
+								<a href="logincom.jsp" id="mypage">내가 쓴 게시물</a>
 							</p>
 							<p class="forgot">
 								<a id="bookingclub"href="">즐겨찾는구장
 								</a>
 							</p>
-							
+							<p class="forgot">
+								<a id="board"href="">환불계좌등록
+								</a>
+							</p>
 						</form>				
 					</fieldset>
 

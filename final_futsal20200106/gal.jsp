@@ -49,6 +49,8 @@
 <!--배너2 자동슬라이드-->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
+<!--footer css 파일 추가-->
+	<link rel="stylesheet" href="css/footer.css">
 <!----------------------------서브메뉴마우스오버기능-------------------------->
 	<link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
 <!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
@@ -73,6 +75,26 @@
 					if($(e.target).parent("a.signin").length==0) {
 						$(".signin").removeClass("menu-open");
 						$("fieldset#signin_menu").hide();
+					}
+				});			
+				
+			});
+	</script>
+<!----------------------------alam form 추가 2020.01.06-------------------------->
+	<script type="text/javascript">
+			$(document).ready(function() {
+				$(".mypage").click(function(e) {          
+					e.preventDefault();
+					$("fieldset#mypage_menu").toggle();
+					$(".mypage").toggleClass("menu-open");
+				});		
+				$("fieldset#mypage_menu").mouseup(function() {
+					return false
+				});
+				$(document).mouseup(function(e) {
+					if($(e.target).parent("a.mypage").length==0) {
+						$(".mypage").removeClass("menu-open");
+						$("fieldset#mypage_menu").hide();
 					}
 				});			
 				
@@ -112,7 +134,7 @@
 	<div id="mainleft">
 			<div id="leftbanner">
 				<div id="banner1">
-					<img src="img/20191211.png" width="100%" height="100%"/>
+					<img src="img/20191211.jpg" width="100%" height="100%"/>
 				</div>
 				<div id="banner3">
 					<iframe	
@@ -256,5 +278,8 @@
 			</section>
 		</section>
 	<img src="img/bot.png">
+<footer>
+<jsp:include page="Footer.jsp"/>
+</footer>
 </body>
 </html>

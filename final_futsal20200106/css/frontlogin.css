@@ -122,9 +122,9 @@ a.mypage.menu-open span {
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	display:none;
-	background-color:rgba(0, 0, 0, 0.29);
+	background-color:#232121cf;
 	position:absolute;
-	width:224px;
+	width:225px;
 	z-index:100;
 	border:1px transparent;
 	text-align:center;
