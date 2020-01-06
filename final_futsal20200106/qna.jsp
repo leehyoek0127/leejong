@@ -76,6 +76,26 @@
 				
 	});
 </script>
+<!----------------------------alam form 추가 2020.01.06-------------------------->
+	<script type="text/javascript">
+			$(document).ready(function() {
+				$(".mypage").click(function(e) {          
+					e.preventDefault();
+					$("fieldset#mypage_menu").toggle();
+					$(".mypage").toggleClass("menu-open");
+				});		
+				$("fieldset#mypage_menu").mouseup(function() {
+					return false
+				});
+				$(document).mouseup(function(e) {
+					if($(e.target).parent("a.mypage").length!=0) {
+						$(".mypage").removeClass("menu-open");
+						$("fieldset#mypage_menu").hide();
+					}
+				});			
+				
+			});
+	</script>
 <!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
 <script>
  /*스크롤 내리면 메뉴 위치 이동하는 기능------따로빼면 작동xxxxxx*/
