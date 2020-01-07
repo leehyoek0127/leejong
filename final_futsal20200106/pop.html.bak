@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>풋살장</title>
+  <script type="text/javascript" src="/js/libs/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/libs/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/datepicker.js"></script>
+	<script type="text/javascript" src="/js/common/common.js"></script>
+	<script type="text/javascript" src="/js/common/form_check.js"></script>
+  <link rel="stylesheet" type="text/css" href="css\join.css"/>
+  <link rel="stylesheet" href="css/classic.css">
+	<link rel="stylesheet" href="css/classic.date.css">
+	<link rel="stylesheet" href="css/classic.time.css">
+	<link rel="stylesheet" href="css/css/style.css" media="screen">
+	
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.infinitecarousel.js"></script>
+
+
+
+
+
+
+
+
+  <script>
+  	$(function(){
+ var shrinkHeader = 30;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+           $('#navtop').addClass('shrink');
+		   
+        }
+        else {
+            $('#navtop').removeClass('shrink');
+			
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
+
+
+var alerttext
+	function idcheck()
+	{
+		var idlen=join.id.value.length
+		if ((idlen >=8) && (idlen <=14))
+		{
+			alert("입력해주셔서 감사합니다")
+		}
+		else
+		{
+			alert("4~14자 사이의 아이디만 유효합니다.")
+			
+			join.id.focus()
+		}
+	}
+
+	function mailaddr(maillist)
+	{	
+	
+		for(var i=0; i<maillist.length; i++)
+		{
+			if(maillist.options[i].selected)
+			join.em2.value=maillist.options[i].value
+		}
+		
+	}
+	
+
+	function joinsubmit()
+	{
+		var idlen=join.id.value.length
+		var pwlen=join.pw.value.length
+		var namelen=join.name.value.length
+		var hp2_len=join.hp2.value.length
+		var hp3_len=join.hp3.value.length
+		var em1_len=join.em1.value.length
+		var em2_len=join.em2.value.length
+
+		if ((idlen <8) || (idlen >14))
+		{
+			alert("아이디를 확인하세요. 8~14자 사이의 아이디만 유효합니다.")
+			join.id.focus()
+			
+		}
+
+		
+		else if ((pwlen <4) || (pwlen >14))
+		{
+
+			alert("비밀번호를 확인하세요. 4~14자 사이의 비밀번호만 유효합니다.")
+			join.pw.focus()
+		}
+
+		else if(join.pw.value!=join.pwch.value)
+		{
+			alert("비밀번호일치여부를 다시 확인하세요.")
+			join.pwch.focus()
+		}
+
+		
+		else if(namelen<=0)
+		{
+			alert("이름을 입력하세요.")
+			join.name.focus()
+		}
+
+		
+		else if(hp2_len<=0||hp3_len<=0)
+		{
+			alert("전화번호를 입력하세요.")
+			join.hp2.focus()
+		}
+
+		
+		else if(em1_len<=0||em2_len<=0)
+		{
+			alert("이메일주소를 입력하세요.")
+			join.em1.focus()
+		}
+		
+
+		else
+		{
+			alert("아이디 : "+join.id.value+"\n"
+				+ "비밀번호 : "+join.pw.value+"\n"
+				+ "이름 : "+join.name.value+"\n"
+				+ "휴대폰번호 : "+join.hp1.value+"-"+join.hp2.value+"-"+join.hp3.value+"\n"
+				+ "이메일주소 : "+join.em1.value+"@"+join.em2.value+"\n"
+				+ "생년월일 : "+join.yy.value+" 년 "+join.mm.value+" 월 "+join.dd.value+"일\n"
+				)
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+$(function(){
+	$('#carousel1').infiniteCarousel();
+});
+
+
+
+  </script>
+  <style>
+  .borderRightLeft {
+    display: inline-block;
+    color: #474E51;
+    position: relative;
+	top:10px; left: 50px;
+}
+
+.borderRightLeft::after {
+     content: '';
+     position: absolute;
+     width: 100%;
+     transform: scaleX(0);
+     height: 2px;
+     bottom: 20px;
+     left: 0;
+     background-color: #AA1212;
+     transform-origin: bottom left;
+     transition: transform .3s ease-in-out;
+ }
+
+.borderRightLeft:hover::after {
+     transform: scaleX(1);
+     transform-origin: bottom right;
+ }
+
+.textRightLeft {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: #474E51;
+    position: relative;
+    line-height: 40px;
+    color: #fff;
+}
+
+.textRightLeft span {
+    display: block;
+}
+
+.textRightLeft:hover span {
+    animation: animButtonSpan 0.4s;
+}
+
+@keyframes animButtonSpan {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    33% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    66% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.textAnimationLeft {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: #474E51;
+    position: relative;
+    line-height: 40px;
+    color: #fff;
+	float:right;
+}
+
+.textAnimationLeft:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: #5778F3;
+    transition: transform .25s ease-in;
+}
+
+.textAnimationLeft:hover::before {
+    transform: translateX(0);
+}
+
+.textAnimationLeft span {
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+
+.textAnimationLeft:hover span {
+    animation: animButtonSpan 0.4s;
+}
+
+@keyframes animButtonSpan {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    50.001% {
+        transform: translateX(-20px);
+    }
+
+    60% {
+        transform: translateX(0px);
+    }
+
+}
+
+
+
+.slideDown {
+    width: 120px;
+    height: 40px;
+    color: #AA1212;
+    padding: 0 14px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+	
+	
+}
+
+.slideDown::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    background-color: #AA1212;
+    transition: transform 0.2s ease-out;
+    z-index:-1;
+}
+
+.slideDown:hover {
+    color: #fff;
+    transition: 0.2s ease-out;
+	
+}
+
+.slideDown:hover::after {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in;
+	
+
+}
+
+
+
+
+
+
+
+  	body {
+		margin:0;
+	}
+
+	ul {
+		list-style-type:none;
+	}
+	#header {
+	text-align : center;
+		width : 100%; height : 460;
+		
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		height: 60px;
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 100px; height : 99%;
+		color : #ffffff;
+		font-size : 17px;
+		font-weight: 700;
+		position: relative;
+		top:15px;
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 6px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 31.5%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 32%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 32%; height:100%
+	}
+	
+	
+	#main {
+		width : 1270px;
+		height : 1000px;
+		
+		margin : 0 auto;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 19%;
+		height : 98%;
+		margin : 6px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 500px;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+
+		width : 98%;
+		height : 100px;
+		
+		margin: 3px;
+		
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 130px;
+		
+		margin: 3px;
+		
+		overflow:hidden;
+	}
+
+	#banner3 {
+		width : 98%;
+		height : 190px;
+		
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		float : left;
+		width : 79%;
+		height : 98%;
+		margin : 6px;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+		position: relative;
+		top:10px;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 100%;
+		
+		margin : 3px;
+		
+		
+	}
+	#matList a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+	#list {
+		clear:both;
+	}
+
+
+#carousel1 {
+	width:400px;
+	height:250px;
+	overflow:scroll;
+	border:2px solid #999;
+}
+
+	
+  </style>
+ </head>
+ <body>
+ 	
+					
+		
+
+
+
+			<form name="join">
+
+				<table border=1 cellpadding=5 align ="center" class=abc >
+	
+ 
+ 
+ <thead>
+ <tr bgcolor=black align = "center">
+ <td colspan = 2><font color="white">
+ 
+ <IMG src="img/icon5.png" width="25px" height="25px"> 개 인 정 보 <IMG src="img/icon5.png" width="25px" height="25px"> 
+ 
+ </td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+	 <td class = ff><font color="#FFCC33">
+	 * </font>신청자명
+	 </td>
+	 <td class=ff>
+	사람2
+	 
+	  </td>
+  </tr>
+  <tr>
+		<td class =ff><font color="#FFCC33">
+			* </font>
+		휴대폰번호</td>
+		<td class=ff>
+		010-010-010
+		</td>
+	</tr>
+  
+  <tr>
+		<td class=ff>
+		실력</td>
+		<td class=ff>
+	상
+		</td>
+	</tr>
+
+
+
+
+	<tr bgcolor=black align = "center">
+	<td colspan=2><font color="white"><IMG src="img/icon5.png" width="25px" height="25px"> 매 치 정 보 <IMG src="img/icon5.png" width="25px" height="25px">	</font></td>
+	</tr>
+	
+	<tr>
+		<td class =ff><font color="#FFCC33">
+			* </font>
+		지점 / 구장</td>
+		<td class=ff >
+		2지점  /  1구장
+		</td>
+	</tr>
+
+	<tr>
+		<td class=ff>
+		성별</td>
+		<td class=ff>
+		
+         남자
+
+		</td>
+	</tr>
+
+<tr>
+	 <td class = ff><font color="#FFCC33">
+	 * </font>매치일정
+	 </td>
+	 <td class=ff>
+      
+	  달력일정
+	  </td>
+  </tr>
+
+  <tr>
+		<td class =ff><font color="#FFCC33">
+			* </font>
+		시간선택</td>
+		<td class=ff >
+		오후
+		
+		</td>
+	</tr>
+
+	
+
+	<tr>
+		<td class=ff>
+		실력</td>
+		<td class=ff>
+		상
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td class=ff>
+		소속팀존재유무</td>
+		<td class=ff>
+		있음 
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td class=ff>
+		선호포지션</td>
+		<td class=ff>
+		MF
+		</td>
+	</tr>
+
+<tr>
+		<td class=ff>
+		마감여부</td>
+		<td class=ff>
+		마감
+		</td>
+	</tr>
+
+
+  </tbody>
+  </table>
+
+  	
+	
+	
+
+	
+ </body>
+</html>
