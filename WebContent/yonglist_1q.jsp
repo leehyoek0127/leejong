@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<<!--용병리스트 게시판 css파일 수정 2020.01.08--> -->
+
 <link rel="stylesheet" href="yonglist_1_body.css">
 <!----------------------------바디 스타일------------------------------------>
 
@@ -131,11 +131,14 @@
 					<table class="table table-striped">
 						<thead>
 							<tr id="tabletitle">
-								<th scope="col" class="thno"><span>지점</span></th>						
-								<th scope="col" class="thtitle" style=" text-align:center;" ><span>매치일자</span></th>
-								<th scope="col" class="thname"><span>작성자</span></th>							
+								<th scope="col" class="thno"><span>지점</span></th>
+								
+
+								<th scope="col" class="thtitle" ><span>매치일자</span></th>
+								<th scope="col" class="thname"><span>작성자</span></th>
+								
 								<th scope="col" class="thview"><span>작성일자</span></th>
-								<th scope="col" class="thview"><span>신청</span></th>
+								<th scope="col" class="thview"><span>마감</span></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -143,7 +146,7 @@
 							<tr>
 								<td class="thgongji">강남점</td>
 								
-								<td class="thdate2" >2020.01.09(목)20:00 ~ 22:00</td>
+								<td class="thtitle">2020.01.09(목)20:00 ~ 22:00</td>
 								<td class="thname">박**</td>
 								
 								<td class="thview">2020.01.07</td>
@@ -203,8 +206,178 @@
 								<td class="thview">2020.01.01</td>
 								<td class="thview">마감</td>
 							</tr>
-					
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+								
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
 						
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+						
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+									
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+						
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+							
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr>
+								<td class="thgongji">강남점</td>
+								
+								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
+								<td class="thname">박**</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">마감</td>
+							</tr>
+							<tr>
+								<td class="thgongji">인천점</td>
+							
+								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
+								<td class="thname">김 팡 호</td>
+								
+								<td class="thview">2020.01.01</td>
+								<td class="thview">진행중</td>
+							</tr>
+							<tr></tr>
 						</tbody>
 					</table>
 					<div class="text-center">

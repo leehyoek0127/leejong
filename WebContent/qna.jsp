@@ -1,3 +1,6 @@
+<%@page import="qnaPack.QnaDto"%>
+<%@page import="qnaPack.QnaDao"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 //2020_01_02 수정부분
@@ -14,6 +17,31 @@
 	 }
 		//수정부분 끝
 %>
+<jsp:useBean id = "dao" class = "qnaPack.QnaDao"/>
+<%
+
+ArrayList<QnaDto> arraylist = new ArrayList<QnaDto> ();
+
+%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -124,6 +152,16 @@ $(function(){
 		}
 });
 </script>
+<style>
+	#qnaTopTable td div {
+		height:50px;
+		margin:0px;
+	}
+	.nav_ban{
+		margin-top:0px;
+		padding:0px;
+	}
+</style>
 </head>
 <body>
 
@@ -150,7 +188,7 @@ $(function(){
 						</ul>
 					</div>
 					<div class="cbox">
-						<table class="table table-striped">
+						<table class="table table-striped" id="qnaTopTable">
 							<tbody>
 								<tr>
 									<td>제목</td>
@@ -172,8 +210,9 @@ $(function(){
 									<td>비밀번호</td>
 									<td>
 										<div class="form-group has-warning" style="height: 45px">
-											<input type="text" class="form-control" id="qnapw" maxlength="10" style="width: 250px"> <label class="control-label" for="inputWarning1"> 글 수정, 삭제,비밀글 확인시 사용됩니다. </label>
+											<input type="text" class="form-control" id="qnapw" maxlength="10" style="width: 250px">
 										</div>
+										<label class="control-label" for="inputWarning1" style="color: #8a6d3b;"> 글 수정, 삭제,비밀글 확인시 사용됩니다. </label>
 									</td>
 								</tr>
 								<tr>
@@ -190,7 +229,7 @@ $(function(){
 								<tr>
 									<td>내용</td>
 									<td>
-										<textarea class="form-control" rows="7">
+										<textarea class="form-control" rows="7" style="resize:none;">
 										</textarea>
 									</td>
 								</tr>
