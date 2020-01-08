@@ -32,7 +32,6 @@
   }
   String passwd2 = request.getParameter("passwd2");
   String passwd2ans = request.getParameter("passwd2ans");
-  String chuchun = request.getParameter("chuchun");
   
   
   Connection conn = null;

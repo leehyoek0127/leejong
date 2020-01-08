@@ -265,24 +265,16 @@ function callAjax2(){
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
 									<label class="labels" for="id">아이디<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="id" name="id" >
+									<div id="ajaxReturn"></div>
 								</div>
-								
-								
-							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
-								<div class="col-xs7"><div id="ajaxReturn"></div></div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
 									<label class="labels" for="name">이름<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="name" name="name">
+									<div id="nameReturn"></div>
 								</div>
 								<div class="col-xs-2"></div>
-							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
-								<div class="col-xs7"><div id="nameReturn"></div></div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
@@ -291,13 +283,9 @@ function callAjax2(){
 								</div>
 								<div class="col-xs-4">
 									<label class="labels" for="pwch">비밀번호재확인<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="password" class="formInput" id="pwch" name="pwch" onBlur="callAjax2()">
+									<div id="pwReturn"></div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
-								<div class="col-xs7"><div id="pwReturn"></div></div>
-							</div>
-
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400; width: 182px;">
@@ -321,12 +309,8 @@ function callAjax2(){
 								<div class="col-xs-2">
 									<label class="labels" for="hp3"></label> <input type="text" class="formInput" id="hp3" name="hp3">
 								</div>
+								<div id="hpReturn"></div>
 							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
-								<div class="col-xs7"><div id="hpReturn"></div></div>
-							</div>
-
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-3">
@@ -346,10 +330,7 @@ function callAjax2(){
 										<option>gmail.com</option>
 									</select>
 								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
-								<div class="col-xs7"><div id="emReturn"></div></div>
+								<div id="emReturn"></div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
