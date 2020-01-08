@@ -148,7 +148,7 @@
 			if(idReg.test(join.id.value))
 				callAjax();
 			else{
-				$("#ajaxReturn").html("ID를 확인해주세요 6~14자 사이의 ID만 유효합니다.");
+				$("#ajaxReturn").html("6~14자 사이의 영문 대소문자와 숫자만 사용가능합니다");
 			}
 		});
 		$("#name").blur(function(){
@@ -266,7 +266,7 @@ function callAjax2(){
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
 									<label class="labels" for="id">아이디<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="id" name="id" >
-									<div id="ajaxReturn"></div>
+									<div id="ajaxReturn" style="color:red;"></div>
 								</div>
 							</div>
 							<div class="form-group">
