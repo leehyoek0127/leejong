@@ -144,7 +144,8 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#id").blur(function(){
-			if(join.id.value.length>=6&&join.id.value.length<=16)
+			var idReg = /^[a-zA-z]+[a-zA-z0-9]{5,13}$/g;
+			if(idReg.test(join.id.value))
 				callAjax();
 			else{
 				$("#ajaxReturn").html("ID를 확인해주세요 6~14자 사이의 ID만 유효합니다.");
