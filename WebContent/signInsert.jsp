@@ -62,6 +62,6 @@
 	  }catch (Exception ignored) {
 	  }
   }
-  response.sendRedirect("insertResult.jsp?id=" +id);
-
+  RequestDispatcher dispatcher = request.getRequestDispatcher("insertResult.jsp");
+  dispatcher.forward(request,response);
 %>
