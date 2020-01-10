@@ -118,7 +118,7 @@ public class QnaDao {
 			dbOpen();
 			state = conn.createStatement();
 
-			String s = "select * from qna where qNo = '"+qNo+"';";
+			String s = "select * from qna where qNo = "+qNo+";";
 
 			
 			ResultSet aa = state.executeQuery(s);

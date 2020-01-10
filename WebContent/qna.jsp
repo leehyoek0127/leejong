@@ -314,7 +314,7 @@ $(function(){
 							<tr>
 								<td class="thgongji"><%=list.get(i).getqNo() %></td>
 								<td class="thtitle">
-									<a onClick="window.open('qnaInsert.jsp?index=<%=i %>','newwindow','width=430,height=500,location=no,status=no,scrollbar=yes');" class="button"><%=list.get(i).getqTitle() %></a><img src="img/lock2.png" class="secretimg">
+									<a onClick="window.open('qnaSelectOne.jsp?index=<%=list.get(i).getqNo() %>','newwindow','width=430,height=500,location=no,status=no,scrollbar=yes');" class="button"><%=list.get(i).getqTitle() %></a><img src="img/lock2.png" class="secretimg">
 								</td>
 								<td class="thname" name="thname" id="thname"><%=list.get(i).getqMember() %></td>
 								<td class="thdate"><%=list.get(i).getqDate() %></td>

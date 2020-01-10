@@ -7,30 +7,18 @@
 <%@page import="java.util.ArrayList"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <jsp:useBean id = "dao" class = "qnaPack.QnaDao"/>
+<jsp:useBean id = "qnaNew" class = "qnaPack.QnaDto"/>
+
+<jsp:setProperty name="qnaNew" property="*"/> 
 <%
-  QnaDto qnaNew = new QnaDto();
+  
  
 SimpleDateFormat format1 = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
 Date time = new Date();
-  ArrayList<QnaDto> listCount = dao.selectAll();
-  int qNo = listCount.size() +1;
-  String qMember = request.getParameter("qMember");
-  String qSecret = request.getParameter("qSecret");
-  String qSecretNum = request.getParameter("qSecretNum");
-  String qContents = request.getParameter("qContents");
-  String qTitle = request.getParameter("qTitle");
-  String qId = (String)session.getAttribute("id");
-  //Timestamp qDate = format1.format(time);
-  qnaNew.setqNo(qNo);
-  qnaNew.setqMember(qMember);
-  qnaNew.setqSecret(qSecret);
-  qnaNew.setqSecretNum(qSecretNum);
-  qnaNew.setqContents(qContents);
-  qnaNew.setqTitle(qTitle);
-  qnaNew.setqId(qId);
-  //dao.insert(qnaNew);
-  String index = request.getParameter("index");
-  out.println(index);
+
+  dao.insert(qnaNew);
+  response.sendRedirect("qna.jsp");
+  
 %>
 <%
 //QnaDao dao2 = new QnaDao();
