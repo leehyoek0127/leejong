@@ -18,11 +18,11 @@
 		//수정부분 끝
 %>
 <jsp:useBean id = "dao" class = "qnaPack.QnaDao"/>
-<%
 
-ArrayList<QnaDto> arraylist = new ArrayList<QnaDto> ();
 
-%>
+
+
+
 
 
 
@@ -79,6 +79,56 @@ ArrayList<QnaDto> arraylist = new ArrayList<QnaDto> ();
 <script type="text/javascript" src="js/jquery.infinitecarousel.js"></script>
 <!----------------------------서브메뉴마우스오버기능-------------------------->
 <link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
+<!--2020.01.09Overray css추가 -->
+<link rel="stylesheet" href="css/qnaOverray.css">
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#id").blur(function(){
+			
+				addHtml();
+			
+				$("#ajaxReturn").html("6~14자 사이의 영문 대소문자와 숫자만 사용가능합니다");
+			
+		});
+		
+	});
+	
+	function addHtml(){
+		
+		$.ajax({
+			type:"post",
+		url:"./qnaSelectOne.jsp",       
+		data:{
+	
+			index:$('#id').val()
+		},	
+		success:whenSuccess,
+		error:whenError
+		});
+	}
+	var confirmid = "";
+	function whenSuccess(resdata){
+		
+		var x=document.getElementById("ajaxReturn");
+		$("#ajaxReturn").html(resdata);
+		
+		if(resdata.includes("이미 사용중인 ID입니다")){
+			document.join.hidden.value="0";
+			x.style.color="red";
+		}
+		
+		else{
+			document.join.hidden.value="1";
+			x.style.color="blue";
+			confirmid = join.id.value;
+			
+			
+		}
+	}
+	function whenError(){
+		alert("Error");
+	}
+</script>
 <!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
 <script type='text/javascript'>
 	$(function() {
@@ -168,7 +218,7 @@ $(function(){
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
-	<form>
+
 		<div id="mainleft">
 			<div id="leftbanner">
 				<div id="banner1">
@@ -188,13 +238,14 @@ $(function(){
 						</ul>
 					</div>
 					<div class="cbox">
+					<form id="qnainsert" action="qnaInsert.jsp" method="post">
 						<table class="table table-striped" id="qnaTopTable">
-							<tbody>
+						<tbody>
 								<tr>
 									<td>제목</td>
 									<td>
 										<div class="form-group has-success">
-											<input type="text" class="form-control" id="qnatitle">
+											<input type="text" class="form-control" id="qTitle" name="qTitle">
 										</div>
 									</td>
 								</tr>
@@ -202,7 +253,7 @@ $(function(){
 									<td>작성자</td>
 									<td>
 										<div class="form-group has-success">
-											<input type="text" class="form-control" id="qnaid" maxlength="10" style="width: 250px">
+											<input type="text" class="form-control" id="qMember" name="qMember" maxlength="10" style="width: 250px">
 										</div>
 									</td>
 								</tr>
@@ -210,7 +261,7 @@ $(function(){
 									<td>비밀번호</td>
 									<td>
 										<div class="form-group has-warning" style="height: 45px">
-											<input type="text" class="form-control" id="qnapw" maxlength="10" style="width: 250px">
+											<input type="text" class="form-control" id="qSecretNum" name="qSecretNum" maxlength="10" style="width: 250px">
 										</div>
 										<label class="control-label" for="inputWarning1" style="color: #8a6d3b;"> 글 수정, 삭제,비밀글 확인시 사용됩니다. </label>
 									</td>
@@ -220,7 +271,7 @@ $(function(){
 									<td>
 										<div class="has-warning">
 											<div class="checkbox">
-												<label> <input type="checkbox" id="secret" value="sc"> 비밀글 설정시 체크박스에 표시
+												<label> <input type="checkbox" id="qSecret" name="secret" value="sc"> 비밀글 설정시 체크박스에 표시
 												</label>
 											</div>
 										</div>
@@ -229,18 +280,20 @@ $(function(){
 								<tr>
 									<td>내용</td>
 									<td>
-										<textarea class="form-control" rows="7" style="resize:none;">
+										<textarea id="qContents" name="qContents" class="form-control" rows="7" style="resize:none;">
 										</textarea>
 									</td>
 								</tr>
 							</tbody>
+						</form>
 						</table>
-						<a class="btn btn-default" style="float: right; margin-left: 5px;"> 목록 </a> <a class="btn btn-default pull-right"> 글쓰기 </a> <br>
+						<a class="btn btn-default" style="float: right; margin-left: 5px;"> 목록 </a> <input type="submit" value="글쓰기" class="btn btn-default pull-right"/> <br>
 						<br>
 						<br>
 						<br>
 						<br>
 						<br>
+						
 						<table class="table table-striped">
 							<thead>
 								<tr id="tabletitle">
@@ -252,113 +305,50 @@ $(function(){
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="thgongji">580</td>
-									<td class="thtitle">
-										<a href>풋살장 구장 등록은 사업자번호가 필요한가요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">박**</td>
-									<td class="thdate">2019. 12. 10</td>
-									<td class="thview">5</td>
-								</tr>
-								<tr>
-									<td class="thgongji">579</td>
-									<td class="thtitle">
-										<img src="img/re.png" class="reimg"><a href>풋살장 구장 등록은 사업자번호가 필요한가요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">김 팡 호</td>
-									<td class="thdate">2019. 12. 10</td>
-									<td class="thview">1</td>
-								</tr>
-								<tr>
-									<td class="thgongji">578</td>
-									<td class="thtitle">
-										<a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a>
-									</td>
-									<td class="thname">이**</td>
-									<td class="thdate">2019. 12. 08</td>
-									<td class="thview">55</td>
-								</tr>
-								<tr>
-									<td class="thgongji">577</td>
-									<td class="thtitle">
-										<img src="img/re.png" class="reimg"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a>
-									</td>
-									<td class="thname">김 팡 호</td>
-									<td class="thdate">2019. 12. 05</td>
-									<td class="thview">578</td>
-								</tr>
-								<tr>
-									<td class="thgongji">576</td>
-									<td class="thtitle">
-										<a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">정**</td>
-									<td class="thdate">2019. 12. 02</td>
-									<td class="thview">5</td>
-								</tr>
-								<tr>
-									<td class="thgongji">575</td>
-									<td class="thtitle">
-										<img src="img/re.png" class="reimg"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">김 팡 호</td>
-									<td class="thdate">2019. 12. 03</td>
-									<td class="thview">2</td>
-								</tr>
-								<tr>
-									<td class="thgongji">578</td>
-									<td class="thtitle">
-										<a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a>
-									</td>
-									<td class="thname">이**</td>
-									<td class="thdate">2019. 12. 08</td>
-									<td class="thview">55</td>
-								</tr>
-								<tr>
-									<td class="thgongji">577</td>
-									<td class="thtitle">
-										<img src="img/re.png" class="reimg"><a href> 환불하고 싶은데 계좌명이 다르다고 떠요.</a>
-									</td>
-									<td class="thname">김 팡 호</td>
-									<td class="thdate">2019. 12. 05</td>
-									<td class="thview">578</td>
-								</tr>
-								<tr>
-									<td class="thgongji">576</td>
-									<td class="thtitle">
-										<a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">정**</td>
-									<td class="thdate">2019. 12. 02</td>
-									<td class="thview">5</td>
-								</tr>
-								<tr>
-									<td class="thgongji">575</td>
-									<td class="thtitle">
-										<img src="img/re.png" class="reimg"><a href>리그 등록을 하고싶은데 계속 없는 팀이라고 뜨네요?</a><img src="img/lock2.png" class="secretimg">
-									</td>
-									<td class="thname">김 팡 호</td>
-									<td class="thdate">2019. 12. 03</td>
-									<td class="thview">2</td>
-								</tr>
-								<tr>
-								</tr>
+						<% ArrayList<QnaDto> list = dao.selectAll(); %>
+							
+						<%
+						
+						for(int i=0; i<list.size(); i++){
+						%>	<a>
+							<tr>
+								<td class="thgongji"><%=list.get(i).getqNo() %></td>
+								<td class="thtitle">
+									<a onClick="window.open('qnaInsert.jsp?index=<%=i %>','newwindow','width=430,height=500,location=no,status=no,scrollbar=yes');" class="button"><%=list.get(i).getqTitle() %></a><img src="img/lock2.png" class="secretimg">
+								</td>
+								<td class="thname" name="thname" id="thname"><%=list.get(i).getqMember() %></td>
+								<td class="thdate"><%=list.get(i).getqDate() %></td>
+								<td class="thview"><%=list.get(i).getqCount() %></td>
+							</tr>
+							</a>
+						<%	
+						}
+						%>
+								<div id="popup1" class="overlay">
+									<div class="popup">
+										
+										<a class="close" href="#">&times;</a>
+										<div class="content">Thank to pop me out of that button, but now i'm done so you can close this window.</div>
+									</div>
+								</div>
+
+
+
 							</tbody>
 						</table>
 						<div class="text-center">
 							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">8</a></li>
-								<li><a href="#">9</a></li>
-								<li><a href="#">10</a></li>
-								<li><a href="#">다음 ></a></li>
+								<li><a href="#" style="position:unset;">1</a></li>
+								<li><a href="#" style="position:unset;">2</a></li>
+								<li><a href="#" style="position:unset;">3</a></li>
+								<li><a href="#" style="position:unset;">4</a></li>
+								<li><a href="#" style="position:unset;">5</a></li>
+								<li><a href="#" style="position:unset;">6</a></li>
+								<li><a href="#" style="position:unset;">7</a></li>
+								<li><a href="#" style="position:unset;">8</a></li>
+								<li><a href="#" style="position:unset;">9</a></li>
+								<li><a href="#" style="position:unset;">10</a></li>
+								<li><a href="#" style="position:unset;">다음 ></a></li>
 							</ul>
 						</div>
 						<select class="form-control" style="width: 200px; float: left; margin-left: 150px;">
@@ -372,7 +362,7 @@ $(function(){
 			</section>
 		</section>
 
-	</form>
+	
 	<footer id="footer">
 		<jsp:include page="Footer.jsp" />
 	</footer>
