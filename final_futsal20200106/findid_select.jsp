@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <%@ page import="java.sql.*"%>
 <%
 request.setCharacterEncoding("euc-kr");
@@ -18,10 +19,9 @@ try{
    if (rs.next()){
 	   String id = rs.getString("id");
 
-	   session.setAttribute("id",id);
-	   
-	   RequestDispatcher dispatcher = request.getRequestDispatcher("findid_success.jsp");
-	   dispatcher.forward(request,response);
+	   response.sendRedirect("findid_success.jsp?id='"+id+"'");
+
+
    }else if(!rs.next()){
 	  out.println("<script>alert('입력하신 회원정보가 존재하지 않습니다. 회원가입 페이지로 이동하시겠습니까?'); location.href='sign.jsp';</script>");
    }

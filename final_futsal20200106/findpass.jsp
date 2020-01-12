@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <%String uss="GUEST";%>
 <!doctype html>
 <html lang="en">
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/common/form_check.js"></script>
 <link rel="stylesheet" type="text/css" href="css\findpass.css" />
+<link rel="stylesheet" href="css/signbutton.css">
 <link rel="stylesheet" href="css/classic.css">
 <link rel="stylesheet" href="css/classic.date.css">
 <link rel="stylesheet" href="css/classic.time.css">
@@ -170,19 +172,13 @@
 								</div>
 								<div class="col-xs-2"></div>
 							</div>
-							<div class="form-group">
-								<div class="col-xs-2"></div>
 
 
-
-							</div>
-							<div class="form-group">
-								<div class="col-xs-2">
-									<br>
-								</div>
 								<div class="form-group">
-									<div class="col-xs-12">
-										<input type="submit" value="비밀번호 찾기" class=fbtn onClick="joinsubmit()">
+								<div class="col-xs-3">
+								</div>
+									<div class="col-xs-4" style="margin-left: 142px;">
+										<input type="submit" value="찾 기" class="signbutton signbutton5" onClick="joinsubmit()" style="width:170px;">
 									</div>
 								</div>
 								<input type="hidden" name="hidden" value="" />

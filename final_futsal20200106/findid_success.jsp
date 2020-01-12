@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <%String uss="GUEST";%>
 <%@page import="java.io.*"%>
 <%
 	request.setCharacterEncoding("euc-kr");
-	String id=(String)session.getAttribute("id");
+	String id = request.getParameter("id");
 %>
 <!doctype html>
 <html lang="en">
@@ -19,7 +20,8 @@
 <script type="text/javascript" src="/js/datepicker.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/common/form_check.js"></script>
-<link rel="stylesheet" type="text/css" href="css\find.css" />
+<link rel="stylesheet" href="css\find.css" />
+<link rel="stylesheet" href="css/signbutton.css">
 <link rel="stylesheet" href="css/classic.css">
 <link rel="stylesheet" href="css/classic.date.css">
 <link rel="stylesheet" href="css/classic.time.css">
@@ -120,19 +122,20 @@
 					<center>
 						<h1>아이디 찾기</h1>
 					</center>
-					<br>
-					<br>
+					
 					<div class="container" id="formInnerWrapper">
 						<form name="join" id="materialForm" class="form" method="post" action="sign.jsp" role="form" autocomplete="off">
-							<center>
+							<center style="margin-top:-50px;">
 								회원님의 아이디는 <strong><%= id %></strong> 입니다.
 							</center>
 							<br>
 							<br>
-
+							<br>
 							<div class="form-group">
+							<div class="col-xs-2">
+							</div>
 								<div class="col-xs-10">
-									<input type="button" value="로그인 화면으로 돌아가기" class=fbtn onClick="location.href='sign.jsp';" style="width: 100%;">
+									<input type="button" value="로그인 화면으로 돌아가기" class="signbutton signbutton5" onClick="location.href='sign.jsp';" style="width: 80%; margin-left:-10px;">
 								</div>
 							</div>
 						</form>

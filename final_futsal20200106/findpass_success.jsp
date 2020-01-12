@@ -3,7 +3,7 @@
 <%@page import="java.io.*"%>
 <%
 	request.setCharacterEncoding("euc-kr");
-	String pw=(String)session.getAttribute("pw");
+	String pw=request.getParameter("pw");
 	String url = request.getServletPath();
 	session.setAttribute("url",url);
 	String includeurl = "header.jsp";
@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="css/classic.css">
 <link rel="stylesheet" href="css/classic.date.css">
 <link rel="stylesheet" href="css/classic.time.css">
+<link rel="stylesheet" href="css/signbutton.css">
+<link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/style2.css" media="screen">
 <link rel="stylesheet" href="css/findid_materialFormStyles.css">
 <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
@@ -134,18 +136,19 @@
 					<center>
 						<h1>비밀번호 찾기</h1>
 					</center>
-					<br>
-					<br>
 					<div class="container" id="formInnerWrapper">
 						<form name="join" id="materialForm" class="form" method="post" action="sign.jsp" role="form" autocomplete="off">
-							<center>
+							<center style="margin-top:-50px;">
 								회원님의 비밀번호는 <strong><%= pw %></strong> 입니다.
 							</center>
 							<br>
 							<br>
+							<br>
 							<div class="form-group">
+							<div class="col-xs-2">
+							</div>
 								<div class="col-xs-10">
-									<input type="button" value="로그인 화면으로 돌아가기" class=fbtn onClick="location.href='sign.jsp';" style="width: 100%;">
+									<input type="button" value="로그인 화면으로 돌아가기" class="signbutton signbutton5" onClick="location.href='sign.jsp';" style="width: 80%; margin-left:-10px;">
 								</div>
 							</div>
 						</form>
@@ -154,6 +157,8 @@
 			</div>
 		</section>
 	</section>
-	<img src="img/bot.png">
+	<footer id="footer">
+		<jsp:include page="Footer.jsp" />
+	</footer>
 </body>
 </html>
