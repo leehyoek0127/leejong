@@ -2,17 +2,18 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@page import="qnaPack.QnaDto"%>
-<%@page import="qnaPack.QnaDao"%>
+<%@page import="Qna.QnaDto"%>
+<%@page import="Qna.QnaDao"%>
 <%@page import="java.util.ArrayList"%>
 <%request.setCharacterEncoding("UTF-8");%>
-<jsp:useBean id = "dao" class = "qnaPack.QnaDao"/>
-<jsp:useBean id = "qnaNew" class = "qnaPack.QnaDto"/>
+<jsp:useBean id="dao" class="Qna.QnaDao" />
+<jsp:useBean id="qnaNew" class="Qna.QnaDto" />
 
-<jsp:setProperty name="qnaNew" property="*"/> 
+<jsp:setProperty name="qnaNew" property="*" />
 <%
   
- 
+int qNo = 0;
+int qCount = 0;
 SimpleDateFormat format1 = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
 Date time = new Date();
 

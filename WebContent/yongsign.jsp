@@ -12,6 +12,9 @@
 		includeurl = "sign_login.jsp";
 	}
 	//수정부분 끝
+	
+	//수정사항 2020.01.14 로그인 ID에 대한 정보.
+	String logid = (String) session.getAttribute("id");
 %>
 <!doctype html>
 <html lang="en">
@@ -213,6 +216,23 @@
 	function whenError(){
 		alert("Error");
 	}
+	
+//	<!--js 파일 분리가 안돼서 어쩔수없이 이곳에 사용한 용병가입 창 js 파일 2020.01.09-->
+	function yongjoinsubmit()
+	{
+		
+		var yMemberlen=yongjoin.yMember.value.length
+		
+		if(yMemberlen<=0)
+		{
+			alert("이름을 입력하세요.");
+			yongjoin.yMember.focus();
+		}else
+		{
+			document.yongjoin.submit();
+		}
+
+	}
 </script>
 <!-- 비밀번호 체크 ajax -->
 <script type="text/javascript">
@@ -231,6 +251,7 @@ function callAjax2(){
 </style>
 </head>
 <body>
+	
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
@@ -260,7 +281,7 @@ function callAjax2(){
 						<h2>용병 등록</h2>
 					</center>
 					<div class="container" id="formInnerWrapper">
-						<form name="yongjoin" id="materialForm" class="form" method="post" action="yongsignInsert.jsp" role="form" autocomplete="off">
+						<form name="yongjoin" id="materialForm" class="form" method="post" action="yongsignInsert.jsp?fn=1" role="form" autocomplete="off">
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-4">
@@ -331,8 +352,10 @@ function callAjax2(){
 								<div class="col-xs-4" style="margin-left:-25px;">
 									<select class="formInput" id="yTime" name="yTime">
 										<option value="">시간선택</option>
-										<option>1시</option>
-										<option>2시</option>
+										<option>13:00 - 15:00</option>
+										<option>16:00 - 18:00</option>
+										<option>18:00 - 20:00</option>
+										<option>20:00 - 22:00</option>
 									</select>
 								</div>
 							</div>
@@ -376,19 +399,19 @@ function callAjax2(){
 
 
 
-
+							<input type ="hidden" id="yId" name ="yId" value="<%=logid%>"/>
 							<div class="form-group" style="">
 								<div class="col-xs-4" style="font-size: 14px;"></div>
 
 								<div class="col-xs-4" style="margin-left: 45px;">
-
+									
 									<input type="button" value="등록" class="signbutton signbutton5" onClick="yongjoinsubmit()" style="font-size:18px; width:140px; letter-spacing:5px;">
 									<input type="button" value="취소" class="signbutton signbuttoncancel" style="font-size:18px; width:140px; letter-spacing:5px;" onClick="script: location.href='yonglist_1.jsp'">
 								</div>
 
 
 							</div>
-							<input type="hidden" name="hidden" value="" />
+							
 
 						</form>
 					</div>

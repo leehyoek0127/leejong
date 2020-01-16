@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <%@ page import="java.sql.*"%>
 <%
   String id = request.getParameter("id");
@@ -38,7 +39,7 @@
   Statement stmt = null;
   try {
 	  Class.forName("com.mysql.jdbc.Driver");
-	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal","root","0000");
+	  conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/footsal?useSSL=false&useUnicode=true&characterEncoding=utf8","root","0000");
 	  if (conn == null)
 		  throw new Exception("데이터베이스에 연결할 수 없습니다.<BR>");
 	  stmt = conn.createStatement();

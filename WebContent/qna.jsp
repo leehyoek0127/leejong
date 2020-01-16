@@ -1,5 +1,5 @@
-<%@page import="qnaPack.QnaDto"%>
-<%@page import="qnaPack.QnaDao"%>
+<%@page import="Qna.QnaDto"%>
+<%@page import="Qna.QnaDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
@@ -17,31 +17,7 @@
 	 }
 		//수정부분 끝
 %>
-<jsp:useBean id = "dao" class = "qnaPack.QnaDao"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<jsp:useBean id="dao" class="Qna.QnaDao" />
 <!doctype html>
 <html lang="en">
 <head>
@@ -81,54 +57,7 @@
 <link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#id").blur(function(){
-			
-				addHtml();
-			
-				$("#ajaxReturn").html("6~14자 사이의 영문 대소문자와 숫자만 사용가능합니다");
-			
-		});
-		
-	});
-	
-	function addHtml(){
-		
-		$.ajax({
-			type:"post",
-		url:"./qnaSelectOne.jsp",       
-		data:{
-	
-			index:$('#id').val()
-		},	
-		success:whenSuccess,
-		error:whenError
-		});
-	}
-	var confirmid = "";
-	function whenSuccess(resdata){
-		
-		var x=document.getElementById("ajaxReturn");
-		$("#ajaxReturn").html(resdata);
-		
-		if(resdata.includes("이미 사용중인 ID입니다")){
-			document.join.hidden.value="0";
-			x.style.color="red";
-		}
-		
-		else{
-			document.join.hidden.value="1";
-			x.style.color="blue";
-			confirmid = join.id.value;
-			
-			
-		}
-	}
-	function whenError(){
-		alert("Error");
-	}
-</script>
+
 <!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
 <script type='text/javascript'>
 	$(function() {
@@ -168,7 +97,7 @@
 					return false
 				});
 				$(document).mouseup(function(e) {
-					if($(e.target).parent("a.mypage").length!=0) {
+					if($(e.target).parent("a.mypage").length==0) {
 						$(".mypage").removeClass("menu-open");
 						$("fieldset#mypage_menu").hide();
 					}
@@ -202,15 +131,56 @@ $(function(){
 		}
 });
 </script>
+<!----------------------------오버레이 화면 띄우는 스크립트------------------------------------>
+<script>						
+	function selectOne(index) {
+		$.ajax({
+		type:"get",
+		
+		url:"./qnaSelectOne.jsp",       
+		data:{
+	
+			index:index
+		},	
+		success:whenSuccess2,
+		error:whenError2
+		});
+	}
+		function whenSuccess2(resdata){
+			console.log(resdata);
+			$("#innerpop").html(resdata);
+		}
+		function whenError2(){
+			alert("리스트에러");
+		}
+</script>
+<!----------------------------- 비밀글설정-------------------------------- -->
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("input:radio[name=qSecret]").click(function() {
+
+			if ($("input[name=qSecret]:checked").val() == "sc") {
+
+				$("input:password[name=qSecretNum]").attr("disabled", false);
+
+			} else if ($("input[name=qSecret]:checked").val() == "pb") {
+				$("input:password[name=qSecretNum]").attr("disabled", true);
+
+			}
+		});
+	});
+</script>
 <style>
-	#qnaTopTable td div {
-		height:50px;
-		margin:0px;
-	}
-	.nav_ban{
-		margin-top:0px;
-		padding:0px;
-	}
+#qnaTopTable td div {
+	height: 50px;
+	margin: 0px;
+}
+
+.nav_ban {
+	margin-top: 0px;
+	padding: 0px;
+}
 </style>
 </head>
 <body>
@@ -219,81 +189,81 @@ $(function(){
 		<jsp:include page="<%=includeurl%>" />
 	</header>
 
-		<div id="mainleft">
-			<div id="leftbanner">
-				<div id="banner1">
-					<img src="img/20191211.jpg" width="100%" height="100%" />
-				</div>
-				<div id="banner3">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border: 0;" allowfullscreen=""> </iframe>
-				</div>
+	<div id="mainleft">
+		<div id="leftbanner">
+			<div id="banner1">
+				<img src="img/20191211.jpg" width="100%" height="100%" />
+			</div>
+			<div id="banner3">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border: 0;" allowfullscreen=""> </iframe>
 			</div>
 		</div>
-		<section id="main">
-			<section id="mainright">
-				<div id="matList">
-					<div class="sec_ban2">
-						<ul class="nav_ban">
-							<li><img src="img/qna.jpg" style="width: 100%; height: 200px"></li>
-						</ul>
-					</div>
-					<div class="cbox">
+	</div>
+	<section id="main">
+		<section id="mainright">
+			<div id="matList">
+				<div class="sec_ban2">
+					<ul class="nav_ban">
+						<li><h3 style="margin-bottom: 30px;
+						 	margin-top: 5px;
+						    font-size: 50px;
+						    font-family: 'NanumBarunGothicL';
+						    line-height: 60px;
+						    text-align: center;">고 객 센  터</h3>
+					    </li>
+					</ul>
+				</div>
+				<div class="cbox1">
 					<form id="qnainsert" action="qnaInsert.jsp" method="post">
 						<table class="table table-striped" id="qnaTopTable">
-						<tbody>
+							<tbody>
 								<tr>
-									<td>제목</td>
+									<td style="width:200px;padding-top: 23px;">제목</td>
 									<td>
 										<div class="form-group has-success">
-											<input type="text" class="form-control" id="qTitle" name="qTitle">
+											<input type="text" class="form-control" id="qTitle" name="qTitle" style="width: 670px;margin-top: 7px;">
 										</div>
 									</td>
 								</tr>
 								<tr>
-									<td>작성자</td>
+									<td style="width:200px;padding-top: 23px;">작성자</td>
 									<td>
 										<div class="form-group has-success">
-											<input type="text" class="form-control" id="qMember" name="qMember" maxlength="10" style="width: 250px">
+											<input type="text" class="form-control" id="qMember" name="qMember" maxlength="10" style="width: 250px;margin-top: 7px;">
 										</div>
 									</td>
 								</tr>
 								<tr>
-									<td>비밀번호</td>
-									<td>
-										<div class="form-group has-warning" style="height: 45px">
-											<input type="text" class="form-control" id="qSecretNum" name="qSecretNum" maxlength="10" style="width: 250px">
-										</div>
-										<label class="control-label" for="inputWarning1" style="color: #8a6d3b;"> 글 수정, 삭제,비밀글 확인시 사용됩니다. </label>
-									</td>
+									
 								</tr>
 								<tr>
-									<td>비밀글 설정</td>
+									<td style="width:200px;padding-top: 23px;">비밀글 설정</td>
 									<td>
-										<div class="has-warning">
-											<div class="checkbox">
-												<label> <input type="checkbox" id="qSecret" name="secret" value="sc"> 비밀글 설정시 체크박스에 표시
+										<div class="form-group has-warning" style="height: 45px; text-align:left;">
+											<label class="control-label" for="inputWarning1" style="color: #8a6d3b;"> 글 수정,삭제,비밀글 확인시 사용됩니다. </label>
+											<div class="checkbox" style="height:25px;">
+												<label for="qSecret2"> <input type="radio" id="qSecret2" name="qSecret" value="pb">공개
+												</label> <label for="qSecret"> <input type="radio" id="qSecret" name="qSecret" value="sc" checked>비밀글 설정
 												</label>
 											</div>
+											<input type="password" class="form-control" id="qSecretNum" name="qSecretNum" maxlength="10" style="width: 250px;margin-top: 7px;">
 										</div>
 									</td>
 								</tr>
 								<tr>
-									<td>내용</td>
+									<td style="width:200px;padding-top: 23px;">내용</td>
 									<td>
-										<textarea id="qContents" name="qContents" class="form-control" rows="7" style="resize:none;">
-										</textarea>
+										<textarea id="qContents" name="qContents" class="form-control" rows="7" style="resize: none; width:670px;"></textarea>
 									</td>
 								</tr>
 							</tbody>
-						</form>
+							</form>
 						</table>
-						<a class="btn btn-default" style="float: right; margin-left: 5px;"> 목록 </a> <input type="submit" value="글쓰기" class="btn btn-default pull-right"/> <br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						
+						<a class="btn btn-default" style="float: right; margin-left: 5px;"> 목록 </a>
+						<input type="submit" value="글쓰기" class="btn btn-default pull-right" style="margin-right: 20px;" /><br><br><br></div>
+						<div class="cbox_second">
+						</div>
+						<div class="cbox2">
 						<table class="table table-striped">
 							<thead>
 								<tr id="tabletitle">
@@ -305,32 +275,31 @@ $(function(){
 								</tr>
 							</thead>
 							<tbody>
-						<% ArrayList<QnaDto> list = dao.selectAll(); %>
-							
-						<%
+								<% ArrayList<QnaDto> list = dao.selectAll(); %>
+
+								<%
 						
 						for(int i=0; i<list.size(); i++){
-						%>	<a>
-							<tr>
-								<td class="thgongji"><%=list.get(i).getqNo() %></td>
-								<td class="thtitle">
-									<a onClick="window.open('qnaSelectOne.jsp?index=<%=list.get(i).getqNo() %>','newwindow','width=430,height=500,location=no,status=no,scrollbar=yes');" class="button"><%=list.get(i).getqTitle() %></a><img src="img/lock2.png" class="secretimg">
-								</td>
-								<td class="thname" name="thname" id="thname"><%=list.get(i).getqMember() %></td>
-								<td class="thdate"><%=list.get(i).getqDate() %></td>
-								<td class="thview"><%=list.get(i).getqCount() %></td>
-							</tr>
-							</a>
-						<%	
+						%>
+								<a>
+									<tr>
+										<td class="thgongji" style="text-align:left;"><%=list.get(i).getqNo() %></td>
+										<td class="thtitle">
+											<a onClick="selectOne(<%=list.get(i).getqNo() %>); " class="button" id="listtt"><%=list.get(i).getqTitle() %></a><% if(list.get(i).getqSecret().equals("sc"))out.print("<img src='img/lock2.png' class='secretimg' style='width: 15px; height: 15px;'>");%>
+
+										</td>
+										<td class="thname" name="thname" id="thname"><%=list.get(i).getqMember() %></td>
+										<td class="thdate"><%=list.get(i).getqDate() %></td>
+										<td class="thview"><%=list.get(i).getqCount() %></td>
+									</tr>
+								</a>
+								<%	
 						}
 						%>
-								<div id="popup1" class="overlay">
-									<div class="popup">
-										
-										<a class="close" href="#">&times;</a>
-										<div class="content">Thank to pop me out of that button, but now i'm done so you can close this window.</div>
-									</div>
-								</div>
+
+								<div id="innerHtml"></div>
+
+								<div id="innerpop"></div>
 
 
 
@@ -338,31 +307,33 @@ $(function(){
 						</table>
 						<div class="text-center">
 							<ul class="pagination">
-								<li><a href="#" style="position:unset;">1</a></li>
-								<li><a href="#" style="position:unset;">2</a></li>
-								<li><a href="#" style="position:unset;">3</a></li>
-								<li><a href="#" style="position:unset;">4</a></li>
-								<li><a href="#" style="position:unset;">5</a></li>
-								<li><a href="#" style="position:unset;">6</a></li>
-								<li><a href="#" style="position:unset;">7</a></li>
-								<li><a href="#" style="position:unset;">8</a></li>
-								<li><a href="#" style="position:unset;">9</a></li>
-								<li><a href="#" style="position:unset;">10</a></li>
-								<li><a href="#" style="position:unset;">다음 ></a></li>
+								<li><a href="#" style="position: unset;">1</a></li>
+								<li><a href="#" style="position: unset;">2</a></li>
+								<li><a href="#" style="position: unset;">3</a></li>
+								<li><a href="#" style="position: unset;">4</a></li>
+								<li><a href="#" style="position: unset;">5</a></li>
+								<li><a href="#" style="position: unset;">6</a></li>
+								<li><a href="#" style="position: unset;">7</a></li>
+								<li><a href="#" style="position: unset;">8</a></li>
+								<li><a href="#" style="position: unset;">9</a></li>
+								<li><a href="#" style="position: unset;">10</a></li>
+								<li><a href="#" style="position: unset;">다음 ></a></li>
 							</ul>
 						</div>
-						<select class="form-control" style="width: 200px; float: left; margin-left: 150px;">
+						<select class="form-control" style="width: 200px; float: left; margin-left: 102px;">
 							<option>전체기간
 						</select>
 						<select class="form-control" style="width: 200px; float: left; margin-left: 10px;">
 							<option>제목+내용
 						</select>
 						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="검색어를 입력하세요" class="form-control" style="width: 300px; float: left; margin-left: 10px;"> <input class="btn btn-default" type="button" value="검 색" style="float: left; margin-left: 10px;">
-					</div>
-			</section>
+				</div>
+					<div class="cbox_second">
+						</div>
 		</section>
+	</section>
 
-	
+
 	<footer id="footer">
 		<jsp:include page="Footer.jsp" />
 	</footer>

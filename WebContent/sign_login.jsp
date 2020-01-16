@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-//2020_01_02 수정부분
-	String uss = (String)session.getAttribute("id");
+	//2020_01_02 수정부분
+	String uss = (String) session.getAttribute("id");
 	String log = "로그인";
-	if(uss==null)
-		uss="GUEST";
-	 else
-	 	log="로그아웃";
-		//수정부분 끝
+	if (uss == null)
+		uss = "GUEST";
+	else
+		log = "로그아웃";
+	//수정부분 끝
+	String headerurl = (String) request.getAttribute("javax.servlet.include.request_uri");
+	session.setAttribute("headerurl", headerurl);
 %>
+
 <!--마이페이지 접근 위한 css 파일 추가-->
 <link href="css/frontlogin.css" media="screen, projection" rel="stylesheet" type="text/css">
 

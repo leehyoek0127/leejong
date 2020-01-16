@@ -2,19 +2,24 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@page import="qnaPack.QnaDto"%>
-<%@page import="qnaPack.QnaDao"%>
+<%@page import="Qna.QnaDto"%>
+<%@page import="Qna.QnaDao"%>
 <%@page import="java.util.ArrayList"%>
 <%request.setCharacterEncoding("UTF-8");%>
-<jsp:useBean id="dao" class="qnaPack.QnaDao" />
+<jsp:useBean id="dao" class="Qna.QnaDao" />
 <%
   QnaDto qnaNew = new QnaDto();
   int qNo = Integer.parseInt(request.getParameter("index"));
   QnaDto one = dao.selectone(qNo);
   String name = one.getqMember();
+  String pw = one.getqSecretNum();
+  Date date = one.getqDate();
   String text = one.getqContents();
+  String title = one.getqTitle();
+  String email= one.getqEmail();
+  String id = one.getqId();
   
-  out.println(name);
+  
   
   
   
@@ -22,9 +27,10 @@
   
   
 %>
-<div id="popup<%=qNo%>" class="overlay">
-	<div class="popup">
-		<h3>Q&A</h3>
+<div id="popup<%=qNo%> overlay" class="overlay">
+	<div class="popup" style="height:550px;">
+		<h2>Q&A</h2>
+		<br>
 		<table>
 			<colgroup>
 				<col class="t01">
@@ -34,61 +40,80 @@
 			</colgroup>
 			<tbody>
 				<tr>
-					<th scope="row">작성자</th>
-					<td class="al_left"><%=name %></td>
-					<th scope="row">지점</th>
-					<td class="al_left">동대문점</td>
+					<th scope="row" style="width:80px;height:70px;">제목</th>
+					<td class="al_left" style="text-align:left;"><%=title %></td>
 				</tr>
 				<tr>
-					<th scope="row">매치일자</th>
-					<td class="al_left" colspan="3">2020.01.09(목) 19:00 ~ 20:00</td>
+					<th scope="row" style="width:80px;height:70px;">작성자</th>
+					<td class="al_left" style="text-align:left;"><%=name %></td>
 				</tr>
 				<tr>
-					<th scope="row">구장</th>
-					<td class="al_left" colspan="3">B구장</td>
+					<th scope="row" style="width:80px;height:70px;">작성일</th>
+					<td class="al_left" colspan="3" style="text-align:left;"><%=date %></td>
 				</tr>
-				<tr>
-					<th scope="row">연락처</th>
-					<td class="al_left">010-7484-3858</td>
-					<th scope="row">팀 수준</th>
-					<td class="al_left">
-						<option value="4">중하</option>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">구인가능여부</th>
-					<td class="al_left" colspan="3">
 
-						<span class="state end">마감</span>
 
-					</td>
-				</tr>
+
 				<tr>
+					<th scope="row" >내용</th>
 					<td class="al_left" colspan="4">
-						<div>
+						<div style=" height: 100px;text-align:left;">
 							<%=text %>
 						</div>
 					</td>
 				</tr>
 
 				<tr>
-					<th scope="row">비밀번호</th>
-					<td class="al_left" colspan="3">
-						<input type="password" id="pwd">
+					<th scope="row"><div id="dddd">비밀번호</div></th>
+					<td class="al_left" colspan="3" >
+						<input type="password" id="pwd" style="width:90px;float:left;">
 					</td>
 				</tr>
-
-			</tbody>
+				<tr>
+					<td style="width:180px;">
+					<br>
+					<br>
+			<input class="qnabutton qnabutton5" type="button" value="수정" style="font-size: 15px; width: 60px;"
+			onclick="script: location.href='qnaupdate.jsp?qNo='+'<%=one.getqNo()%>'+'&qTitle='+'<%=one.getqTitle()%>'+'&qMember='+'<%=one.getqMember()%>'+'&qContents='+'<%=one.getqContents() %>';">
+			<input class="qnabutton qnabutton5" type="button" value="삭제" id="delete" name="delete"
+			style="font-size: 15px; width: 60px;"
+			onClick="location.href='qnadelete.jsp?qSecretNum='+'<%=one.getqSecretNum()%>'+'&qNo='+<%=one.getqNo() %>;" />		
+						
+					
+					</td>
+					
+				</tr>
+				<tr>
+				<td>
+				<br>
+				<td>
+				</tr>
+				</tbody>
+				
 		</table>
-
-
-
-
-		</table>
-		<a class="close" href="#">&times;</a>
 		
+
+
+
+
+
+		<a class="close" onclick="close1();">&times;</a>
+
 	</div>
 </div>
+<script>
+	function delete1() {
+		//qna게시글딜리트하는 dao 호출문 매개변수는 qNo
+		location.href="qna.jsp";
+	}
+</script>
+<script>
+	function close1() {
+		
+		$("#innerpop").html("");
+	}
+</script>
+
 <%
 //QnaDao dao2 = new QnaDao();
 //ArrayList<QnaDto> arraylist = new ArrayList<QnaDto> ();

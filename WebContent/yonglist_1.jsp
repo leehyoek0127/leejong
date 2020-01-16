@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="Yonglist.YonglistDao"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Yonglist.YonglistDto"%>
+<%@ page import="java.util.Date"%>
 <%
+String url = request.getServletPath();
+session.setAttribute("url",url);
 	//2020_01_02 수정부분
 	String includeurl = "header.jsp";
 	String uss = (String) session.getAttribute("id");
@@ -12,6 +17,8 @@
 		includeurl = "sign_login.jsp";
 	}
 	//수정부분 끝
+	//2020.01.14 로그인 id 수정
+	String yid = (String) session.getAttribute("id");
 %>
 <!doctype html>
 <html lang="en">
@@ -31,7 +38,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<<!--용병리스트 게시판 css파일 수정 2020.01.08--> -->
+<!--용병리스트 게시판 css파일 수정 2020.01.08-->
 <link rel="stylesheet" href="yonglist_1_body.css">
 <!----------------------------바디 스타일------------------------------------>
 
@@ -80,6 +87,7 @@
 
 	});
 </script>
+
 <!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
 <script>
 	/*스크롤 내리면 메뉴 위치 이동하는 기능------따로빼면 작동xxxxxx*/
@@ -104,10 +112,43 @@
 		}
 	});
 </script>
+<!--2020.01.09Overray css추가 -->
+<link rel="stylesheet" href="css/qnaOverray.css">
+<!----------------------------오버레이 화면 띄우는 스크립트------------------------------------>
+<script>						
+	function selectOne(index,yid) {
+		$.ajax({
+		type:"get",
+		
+		url:"./yongSelectOne.jsp",       
+		data:{
+	
+			index:index,
+			yid:yid
+		},	
+		success:whenSuccess2,
+		error:whenError2
+		});
+	}
+		function whenSuccess2(resdata){
+			console.log(resdata);
+			$("#innerpop").html(resdata);
+		}
+		function whenError2(){
+			alert("리스트에러");
+		}
+</script>
 <style>
+.pagination li a{
+	position:unset;
+}
 </style>
 </head>
 <body>
+	<!-- 유즈빈 사용 -->
+	<jsp:useBean id ="yl" class="Yonglist.YonglistDao"/>
+	
+	
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
@@ -128,85 +169,48 @@
 		<section id="mainright">
 			<div id="matList">
 				<div class="cbox">
-					<table class="table table-striped">
+					<table class="table table-striped" style="font-size: 15px;">
 						<thead>
 							<tr id="tabletitle">
-								<th scope="col" class="thno"><span>지점</span></th>						
+								<th scope="col" class="thno" ><span>지점</span></th>		
 								<th scope="col" class="thtitle" style=" text-align:center;" ><span>매치일자</span></th>
+								<th scope="col" class="thtitle" style=" text-align:center;" ><span>매치시간대</span></th>									
 								<th scope="col" class="thname"><span>작성자</span></th>							
-								<th scope="col" class="thview"><span>작성일자</span></th>
 								<th scope="col" class="thview"><span>신청</span></th>
 							</tr>
 						</thead>
 						<tbody>
-							<input class="btn btn-default" type="button" value="용병등록" style="float: right; margin: 10px;" onClick="location.href='yongsign.html'">
-							<tr>
-								<td class="thgongji">강남점</td>
-								
-								<td class="thdate2" >2020.01.09(목)20:00 ~ 22:00</td>
-								<td class="thname">박**</td>
-								
-								<td class="thview">2020.01.07</td>
-								<td class="thview">마감</td>
-							</tr>
-							<tr>
-								<td class="thgongji">인천점</td>
-								
-								<td class="thtitle">2020.01.09(목)17:00 ~ 20:00</td>
-								<td class="thname">김 팡 호</td>
-								
-								<td class="thview">2020.01.06</td>
-								<td class="thview">진행중</td>
-							</tr>
-							<tr>
-								<td class="thgongji">강남점</td>
+							<input class="btn btn-default" type="button" value="용병등록" style="float: right; margin: 10px;" onClick="location.href='yongsign.jsp'">
 							
-								<td class="thtitle">2020.01.08(수)14:00 ~ 16:00</td>
-								<td class="thname">박**</td>
-								
-								<td class="thview">2020.01.05</td>
-								<td class="thview">마감</td>
-							</tr>
-							<tr>
-								<td class="thgongji">인천점</td>
-								
-								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
-								<td class="thname">김 팡 호</td>
-								
-								<td class="thview">2020.01.04</td>
-								<td class="thview">진행중</td>
-							</tr>
-							<tr>
-								<td class="thgongji">강남점</td>
-								
-								<td class="thtitle">2020.01.08(수) 20:00 ~ 22:00</td>
-								<td class="thname">박**</td>
-								
-								<td class="thview">2020.01.03</td>
-								<td class="thview">마감</td>
-							</tr>
-							<tr>
-								<td class="thgongji">인천점</td>
+							<% 
+						
+							ArrayList<YonglistDto> yong = yl.select();
+							for(int i=0;i<yong.size();i++){
+							%>
 							
-								<td class="thtitle">2020.01.08(수) 17:00 ~ 20:00</td>
-								<td class="thname">김 팡 호</td>
-								
-								<td class="thview">2020.01.02</td>
-								<td class="thview">진행중</td>
-							</tr>
-							<tr>
-								<td class="thgongji">강남점</td>
 							
-								<td class="thtitle">2020.01.07(화) 20:00 ~ 22:00</td>
-								<td class="thname">박**</td>
+
+							
+							<tr>
+								<td class="thgongji" ><%=yong.get(i).getyBranch()%></td>
 								
-								<td class="thview">2020.01.01</td>
-								<td class="thview">마감</td>
+								<td class="thdate2"  style=" text-align:center;"><a onClick="selectOne(<%=yong.get(i).getyNo() %>,'<%=yong.get(i).getyId() %>'); " class="button" id="listtt">
+									<%=yong.get(i).getyMatchdate()%></a></td>
+								
+								<td class="thdate2"  style=" text-align:center;"><%=yong.get(i).getyTime()%></td>
+								
+								<td class="thname"><%=yong.get(i).getyMember() %></td>
+								
+							
+								<td class="thview"><%=yong.get(i).getyApply() %></td>
 							</tr>
-					
+						
+							<%}%>
+						
 						
 						</tbody>
 					</table>
+					<div id="innerpop"></div>
 					<div class="text-center">
 						<ul class="pagination">
 							<li><a href="#">1</a></li>
@@ -230,10 +234,10 @@
 						<option>제목+내용
 					</select>
 					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="검색어를 입력하세요" class="form-control" style="width: 300px; float: left; margin-left: 10px;"> <input class="btn btn-default" type="button" value="검 색" style="float: left; margin-left: 10px;">
-					</form>
+				
 				</div>
 			</div>
-			</div>
+			
 		</section>
 	</section>
 	<footer id="footer">

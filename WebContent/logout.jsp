@@ -11,6 +11,7 @@ String url = (String)session.getAttribute("url");
  session.removeAttribute("hp1");
  session.removeAttribute("hp2");
  session.removeAttribute("hp3");
+ session.removeAttribute("url");
 
 if(url.equals("/futsal0106/logincom.jsp")){
 	 response.sendRedirect("gal.jsp");

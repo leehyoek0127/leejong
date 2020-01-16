@@ -34,9 +34,11 @@
 
 	#tabletitle{
 		width:100%;,font-size:13px;height:40px;
+		text-align:center;
 	}
 	table{
 		width:100%;
+		
 	}
 	.thgongji{
 		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
@@ -45,7 +47,10 @@
 		width:208px;height:40px;padding:2px;text-align:left;
 	}
 	.thtitle{
-		width:306px;height:40px;padding:2px;text-align:left; text-align:center;
+		width:306px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate2{
+		width:306px;height:40px;padding:2px;text-align:center;
 	}
 	.thname{
 	width:118px;height:40px;padding:2px;text-align:center;

@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	String headerurl = (String)session.getAttribute("headerurl");
-	out.println(headerurl);
+	String headerurl = (String) session.getAttribute("headerurl");
 %>
 <script>
-	
-	
-	function mypage(url){
-		if(url.includes('/leeCat/final_futsal20200106/header.jsp')){
-			location.href="dsagsdg.jsp"
+	function mypage2(url) {
+
+		if (url == "/Ajax2/header.jsp") {
+			location.href = "sign.jsp"
+		} else {
+			location.href = "logincom.jsp"
 		}
+
 	}
 </script>
 <!doctype html>
@@ -26,7 +27,7 @@
 <body>
 	<div id="quick_">
 		<ul class="quick_inner">
-			<li class="q1"><a href="#" title="마이페이지" onClick="mypage('dddddddddd')"> <img src="img/mypage_icon.png" alt="마이페이지">
+			<li class="q1"><a href="#" title="마이페이지" onClick="mypage2('<%=headerurl%>')"> <img src="img/mypage_icon.png" alt="마이페이지">
 			</a> <span>마이페이지</span></li>
 
 			<li class="q2"><a href="reservation.jsp" title="풋살장예약"> <img src="img/reservation_icon.png" alt="풋살장예약">

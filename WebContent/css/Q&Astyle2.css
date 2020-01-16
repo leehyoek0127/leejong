@@ -35,8 +35,14 @@
 		text-align:left;
 	}
 
-	.cbox{
-		width:100%;border-width: 1pt;border-color:black;border-style:solid;float:left;
+	.cbox1{
+		width:100%;height: 550px;float:left;padding-top: 25px;padding-left: 11px;text-align: center;
+	}
+	.cbox2{
+		width:100%;height: 660px;float:left;padding-top: 25px;padding-left: 11px;text-align: center;
+	}
+	.cbox_second{
+	width:100%;height: 110px;float:left;
 	}
 	aside{
 		width:200px;height:750px;

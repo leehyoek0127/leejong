@@ -148,14 +148,16 @@
 			if(idReg.test(join.id.value))
 				callAjax();
 			else{
-				$("#ajaxReturn").html("6~14자 사이의 영문 대소문자와 숫자만 사용가능합니다");
+				$("#ajaxReturn").html("6~12자 사이의 영문 대소문자와 숫자만 사용가능합니다");
 			}
 		});
+		var n=document.getElementById("nameReturn");
 		$("#name").blur(function(){
 			if(join.name.value.length!=0)
 				$("#nameReturn").html("");
 			else{     
 				$("#nameReturn").html("이름을 입력해주세요.");
+				n.style.color="red";
 			}
 		});
 		
@@ -228,9 +230,26 @@ function callAjax2(){
 	}
 }
 </script>
+<!----------------------------alam form 추가 2020.01.06-------------------------->
 <script type="text/javascript">
-
-</script>
+			$(document).ready(function() {
+				$(".mypage").click(function(e) {          
+					e.preventDefault();
+					$("fieldset#mypage_menu").toggle();
+					$(".mypage").toggleClass("menu-open");
+				});		
+				$("fieldset#mypage_menu").mouseup(function() {
+					return false
+				});
+				$(document).mouseup(function(e) {
+					if($(e.target).parent("a.mypage").length!=1) {
+						$(".mypage").removeClass("menu-open");
+						$("fieldset#mypage_menu").hide();
+					}
+				});			
+				
+			});
+	</script>
 </head>
 <body>
 	<header>
@@ -245,7 +264,7 @@ function callAjax2(){
 			</div>
 
 			<div id="banner3">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d127.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border: 0;" allowfullscreen=""></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25325.265446899888!2d147.02924799651784!3d37.492391917303266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5bed583f92d%3A0xc93c837d2875ade6!2z7ZKL7IK07J6l!5e0!3m2!1sko!2skr!4v1575961834128!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border: 0;" allowfullscreen=""></iframe>
 			</div>
 		</div>
 
@@ -258,7 +277,7 @@ function callAjax2(){
 			<div id="matList">
 				<div class="container" id="formOutterWrapper">
 					<center>
-						<h2>그린풋살파크 회원가입</h2>
+						<h2 id="sign_title">JOIN US</h2>
 					</center>
 					<div class="container" id="formInnerWrapper">
 						<form name="join" id="materialForm" class="form" method="post" action="signInsert.jsp" role="form" autocomplete="off">
@@ -266,14 +285,14 @@ function callAjax2(){
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
 									<label class="labels" for="id">아이디<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="id" name="id" >
-									<div id="ajaxReturn" style="color:red;"></div>
+									<div id="ajaxReturn" style="color:red; font-size:12px;"></div>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
 									<label class="labels" for="name">이름<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="name" name="name">
-									<div id="nameReturn"></div>
+									<div id="nameReturn" style="color:red; font-size:12px;"></div>
 								</div>
 								<div class="col-xs-2"></div>
 							</div>
@@ -284,15 +303,17 @@ function callAjax2(){
 								</div>
 								<div class="col-xs-4">
 									<label class="labels" for="pwch">비밀번호재확인<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="password" class="formInput" id="pwch" name="pwch" onBlur="callAjax2()">
-									<div id="pwReturn"></div>
+									<div id="pwReturn" style="color:red; font-size:12px;"></div>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400; width: 182px;">
+								<div class="col-xs-2 labels">
+								<label class="labels">
 									휴대폰번호<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+									</label>
 								</div>
-								<div class="col-xs-2">
+								<div class="col-xs-2" style="margin-left:-10px;">
 									<select class="formInput" id="hp1" name="hp1">
 										<option>010</option>
 										<option>011</option>
@@ -301,6 +322,7 @@ function callAjax2(){
 										<option>018</option>
 										<option>019</option>
 									</select>
+									<div id="hpReturn" style="color:red;font-size:12px;"></div>
 								</div>
 								<div style="float: left;">-</div>
 								<div class="col-xs-2">
@@ -309,13 +331,14 @@ function callAjax2(){
 								<div style="float: left;">-</div>
 								<div class="col-xs-2">
 									<label class="labels" for="hp3"></label> <input type="text" class="formInput" id="hp3" name="hp3">
-								</div>
-								<div id="hpReturn"></div>
+								</div>	
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-3">
-									<label class="labels" for="em1">이메일<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label> <input type="text" class="formInput" id="em1" name="em1">
+									<label class="labels" for="em1">이메일<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
+									<input type="text" class="formInput" id="em1" name="em1">
+									<div id="emReturn" style="color:red;font-size:12px;"></div>
 								</div>
 
 								<div class="col-xs-3">
@@ -324,24 +347,25 @@ function callAjax2(){
 								</div>
 								<div class="col-xs-2">
 
-									<select name="mail" class=formInput onChange=mailaddr(join.mail)>
+									<select name="mail" class=formInput onChange=mailaddr(join.mail) style="width:163px;">
 										<option value="">직접입력</option>
 										<option>naver.com</option>
 										<option>hanmail.net</option>
 										<option>gmail.com</option>
 									</select>
 								</div>
-								<div id="emReturn"></div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">성별</div>
+								<div class="col-xs-2">
+								<label class="labels">성별</label>
+								</div>
 								<div class="col-xs-6 radio">
 									<div class="col-xs-3">
-										<label> <input type="radio" name="gender" value="female" checked>여성 </label>
+										<label2> <input type="radio" name="gender" value="female" checked>여성 </label2>
 									</div>
 									<div class="col-xs-3">
-										<label> <input type="radio" name="gender" value="male">남성 </label>
+										<label2> <input type="radio" name="gender" value="male">남성 </label2>
 									</div>
 								</div>
 
@@ -349,8 +373,8 @@ function callAjax2(){
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400; width: 182px;">
-									주소<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+								<div class="col-xs-2" style="font-size: 14px; letter-spacing: 4px; font-weight: 400; width: 182px;">
+									<label class="labels">주소<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></label>
 								</div>
 
 								<div class="col-xs-2">
@@ -364,10 +388,10 @@ function callAjax2(){
 							</div>
 							<div class="form-group">
 								<div class="col-xs-4"></div>
-								<div class="col-xs-2" style="width: 200px;">
+								<div class="col-xs-2" style="width: 192px; margin-left:-8px;">
 									<label class="labels" for="adr0"></label> <input type="text" class="formInput" id="sample6_address" name="adr1" placeholder="주소" readonly>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-4" style="width:395px;">
 									<label class="labels" for="adr1"></label> <input type="text" class="formInput" id="sample6_detailAddress" name="adr2" placeholder="상세주소">
 								</div>
 							</div>
@@ -375,9 +399,9 @@ function callAjax2(){
 							<div class="form-group">
 								<div class="col-xs-2"></div>
 
-								<div class="col-xs-1" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">생년월일</div>
-
-								<div class="col-xs-3">
+								<div class="col-xs-1"><label class="labels">생년월일</label></div>
+								<div class="col-xs-1"></div>
+								<div class="col-xs-3" style="margin-top:8px; margin-left:-16px;">
 									<select name="yy" class="btn btn-default">
 										<option>1984
 										<option>1985
@@ -450,7 +474,7 @@ function callAjax2(){
 										<option value="31">31
 									</select>
 								</div>
-								<div class="col-xs-1" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">사진</div>
+								<div class="col-xs-1"><label class="labels">사진</label></div>
 								<div class="col-xs-3">
 									<input type="file" name="pic">
 								</div>
@@ -460,8 +484,8 @@ function callAjax2(){
 
 							<div class="form-group">
 								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-1" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">실력</div>
-								<div class="col-xs-3">
+								<div class="col-xs-1"><label class="labels">실력</label></div>
+								<div class="col-xs-3" style="margin-left:82px;">
 									<select name="lv" class=formInput>
 										<option value="5">상
 										<option value="4">중상
@@ -474,42 +498,47 @@ function callAjax2(){
 							</div>
 							<div class="form-group">
 								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">소속팀존재유무</div>
+								<div class="col-xs-2" style="font-size: 14px; letter-spacing: 4px; font-weight: 400;"><label class="labels">소속팀존재유무</label></div>
 								<div class="col-xs-6 radio">
 									<div class="col-xs-3">
-										<label> <input type="radio" name="team" id="team" value="teamok" checked> 있음 </label>
+										<label2> <input type="radio" name="team" id="team" value="teamok" checked> 있음 </label2>
 									</div>
 
 									<div class="col-xs-3">
-										<label> <input type="radio" name="team" id="team" value="teamno"> 없음 </label>
+										<label2> <input type="radio" name="team" id="team" value="teamno"> 없음 </label2>
 									</div>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">선호포지션</div>
+								<div class="col-xs-2" style="font-size: 14px; letter-spacing: 4px; font-weight: 400;">
+								<label class="labels">선호포지션</label>
+								</div>
 								<div class="col-xs-8 checkbox">
+								<div id="checkboxmargin">
 									<div class="col-xs-2">
-										<label> <input type="checkbox" name=hobby value="FW"> FW </label>
+										<label2> <input type="checkbox" name=hobby value="FW"> FW </label2>
 									</div>
 
 									<div class="col-xs-2">
-										<label> <input type="checkbox" name=hobby value="MF"> MF </label>
+										<label2> <input type="checkbox" name=hobby value="MF"> MF </label2>
 									</div>
 									<div class="col-xs-2">
-										<label> <input type="checkbox" name=hobby value="DF"> DF </label>
+										<label2> <input type="checkbox" name=hobby value="DF"> DF </label2>
 									</div>
 									<div class="col-xs-2">
-										<label> <input type="checkbox" name=hobby value="GK"> GK </label>
+										<label2> <input type="checkbox" name=hobby value="GK"> GK </label2>
+									</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">비밀번호확인질문</div>
+								<div class="col-xs-2"></div>
+								<div class="col-xs-2">
+								<label class="labels">비밀번호확인질문</label></div>
 								<div class="col-xs-6">
-									<select name="passwd2" size="1" class=formInput style="width: 350px; height: 30px;">
+									<select name="passwd2" size="1" class=formInput style="width:340px; height: 30px; margin-left:-15px;">
 										<option value="Q01">기억에 남는 추억의 장소는?
 										<option value="Q02">자신의 인생 좌우명은?
 										<option value="Q03">자신의 보물 제1호는?
@@ -520,7 +549,7 @@ function callAjax2(){
 										<option value="Q08">인상 깊게 본 축구경기는?
 										<option value="Q09">신었던 축구화 중에서 제일좋은 축구화는?
 										<option value="Q10">자신이 제일 좋아하는 축구팀은?
-										<option value="Q11">친구들에게 공개하지 않은 어릴 적 별명이 있다면?
+										<option value="Q11">공개하지 않는 어릴 적 별명이 있다면?
 										<option value="Q12">초등학교 때 기억에 남는 짝꿍 이름은?
 										<option value="Q13">다시 태어나면 되고 싶은 축구선수는?
 										<option value="Q14">제일 좋아하는 축구선수의 이름은?
@@ -528,20 +557,24 @@ function callAjax2(){
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-8">
+								<div class="col-xs-2"></div>
+								<div class="col-xs-8" style="width:785px;">
 									<label class="labels" for="passwd2ans">비밀번호확인답변</label> <input type="text" class="formInput" id="passwd2ans" name="passwd2ans">
 								</div>
 							</div>
 
-							<div class="form-group">
-								<div class="col-xs-2" style="font-size: 14px;"></div>
-								<div class="col-xs-2" style="font-size: 12px; letter-spacing: 4px; font-weight: 400; width: 182px;">
+							<div class="form-group" style="height:30px;">
+								<div class="col-xs-2"></div>
+								<div class="col-xs-2">
+								<label class="labels">
 									환불계좌정보<img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+									</label>
 								</div>
-								<div class="col-xs-1" style="font-size: 12px; letter-spacing: 4px; font-weight: 400;">은행명</div>
-								<div class="col-xs-7">
-									<select name="bank" size="1" class=formInput style="width: 350px; height: 30px;">
+							</div>
+							<div class="form-group">
+								<div class="col-xs-2"></div>
+								<div class="col-xs-2" style="margin-top:5px;">
+									<select name="bank" size="1" class=formInput style="width: 130px; height: 30px;">
 										<option value="001">한국은행
 										<option value="002">산업은행
 										<option value="003">기업은행
@@ -560,15 +593,10 @@ function callAjax2(){
 										<option value="088">신한은행
 									</select>
 								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-xs-4" style="font-size: 14px;"></div>
-
-
-								<div class="col-xs-3" style="margin-left: -10px;">
+								<div class="col-xs-3" style="margin-left: -9px; width:375px;">
 									<label class="labels" for="accountnumber">계좌번호</label> <input type="text" class="formInput" id="accountnumber" name="accountnumber">
 								</div>
-								<div class="col-xs-1" style="font-size: 16px; font-weight: 400;"></div>
+								<div class="col-xs-1" style="font-size: 16px; font-weight: 400; width:20px;"></div>
 								<div class="col-xs-2" style="width: 203px;">
 									<label class="labels" for="accountholder">예금주</label> <input type="text" class="formInput" id="accountholder" name="accountholder">
 								</div>
@@ -582,14 +610,13 @@ function callAjax2(){
 							<div class="form-group" style="">
 								<div class="col-xs-4" style="font-size: 14px;"></div>
 
-								<div class="col-xs-3" style="margin-left: 90px;">
+								<div class="col-xs-3" style="margin-left: 90px; margin-bottom:90px;">
 
 									<input type="button" value="가입" class="signbutton signbutton5" onClick="joinsubmit()"><input type="button" value="취소" class="signbutton signbuttoncancel" onClick="script: location.href='sign.jsp'">
 								</div>
-
-
 							</div>
-							<input type="hidden" name="hidden" value="" />
+
+							<input type="hidden" name="hidden" value=""/>
 
 						</form>
 					</div>
