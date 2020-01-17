@@ -1,0 +1,220 @@
+
+
+ul{ padding-left: 0px;
+	}
+	.subli ul{
+		padding-left:0px;
+	}
+	.subli_img{
+		width:60px;height:60px;
+	}
+	
+		
+	
+	
+	.nick{
+		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
+	}
+	.date{
+		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
+	}
+	.clear{
+		clear:both;}
+	
+	#logo{
+		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
+	}
+	
+	.nav_ban ul{
+		 width:100%;	float:left;
+	}
+	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; margin:100px;
+	}
+
+	.sec_ban2{
+	width:100%; float:left;
+	text-align:center;
+	}
+	.article_pic{
+		float:left; width:780px;  background-color:white;
+		text-align:left;
+	}
+
+	.cbox{
+		width:100%;height:120px;border-width: 1pt;border-color:black;border-style:solid;float:left;
+	}
+	aside{
+		width:200px;height:750px;
+		float:left;
+	}
+
+
+	#tabletitle{
+		width:100%;,font-size:13px;height:40px;
+	}
+	table{
+		width:100%;
+	}
+	.thgongji{
+		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
+	}
+	.thno{
+		width:118px;height:40px;padding:2px;text-align:left;
+	}
+	.thtitle{
+		width:506px;height:40px;padding:2px;text-align:left;
+	}
+	.thname{
+	width:118px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate{
+	width:80px;height:40px;padding:2px;text-align:center;
+	}
+	.thview{
+	width:68px;height:40px;padding:2px;text-align:center;
+	}
+	.imgst{
+	width:210px; height:200px;
+	}
+	.reimg{
+	width:70px;height:25px;}
+	.secretimg{
+	width:30px;height:25px;
+	}
+	.numlist ul{
+		display:inline;font-size:13px;margin:0 auto;
+	}
+	.numlist li{
+		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
+		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
+	}
+
+.select	{
+		color: #403d3f;
+		font-family: 'Nanum Gothic','NanumBarunGothic','AppleGothic','Dotum', sans-serif;
+		font-weight: normal;
+		word-spacing: 0;
+		letter-spacing: -0.3px;
+		font-size: 0;
+		line-height: 47px;
+		margin: 0;
+		display: inline-block;
+		position: relative;
+		padding: 0;
+		border: 1px solid #e0e0e0;
+		background: #fff;
+		box-sizing: border-box;
+		margin-right: 8px;
+		height: 47px;
+		margin-left: 14px;
+		width: 20%;
+		}
+	.select:after	{right:7px; background-size:8px auto;}
+	.select label	{height:36px; font-size:14px; line-height:36px}
+	.select select	{height:36px; font-size:14px; line-height:36px}
+
+	.select_box{
+		margin: 0;
+		border: 1px solid #999;
+		color: #a6a6a6;
+		font-weight: bold;
+		position: relative;
+		z-index: 1;
+		padding: 0 4px;
+		width: 100%;
+		vertical-align: top;
+		opacity: 0;
+		height: 45px;
+		line-height: 45px;
+	}
+	.btn_search{
+		
+			font-family: "Nanum Gothic", "맑은 고딕", AppleGothic, 돋움, Dotum, sans-serif;
+			cursor: pointer;
+			white-space: nowrap;
+			padding: 0px;
+			border-width: 0px;
+			border-style: initial;
+			border-color: initial;
+			border-image: initial;
+			transition: all 0.25s ease-out 0s;
+			display: inline-block;
+			width: 167px;
+			background: #4c89cd;
+			color: #fff;
+			font-size: 24px;
+			line-height: 47px;
+			text-align: center;
+			vertical-align: top;	
+			margin: 10px 20px;
+	}
+	.galsearch{
+	
+	font-family: 'Nanum Gothic','NanumBarunGothic','AppleGothic','Dotum', sans-serif;
+	font-weight: normal;
+	word-spacing: 0;
+	letter-spacing: -0.3px;
+	background: #2c3c57 ;
+	height:68px;
+	}
+
+	/*리그 검색배너 이미지 및 검색 체크박스스타일*/
+	#leaguesearchimg{
+	float:left;height:68px;
+
+	}
+	#leagueyear{
+	width:200px; height:40px; float:left;margin: 12px 20px;font-size:20px;
+	}
+	#leaguemonth{
+	width:400px; height:40px;float:left;margin: 12px 20px;font-size:20px;
+	}
+
+	.teamrank{
+			width:47%; height:416px;float:left;margin-top: 50px;
+	}
+	.playerrank{
+			width:47%; height:416px;float:right;margin-top: 50px;
+	}
+	
+
+	/*Team Rank 제목 바 h4 스타일*/
+	
+	.h_bar	{position:relative; padding-left:26px; color:#2c3c57; font-size:30px; line-height:40px; letter-spacing:-2px}
+	.h_bar:before{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:30px; background:#2c3c57}
+	.h_bar:after{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:6px; background:#aec8f4}
+  
+
+  	/*리그 팀 랭킹 테이블 스타일*/
+	.rank td {
+	font-size: 16px;padding: 10px 0;
+    height: 22px;text-align:center;
+	}
+	.rank th {
+	font-size: 16px;padding: 10px 0;
+    height: 22px;text-align:center;
+	}
+	.rank{
+	font-size: 16px;padding: 5px 0;
+    text-align:center;
+	}
+	.player{
+	font-size: 16px;padding: 5px 0;
+    text-align:center;
+	}
+	.player td{
+	
+	font-size: 16px;padding: 5px 0;
+    height: 10px;
+	height:50%;}
+	#rankhead th {
+		text-align:center;border-top:2px solid;
+	}
+	#rankhead td {
+		text-align:center;border-top:2px solid;
+	}
+	/*playerrank 스타일*/
+	.cont{
+	position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
+
+  
