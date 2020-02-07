@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ㅡmodel.Action에서 실행 --> <!-- resultType=return=결과값을 남기자 --> <!-- 형태는 늘 Dto -->
+<mapper namespace="abc">
+<select id="selectMember"  parameterType="String" resultType="SignDto"><!--  기존의 ResultSet 에 저장해주던 것을 형태 Dto 타입 return 으로 저장해준다. -->
+	select * from sign where id = #{id};             
+</select>
+ <select id="IDCheck" parameterType="String" resultType="SignDto">select * from sign where id=#{id};</select>
+ <insert id="Signinsert" parameterType="SignDto">insert into sign (id, name, pw, hp1, hp2, hp3, em1, em2, gender, hp, adr1, adr2, yy, mm, dd, pic, lv, team, hobby, passwd2, passwd2ans, bank, accountnumber, accountholder) values(#{id},#{name},#{pw},#{hp1},#{hp2},#{hp3},#{em1},#{em2},#{gender},#{hp},#{adr1},#{adr2},#{yy},#{mm},#{dd},#{pic},#{lv},#{team},#{hobby},#{passwd2},#{passwd2ans},#{bank},#{accountnumber},#{accountholder});</insert>
+ <select id="Login" parameterType="SignDto" resultType="SignDto">select * from sign where id=#{id} and pw=#{pw};</select>
+ <update id = "modifyPw" parameterType="SignDto">update sign set pw = #{pw} where id=#{id}; </update>
+ <update id = "modifySign" parameterType="SignDto">update sign set pw = #{pw}, hp1 = #{hp1}, hp2 = #{hp2}, hp3 = #{hp3}, em1 = #{em1}, em2 = #{em2}, hp = #{hp}, adr1 = #{adr1}, adr2 = #{adr2}, yy = #{yy}, mm = #{mm}, dd = #{dd}, pic = #{pic}, lv = #{lv}, team = #{team}, hobby = #{hobby}, passwd2 = #{passwd2}, passwd2ans = #{passwd2ans}, bank = #{bank}, accountnumber = #{accountnumber}, accountholder = #{accountholder}  where id=#{id}; </update>
+ <delete id = "delSign" parameterType="SignDto">delete from sign where id = #{id};</delete>
+ 
+</mapper>
