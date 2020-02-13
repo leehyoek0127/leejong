@@ -1,0 +1,52 @@
+@charset "EUC-KR";
+.margin1 {
+	margin-top: 60px;
+	
+}
+
+.margin2 {
+	margin-top: 40px;
+	
+	
+}
+
+.margin3 {
+	margin-top: 14px;
+	
+}
+
+.margin4 {
+	margin-top: 70px;
+	
+}
+
+.fontsize {
+	font-size: 14px;
+}
+
+.formtotalsize {
+	height: 450px;
+}
+
+.contentbox {
+	width: 730px;
+	resize: none;
+	height: 440px;
+}
+
+.buttonmargin {
+	margin-left: 45px;
+	margin-top: 40px;
+}
+
+.buttongal {
+	width: 120px;
+	font-size: 23px;
+	letter-spacing: 5px;
+}
+
+
+.writeboardtitle {
+	font-size: 40px;
+	font-family: 'Black Han Sans', sans-serif;
+}

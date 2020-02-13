@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#button").click(function() {
+
+			callAjax();
+		});
+	});
+	function callAjax() {
+
+		$.ajax({
+			type:"post",
+			url:"./b.jsp",
+			data:{
+				ab:$('#number').val(),
+				cd:$('#id').val(),
+				ef:$('#comment').val()
+			},
+			success:whenSuccess,
+			error:whenError
+		});
+	}
+	function whenSuccess(resdata) {
+		
+		$("#ajaxReturn").html(resdata);
+		
+	}
+	function whenError() {
+		alert("Error");
+	}
+</script>
+</head>
+<body>
+	<div style="width: 500px; margin: auto; margin-top: 200px;">
+		<form id="frm">
+			<div>
+				<label>글번호</label><input name="number" id="number">
+			</div>
+			<div style="margin-top: 20px;">
+				<label>아이디</label><input name="id" id="id">
+			</div>
+			<div style="margin-top: 20px;">
+				<label>내용</label><input name="comment" id="comment">
+			</div>
+			<div style="margin-top: 20px;">
+				<input id="button" type="button" value="버튼">
+			</div>
+		</form>
+			<div id="ajaxReturn">ajax</div>
+	
+	</div>
+</body>
+</html>
