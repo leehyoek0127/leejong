@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ㅡmodel.Action에서 실행 --> <!-- resultType=return=결과값을 남기자 --> <!-- 형태는 늘 Dto -->
+<mapper namespace="abc">
+ <select id="IDCheck" parameterType="String" resultType="MemberDto">select * from member_tb where ID=#{id};</select>
+ <select id="Login" parameterType="MemberDto" resultType="MemberDto">select * from member_tb where ID=#{id} and PW=#{pw};</select>
+ <insert id="Signinsert" parameterType="MemberDto">insert into member_tb (ID, NAME, PW, TEL, EMAIL, GENDER, ADDRESS_CODE, ADDRESS_BASIC, ADDRESS_DETAIL, BIRTH, PIC, LEVEL, POSITION, SECOND_PW, SECOND_PWC, BANK_CODE, ACCOUNT_CODE, ACCOUNT_HOLDER) values(#{id},#{name},#{pw},#{tel},#{email},#{gender},#{address_code},#{address_basic},#{address_detail},#{birth},#{pic},#{level},#{position},#{second_pw},#{second_pwc},#{bank_code},#{account_code},#{account_holder});</insert>
+<update id = "modifyPw" parameterType="MemberDto">update member_tb set PW = #{pw} where ID=#{id}; </update>
+<update id = "modifySign" parameterType="MemberDto">update member_tb set PW = #{pw}, TEL = #{tel}, EMAIL = #{email}, ADDRESS_CODE = #{address_code}, ADDRESS_BASIC = #{address_basic}, ADDRESS_DETAIL = #{address_detail}, BIRTH = #{birth}, PIC = #{pic}, LEVEL = #{level}, POSITION = #{position}, SECOND_PW = #{second_pw}, SECOND_PWC= #{second_pwc}, BANK_CODE= #{bank_code}, ACCOUNT_CODE = #{account_code}, ACCOUNT_HOLDER= #{account_holder}  where ID=#{id}; </update>
+<select id="selectMember"  parameterType="String" resultType="MemberDto">select * from member_tb where ID = #{id};</select>
+<delete id = "delSign" parameterType="MemberDto">delete from member_tb where ID = #{id};</delete>
+<select id="qnatitle" parameterType="QnaSearchDto" resultType="QnaSearchDto">select * from qnaboard_tb  where q_b_title like concat('%' , #{q_b_title}, '%');</select>
+<select id="qnacontents" parameterType="QnaSearchDto" resultType="QnaSearchDto">select * from qnaboard_tb  where q_b_contents like concat('%' , #{q_b_title}, '%');</select>
+<insert id="input_reservation" parameterType="ReservationDto">insert into reservation_tb (RES_NO, RES_DATE, RES_TIME, PAYMENT_CHARGE, ID, GROUND_NO) values(#{res_no},#{res_date},#{res_time},#{payment_charge},#{id},#{ground_no});</insert>
+<select id="branchlist_view" parameterType="BranchDto" resultType="BranchDto">select * from branch_tb; </select>
+</mapper>
