@@ -1,0 +1,26 @@
+	form input[type="button"]{
+		position: relative;
+		top: -10px;
+	}
+	
+	label div {
+		position: relative;
+		top: -10px;
+	}
+	select[class="btn btn-default"]{
+		position: relative;
+		top: -10px;
+		font-size:12px;
+	}
+	select[name="passwd2"]{
+		position: relative;
+		top: -7px;
+	}
+	select[name="bank"]{
+		position: relative;
+		top: -10px;
+	}
+	select[name="mail"]{
+		position: relative;
+		top: 4px;
+	}

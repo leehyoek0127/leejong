@@ -1,0 +1,80 @@
+table,th,td{
+		border-collapse:collapse;
+		border:1px solid #6F6F6F;
+		font-size:15pt;
+		font-family: tahoma, ±¼¸², µ¸¿ò, verdana;}
+
+.abc{
+	border:solid 3px black;
+	
+	padding:10px 10px 10px 10px;
+	
+	
+}
+.ff{
+	font-size:11pt;
+	
+	background-color:#B4B4B4;
+}
+.box{
+	font-size:10pt;
+	width:200px;
+	height:30px;
+	border:solid 1px #aaaaaa;
+	border-radius:3px;
+	box-shadow:3px 3px 4px #888888;
+	}
+	.adrbox{
+	font-size:10pt;
+	width:500px;
+	height:30px;
+	border:solid 1px #aaaaaa;
+	border-radius:3px;
+	box-shadow:3px 3px 4px #888888;
+	}
+	.infbox{
+	font-size:15pt;
+	width:600px;
+	height:300px;
+	border:solid 1px #aaaaaa;
+	border-radius:3px;
+	box-shadow:3px 3px 4px #888888
+	}
+.btn2{
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	background-color:#5D5D5D
+	width: 80px;
+    height: 35px;
+    font-size: 10pt;
+    
+    background-color: #5D5D5D;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px #888888;
+ 
+}
+.fbtn{
+	width:150px;
+	height:40px;
+	font-size:14pt;
+	font-weight : bold;
+	line-height:150%;
+	background-color:#FFFFFF;
+	border-radius:10px;
+	box-shadow:4px 4px 5px #888888;
+	
+	    position: relative;
+    right: -300px;
+}
+.ab{background-color:#EAEAEA; font-size:11px;}

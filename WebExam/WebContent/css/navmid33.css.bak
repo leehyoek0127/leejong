@@ -1,0 +1,16 @@
+#navmid_1 {
+		float : left;
+		width: 33.3%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 33.3%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 33.3%; height:100%
+	}
+

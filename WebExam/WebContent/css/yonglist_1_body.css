@@ -1,0 +1,78 @@
+.nick{
+		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
+	}
+	.date{
+		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
+	}
+	.clear{
+		clear:both;}
+	
+	#logo{
+		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
+	}
+	
+	.nav_ban ul{
+		 width:100%;	float:left;
+	}
+	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; 
+	}
+
+	
+	.article_pic{
+		float:left; width:900px;  background-color:white;
+		text-align:left;
+	}
+
+	.cbox{
+		width:100%;border-width: 1pt;border-color:black;border-style:solid;float:left;
+	}
+	aside{
+		width:200px;height:750px;
+		float:left;
+	}
+
+
+	#tabletitle{
+		width:100%;,font-size:13px;height:40px;
+		text-align:center;
+	}
+	table{
+		width:100%;
+		
+	}
+	.thgongji{
+		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
+	}
+	.thno{
+		width:208px;height:40px;padding:2px;text-align:left;
+	}
+	.thtitle{
+		width:306px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate2{
+		width:306px;height:40px;padding:2px;text-align:center;
+	}
+	.thname{
+	width:118px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate{
+	width:140px;height:40px;padding:2px;text-align:center;
+	}
+	.thview{
+	width:68px;height:40px;padding:2px;text-align:center;
+	}
+	.imgst{
+	width:210px; height:200px;
+	}
+	.reimg{
+	width:70px;height:25px;}
+	.secretimg{
+	width:30px;height:25px;
+	}
+	.numlist ul{
+		display:inline;font-size:13px;margin:0 auto;
+	}
+	.numlist li{
+		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
+		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
+	}

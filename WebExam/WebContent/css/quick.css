@@ -1,0 +1,42 @@
+#quick_{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    border-right: 3px solid #fff;
+}
+#quick_ ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 10em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    list-style: none;
+}
+
+#quick_ .quick_inner li a {
+    display: block;
+    padding: 7px 14px 7px 10px;
+    position: relative;
+}
+
+#quick_ .quick_inner li span {
+    font-size: 11px;
+    letter-spacing: 0;
+    position: absolute;
+    left: -60px;
+    margin-top: -20px;
+    width: 55px;
+    text-align: right;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}

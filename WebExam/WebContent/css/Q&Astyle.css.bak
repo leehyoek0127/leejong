@@ -1,0 +1,402 @@
+#wrap {
+      position:relative;
+	}
+	.product-head h1{font-size:14px; font-family:Arial, Helvetica, sans-serif; margin-bottom:3px; margin-left:3px;}
+	
+    .product-head {
+      font-size:13px;
+	  padding:2px;
+	  
+	  width:180px;
+    }
+    .filterform input{
+	
+		 font-size:13px;
+		 padding:2px;
+		 border:1px solid #999;
+    }
+	.subli li{
+		padding:5px;
+		margin:10px 5px;
+		list-style:none;
+		width:190px;
+		border-top:1px solid #ccc;
+		font-size:15px;
+		}
+	.subli_img{
+		width:60px;height:60px;
+	}
+	
+		
+	
+	.picbig{
+		width:860px;height:800px;float:left;margin:0px 0px;font-size:13px;font-weight:400;
+		list-style-image:none;list-style-type:none;display:block;margin-top:16px;
+
+	}
+	.picli{
+		font-size:13px;font-weight:400;height:304px;width:210px;text-align:left;
+		position:relative;margin-left:9px;list-style-type:none;display:list-item;
+		overflow:hidden;float:left; margin-top: 20px;
+
+	}
+	.pic dt{
+		cursor:pointer;display:table-cell;font-weight:700;
+	}
+	.nick{
+		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
+	}
+	.date{
+		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
+	}
+	.clear{
+		clear:both;}
+	
+	#logo{
+		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
+	}
+	
+	.nav_ban ul{
+		 width:100%;	float:left;
+	}
+	.nav_ban li{width:100%;display:inline;font-size: 30pt; font-weight:bold; 
+	}
+
+	.sec_ban2{
+	width:100%; float:left;
+	text-align:center;
+	}
+	.article_pic{
+		float:left; width:900px;  background-color:white;
+		text-align:left;
+	}
+
+	.cbox{
+		width:100%;border-width: 1pt;border-color:black;border-style:solid;float:left;
+	}
+	aside{
+		width:200px;height:750px;
+		float:left;
+	}
+
+
+	#tabletitle{
+		width:100%;,font-size:13px;height:40px;
+	}
+	table{
+		width:100%;
+	}
+	.thgongji{
+		width:70px;height:40px;padding:2px;color:#8C8C8C;font-weight:bold;
+	}
+	.thno{
+		width:118px;height:40px;padding:2px;text-align:left;
+	}
+	.thtitle{
+		width:506px;height:40px;padding:2px;text-align:left;
+	}
+	.thname{
+	width:118px;height:40px;padding:2px;text-align:center;
+	}
+	.thdate{
+	width:140px;height:40px;padding:2px;text-align:center;
+	}
+	.thview{
+	width:68px;height:40px;padding:2px;text-align:center;
+	}
+	.imgst{
+	width:210px; height:200px;
+	}
+	.reimg{
+	width:70px;height:25px;}
+	.secretimg{
+	width:30px;height:25px;
+	}
+	.numlist ul{
+		display:inline;font-size:13px;margin:0 auto;
+	}
+	.numlist li{
+		width:24px;height:24px;display:inline;margin:0 2px;box-sizing: border-box;
+		border: solid 1px;line-height: 24px;padding:0 5px 0 5px; 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+
+	
+
+
+
+
+
+
+
+
+
+/*============================================================================*/
+  	body {
+		margin:0;
+	}
+
+	ul {
+		list-style-type:none;
+		padding-left:0;
+	}
+	#header {
+	text-align : center;
+		width : 100%; height : 460;
+		
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 152px; height : 99%;
+		color : #ffffff;
+		font-size : 13px;
+		font-weight: 700;
+		position: relative;
+		top:15px;
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 6px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 33.3%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 33.3%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 33.4%; height:100%
+	}
+	
+/*============================================================================*/
+	#main {
+		width : 1270px;
+		
+		
+		margin : 0 400px;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 250px;
+		height : 1500px;
+		margin : 6px 100px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 100%;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+		position:sticky;
+		top:100px;
+		width : 98%;
+		height : 100px;
+		
+		margin: 3px;
+		
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 130px;
+		
+		margin: 3px;
+		
+		overflow:hidden;
+	}
+
+	#banner3 {
+		position:sticky;
+		top:200px;
+		width : 98%;
+		height : 190px;
+		
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		float : left;
+		width : 79%;
+		height : 98%;
+		margin : 6px;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+		position: relative;
+		top:10px;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 100%;
+		
+		margin : 3px;
+		
+		
+	}
+	#matList a {
+		
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+	#list {
+		clear:both;
+	}
+
+/*배너2 자동슬라이드 스타일*/
+#carousel1 {
+	width:400px;
+	height:250px;
+	overflow:scroll;
+	border:2px solid #999;
+}

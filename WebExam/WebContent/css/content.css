@@ -1,0 +1,1678 @@
+
+@charset "utf-8"; 
+
+/* 컨텐츠 공통 */
+.h_tit	{position:relative; margin-bottom:45px; padding-bottom:24px; font-size:60px; font-family:'NanumBarunGothicL'; line-height:60px; text-align:center}
+.h_tit:after	{content:""; display:block; position:absolute; bottom:0; left:50%; margin-left:-49px; width:98px; height:2px; background:#bfc4cc;}
+
+.h_bar	{position:relative; padding-left:26px; color:#2c3c57; font-size:30px; line-height:40px; letter-spacing:-2px}
+.h_bar:before	{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:30px; background:#2c3c57}
+.h_bar:after		{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:6px; background:#aec8f4}
+.h_bar.line	{padding-bottom:13px; border-bottom:2px solid #353535}
+
+.h_bar_na	{position:relative; padding-left:26px; color:#2c3c57; font-size:30px; line-height:40px; letter-spacing:-2px}
+.h_bar_na:before	{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:30px; }
+.h_bar_na:after		{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:6px;}
+.h_bar_na.line	{padding-bottom:13px; border-bottom:2px solid #353535}
+
+
+/* 지점 */
+.locate_wrap	{padding:0 !important; max-width:100% !important}
+.loca_view	{position:relative; margin-top:-60px !important; height:85px; background:#2c3c57}
+.loca_view .loca_list	{position:absolute; z-index:11; top:85px; right:0; left:0; background:#192336}
+.loca_view .loca_list .btn_closed	{display:none}
+.loca_view .loca_list ul	{margin:0 auto; max-width:1200px;}
+.loca_view .loca_list ul li	{float:left; margin:56px 0 0 127px; width:315px; height:306px}
+.loca_view .loca_list ul li:nth-child(1)	{margin-left:0}
+.loca_view .loca_list ul li:nth-child(4)	{margin-left:0}
+.loca_view .loca_list ul li a	{display:block; padding-bottom:15px; border-bottom:5px solid #fff; color:#fff; font-size:26px; font-weight:700; line-height:50px}
+.loca_view .loca_list ul li ul	{padding-top:35px;}
+.loca_view .loca_list ul li ul li	{float:none; margin:0; height:auto}
+.loca_view .loca_list ul li ul li a	{display:block; padding:0; border:0; color:#fff; font-size:24px; font-weight:400; line-height:50px}
+
+.loca_view .loca_list	{overflow:hidden; max-height:0; padding:0; -webkit-transition:all 0.5s ease-out; -moz-transition:all 0.5s ease-out; -ms-transition:all 0.5s ease-out; -o-transition:all 0.5s ease-out; transition:all 0.5s ease-out;}
+.loca_view.on .loca_list	{max-height:775px; padding:15px 0 34px 0;}
+
+.loca_view .btn_wrap	{margin:0 auto; max-width:1200px}
+.loca_view .btn_wrap a	{width:430px; background:#192336; font-size:30px; line-height:85px; text-align:center}
+.loca_view .btn_wrap a span	{display:inline-block; padding-right:58px; background:url('/images/content/icon_loca_arr.png') no-repeat right center; color:#fff; font-weight:700}
+.loca_view .btn_wrap a.closed span	{background:url('/images/content/icon_loca_arr_closed.png') no-repeat right center;}
+.loca_view .btn_wrap a.open		{display:block}
+.loca_view .btn_wrap a.closed	{display:none}
+
+.loca_view.on .btn_wrap a.open		{display:none}
+.loca_view.on .btn_wrap a.closed	{display:block}
+
+.locate_wrap .h_tit	{margin-top:60px}
+.locate_wrap .list_wrap	{}
+.locate_wrap .list_wrap .cont	{background:#fff}
+.locate_wrap .list_wrap .cont .info	{position:relative; margin:0 auto; padding:52px 0 46px 0; max-width:1200px; height:270px;}
+.locate_wrap .list_wrap .cont .info .thumb	{overflow:hidden; display:block; position:absolute; top:52px; left:0; width:430px; height:270px; border-radius:8px; font-size:0; line-height:0}
+.locate_wrap .list_wrap .cont .info .thumb img	{width:430px; height:270px; -moz-transform:scale(1); -ms-transform:scale(1); -webkit-transform:scale(1); transform:scale(1); -moz-transition:all 0.6s; -o-transition:all 0.6s; -webkit-transition:all 0.6s; transition:all 0.6s;}
+.locate_wrap .list_wrap .cont .info .thumb:hover img	{-moz-transform:scale(1.05); -ms-transform:scale(1.05); -webkit-transform:scale(1.05); transform:scale(1.05);}
+.locate_wrap .list_wrap .cont .info .thumb .ov	{opacity:0; position:absolute; top:0; right:0; bottom:0; left:0; background:rgba(0, 0, 0, 0.5); -moz-transition:all 0.6s; -o-transition:all 0.6s; -webkit-transition:all 0.6s; transition:all 0.6s;}
+.locate_wrap .list_wrap .cont .info .thumb .ov ul	{position:absolute; top:50%; right:0; left:0; -webkit-transform:translate3d(0, -50%, 0); -moz-transform:translate3d(0, -50%, 0); -o-transform:translate3d(0, -50%, 0); -ms-transform:translate3d(0, -50%, 0); transform:translate3d(0, -50%, 0);}
+.locate_wrap .list_wrap .cont .info .thumb .ov ul li	{color:#fff; font-size:28px; font-weight:700; line-height:38px; text-align:center}
+.locate_wrap .list_wrap .cont .info .thumb:hover .ov	{opacity:1}
+
+.locate_wrap .list_wrap .cont .info .t_wrap	{position:absolute; top:52px; right:0; width:657px}
+.locate_wrap .list_wrap .cont .info .t_wrap .tit		{padding:0; border-bottom:2px solid #2c3c57; color:#2c3c57; font-size:36px; font-weight:700; line-height:58px;}
+.locate_wrap .list_wrap .cont .info .t_wrap p		{padding-left:50px; color:#383838; font-size:20px; line-height:44px}
+.locate_wrap .list_wrap .cont .info .t_wrap .t01	{margin-top:29px; background:url('/images/content/icon_loca.png') no-repeat 0 center;}
+.locate_wrap .list_wrap .cont .info .t_wrap .t02	{background:url('/images/content/icon_tell.png') no-repeat 0 center;}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap	{margin-top:20px; text-align:center}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a	{display:inline-block; width:200px; height:68px; line-height:68px; text-align:center; border-radius:5px}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a span	{display:inline-block; padding-left:44px; color:#fff; font-size:20px; line-height:68px}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_rese	{background:#2c3c57}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_rese span	{background:url('/images/content/icon_btn_rese.png') no-repeat 0 center}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_info	{margin-left:10px; background:#8ba6d5}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_info span	{padding-left:52px; background:url('/images/content/icon_btn_info.png') no-repeat 0 center}
+.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a:hover	{background:#003f96 !important}
+
+.locate_wrap .list_wrap .cont:nth-child(2n)	{background:#f0f0f0}
+.locate_wrap .list_wrap .cont:nth-child(2n) .thumb	{left:auto; right:0}
+.locate_wrap .list_wrap .cont:nth-child(2n) .t_wrap	{left:0; right:auto}
+
+.locate_wrap .view_wrap	{margin:0 auto; max-width:1200px}
+.locate_wrap .view_wrap .h_bar	{margin:70px 0 20px 0}
+.locate_wrap .view_wrap .h_bar_na	{margin:70px 0 20px 0}
+
+.locate_wrap .view_wrap .pace_info	{position:relative}
+.locate_wrap .view_wrap .pace_info .img img	{width:100%}
+.locate_wrap .view_wrap .pace_info .tag		{position:absolute; right:25px; bottom:126px; left:0; text-align:right}
+.locate_wrap .view_wrap .pace_info .tag span	{display:inline-block; margin-left:12px; color:#fff; font-size:30px; font-weight:700; line-height:40px; text-shadow:1px 1px 3px rgba(0, 0, 0, 0.5)}
+.locate_wrap .view_wrap .pace_info .fl_wrap	{position:absolute; right:0; bottom:0; left:0; padding:32px 0 23px 0; background:rgba(0, 0, 0, 0.7);}
+.locate_wrap .view_wrap .pace_info .fl_wrap .fl_left		{padding-left:95px; width:50%; background:url('/images/content/icon_loca_view.png') no-repeat 27px center; box-sizing:border-box; -moz-box-sizing:border-box}
+.locate_wrap .view_wrap .pace_info .fl_wrap .fl_right	{padding-left:95px; width:50%; background:url('/images/content/icon_tell_view.png') no-repeat 27px center; box-sizing:border-box; -moz-box-sizing:border-box}
+.locate_wrap .view_wrap .pace_info .fl_wrap .tit	{color:#aec8f4; font-size:22px; font-weight:700; line-height:32px}
+.locate_wrap .view_wrap .pace_info .fl_wrap .txt	{color:#fff; font-size:16px; font-weight:700; line-height:24px}
+.locate_wrap .view_wrap .pace_info .fl_wrap .txt a.tel {color:#fff;}
+
+.locate_wrap .view_wrap .location_info	{font-size:0; line-height:0}
+.locate_wrap .view_wrap .location_info iframe	{width:100%; height:430px}
+.locate_wrap .view_wrap .location_info p	{background:#ececec; line-height:80px; text-align:center}
+.locate_wrap .view_wrap .location_info p span	{display:inline-block; padding-left:38px; background:url('/images/content/icon_location.png') no-repeat 0 center; color:#2c3c57; font-size:18px; line-height:80px; vertical-align:top}
+
+.locate_wrap .view_wrap .charge_wrap	{}
+.locate_wrap .view_wrap .charge_wrap .cont	{overflow:hidden; position:relative; margin-top:10px; max-height:76px; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.locate_wrap .view_wrap .charge_wrap .cont .tit	{padding-left:28px; background:#747474; color:#fff; font-size:22px; line-height:76px}
+.locate_wrap .view_wrap .charge_wrap .cont button	{display:block; position:absolute; top:0; right:0; width:76px; height:76px; background:#404040 url('/images/content/btn_arr.png') no-repeat center center}
+
+.locate_wrap .view_wrap .charge_wrap .cont.on	{max-height:700px}
+.locate_wrap .view_wrap .charge_wrap .cont.on .tit	{background:#2c3c57;}
+.locate_wrap .view_wrap .charge_wrap .cont.on button	{background:#192336 url('/images/content/btn_arr_on.png') no-repeat center center}
+
+.locate_wrap .view_wrap .list_wrap	{}
+.locate_wrap .view_wrap .list_wrap p,
+.locate_wrap .view_wrap .list_wrap li	{color:#555; font-size:18px; line-height:32px;}
+
+.locate_wrap .view_wrap .academy_info	{}
+.locate_wrap .view_wrap .academy_info .img img	{width:100%}
+.locate_wrap .view_wrap .academy_info .info	{overflow-y:auto; max-height:800px; margin-top:20px; padding:30px; border:1px solid #c2c2c2}
+.locate_wrap .view_wrap .academy_info .info .tit	{margin-bottom:11px; color:#2c3c57; font-size:30px}
+.locate_wrap .view_wrap .academy_info .info p,
+.locate_wrap .view_wrap .academy_info .info li	{color:#555; font-size:18px; line-height:32px}
+.locate_wrap .view_wrap .academy_info .btn_wrap	{margin-top:23px; text-align:center}
+.locate_wrap .view_wrap .academy_info .btn_wrap .btn_class	{width:318px; height:109px; background:#2c3c57; text-align:center; border-radius:10px}
+.locate_wrap .view_wrap .academy_info .btn_wrap .btn_class span		{display:inline-block; padding-left:75px; background:url('/images/content/icon_class.png') no-repeat 0 center; color:#fff; font-size:34px; line-height:109px;}
+.locate_wrap .view_wrap .academy_info .btn_wrap .btn_class:hover	{background:#003f96}
+
+
+/* 대관 */
+.rese_wrap .rese_start	{margin:0 auto; max-width:800px}
+.rese_wrap .rese_start .tit	{padding-left:113px; background:#2c3c57 url('/images/content/bg_rese_start.png') no-repeat 0 0; color:#fff; font-size:28px; line-height:113px; text-align:center; border-radius:15px 15px 0 0; letter-spacing:-0.4px}
+.rese_wrap .rese_start .start_wrap		{padding:93px 0 87px 0; border:2px solid #bfc4cc; border-top:0; background:#f2f2f2; border-radius:0 0 15px 15px;}
+.rese_wrap .rese_start .start_wrap	.cont	{margin:0 auto; width:390px}
+.rese_wrap .rese_start .start_wrap	.cont .select	{margin-top:14px; height:47px}
+.rese_wrap .rese_start .start_wrap	.cont .select label	{line-height:45px}
+.rese_wrap .rese_start .start_wrap	.cont .select select	{height:45px; line-height:45px}
+.rese_wrap .rese_start .start_wrap	.cont .select:first-child	{margin-top:0}
+.rese_wrap .rese_start .start_wrap	.cont .select:hover	{border:1px solid #7092cb}
+.rese_wrap .rese_start .start_wrap	.cont .btn_wrap	{margin-top:34px}
+.rese_wrap .rese_start .start_wrap	.cont .btn_wrap .btn_big	{width:100%}
+.rese_wrap .rese_start .start_wrap  .cont span input{width:100%; margin-top:14px; height:47px}
+.rese_wrap .rese_start .start_wrap  .cont span input:first-child {margin-top:0}
+.rese_wrap .rese_start .start_wrap  .cont span.text{padding-bottom:10px;}
+.rese_wrap .rese_start .start_wrap .cont span.text dt{padding-top:10px; margin-bottom:5px; color:#2c3c57; font-weight:700}
+.rese_wrap .rese_start .start_wrap  .cont .fl_wrap dl dt {margin-top:7px; font-size:14px; line-height:30px}
+.rese_wrap .rese_start .start_wrap  .cont .fl_wrap dl dd input	{height:38px}
+
+.rese_wrap.cal	{padding:0 !important}
+.rese_wrap .fl_wrap .fl_left		{width:584px}
+.rese_wrap .fl_wrap .fl_right	{width:584px}
+
+.rese_wrap .fl_wrap .fl_left .thumb	{position:relative;}
+.rese_wrap .fl_wrap .fl_left .thumb .tag	{position:absolute}
+.rese_wrap .fl_wrap .fl_left .thumb .tag		{position:absolute; right:25px; bottom:87px; left:25px; text-align:left}
+.rese_wrap .fl_wrap .fl_left .thumb .tag span	{display:inline-block; margin-right:12px; color:#fff; font-size:30px; font-weight:700; line-height:34px; text-shadow:1px 1px 3px rgba(0, 0, 0, 0.5)}
+.rese_wrap .fl_wrap .fl_left .thumb .img	{}
+.rese_wrap .fl_wrap .fl_left .thumb .img img	{width:100%}
+.rese_wrap .fl_wrap .fl_left .thumb .name	{background:#2c3c57; color:#fff; font-size:30px; line-height:76px; text-align:center}
+
+.rese_wrap .fl_wrap .fl_left .info	{padding:0 16px 16px 16px; border:1px solid #bfc4cc; border-top:0}
+.rese_wrap .fl_wrap .fl_left .info .tit	{padding:36px 0 18px 0; color:#383838; font-size:24px; font-weight:700; line-height:36px}
+.rese_wrap .fl_wrap .fl_left .info p,
+.rese_wrap .fl_wrap .fl_left .info li	{color:#555; font-size:16px; line-height:26px}
+
+.rese_wrap .fl_wrap .fl_right .calendar_wrap	{padding:26px 17px 29px 17px; border:1px solid #bfc4cc; background:#f2f2f2;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top	{text-align:center}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_prev	{display:inline-block; width:36px; height:36px; background:url('/images/content/btn_cal_prev.png') no-repeat center center; vertical-align:top}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_next	{display:inline-block; width:36px; height:36px; background:url('/images/content/btn_cal_next.png') no-repeat center center; vertical-align:top}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_prev:hover	{background:url('/images/content/btn_cal_prev_ov.png') no-repeat center center;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_next:hover	{background:url('/images/content/btn_cal_next_ov.png') no-repeat center center;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .year			{display:inline-block; width:180px; color:#383838; font-size:28px; line-height:36px; vertical-align:top}
+
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar	{margin-top:25px;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table	{border-bottom:1px solid #d8d8d8}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table thead tr th	{height:55px; color:#111; font-size:16px; line-height:55px; text-align:center}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td	{padding:0; height:60px; border-top:1px solid #d8d8d8; border-right:1px solid #d8d8d8; text-align:center}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td:first-child	{border-left:1px solid #d8d8d8}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button	{display:block; position:relative; width:100%; height:60px; line-height:60px;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button span	{display:block; position:absolute; top:0; right:0; bottom:0; left:0; height:60px; font-size:16px; line-height:60px;}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button:disabled span	{color:#d9d9d9 !important}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td.holi button span	{color:#ff0000}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button.on span	{top:-1px; right:-1px; bottom:-1px; left:-1px; height:62px; color:#fff; line-height:62px; background:#2c3c57}
+
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot	{margin-top:32px; text-align:center}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span	{display:inline-block; position:relative; margin-left:27px; color:#555; font-size:16px; padding-left:40px; line-height:23px; vertical-align:top}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span:first-child	{margin-left:0}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span:after			{content:""; display:block; position:absolute; top:0; left:0; width:23px; height:23px; background:#2c3c57}
+.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span.imp:after		{width:21px; height:21px; border:1px solid #c1c1c1; background:#d9d9d9}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap	{padding:0 17px; border-right:1px solid #bfc4cc; border-left:1px solid #bfc4cc;}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap	{position:relative; padding:21px 0; border-bottom:1px solid #bfc4cc;}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap span	{display:inline-block; line-height:46px; vertical-align:top}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .tit			{width:116px; color:#111; font-size:20px; line-height:46px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .date		{font-weight:700}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select		{width:100%; height:46px; line-height:45px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select label	{height:44px; line-height:44px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select select	{height:44px; line-height:44px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .t_help		{float:right; color:#555; font-size:16px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .btn_oc	{display:none}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time	{}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul	{margin-left:-4px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul:after	{content:""; display:block; clear:both}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li	{float:left; margin-top:9px; margin-left:4px; width:180px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li button	{display:block; padding:10px 0; width:100%; background:#989898; color:#fff; font-size:16px; line-height:20px; text-align:center}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li button.on	{background:#2c3c57}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list	{}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul	{}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li	{padding:17px 0; border-top:1px solid #dbdde0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li:first-child	{border-top:0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li:last-child	{padding-bottom:0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li input	{height:46px; text-align:center}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li .price	{float:right; color:#383838; font-size:16px; font-weight:700}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li .price em	{font-style:normal}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li .btn_pm	{margin-left:5px;}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .total	{float:right; color:#111; font-size:20px; font-weight:700; line-height:24px; text-align:right}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .total .i_txt	{display:block; font-size:16px; line-height:24px}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .tit		{display:block; width:auto; line-height:32px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .t_help	{float:none; line-height:24px; padding:0 0 10px 0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list	{}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul	{}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li	{padding:17px 0; border-top:1px solid #dbdde0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li:first-child	{border-top:0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li:last-child	{padding-bottom:0}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li .select		{width:70%}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li textarea {width:100%; height:100px; font-size:14px;}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone	{font-size:0; line-height:0 font-size:14px;}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone input	{width:20%}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone span:first-child	{width:14%;}
+.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone span	{display:inline-block; width:2%; font-size:14px; vertical-align:middle;}
+
+.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt	{margin:-1px -17px 0 -17px; padding:17px; border-top:1px solid #bfc4cc; border-bottom:1px solid #bfc4cc; background:#f2f2f2}
+.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt .tit	{padding:22px 0 8px 30px; background:url('/images/content/icon_info_tit.png') no-repeat 0 26px; color:#ff0000; font-size:20px; line-height:30px}
+.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt p,
+.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt li	{color:#555; font-size:14px; line-height:26px}
+
+.rese_wrap .fl_wrap .fl_right .int_wrap	{margin-top:15px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .tit	{padding-left:18px; background:#2c3c57; color:#fff; font-size:20px; line-height:70px;}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap	{margin:0}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table	{border:1px solid #c4c4c4; border-top:0}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr th	{padding:0 20px; padding-top:12px; border:0; font-size:16px; text-align:left; vertical-align:top}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td	{padding:3px 16px; border:0; height:49px; font-size:18px; text-align:left}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td .price	{font-weight:700}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td textarea	{width:100%; height:100px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:first-child th	{padding-top:25px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:first-child td	{padding-top:16px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:last-child td	{padding-bottom:16px}
+
+
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody .phone	{font-size:0; line-height:0}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody .phone input	{width:31.333333%}
+.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody .phone span	{display:inline-block; width:3%; font-size:11px; text-align:center; vertical-align:middle;}
+
+.rese_wrap .fl_wrap .fl_right .int_wrap .chk	{margin-top:22px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap	{margin-top:33px}
+.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap .btn_big	{width:100%}
+.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap .btn_big span	{display:inline-block; padding-left:50px; background:url('/images/content/icon_btn_rese.png') no-repeat 0 center;}
+
+
+/* H CUP */
+/* 소개 */
+.league_cont .team_rank.indi table thead tr th	{border-left:1px solid #d7d7d7}
+.league_cont .team_rank.indi table tbody tr td	{padding:10px 0 6px 0; border-left:1px solid #d7d7d7; text-align:center}
+.league_cont .team_rank.indi table tbody tr:nth-child(1) td,
+.league_cont .team_rank.indi table tbody tr:nth-child(2) td	{background:#f0f1f3}
+
+.league_cont .team_rank.indi .table_wrap table tbody tr td .emb_wrap	{padding:0; text-align:center}
+.league_cont .team_rank.indi .table_wrap table tbody tr td .emb_wrap .emb	{position:static; margin:0 auto}
+.league_cont .team_rank.indi .table_wrap table tbody tr td .emb_wrap .team	{display:block; margin-top:5px; font-size:16px; line-height:20px}
+
+.tournament_wrap	{position:relative; padding-top:1px; clear:both}
+.tournament_wrap .cont	{position:relative; margin-top:15px; border:1px solid #c4c8cf; border-top:2px solid #353535; background:#fff;}
+.tournament_wrap .cont .emb_wrap	{position:relative; margin:0 auto; width:100%; height:934px; background:url('/images/content/bg_tournament.gif') no-repeat center center;}
+.tournament_wrap .cont .emb_wrap_8	{position:relative; margin:0 auto; width:100%; height:934px; background:url('/images/content/bg_tournament_8.gif') no-repeat center center;}
+.tournament_wrap .cont .emb_wrap_4	{position:relative; margin:0 auto; width:100%; height:534px; background:url('/images/content/bg_tournament_4.gif') no-repeat center center;}
+.tournament_wrap .cont .emb	{display:inline-block; position:absolute; width:251px; height:64px; padding:4px 4px 28px 4px; border:1px solid #dadada; background:#f1f1f1; line-height:14px; text-align:center}
+.tournament_wrap .cont .emb	.mtitle{font-size:14px; line-height:14px; font-weight:900; color:#2c3c57/* border-radius:3px*/}
+.tournament_wrap .cont .emb img	{width:50px; height:50px; padding-bottom:2px;}
+.tournament_wrap .cont .emb span {display:inline-block;}
+.tournament_wrap .cont .emb .left {float:left; width:69px; text-align:center;}
+.tournament_wrap .cont .emb .title {display:block; font-size:9px; line-height:11px;}
+.tournament_wrap .cont .emb .right {float:right; width:69px; text-align:center;}
+.tournament_wrap .cont .emb .vs {color: #2c3c57; width:113px; font-size:32px; font-family:'HN_hvc';line-height:60px;}
+.tournament_wrap .cont .emb .vs .tk {font-size:18px;}
+.tournament_wrap .cont .emb.p01	{top:25px; left:24px}
+.tournament_wrap .cont .emb.p02	{top:25px; left:308px}
+.tournament_wrap .cont .emb.p03	{top:25px; left:592px}
+.tournament_wrap .cont .emb.p04	{top:25px; left:876px}
+.tournament_wrap .cont .emb.p05	{top:146px; left:165px}
+.tournament_wrap .cont .emb.p06	{top:146px; right:166px}
+.tournament_wrap .cont .emb.p07	{top:268px; left:446px}
+.tournament_wrap .cont .emb.p08 img	{width:92px; height:92px; padding-bottom:4px;}
+.tournament_wrap .cont .emb.p08 span {font-size:14px; font-weight:bold; line-height:16px;}
+.tournament_wrap .cont .emb.p08 .vs {width:120px; font-size:36px; line-height:110px;}
+.tournament_wrap .cont .emb.p08	{top:390px; left:410px; width:320px; height:144px; padding:6px 8px 6px 8px;}
+.tournament_wrap .cont .emb.p08 .mtitle{font-size:14px; line-height:16px;}
+.tournament_wrap .cont .emb.p08 .left {width:100px;}
+.tournament_wrap .cont .emb.p08 .right {width:100px;}
+.tournament_wrap .cont .emb.p09	{top:570px; left:446px}
+.tournament_wrap .cont .emb.p10	{top:691px; left:165px}
+.tournament_wrap .cont .emb.p11	{top:691px; right:166px}
+.tournament_wrap .cont .emb.p12	{top:813px; left:24px}
+.tournament_wrap .cont .emb.p13	{top:813px; left:308px}
+.tournament_wrap .cont .emb.p14	{top:813px; left:592px}
+.tournament_wrap .cont .emb.p15	{top:813px; left:876px}
+.tournament_wrap .cont .emb.p16	{top:422px; left:120px}
+
+.tournament_wrap .cont .emb_wrap_4 .emb.p07	{top:68px; left:446px}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08 img	{width:92px; height:92px;}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08 .vs {font-size:42px; line-height:110px;}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08	{top:190px; left:410px; width:320px; height:144px}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08 .mtitle{font-size:18px; line-height:24px;}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08 .left {width:100px;}
+.tournament_wrap .cont .emb_wrap_4 .emb.p08 .right {width:100px;}
+.tournament_wrap .cont .emb_wrap_4 .emb.p09	{top:370px; left:446px}
+.tournament_wrap .cont .emb_wrap_4 .emb.p16	{top:222px; left:120px}
+
+/* 팀순위 */
+.league_cont .rank_table.cup .h_bar	{margin-top:32px}
+.league_cont .rank_table.cup .h_bar strong	{font-family:"HN_hvc";}
+.league_cont .rank_table.cup .table_wrap table tbody tr:nth-child(2n-1) td	{background:none}
+.league_cont .rank_table.cup .table_wrap table tbody tr:nth-child(1) td,
+.league_cont .rank_table.cup .table_wrap table tbody tr:nth-child(2) td	{background:#f0f1f3}
+
+
+/* 커뮤니티 */
+/* 매치신청 */
+.btn_base.match span	{display:inline-block; padding-right:50px; background:url('/images/content/icon_btn_match.png') no-repeat right center}
+
+.match_wrap .pager_wrap .search .select	{margin-right:5px; width:120px; border-right:1px solid #d0d0d0}
+.match_wrap .pager_wrap .search input	{border-left:1px solid #d0d0d0}
+
+
+/* H LEAGUE */
+.league_wrap	{padding:0 !important; max-width:100% !important}
+.league_wrap .league_cont	{margin:0 auto; margin-top:60px; max-width:1200px}
+
+.league_cont a:hover .name	{text-decoration:underline !important}
+.league_cont a:hover .team	{text-decoration:underline !important}
+
+.league_cont .league_btn	{margin-top:60px}
+.league_cont .league_btn ul	{margin-left:-8px}
+.league_cont .league_btn ul:after	{content:""; display:block; clear:both}
+.league_cont .league_btn ul li	{float:left; margin-left:8px; width:292px; border:1px solid #bfc4cc;}
+.league_cont .league_btn ul li a	{display:block; position:relative; color:#2c3c57; font-size:40px; font-weight:700; line-height:141px}
+.league_cont .league_btn ul li.b01 a	{padding-left:110px; background:#f2f2f2 url('/images/content/btn_league_01.png') no-repeat 0 center}
+.league_cont .league_btn ul li.b02 a	{padding-left:143px; background:#f2f2f2 url('/images/content/btn_league_02.png') no-repeat 0 center}
+.league_cont .league_btn ul li.b03 a	{padding-left:110px; background:#f2f2f2 url('/images/content/btn_league_03.png') no-repeat 0 center}
+.league_cont .league_btn ul li.b04 a	{padding-left:125px; background:#f2f2f2 url('/images/content/btn_league_04.png') no-repeat 0 center}
+.league_cont .league_btn ul li.b05 a	{padding-left:115px; background:#f2f2f2 url('/images/content/btn_league_05.png') no-repeat 0 center}
+
+.league_cont .league_btn ul li a:after	{display:none; content:""; position:absolute; top:-1px; right:-1px; bottom:-1px; left:-1px; border:6px solid #2c3c57; background:url('/images/content/btn_league_ov.png') no-repeat 0 0}
+.league_cont .league_btn ul li a:hover:after	{display:block}
+.league_cont .league_btn ul li.on a:after		{display:block}
+
+.league_cont .fl_wrap	{margin-top:47px; padding:0 17px 20px 17px; border:1px solid #c2c7cf; background:#f2f2f2}
+.league_cont .fl_wrap .search	{margin:-1px -18px 0 -18px; padding:14px 0 14px 75px; background:#2c3c57 url('/images/content/icon_league_search.png') no-repeat 0 center; font-size:0; line-height:47px;}
+.league_cont .fl_wrap .search .select	{margin-right:8px; width:36%; height:47px}
+.league_cont .fl_wrap .search .select:first-child	{margin-left:14px; width:20%;}
+.league_cont .fl_wrap .search .select label		{line-height:45px}
+.league_cont .fl_wrap .search .select select	{height:45px; line-height:45px}
+.league_cont .fl_wrap .search .btn_search		{display:inline-block; width:167px; background:#4c89cd; color:#fff; font-size:24px; line-height:47px; text-align:center; vertical-align:top}
+
+.league_cont .fl_wrap.all .search .select	{margin-right:8px; width:16%; height:47px}
+.league_cont .fl_wrap.all .search .select:first-child	{margin-left:14px; width:30%;}
+
+
+.league_cont .fl_wrap .h_bar	{margin-top:50px; font-family:'HN_Th'; font-weight:bold; letter-spacing:-1px}
+.league_cont .fl_wrap .h_bar strong	{font-family:"HN_hvc";}
+.league_cont .fl_wrap .h_bar_na	{margin-top:50px; font-family:'HN_Th'; font-weight:bold; letter-spacing:-1px}
+.league_cont .fl_wrap .h_bar_na strong	{font-family:"HN_hvc";}
+
+.league_cont .fl_wrap .fl_left	{width:566px; margin-top: 15px;}
+.league_cont .fl_wrap .fl_right	{width:566px; margin-top: 15px;}
+
+.league_cont .btn_more	{display:block; position:absolute; top:5px; right:0; width:30px; height:30px; background:url('/images/content/btn_league_more.png') no-repeat center center}
+
+.league_cont .team_rank	{position:relative;}
+.league_cont .team_rank table	{border:1px solid #d7d7d7; border-top:2px solid #353535}
+.league_cont .team_rank table thead tr th	{border-left:0; border-top:0; background:#fff; font-size:18px; font-weight:700}
+.league_cont .team_rank table tbody tr td	{padding:8px 0; border-left:0; border-top:1px solid #d7d7d7; background:#fff; font-size:18px;}
+.table_wrap table tbody tr td .emb_wrap	{position:relative; padding-left:55px; font-size:16px; line-height:32px; text-align:left}
+.table_wrap table tbody tr td .emb_wrap .emb	{display:block; position:absolute; top:0; left:0; width:32px; height:32px;}
+.table_wrap table tbody tr td .emb_wrap .emb img	{width:100%; height:auto;}
+
+.league_cont .player_rank	{position:relative; margin-bottom:1px}
+.league_cont .player_rank .cont	{position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
+.league_cont .player_rank .cont:nth-child(3)	{margin-top:15px; border-top:2px solid #353535; }
+.league_cont .player_rank .cont .pic		{display:block; width:131px; height:170px; font-size:0; line-height:0}
+.league_cont .player_rank .cont .pic img	{width:131px; height:170px}
+.league_cont .player_rank .cont .info	{position:absolute; top:4px; right:15px; left:155px}
+.league_cont .player_rank .cont .info .tit		{padding:13px 9px 15px 9px; border-bottom:1px solid #d7d7d7; color:#353535; font-size:20px; font-weight:700; line-height:32px}
+.league_cont .player_rank .cont .info .name	{padding:18px 0 0 8px; color:#353535; font-size:34px; font-weight:700; line-height:46px}
+.league_cont .player_rank .cont .info .team	{padding:0 0 0 8px; color:#353535; font-size:16px; line-height:30px}
+.league_cont .player_rank .cont .info .num	{position:absolute; top:84px; left:200px; color:#4c89cd; font-size:32px; font-family:'HN_hvc'; font-weight:700; font-style:italic}
+.league_cont .player_rank .cont .info .num span	{display:inline-block; color:#16395f; font-size:81px; font-family:'NanumBarunGothic'; font-weight:700; font-style:normal; line-height:76px}
+.league_cont .player_rank .cont .blank	{text-align:center;}
+
+.league_cont .player_rank2	{position:relative; margin-bottom:1px}
+.league_cont .player_rank2 .cont	{position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
+.league_cont .player_rank2 .cont .pic		{display:block; width:131px; height:170px; font-size:0; line-height:0}
+.league_cont .player_rank2 .cont .pic img	{width:131px; height:170px}
+.league_cont .player_rank2 .cont .info	{position:absolute; top:4px; right:15px; left:155px}
+.league_cont .player_rank2 .cont .info .tit		{padding:13px 9px 15px 9px; border-bottom:1px solid #d7d7d7; color:#353535; font-size:20px; font-weight:700; line-height:32px}
+.league_cont .player_rank2 .cont .info .name	{padding:18px 0 0 8px; color:#353535; font-size:36px; font-weight:700; line-height:46px}
+.league_cont .player_rank2 .cont .info .team	{padding:0 0 0 8px; color:#353535; font-size:22px; line-height:30px}
+.league_cont .player_rank2 .cont .info .num	{position:absolute; top:84px; left:200px; color:#4c89cd; font-size:32px; font-family:'HN_hvc'; font-weight:700; font-style:italic}
+.league_cont .player_rank2 .cont .info .num span	{display:inline-block; color:#16395f; font-size:81px; font-family:'NanumBarunGothic'; font-weight:700; font-style:normal; line-height:76px}
+.league_cont .player_rank2 .cont .blank	{text-align:center;}
+
+.league_cont .player_wrap	{position:relative; margin-top:50px; padding-top:1px;}
+.league_cont .player_wrap .h_bar	{margin:0}
+.league_cont .player_wrap .rank_table	{margin-top:15px; padding:0}
+.league_cont .player_wrap .rank_table .table_wrap table tbody tr:nth-child(2n-1) td	{background:#fff}
+.league_cont .player_wrap .rank_table .table_wrap table tbody tr td a:hover	{text-decoration:underline}
+
+
+.league_cont .player_wrap .search_wrap	{position:absolute; top:0; right:0; padding-right:119px;}
+.league_cont .player_wrap .search_wrap input	{height:40px}
+.league_cont .player_wrap .search_wrap button	{display:block; position:absolute; top:0; right:0; width:120px; height:40px; background:#4c89cd; text-align:center}
+.league_cont .player_wrap .search_wrap button span	{display:inline-block; padding-right:30px; background:url('/images/content/icon_league_search_s.png') no-repeat right center; background-size:auto 40px; color:#fff; font-size:18px; font-weight:700}
+
+.league_cont .player_wrap .search_wrap2	{position:absolute; top:0px; right:0;}
+.league_cont .player_wrap .search_wrap2 .select	{width:210px; height:40px}
+
+.league_cont .league_schedule	{position:relative; padding-top:1px; clear:both}
+.league_cont .league_schedule .sel_wrap	{position:absolute; top:50px; right:0;}
+.league_cont .league_schedule .select	{width:210px; height:40px}
+.league_cont .league_schedule table	{border:1px solid #d7d7d7; border-top:2px solid #353535}
+.league_cont .league_schedule table tbody tr td	{padding:17px 0; border-left:0; border-top:1px solid #d7d7d7; background:#fff; font-size:18px; font-weight:700}
+.league_cont .league_schedule table tbody tr td .date	{color:#16395f; font-size:30px}
+.league_cont .league_schedule table tbody tr td .date .time	{font-size:18px}
+.league_cont .league_schedule table tbody tr td .vs	{color:#2c3c57; font-size:32px; font-family:'HN_hvc';}
+.league_cont .league_schedule table tbody tr td .vs .tk {font-size:18px;}
+.league_cont .league_schedule table tbody tr td .btn_view	{display:inline-block; padding:0 25px 0 19px; height:42px; background:#4c89cd url('/images/content/btn_league_view.png') no-repeat 87px center; color:#fff; font-size:16px; text-align:center; line-height:42px}
+
+.league_schedule .table_wrap table tbody tr td .emb_wrap	{padding-left:70px; font-size:18px; line-height:50px;}
+.league_schedule .table_wrap table tbody tr td .emb_wrap .emb	{width:50px; height:50px;}
+.league_schedule .table_wrap table tbody tr td .emb_wrap.right	{padding:0 70px 0 0; text-align:right}
+.league_schedule .table_wrap table tbody tr td .emb_wrap.right .emb	{position:absolute; right:0; left:auto}
+
+/* 리그 소개 */
+.league_cont .league_info	{margin-top:55px}
+.league_cont .league_info .info_cont	{/*padding:40px 0;*/ text-align:center}
+.league_cont .league_info .info_cont img	{max-width:840px; width:100%}
+.league_cont .league_info .info_cont p	{margin-top:30px; font-size:22px; line-height:30px}
+.league_cont .league_info .info_cont p strong	{font-size:30px}
+.league_cont .league_info .info_cont .league_btn	{}
+.league_cont .league_info .info_cont .league_btn ul	{margin:0 auto;}
+.league_cont .league_info .info_cont .league_btn ul li:first-child	{margin-left:0}
+
+
+.league_locate_wrap .view_wrap	{margin:0 auto; max-width:1200px}
+.league_locate_wrap .view_wrap .h_bar	{margin:70px 0 20px 0}
+
+.league_locate_wrap .view_wrap .charge_wrap	{}
+.league_locate_wrap .view_wrap .charge_wrap .cont	{overflow:hidden; position:relative; margin-top:10px; max-height:76px; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.league_locate_wrap .view_wrap .charge_wrap .cont .tit	{padding-left:28px; background:#747474; color:#fff; font-size:22px; line-height:76px}
+.league_locate_wrap .view_wrap .charge_wrap .cont button	{display:block; position:absolute; top:0; right:0; width:76px; height:76px; background:#404040 url('/images/content/btn_arr.png') no-repeat center center}
+
+.league_locate_wrap .view_wrap .charge_wrap .cont.on	{max-height:5000px}
+.league_locate_wrap .view_wrap .charge_wrap .cont.on .tit	{background:#2c3c57;}
+.league_locate_wrap .view_wrap .charge_wrap .cont.on button	{background:#192336 url('/images/content/btn_arr_on.png') no-repeat center center}
+.league_locate_wrap .view_wrap .charge_wrap	.table_wrap{text-align:center;margin:30px 0;}
+.league_locate_wrap .view_wrap .charge_wrap	.table_wrap .sub_title	{position:relative; /*padding-left:26px;*/ color:#2c3c57; font-size:30px; line-height:40px; letter-spacing:-2px;margin:10px 0;}
+
+/* 팀순위 */
+.league_cont .rank_table	{position:relative; margin-top:60px; padding-top:43px}
+.league_cont .rank_table .sel_wrap	{position:absolute; top:0; left:0;}
+.league_cont .rank_table .search	{padding:14px 0 14px 75px; background:#2c3c57 url('/images/content/icon_league_search.png') no-repeat 0 center; font-size:0; line-height:47px;}
+.league_cont .rank_table .search .select	{margin-right:8px; width:36%; height:47px}
+.league_cont .rank_table .search .select:first-child	{margin-left:14px; width:20%;}
+.league_cont .rank_table .search .select label		{line-height:45px}
+.league_cont .rank_table .search .select select	{height:45px; line-height:45px}
+.league_cont .rank_table .search .btn_search		{display:inline-block; width:167px; background:#4c89cd; color:#fff; font-size:24px; line-height:47px; text-align:center; vertical-align:top}
+
+.league_cont .rank_table .search_wrap	{position:absolute; top:14px; right:14px; padding-right:119px;}
+.league_cont .rank_table .search_wrap input	{height:48px}
+.league_cont .rank_table .search_wrap button	{display:block; position:absolute; top:0; right:0; width:120px; height:48px; background:#4c89cd; text-align:center}
+.league_cont .rank_table .search_wrap button span	{display:inline-block; padding-right:30px; background:url('/images/content/icon_league_search_s.png') no-repeat right center; background-size:auto 40px; color:#fff; font-size:18px; font-weight:700}
+
+.league_cont .rank_table .table_wrap table	{border:0}
+.league_cont .rank_table .table_wrap table thead tr th	{border:0; border-top:2px solid #2c3c57; border-bottom:2px solid #2c3c57; background:#fff; color:#4d4d4d; font-size:18px; font-weight:700}
+.league_cont .rank_table .table_wrap table thead tr th .up		{display:inline-block; padding-right:18px; background:url('/images/content/bg_table_up.png') no-repeat right center;}
+.league_cont .rank_table .table_wrap table thead tr th .down	{display:inline-block; padding-right:18px; background:url('/images/content/bg_table_down.png') no-repeat right center;}
+.league_cont .rank_table .table_wrap table tbody tr td	{padding:10px 0; border-top:0; border-bottom:1px solid #d5d8dd; border-left:1px solid #d5d8dd; background:#fff; font-size:18px; line-height:50px}
+.league_cont .rank_table .table_wrap table tbody tr td:first-child	{border-left:0}
+.league_cont .rank_table .table_wrap table tbody tr:nth-child(2n-1) td	{background:#f0f1f3;}
+.league_cont .rank_table .table_wrap table tbody tr td .num	{display:inline-block; width:25px; height:25px; background:#717171; color:#fff; font-size:18px; font-weight:700; line-height:25px; text-align:center}
+.league_cont .rank_table .table_wrap table tbody tr:first-child td .num	{background:#2c3c57}
+.league_cont .rank_table .table_wrap table tbody tr td .emb_wrap	{margin:0 22px; padding-left:75px; font-size:18px; font-weight:700; line-height:50px}
+.league_cont .rank_table .table_wrap table tbody tr td .emb_wrap .emb	{width:50px; height:50px}
+
+/* 팀목록 */
+.league_cont .teams_table	{position:relative; margin-top:60px;}
+.league_cont .teams_table .sel_wrap	{position:absolute; top:0; left:0;}
+.league_cont .teams_table .search	{padding:14px 0 14px 75px; background:#2c3c57 url('/images/content/icon_league_search.png') no-repeat 0 center; font-size:0; line-height:47px;}
+.league_cont .teams_table .search .select	{margin-right:8px; width:36%; height:47px}
+.league_cont .teams_table .search .select:first-child	{margin-left:14px; width:20%;}
+.league_cont .teams_table .search .select label		{line-height:45px}
+.league_cont .teams_table .search .select select	{height:45px; line-height:45px}
+.league_cont .teams_table .search .btn_search		{display:inline-block; width:167px; background:#4c89cd; color:#fff; font-size:24px; line-height:47px; text-align:center; vertical-align:top}
+
+.league_cont .teams_table .search_wrap	{position:absolute; top:14px; right:14px; padding-right:119px;}
+.league_cont .teams_table .search_wrap input	{height:48px}
+.league_cont .teams_table .search_wrap button	{display:block; position:absolute; top:0; right:0; width:120px; height:48px; background:#4c89cd; text-align:center}
+.league_cont .teams_table .search_wrap button span	{display:inline-block; padding-right:30px; background:url('/images/content/icon_league_search_s.png') no-repeat right center; background-size:auto 40px; color:#fff; font-size:18px; font-weight:700}
+
+.league_cont .teams_table .table_wrap table	{border:0}
+.league_cont .teams_table .table_wrap table thead tr th	{border:0; border-top:2px solid #2c3c57; border-bottom:2px solid #2c3c57; background:#fff; color:#4d4d4d; font-size:18px; font-weight:700}
+.league_cont .teams_table .table_wrap table thead tr th .up		{display:inline-block; padding-right:18px; background:url('/images/content/bg_table_up.png') no-repeat right center;}
+.league_cont .teams_table .table_wrap table thead tr th .down	{display:inline-block; padding-right:18px; background:url('/images/content/bg_table_down.png') no-repeat right center;}
+.league_cont .teams_table .table_wrap table tbody tr td	{padding:10px 0; border-top:0; border-bottom:1px solid #d5d8dd; border-left:1px solid #d5d8dd; background:#fff; font-size:18px; line-height:50px}
+.league_cont .teams_table .table_wrap table tbody tr td:first-child	{border-left:0}
+.league_cont .teams_table .table_wrap table tbody tr:nth-child(2n-1) td	{background:#f0f1f3;}
+.league_cont .teams_table .table_wrap table tbody tr td .num	{display:inline-block; width:25px; height:25px; background:#717171; color:#fff; font-size:18px; font-weight:700; line-height:25px; text-align:center}
+.league_cont .teams_table .table_wrap table tbody tr:first-child td .num	{background:#2c3c57}
+.league_cont .teams_table .table_wrap table tbody tr td .emb_wrap	{margin:0 22px; padding-left:75px; font-size:18px; font-weight:700; line-height:50px}
+.league_cont .teams_table .table_wrap table tbody tr td .emb_wrap .emb	{width:50px; height:50px}
+.league_cont .teams_table .table_wrap table tbody tr td .btn_view	{display:inline-block; padding:0 19px 0 19px; height:42px; background:#4c89cd; color:#fff; font-size:16px; text-align:center; line-height:42px}
+
+/* 개인순위 */
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap	{position:relative; padding-left:80px; font-size:18px; font-weight:700; line-height:50px; text-align:left}
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic	{position:absolute; top:-10px; left:0; width:55px; height:71px}
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic img	{width:55px; height:71px}
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .name	{display:inline-block; font-size:18px;}
+
+.layer_popup .table_wrap.indi table tbody tr td	{height:auto}
+.layer_popup .table_wrap.indi table tbody tr td .pic	{display:inline-block; width:200px; height:258px}
+.layer_popup .table_wrap.indi table tbody tr td .pic img	{width:100%}
+
+.league_cont .detail_score	{margin:0 auto; margin-top:60px; max-width:800px}
+.league_cont .detail_score .h_bar	{margin-top:55px}
+.league_cont .detail_score .table_wrap.indi table	{border:1px solid #c2c2c2; border-top:0; border-left:0}
+.league_cont .detail_score .table_wrap.indi table tbody tr th	{border-top:1px solid #c2c2c2; border-left:1px solid #c2c2c2}
+.league_cont .detail_score .table_wrap.indi table tbody tr td	{padding:8px 0; border-top:1px solid #c2c2c2; border-left:1px solid #c2c2c2}
+.league_cont .detail_score .table_wrap.indi table tbody tr td .pic	{display:inline-block; width:200px; height:258px}
+.league_cont .detail_score .table_wrap.indi table tbody tr td .pic img	{width:auto;}
+.league_cont .detail_score .table_wrap.indi table tbody tr td .pic.emblem img	{width:240px; height:auto}
+
+
+.league_cont .detail_score .table_wrap.small table	{border:1px solid #c2c2c2; border-top:0; border-left:0}
+.league_cont .detail_score .table_wrap.small table thead tr th	{padding:13px 0; font-size:18px; font-weight:700; border-top:1px solid #c2c2c2; border-left:1px solid #c2c2c2}
+.league_cont .detail_score .table_wrap.small table tbody tr td	{padding:11px 0; font-size:18px; border-top:1px solid #c2c2c2; border-left:1px solid #c2c2c2}
+
+.league_cont .detail_score .btn_wrap	{margin-top:44px}
+
+/* 리그 등록 */
+.league_regi	{margin:60px auto 0 auto; max-width:1200px !important}
+.league_regi .write_wrap	{margin-top:55px}
+.league_regi .write_wrap .code	{position:relative; padding-right:180px}
+.league_regi .write_wrap .code button	{display:block; position:absolute; top:0; right:0; width:180px; height:47px; background:#2389d8; color:#fff; font-size:18px; line-height:47px; text-align:center;}
+.league_regi .write_wrap .code .t_help	{display:none; position:absolute; left:0; bottom:-18px; color:#ff0000; font-size:14px; line-height:16px}
+
+/* 팀상세정보 */
+.team .tab_wrap + .rank_table	{padding-top:0}
+
+.league_cont .rank_table .select	{margin-right:8px; width:20%; height:47px}
+.league_cont .rank_table .select:first-child	{margin-left:14px; width:20%;}
+.league_cont .rank_table .select label		{line-height:45px}
+.league_cont .rank_table .select select	{height:45px; line-height:45px}
+
+.league_cont .detail_score.team	{margin-bottom:84px; max-width:1200px}
+.league_cont .detail_score.team .table_wrap.indi table tbody tr td .pic	{width:240px; height:240px}
+
+
+.team .tab_wrap + .league_schedule	{margin-top:60px; /*padding-top:40px*/}
+
+.team .tab_wrap + .league_schedule .sel_wrap	{position:absolute; top:0; right:auto; left:0}
+
+/*
+.league_cont .rank_table.player	{padding-top:43px}
+*/
+
+
+/* 고객센터 */
+.table_top	{text-align:right}
+.btn_base.qna span	{display:inline-block; padding-right:44px; background:url('/images/content/icon_btn_qna.png') no-repeat right center}
+
+/* 공지사항 */
+.notice_wrap	{}
+.notice_wrap.list table tbody tr td:nth-child(3),
+.notice_wrap.list table tbody tr td:nth-child(4)	{color:#a7a7a7}
+
+/* QnA */
+.qna_wrap.list	{max-width:1200px !important}
+.qna_wrap.list table tbody tr td:nth-child(3),
+.qna_wrap.list table tbody tr td:nth-child(4)	{color:#a7a7a7}
+
+.write_wrap	{margin:0 auto; max-width:800px !important; padding:0 10px}
+.write_wrap h4:first-child	{margin-bottom:20px}
+.write_wrap dl.fl_left	{width:49%}
+.write_wrap dl.fl_right	{width:49%}
+.write_wrap dl dt	{margin-top:14px; color:#383838; font-size:18px; font-weight:700; line-height:36px}
+.write_wrap dl dd .select	{height:47px}
+.write_wrap dl dd .select label	{height:45px; line-height:45px}
+.write_wrap dl dd .select select	{height:45px; line-height:45px}
+.write_wrap dl dd input	{height:47px}
+.write_wrap dl dd input:focus	{border:1px solid #7092cb}
+.write_wrap dl dd textarea:focus	{border:1px solid #7092cb}
+.write_wrap dl dd .phone	{font-size:0; line-height:0}
+.write_wrap dl dd .phone input	{width:31.333333%}
+.write_wrap dl dd .phone span	{display:inline-block; width:3%; font-size:11px; text-align:center; vertical-align:middle;}
+.write_wrap .select:hover	{border:1px solid #7092cb}
+
+.write_wrap .upload_wrap	{}
+.write_wrap .upload_wrap .act_wrap	{position:relative;}
+.write_wrap .upload_wrap .act_wrap .name_wrap	{display:block; position:relative; width:604px; height:45px; border:1px solid #c2c2c2; line-height:45px;}
+.write_wrap .upload_wrap .act_wrap .name_wrap .btn_file	{display:inline-block; position:static; margin-top:10px; margin-left:7px; color:#383838; width:82px; height:25px; border:1px solid #a5a5a5; background:#eee; font-size:13px; line-height:25px; text-align:center; vertical-align:top}
+.write_wrap .upload_wrap .act_wrap .name_wrap .t_info		{display:inline-block; margin-left:7px; font-size:16px;}
+
+.write_wrap .upload_wrap .act_wrap .btn_file	{display:block; position:absolute; top:0; right:0; width:180px; height:47px; background:#2389d8; color:#fff; font-size:18px; line-height:47px; text-align:center}
+
+.write_wrap .upload_wrap .act_wrap .file_list	{margin-top:15px}
+.write_wrap .upload_wrap .act_wrap .file_list li	{line-height:25px}
+.write_wrap .upload_wrap .act_wrap .file_list .name		{display:inline-block; color:#383838; font-size:14px; line-height:25px; vertical-align:middle}
+.write_wrap .upload_wrap .act_wrap .file_list .file_dell	{display:inline-block; margin-left:5px; width:19px; height:19px; background:url('/images/common/btn_file_dell.png') no-repeat 0 0; vertical-align:middle}
+
+.write_wrap .btn_wrap	{margin-top:49px; padding-top:40px; border-top:2px solid #353535}
+
+
+/* 상세 */
+.qna_wrap.view	{max-width:1200px !important}
+
+.view_wrap	{}
+.view_wrap .top	{padding:15px 15px 22px 15px; border-top:2px solid #2c3c57; border-bottom:1px solid #d5d8dd}
+.view_wrap .top .tit	{color:#2c3c57; font-size:20px; font-weight:700; line-height:30px}
+.view_wrap .top dl	{margin-top:5px}
+.view_wrap .top dl:after	{content:""; display:block; clear:both}
+.view_wrap .top dl dt	{float:left; margin:0; padding-right:14px; color:#2c3c57; font-size:18px; font-weight:700; line-height:30px}
+.view_wrap .top dl dd	{float:left; padding-right:18px; color:#a7a7a7; font-size:18px; line-height:30px}
+
+.view_wrap .info	{padding:30px 25px; border-bottom:1px solid #d5d8dd; text-align:center}
+.view_wrap .info img	{margin:25px 0; width:100%; max-width:968px}
+.view_wrap .info p	{font-size:18px}
+
+.view_wrap .info_text	{padding:30px 25px; border-bottom:1px solid #d5d8dd;}
+.view_wrap .info_text img	{margin:25px 0; width:100%; max-width:1150px}
+.view_wrap .info_text p	{font-size:18px}
+
+.view_wrap .btn_wrap	{margin-top:17px !important; padding:0 !important; border:0 !important}
+
+.view_wrap .reply	{margin-top:27px; }
+.view_wrap .reply table tbody th	{background:#f0f1f3; border-top:1px solid #2c3c57; border-bottom:1px solid #2c3c57; color:#2c3c57; font-size:18px}
+.view_wrap .reply table tbody td	{padding:24px 22px; border-top:1px solid #d5d8dd; border-bottom:1px solid #d5d8dd; color:#2c3c57; color:#383838; font-size:18px; line-height:28px}
+
+.view_wrap .list_pn	{margin-top:27px; }
+.view_wrap .list_pn table	{border-top:1px solid #d5d8dd; }
+.view_wrap .list_pn table tbody th	{background:#f1f1f1; border-bottom:1px solid #d5d8dd; color:#2c3c57; font-size:18px}
+.view_wrap .list_pn table tbody th .prev	{display:inline-block; padding-right:38px; background:url('/images/content/icon_pn_prev.png') no-repeat right center}
+.view_wrap .list_pn table tbody th .next	{display:inline-block; padding-right:38px; background:url('/images/content/icon_pn_next.png') no-repeat right center}
+.view_wrap .list_pn table tbody td	{padding:14px 22px; border-bottom:1px solid #d5d8dd; color:#626262; font-size:18px; line-height:28px}
+.view_wrap .list_pn table tbody td a	{display:block; color:#626262;}
+
+/* 갤러리 */
+.gallery_wrap	{padding:0 !important}
+.gallery_wrap .layer_dim	{background:rgba(0, 0, 0, 0.85)}
+.gallery_list	{}
+.gallery_list ul	{}
+.gallery_list ul li	{width:400px}
+.gallery_list ul li a	{display:block; position:relative; margin:3px}
+
+.gallery_list ul li a .img	{overflow:hidden}
+.gallery_list ul li a .img img	{width:100%; -moz-transform:scale(1); -ms-transform:scale(1); -webkit-transform:scale(1); transform:scale(1); -moz-transition:all 0.6s; -o-transition:all 0.6s; -webkit-transition:all 0.6s; transition:all 0.6s;}
+.gallery_list ul li a:hover .img img	{-moz-transform:scale(1.05); -ms-transform:scale(1.05); -webkit-transform:scale(1.05); transform:scale(1.05);}
+.gallery_list ul li a .txt	{display:block; position:absolute; right:0; bottom:0; left:0; padding:20px 10px; background:rgba(0, 0, 0, 0.5); color:#fff; font-size:16px; font-weight:700; line-height:26px; text-align:center}
+.gallery_list ul li .imgfiles	{display:none; height:0;}
+
+.gallery_popup	{display:none; position:fixed; z-index:120; top:50%; right:0; left:0; margin:-350px 0 0 0; width:100%;}
+.gallery_popup  .btn_closed	{display:block; position:fixed; top:0; right:0; width:78px; height:78px; background:url('/images/content/btn_closed_gallery.png') no-repeat center center;z-index:1000;}
+.gallery_popup .slide_wrap	{position:relative;}
+.gallery_popup .slide_wrap .page	{position:absolute; top:40px; left:50%; margin-left:-39px; width:78px; height:30px; border:1px solid #777; color:#fff; font-size:12px; line-height:30px; text-align:center}
+.gallery_popup .slide_wrap .page span	{display:inline-block}
+
+.gallery_popup .slide_wrap ul li a	{}
+.gallery_popup .slide_wrap ul li a .img	{max-height:580px; text-align:center}
+.gallery_popup .slide_wrap ul li a .img img	{width:auto; height:100%;max-height:580px;}
+.gallery_popup .slide_wrap ul li a .txt	{position:absolute; opacity:0; top:-80px; right:0; left:0; color:#fff; font-size:22px; line-height:34px; text-align:center; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.gallery_popup .slide_wrap ul li.active a .txt	{opacity:1; transition-delay:0.5s}
+
+.gallery_popup .slide_wrap .bx-viewport	{padding-top:90px}
+.gallery_popup .slide_wrap .bx-controls a	{overflow:hidden; display:block; position:fixed; top:50%; margin-top:-55px; width:85px; height:110px; text-indent:-9999px}
+.gallery_popup .slide_wrap .bx-controls a.disabled	{opacity:0}
+.gallery_popup .slide_wrap .bx-controls .bx-prev	{left:0; background:url('/images/content/btn_slide_prev.png') no-repeat center center;}
+.gallery_popup .slide_wrap .bx-controls .bx-next	{right:0; background:url('/images/content/btn_slide_next.png') no-repeat center center}
+.gallery_popup .slide_wrap .bx-controls .bx-prev:hover	{background:url('/images/content/btn_slide_prev_ov.png') no-repeat center center;}
+.gallery_popup .slide_wrap .bx-controls .bx-next:hover	{background:url('/images/content/btn_slide_next_ov.png') no-repeat center center}
+
+
+/* HM SPORTS */
+/* 소개 */
+.about_wrap	{padding:0 !important; max-width:100% !important}
+.about_wrap .info	{margin:0 auto; max-width:1200px}
+.about_wrap .info .img img	{width:100%}
+.about_wrap .h_tit	{color:#2c3c57}
+
+.about_wrap .partners_wrap	{margin-top:90px; padding:80px 0 104px 0; background:#f0f0f0}
+.about_wrap .partners_wrap .cont	{margin:0 auto; max-width:1200px}
+.about_wrap .partners_wrap .cont img	{width:100%}
+
+.about_wrap .sponsors_wrap	{padding:80px 0 104px 0}
+.about_wrap .sponsors_wrap .cont	{margin:0 auto; max-width:1200px; text-align:center}
+.about_wrap .sponsors_wrap .cont img	{width:100%; max-width:860px;}
+
+
+/* 연혁 */
+.history_wrap	{position:relative; padding:300px 0 0 0 !important}
+.history_wrap:after	{content:""; display:block; position:absolute; top:0; left:50%; margin-left:-96px; width:192px; height:183px; background:url('/images/content/logo_history.png') no-repeat 0 center}
+.history_wrap .cont	{position:relative; padding:0 0 0 685px}
+.history_wrap .cont:after	{content:""; display:block; position:absolute; top:0; bottom:-50px; left:50%; margin-left:-1px; width:2px; background:#2c3c57}
+.history_wrap .cont:first-child:after	{top:-100px}
+.history_wrap .cont:last-child:after	{display:none}
+.history_wrap .cont .year	{display:inline-block; position:relative; color:#2c3c57; font-size:80px; font-family:'HN_Th'; line-height:104px}
+.history_wrap .cont .year:before	{content:""; display:block; position:absolute; top:50%; left:0; margin-top:-11px; margin-left:-96px; width:22px; height:22px; background:#2c3c57}
+.history_wrap .cont .year:after	{content:""; display:block; position:absolute; right:40px; bottom:0; left:40px; height:2px; background:#bfc4cc}
+.history_wrap .cont ul	{margin-top:29px;}
+.history_wrap .cont ul li	{color:#383838; font-size:20px; line-height:36px}
+
+.history_wrap .cont:nth-child(2n-1)	{padding:0 685px 0 0; text-align:right}
+.history_wrap .cont:nth-child(2n-1) .year:before	{right:0; left:auto; margin-right:-96px; margin-left:0;}
+
+
+
+
+/* 로그인 */
+.memb #header,
+.memb #footer	{display:none}
+.memb body	{background:#f5f6f7}
+.memb #wrapper #container	{background:#f5f6f7}
+
+.member_wrap	{padding-top:60px !important; padding-bottom:30px !important}
+.member_wrap h1	{margin:0 auto; width:132px; height:126px; cursor: pointer; background:url('/images/content/logo_member.png') no-repeat center center}
+.member_wrap .btn_middle	{font-size:24px; line-height:68px;}
+
+.member_wrap .bot_info	{margin-top:40px; text-align:center}
+.member_wrap .bot_info .logo	{display:inline-block; width:109px; height:20px; background:url('/images/content/login_logo.png') no-repeat center center;}
+.member_wrap .bot_info .copy	{margin-top:4px; color:#959595; font-size:10px; font-family:'Arial'; line-height:16px; letter-spacing:0.5px}
+
+.login_wrap	{margin:0 auto; max-width:460px}
+.login_wrap dl	{margin-top:36px}
+.login_wrap dl dt	{display:none}
+.login_wrap dl dd	{margin-top:14px}
+.login_wrap dl dd input	{height:60px}
+.login_wrap dl dd input:focus	{border:2px solid #7092cb}
+.login_wrap .chk	{margin-top:11px}
+.login_wrap .chk label		{color:#383838; font-size:14px; font-weight:700}
+.login_wrap .btn_middle	{display:block; margin-top:40px; width:100%;}
+.login_wrap .btn_wrap		{margin-top:48px; padding-top:22px; border-top:1px solid #c4c4c4; text-align:center}
+.login_wrap .btn_wrap a	{display:inline-block; position:relative; margin-left:23px; color:#383838; font-size:16px; line-height:36px;}
+.login_wrap .btn_wrap a.join	{color:#003e94; font-weight:700}
+.login_wrap .btn_wrap a:after	{content:""; display:block; position:absolute; top:50%; left:-12px; margin-top:-9px; width:1px; height:18px; background:#c4c4c4;}
+.login_wrap .btn_wrap a:first-child	{margin:0}
+.login_wrap .btn_wrap a:first-child:after	{display:none}
+
+.login_wrap .sns_login	{margin-top:64px;}
+.login_wrap .sns_login .tit	{color:#383838; font-size:20px; line-height:30px;}
+.login_wrap .sns_login a	{display:block; position:relative; margin-top:8px; padding-left:75px; color:#fff; font-size:20px; line-height:68px;}
+.login_wrap .sns_login a:after	{content:""; display:block; position:absolute; top:0; right:0; width:60px; height:68px; background:url('/images/content/sns_login_arr_w.png') no-repeat center center;}
+.login_wrap .sns_login a.kakao:after	{background:url('/images/content/sns_login_arr_b.png') no-repeat center center;}
+.login_wrap .sns_login .naver	{background:#1ec800 url('/images/content/sns_login_n.png') no-repeat 0 center; padding-left:0px;}
+.login_wrap .sns_login .kakao	{color:#412e34; background:#fff200 url('/images/content/sns_login_k.png') no-repeat 0 center;}
+.login_wrap .sns_login .face	{background:#475993 url('/images/content/sns_login_f.png') no-repeat 0 center;}
+
+.layer_popup.find	{padding:78px 90px !important; max-width:646px !important}
+.layer_popup.find h1	{font-size:26px; line-height:48px; text-align:center}
+.layer_popup.find .find_wrap	{}
+.layer_popup.find .find_wrap input	{margin-top:12px; height:60px}
+.layer_popup.find .find_wrap input:focus	{border:2px solid #7092cb}
+.layer_popup.find .find_wrap .btn_wrap	{margin-top:28px}
+.layer_popup.find .find_wrap .btn_wrap .btn_middle	{min-width:202px; font-size:24px; line-height:68px;}
+
+/* 아이디 패스워드 찾기 */
+.layer_popup.find .find_comp	{padding-top:155px}
+.layer_popup.find .find_comp.id		{background:url('/images/content/icon_find_id.png') no-repeat center 18px}
+.layer_popup.find .find_comp p	{color:#383838; font-size:24px; line-height:30px; text-align:center}
+.layer_popup.find .find_comp p span	{display:inline-block; color:#1b67bb; font-size:30px; font-weight:700}
+
+.layer_popup.find .find_comp.pass	{margin:0 -60px; background:url('/images/content/icon_find_pass.png') no-repeat center 10px}
+.layer_popup.find .find_comp.pass p	{font-size:22px; line-height:30px;}
+.layer_popup.find .find_comp.pass p span	{font-size:22px}
+
+
+/* 회원가입 */
+.join_wrap	{margin:0 auto; padding-top:34px; max-width:460px}
+.join_wrap .chk	{margin:45px 0 0 0}
+.join_wrap .chk label	{color:#383838; font-size:20px; cursor: pointer; font-weight:700}
+.join_wrap .chk label span	{color:#003e94; font-size:14px;}
+.join_wrap .chk:first-child	{margin-top:0}
+.join_wrap .chk:first-child label	{line-height:24px; background-position:0 2px !important}
+.join_wrap dl dd .phone	{font-size:0; line-height:0}
+.join_wrap dl dd .phone input	{width:31.333333%}
+.join_wrap dl dd .phone span	{display:inline-block; width:3%; font-size:11px; text-align:center; vertical-align:middle;}
+.join_wrap.info dl dd .auth_wrap2	{position:relative; margin-top:10px;}
+.join_wrap.info dl dd .auth_wrap2 span	{line-height:60px; font-size:20px; font-weight:700}
+.join_wrap.info dl dd .auth_wrap2 .btn_middle	{position:absolute; top:0; right:0; width:142px; line-height:60px; font-size:20px}
+
+.join_wrap .turm_wrap	{overflow-y:auto; padding:5px; margin-top:10px; height:114px; border:1px solid #c3c3c3; background:#fff;}
+.join_wrap .turm_wrap:hover	{border:1px solid #7092cb}
+.join_wrap .turm_wrap p	{font-size:14px; line-height:20px}
+.join_wrap .turm_wrap .mt	{margin-top:20px}
+
+.join_wrap .btn_wrap	{margin-top:44px; text-align:right}
+.join_wrap .btn_wrap .btn_middle	{width:49%}
+.join_wrap .btn_wrap .btn_middle:first-child	{float:left}
+
+.join_wrap.info .btn_wrap{margin-top:24px; text-align:center}
+.join_wrap.info .btn_wrap .btn_big{width:100%; height:60px; line-height:60px; background:#4c89cd;}
+
+
+.join_wrap.info	{}
+.join_wrap.info dl dt	{margin-top:28px; color:#383838; font-size:20px; font-weight:700; line-height:37px}
+.join_wrap.info dl dt span	{color:#003e94; font-size:14px;}
+.join_wrap.info dl dt:first-child	{margin-top:0}
+.join_wrap.info dl dd input	{height:60px}
+.join_wrap.info dl dd input:focus	{border:2px solid #7495cc}
+.join_wrap.info dl dd .t_help	{display:none; margin-top:5px; color:#ff0000; font-size:14px; line-height:18px}
+.join_wrap.info dl dd .auth_wrap	{position:relative}
+.join_wrap.info dl dd .auth_wrap input				{width:270px}
+.join_wrap.info dl dd .auth_wrap .btn_middle	{position:absolute; top:0; right:0; width:142px; line-height:60px; font-size:20px}
+.join_wrap.info dl dd .auth_wrap .btn_secession	{position:absolute; top:0; right:0; width:142px; line-height:40px; font-size:16px; background: #e61616; color:#fff;text-align:center;cursor:pointer}
+.join_wrap.info dl dd .auth_wrap .succes			{display:none; margin-top:10px; padding:0 10px; height:60px; background:#fff; border:1px solid #ddd; color:#2c3c57; font-size:14px; font-weight:700; line-height:58px; text-align:right; box-sizing:border-box; -moz-box-sizing:border-box;}
+.join_wrap.info dl dd .txt	{display:inline-block; font-size:24px; line-height:40px}
+.join_wrap.info .btn_wrap .btn_middle	{width:100%}
+.join_wrap.info .btn_wrap.side .btn_middle	{width:49%}
+
+.layer_popup.find .find_comp.comp	{padding-top:180px; background:url('/images/content/icon_find_join.png') no-repeat center 10px;}
+.layer_popup.find .find_comp.comp p em	{font-style:normal}
+
+
+/* 약관 */
+.terms_wrap	{}
+.terms_wrap .h_bar	{margin-top:46px; }
+.terms_wrap p		{margin-left:30px; color:#383838; font-size:18px; line-height:28px}
+.terms_wrap .tit	{margin-top:28px; font-weight:700}
+.terms_wrap ul		{margin-left:30px;}
+.terms_wrap ul li	{color:#383838; font-size:18px; line-height:28px}
+
+/* 취급방침 */
+.privacy_wrap	{}
+.privacy_wrap p	{margin-bottom:28px; color:#383838; font-size:18px; line-height:28px}
+.privacy_wrap p.last	{padding:30px 0 0;}
+.privacy_wrap .h_bar	{margin-top:70px}
+.privacy_wrap .h_bar.first	{margin-top:40px}
+
+.privacy_wrap .t_info .num li	{position:relative; padding-left:50px; font-size:22px; line-height:36px;}
+.privacy_wrap .t_info .num li span	{display:block; position:absolute; top:4px; left:0; width:28px; background:#2c3c57; color:#fff; font-size:19px; font-weight:700; line-height:28px; text-align:center}
+
+.privacy_wrap .t_txt	{margin:20px 0 -7px 24px; color:#383838; font-size:17px; line-height:28px; letter-spacing:-0.7px}
+.privacy_wrap .t_info	{margin-top:18px; padding:15px 20px; border:1px solid #b8babc; background:#f3f3f3}
+.privacy_wrap .t_info p	{margin-bottom:26px; color:#383838; font-size:18px; line-height:26px}
+.privacy_wrap .t_info ul	{margin-bottom:26px}
+.privacy_wrap .t_info ul li	{color:#383838; font-size:18px; line-height:26px}
+.privacy_wrap .t_info ul:last-child,
+.privacy_wrap .t_info p:last-child	{margin-bottom:0}
+.privacy_wrap .t_info .tit	{margin:0; font-size:22px; font-weight:700; line-height:36px}
+
+
+/* 이메일무단수집거부 */
+.mail_wrap	{padding:284px 0 85px 0 !important; border:1px solid #b6b8ba; background:#f3f3f3 url('/images/content/icon_find_pass.png') no-repeat center 100px;}
+.mail_wrap p	{font-size:22px; line-height:30px; text-align:center}
+.mail_wrap p strong	{color:#306eb3; font-weight:700;}
+
+
+.tournament_wrap {}
+.tournament_wrap .emb_wrap	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.tournament_wrap .emb_wrap.off	{display:none;}
+
+.tournament_wrap .emb_wrap_8	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.tournament_wrap .emb_wrap_8.off	{display:none;}
+
+.tournament_wrap .emb_wrap_4	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+.tournament_wrap .emb_wrap_4.off	{display:none;}
+
+.tournament_wrap button	{display:block; position:absolute; top:56px; right:0;width:30px; height:30px; background:#4c89cd url('/images/content/btn_arr_on.png') no-repeat center center;  background-size: auto 30%;}
+.tournament_wrap button.on {background:#4c89cd url('/images/content/btn_arr.png') no-repeat center center; background-size: auto 30%;}
+
+@media screen and (max-width:1216px)	{
+	/* 지점 */
+	.loca_view	{height:44px}
+	.loca_view .btn_wrap a	{width:auto; padding-left:58px; background:url('/images/content/btn_all_view.png') no-repeat 0 0; background-size:44px 44px; font-size:15px; line-height:44px; text-align:left}
+	.loca_view .btn_wrap a span	{padding:0; background:none;}
+	.loca_view .btn_wrap a.open	{display:block !important}
+	.loca_view .btn_wrap a.closed	{display:none}
+
+	.loca_view .loca_list	{display:block; max-height:none; position:fixed; z-index:90; top:0; bottom:0; left:0; padding:50px 7px 0 7px; width:223px; -webkit-transform:translate3d(-100%, 0, 0); -moz-transform:translate3d(-100%, 0, 0); -o-transform:translate3d(-100%, 0, 0); -ms-transform:translate3d(-100%, 0, 0); transform:translate3d(-100%, 0, 0);}
+	.loca_view.on .loca_list	{max-height:none; padding:50px 7px 0 7px; -webkit-transform:translate3d(0, 0, 0); -moz-transform:translate3d(0, 0, 0); -o-transform:translate3d(0, 0, 0); -ms-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0)}
+
+	.loca_view .loca_list .btn_closed	{display:block; position:absolute; top:0; right:0; left:0; padding:0 17px; background:#2c3c57 url('/images/content/btn_loca_closed.png') no-repeat 210px center; background-size:17px auto; color:#fff; font-size:17px; font-weight:700; line-height:56px;}
+	.loca_view .loca_list > ul	{overflow-y:auto; position:absolute; top:56px; right:7px; bottom:0; left:7px; padding:20px 0}
+	.loca_view .loca_list ul li	{float:none; margin:25px 0 0 0; width:auto; height:auto}
+	.loca_view .loca_list ul li:first-child	{margin-top:0}
+	.loca_view .loca_list ul li a	{padding:0 10px; border:2px solid #2c3c57; font-size:18px; line-height:32px}
+	.loca_view .loca_list ul li ul	{padding-top:15px}
+	.loca_view .loca_list ul li ul li a	{padding-left:10px; font-size:16px; line-height:32px}
+
+	.locate_wrap .view_wrap	{margin:0 20px}
+	.locate_wrap .view_wrap .pace_info .tag	{display:none}
+	.locate_wrap .view_wrap .pace_info .fl_wrap	{position:static; padding:0 0 20px 0; background:#fff; border:1px solid #9ea7b6; border-top:0}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .fl_left		{float:none; padding-left:20px; width:auto; background:url('/images/content/icon_loca.png') no-repeat 20px 23px; background-size:41px 41px}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .fl_right	{float:none; padding-left:20px; width:auto; background:url('/images/content/icon_tell.png') no-repeat 20px 23px; background-size:41px 41px}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .tit	{padding:18px 0 0 54px; color:#2c3c57; line-height:54px;}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .txt	{color:#383838; line-height:32px;}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .txt a.tel {color:#383838;}
+
+
+	/* 대관 */
+	.rese_wrap.cal	{padding:0 10px !important}
+	.rese_wrap .fl_wrap .fl_left		{float:none; width:100%}
+	.rese_wrap .fl_wrap .fl_right	{float:none; margin-top:10px; width:100%}
+
+
+	/* 고객센터 */
+	/* 갤러리 */
+	.gallery_list ul	{width:100% !important}
+	.gallery_list ul li	{width:50%}
+
+
+	/* H LEAGUE */
+	.league_cont .league_btn ul	{margin:0 -4px}
+	.league_cont .league_btn ul li	{margin:0; width:50%; border:0; box-sizing:border-box; -moz-box-sizing:border-box}
+	.league_cont .league_btn ul li a	{margin:4px; border:1px solid #bfc4cc;}
+
+	.league_cont .fl_wrap .fl_left	{width:100%}
+	.league_cont .fl_wrap .fl_right	{width:100%}
+
+	.league_cont .league_schedule table .tb	{display:none}
+
+	/* 리그 소개 */
+	.league_cont .league_info .info_cont .league_btn ul	{margin:0 auto; max-width:1000px}
+	.league_cont .league_info .info_cont .league_btn ul li	{width:33.333%}
+
+	/* HM SPORTS */
+	/* 연혁 */
+	.history_wrap .cont	{padding-left:55%}
+	.history_wrap .cont:nth-child(2n-1)	{padding-left:0; padding-right:55%}
+
+	.history_wrap .cont .year:before	{left:-5.838vw; margin-left:0}
+	.history_wrap .cont:nth-child(2n-1) .year:before	{right:-5.838vw; margin-right:0}
+}
+
+
+
+
+@media screen and (max-width:1120px)	{
+	/* 지점 */
+	.locate_wrap .list_wrap .cont	{padding:0 20px}
+	.locate_wrap .list_wrap .cont .info	{height:auto}
+	.locate_wrap .list_wrap .cont .info .thumb	{position:relative; top:auto; right:auto; left:auto; width:100%; height:auto}
+	.locate_wrap .list_wrap .cont .info .thumb img	{width:100%; height:auto}
+
+	.locate_wrap .list_wrap .cont .info .t_wrap	{position:static; width:auto}
+	.locate_wrap .list_wrap .cont .info .t_wrap .tit		{margin-top:40px; border:0; text-align:center}
+	.locate_wrap .list_wrap .cont .info .t_wrap .t01	{display:none}
+	.locate_wrap .list_wrap .cont .info .t_wrap .t02	{display:none}
+
+	/* 갤러리 */
+	.gallery_popup	{top:0; bottom:0; margin:0;}
+	.gallery_popup .slide_wrap	{position:absolute; top:50%; right:0; left:0; -webkit-transform:translate3d(0, -52%, 0); -moz-transform:translate3d(0, -52%, 0); -o-transform:translate3d(0, -52%, 0); -ms-transform:translate3d(0, -52%, 0); transform:translate3d(0, -52%, 0);}
+	.gallery_popup .slide_wrap ul li a .img	{overflow:hidden; width:100%; height:100%}
+	.gallery_popup .slide_wrap ul li a .img img	{width:auto; height:66.666vw}
+
+	/* 이메일무단수집거부 */
+	.mail_wrap	{margin:0 10px !important}
+
+}
+
+@media screen and (max-width:300px)	{
+	.mail_wrap	{padding-right:20px !important; padding-left:20px !important}
+	.mail_wrap p br	{display:none !important}
+}
+
+
+@media screen and (max-width:960px)	{
+	/* Test */
+	.test_wrap img	{width:100%}
+
+	/* 컨텐츠 공통 */
+	.h_tit	{margin-bottom:30px; padding-bottom:12px; font-size:30px; line-height:30px;}
+	.h_tit:after	{margin-left:-25px; width:50px; height:1px;}
+
+	.h_bar	{position:relative; padding-left:14px; color:#2c3c57; font-size:20px; line-height:30px}
+	.h_bar:before	{content:""; display:block; position:absolute; top:5px; left:0; width:3px; height:20px; background:#2c3c57}
+	.h_bar:after		{content:""; display:block; position:absolute; top:5px; left:0; width:3px; height:4px; background:#aec8f4}
+	.h_bar.line		{margin-top:23px; padding-bottom:7px; border-bottom:1px solid #353535;}
+
+
+	/* 지점 */
+	.loca_view	{margin-top:-30px !important;}
+	.locate_wrap .h_tit	{margin-top:30px}
+	.locate_wrap .list_wrap .cont	{padding:0 10px}
+	.locate_wrap .list_wrap .cont .info	{padding:27px 0}
+	.locate_wrap .list_wrap .cont .info .thumb .ov ul li	{font-size:20px; line-height:30px}
+
+	.locate_wrap .list_wrap .cont .info .t_wrap	{}
+	.locate_wrap .list_wrap .cont .info .t_wrap .tit		{margin-top:20px; font-size:24px; line-height:35px}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap	{margin-top:12px; text-align:right}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a	{width:48.5%; height:57px}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a span	{font-size:17px; line-height:57px}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_rese	{float:left;}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_rese span	{padding-left:37px; background-size:auto 28px}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_info	{margin:0;}
+	.locate_wrap .list_wrap .cont .info .t_wrap .btn_wrap a.btn_info span	{padding-left:44px; background-size:auto 28px}
+
+	.locate_wrap .view_wrap	{margin:0 10px}
+	.locate_wrap .view_wrap .h_bar	{margin:23px 0 8px 0;}
+
+	.locate_wrap .view_wrap .pace_info .fl_wrap	{padding:0 0 10px 0;}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .fl_left		{padding:0 10px; background:url('/images/content/icon_loca.png') no-repeat 10px 13px; background-size:20px 20px}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .fl_right	{padding:0 10px; background:url('/images/content/icon_tell.png') no-repeat 10px 13px; background-size:20px 20px}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .tit	{padding:9px 0 0 27px; font-size:15px; line-height:27px;}
+	.locate_wrap .view_wrap .pace_info .fl_wrap .txt	{font-size:11px; line-height:16px;}
+
+	.locate_wrap .view_wrap .location_info iframe	{height:175px}
+	.locate_wrap .view_wrap .location_info p	{padding:10px 11px; line-height:13px; text-align:left}
+	.locate_wrap .view_wrap .location_info p span	{padding:0; background:none; font-size:12px; line-height:13px;}
+
+	.locate_wrap .view_wrap .charge_wrap .cont	{margin-top:7px; max-height:46px}
+	.locate_wrap .view_wrap .charge_wrap .cont .tit	{padding-left:10px; font-size:15px; line-height:46px}
+	.locate_wrap .view_wrap .charge_wrap .cont button	{width:46px; height:46px; background-size:16px auto !important}
+	.locate_wrap .view_wrap .charge_wrap .cont .table_wrap	{margin-top:5px}
+	.locate_wrap .view_wrap .charge_wrap .cont.on	{max-height:400px}
+
+	.locate_wrap .view_wrap .list_wrap p,
+	.locate_wrap .view_wrap .list_wrap li	{font-size:12px; line-height:21px}
+
+	.locate_wrap .view_wrap .academy_info .info	{max-height:300px; margin-top:8px; padding:10px;}
+	.locate_wrap .view_wrap .academy_info .info .tit	{margin-bottom:6px; font-size:20px; line-height:30px}
+	.locate_wrap .view_wrap .academy_info .info p,
+	.locate_wrap .view_wrap .academy_info .info li	{font-size:12px; line-height:20px}
+	.locate_wrap .view_wrap .academy_info .btn_wrap	{margin-top:12px;}
+	.locate_wrap .view_wrap .academy_info .btn_wrap .btn_class	{width:176px; height:60px; border-radius:5px}
+	.locate_wrap .view_wrap .academy_info .btn_wrap .btn_class span		{padding-left:42px; background-size:35px auto !important; font-size:18px; line-height:60px;}
+
+	/*.layer_popup.class .t01	{width:100px !important}*/
+	.layer_popup.class .textarea textarea	{height:80px !important}
+
+
+	/* 대관 */
+	.rese_wrap .rese_start .tit	{padding-left:49px; background-size:49px auto !important; font-size:12px; line-height:49px; border-radius:10px 10px 0 0;}
+	.rese_wrap .rese_start .start_wrap		{padding:22px 0 21px 0; border:1px solid #bfc4cc; border-radius:0 0 10px 10px;}
+	.rese_wrap .rese_start .start_wrap	 .cont	{width:70%; max-width:380px}
+	.rese_wrap .rese_start .start_wrap	 .cont .select	{margin-top:8px; height:30px}
+	.rese_wrap .rese_start .start_wrap	 .cont .select label	{line-height:28px}
+	.rese_wrap .rese_start .start_wrap	 .cont .select select	{height:28px; line-height:28px}
+	.rese_wrap .rese_start .start_wrap	 .cont .btn_wrap	{margin-top:20px}
+	.rese_wrap .rese_start .start_wrap .cont .btn_wrap .btn_big	{height:47px; line-height:47px}
+	.rese_wrap .rese_start .start_wrap .cont span input{margin-top:8px; height:30px}
+	.rese_wrap .rese_start .start_wrap .cont span.text dt{padding-top:0px; margin-bottom:0px; font-size:14px}
+	.rese_wrap .rese_start .start_wrap  .cont .fl_wrap dl dt {margin-top:7px; font-size:14px; line-height:30px}
+	.rese_wrap .rese_start .start_wrap  .cont .fl_wrap dl dd input {margin-top:8px; height:28px}
+
+	.rese_wrap .fl_wrap .fl_left .thumb .tag	{right:15px; bottom:52px; left:15px}
+	.rese_wrap .fl_wrap .fl_left .thumb .tag span	{font-size:20px; line-height:22px}
+	.rese_wrap .fl_wrap .fl_left .thumb .name	{font-size:20px; line-height:45px}
+
+	.rese_wrap .fl_wrap .fl_left .info	{overflow-y:auto; padding:0 10px 10px 10px; max-height:210px}
+	.rese_wrap .fl_wrap .fl_left .info .tit	{padding:16px 0 6px 0; font-size:16px; line-height:24px}
+	.rese_wrap .fl_wrap .fl_left .info p, 
+	.rese_wrap .fl_wrap .fl_left .info li	{font-size:12px; line-height:20px}
+
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap	{padding:13px 10px 17px 10px;}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_prev	{width:30px; height:30px; background-size:30px auto !important}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .btn_next	{width:30px; height:30px; background-size:30px auto !important}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .top .year			{width:95px; font-size:21px; line-height:30px}
+
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar	{margin-top:9px;}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table thead tr th	{height:34px; font-size:13px; line-height:34px}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td	{height:35px;}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button	{height:35px; line-height:35px;}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button span	{height:35px; font-size:13px; line-height:35px;}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .table_calendar table tbody tr td button.on span	{height:37px; line-height:37px;}
+
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot	{margin-top:18px; line-height:0}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span	{padding-left:22px; font-size:13px; line-height:16px}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span:after	{width:16px; height:16px}
+	.rese_wrap .fl_wrap .fl_right .calendar_wrap .bot span.imp:after	{width:14px; height:14px}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap	{padding:0 10px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap	{padding:14px 0; line-height:18px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .tit	{width:77px; font-size:14px; line-height:25px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap span	{line-height:25px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .date	{font-size:14px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select	{width:100%; height:26px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select label	{height:24px; font-size:12px; line-height:24px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .select select	{height:24px; line-height:24px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .t_help	{display:block; float:none; font-size:11px; line-height:16px;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .btn_oc	{display:block; position:absolute; top:18px; right:0; width:30px; height:30px; background:url('/images/content/btn_oc.png') no-repeat center center; background-size:27px auto}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time	{overflow:hidden; margin-top:5px; max-height:0; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time.on	{max-height:none !important;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul	{margin-left:0}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li	{margin-top:4px; margin-left:1.25%; width:32.5%}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li:nth-child(1)	{margin-left:0}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li:nth-child(3n+1)	{margin-left:0}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .sec_time ul li button	{padding:6px 0; font-size:11px; line-height:13px;}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list	{overflow:hidden; max-height:0; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list.on	{max-height:none !important;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li	{padding:10px 0; font-size:11px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li input	{height:26px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li .price	{display:block; float:none; margin-top:4px; font-size:12px; line-height:20px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap .op_list ul li .btn_pm	{float:right;margin-left:5px;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.total	{padding:18px 0}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.total .tit		{font-weight:700}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.total .total	{float:none; position:absolute; top:12px; right:0; font-size:13px; line-height:20px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.total .total .i_txt	{font-size:11px; line-height:18px}
+/*
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .t_help	{padding:0 40px 10px 0; line-height:14px; letter-spacing:-0.5px}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list	{overflow:hidden; margin-top:5px; max-height:0; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list.on	{max-height:none !important;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li	{padding:10px 0}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li .select	{width:100%}
+*/
+	.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt	{overflow-y:auto; margin:-1px -10px 0 -10px; padding:0 11px; max-height:130px;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt .tit	{padding:16px 0 6px 20px; font-size:16px; line-height:24px; background-position:0 20px; background-size:15px 15px}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt p,
+	.rese_wrap .fl_wrap .fl_right .info_wrap .info_txt li	{font-size:12px; line-height:20px;}
+
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr th	{padding:0 0 0 10px; padding-top:9px; height:24px; font-size:12px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td	{padding:4px 8px; height:28px; font-size:12px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td input	{padding:0 5px; font-size:12px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr td textarea	{height:80px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:first-child th	{padding-top:13px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:first-child td	{padding-top:8px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .table_wrap table tbody tr:last-child td	{padding-bottom:8px}
+
+	.rese_wrap .fl_wrap .fl_right .int_wrap .chk	{margin:8px 0 0 0}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap	{margin-top:20px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap .btn_big	{height:47px; line-height:47px}
+	.rese_wrap .fl_wrap .fl_right .int_wrap .btn_wrap .btn_big span	{padding-left:32px; background-size:23px auto}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list ul li textarea {height:80px; font-size:12px; padding:4px}
+
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone {font-size:12px;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone span:first-child	{width:20%;}
+	.rese_wrap .fl_wrap .fl_right .info_wrap .t_wrap.match .match_list .phone span	{font-size:12px; width:1%}
+
+
+	/* H CUP */
+	/* 소개 */
+	.league_cont .team_rank.indi table thead tr th	{border-left:0}
+	.league_cont .team_rank.indi table tbody tr td	{padding:4px 0}
+	.league_cont .team_rank.indi .table_wrap table tbody tr td .emb_wrap .team	{margin:0; font-size:11px}
+
+	.tournament_wrap .cont	{margin-top:5px; margin:0 auto;}
+	.tournament_wrap .cont .emb_wrap	{width:320px; height:580px; background:url('/images/content/bg_tournament_m.gif') no-repeat center;}
+	.tournament_wrap .cont .emb_wrap_8	{width:320px; height:580px; background:url('/images/content/bg_tournament_8_m.gif') no-repeat center;}
+	.tournament_wrap .cont .emb_wrap_4	{width:320px; height:400px; background:url('/images/content/bg_tournament_4_m.gif') no-repeat center;}
+	.tournament_wrap .cont .emb img	{width:20px; height:20px; padding:0px;}
+
+	.tournament_wrap .cont .emb	{display:inline-block; position:absolute; width:70px; height:50px; padding:2px 2px 10px 2px; border:1px solid #dadada; background:#f1f1f1; font-size:10px; line-height:14px; text-align:center/* border-radius:3px*/}
+	.tournament_wrap .cont .emb	.mtitle{font-size:9px; line-height:18px;}
+	.tournament_wrap .cont .emb .left {float:left; width:30%;}
+	.tournament_wrap .cont .emb .right {float:right; width:30%;}
+	.tournament_wrap .cont .emb .vs {color: #2c3c57; width:100%; font-size:14px; font-family:'HN_hvc';line-height:14px; display:block; clear:both}
+	.tournament_wrap .cont .emb .vs .tk {font-size:10px;}
+	.tournament_wrap .cont .emb span .td {display:none;}
+	.tournament_wrap .cont .emb.p01	{top:15px; left:0px}
+	.tournament_wrap .cont .emb.p02	{top:15px; left:80px}
+	.tournament_wrap .cont .emb.p03	{top:15px; left:164px}
+	.tournament_wrap .cont .emb.p04	{top:15px; left:244px}
+	.tournament_wrap .cont .emb.p05	{top:90px; left:40px}
+	.tournament_wrap .cont .emb.p06	{top:90px; left:204px}
+	.tournament_wrap .cont .emb.p07	{top:165px; left:122px}
+	.tournament_wrap .cont .emb.p08 img	{width:40px; height:40px; padding-bottom:0px;}
+	.tournament_wrap .cont .emb.p08 span {font-size:16px; font-weight:bold; line-height:24px;}
+	.tournament_wrap .cont .emb.p08 .vs {font-size:20px; line-height:26px;}
+	.tournament_wrap .cont .emb.p08	{top:239px; left:93px; padding:4px 6px 16px 6px; width:120px; height:84px}
+	.tournament_wrap .cont .emb.p08	.mtitle{font-size:14px; height:24px; line-height:22px;}
+	.tournament_wrap .cont .emb.p08 .left {width:40px;}
+	.tournament_wrap .cont .emb.p08 .right {width:40px;}
+	.tournament_wrap .cont .emb.p09	{top:356px; left:122px}
+	.tournament_wrap .cont .emb.p10	{top:430px; left:40px}
+	.tournament_wrap .cont .emb.p11	{top:430px; left:204px}
+	.tournament_wrap .cont .emb.p12	{top:505px; left:0px}
+	.tournament_wrap .cont .emb.p13	{top:505px; left:80px}
+	.tournament_wrap .cont .emb.p14	{top:505px; left:164px}
+	.tournament_wrap .cont .emb.p15	{top:505px; left:244px}
+	.tournament_wrap .cont .emb.p16	{top:260px; left:0px}
+
+	.tournament_wrap .cont .emb_wrap_4 .emb.p07	{top:65px; left:122px}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08 img	{width:40px; height:40px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08 span {font-size:16px; font-weight:bold; line-height:24px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08 .vs {font-size:20px; line-height:26px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08	{top:139px; left:93px; padding:4px 6px 16px 6px; width:120px; height:84px}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08	.mtitle{font-size:14px; height:26px; line-height:22px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08 .left {width:40px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p08 .right {width:40px;}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p09	{top:256px; left:122px}
+	.tournament_wrap .cont .emb_wrap_4 .emb.p16	{top:160px; left:0px}
+
+
+	.tournament_wrap .emb_wrap	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.tournament_wrap .emb_wrap.off	{display:none;}
+
+	.tournament_wrap .emb_wrap_8	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.tournament_wrap .emb_wrap_8.off	{display:none;}
+
+	.tournament_wrap .emb_wrap_4	{display:block;overflow:hidden; position:relative; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -ms-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out;}
+	.tournament_wrap .emb_wrap_4.off	{display:none;}
+
+	.tournament_wrap button	{display:block; position:absolute; top:33px; right:0;width:20px; height:20px; background:#4c89cd url('/images/content/btn_arr_on.png') no-repeat center center; background-size: auto 40%;}
+	.tournament_wrap button.on {background:#4c89cd url('/images/content/btn_arr.png') no-repeat center center; background-size: auto 40%;}
+
+	/* 커뮤니티 */
+	/* 매치신청 */
+	.btn_base.match span	{padding-right:35px; background-size:27px auto}
+
+	.match_wrap.app .w01	{width:90px !important}
+	.match_wrap.app .w03	{width:60px !important}
+
+	.match_wrap .pager_wrap .search .select:first-child	{width:80px;}
+	.match_wrap .pager_wrap .search .select	{margin-right:3px; width:70px;}
+
+
+	/* H LEAGUE */
+	.league_wrap .league_cont	{margin-top:30px; padding:0 10px}
+
+	.league_cont .league_btn	{margin-top:35px}
+	.league_cont .league_btn ul li a	{font-size:20px; text-align:center; line-height:66px}
+	.league_cont .league_btn ul li.b01 a	{padding-left:50px; background-size:auto 100%}
+	.league_cont .league_btn ul li.b02 a	{padding-left:66px; background-size:auto 100%}
+	.league_cont .league_btn ul li.b03 a	{padding-left:50px; background-size:auto 100%}
+	.league_cont .league_btn ul li.b04 a	{padding-left:50px; background-size:auto 100%}
+	.league_cont .league_btn ul li.b05 a	{padding-left:66px; background-size:auto 100%}
+	.league_cont .league_btn ul li a:after	{border:2px solid #2c3c57; background-size:25px auto}
+
+	.league_cont .fl_wrap	{margin-top:15px; padding:0; border:0; background:#fff}
+	.league_cont .fl_wrap .search	{margin:0; padding:10px 7px; background:#2c3c57; line-height:26px;}
+	.league_cont .fl_wrap .search .select	{margin-bottom:1%; width:100%; height:26px}
+	.league_cont .fl_wrap .search .select:first-child	{margin-left:0; width:100%}
+	.league_cont .fl_wrap .search .select label		{font-size:12px; line-height:24px}
+	.league_cont .fl_wrap .search .select select	{height:24px; line-height:24px}
+	.league_cont .fl_wrap .search .btn_search		{width:100%; font-size:12px; line-height:26px;}
+
+	.league_cont .fl_wrap.all .search .select:first-child {margin-left: 0px; width: 100%;}
+	.league_cont .fl_wrap.all .search .select	{margin-right:1%; width:35%; height:26px}
+	.league_cont .fl_wrap.all .search .btn_search		{width:28%; font-size:12px; line-height:26px;}
+
+	.league_cont .fl_wrap .h_bar	{margin-top:33px;}
+
+	.league_cont .fl_wrap .fl_left	{width:100%}
+	.league_cont .fl_wrap .fl_right	{width:100%}
+
+	.league_cont .btn_more	{top:5px; right:0; width:20px; height:20px; background-size:20px 20px}
+
+	.league_cont .team_rank	{position:relative}
+	.league_cont .team_rank table	{border:1px solid #d7d7d7; border-top:2px solid #353535}
+	.league_cont .team_rank table thead tr th	{font-size:12px;}
+	.league_cont .team_rank table tbody tr td	{padding:3px 0; font-size:12px;}
+	.table_wrap table tbody tr td .emb_wrap	{font-size:12px; line-height:32px;}
+
+	.league_cont .player_rank .cont	{position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
+	.league_cont .player_rank .cont:nth-child(3)	{margin-top:5px; border-top:2px solid #353535; }
+	.league_cont .player_rank .cont .pic		{width:79px; height:102px}
+	.league_cont .player_rank .cont .pic img	{width:79px; height:102px}
+	.league_cont .player_rank .cont .info	{right:8px; left:93px}
+	.league_cont .player_rank .cont .blank	{text-align:center; font-size:12px;}
+	.league_cont .player_rank .cont .info .tit		{padding:7px 10px 10px 10px; font-size:14px; line-height:20px}
+	.league_cont .player_rank .cont .info .name	{padding:13px 0 0 10px; font-size:24px; line-height:28px}
+	.league_cont .player_rank .cont .info .team	{padding:0 0 0 10px; font-size:15px; line-height:20px}
+	.league_cont .player_rank .cont .info .num	{top:40px; right:-10px; left:auto; width:140px; font-size:21px;}
+	.league_cont .player_rank .cont .info .num span	{font-size:50px; line-height:76px}
+
+	.league_cont .player_rank2 .cont	{position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
+	.league_cont .player_rank2 .cont .pic		{width:79px; height:102px}
+	.league_cont .player_rank2 .cont .pic img	{width:79px; height:102px}
+	.league_cont .player_rank2 .cont .info	{right:8px; left:93px}
+	.league_cont .player_rank2 .cont .blank	{text-align:center; font-size:12px;}
+	.league_cont .player_rank2 .cont .info .tit		{padding:7px 10px 10px 10px; font-size:14px; line-height:20px}
+	.league_cont .player_rank2 .cont .info .name	{padding:13px 0 0 10px; font-size:24px; line-height:28px}
+	.league_cont .player_rank2 .cont .info .team	{padding:0 0 0 10px; font-size:15px; line-height:20px}
+	.league_cont .player_rank2 .cont .info .num	{top:40px; right:-10px; left:auto; width:130px; font-size:21px;}
+	.league_cont .player_rank2 .cont .info .num span	{font-size:50px; line-height:76px}
+
+	.league_cont .player_wrap	{margin-top:33px;}
+	.league_cont .player_wrap .h_bar	{margin:0}
+	.league_cont .player_wrap .rank_table	{margin-top:7px;}
+
+	.league_cont .player_wrap .search_wrap	{position:relative; top:0; right:0; padding-right:80px;}
+	.league_cont .player_wrap .search_wrap input	{height:30px; width:100%; font-size:12px;}
+	.league_cont .player_wrap .search_wrap button	{display:block; top:0; right:0; width:80px; height:30px; background:#4c89cd; text-align:center}
+	.league_cont .player_wrap .search_wrap button span	{display:inline-block; padding-right:20px; background:url('/images/content/icon_league_search_s.png') no-repeat right center; background-size:auto 30px; color:#fff; font-size:14px; font-weight:700}
+
+	.league_cont .player_wrap .search_wrap2	{top:0px; right:0;}
+	.league_cont .player_wrap .search_wrap2	.select	{width:85px; height:25px}
+	.league_cont .player_wrap .search_wrap2	.select label	{left:5px; height:23px; font-size:13px; line-height:23px}
+	.league_cont .player_wrap .search_wrap2	.select select	{height:23px; line-height:23px}
+
+	.league_cont .league_schedule .sel_wrap	{top:37px; right:0;}
+	.league_cont .league_schedule .select	{width:85px; height:25px}
+	.league_cont .league_schedule .select:first-child	{width:65px}
+	.league_cont .league_schedule .select label	{left:5px; height:23px; font-size:13px; line-height:23px}
+	.league_cont .league_schedule .select select	{height:23px; line-height:23px}
+	.league_cont .league_schedule table	{border:1px solid #d7d7d7; border-top:2px solid #353535}
+	.league_cont .league_schedule table .w01	{width:96px !important}
+	.league_cont .league_schedule table .w02	{width:80px !important}
+	.league_cont .league_schedule table .w03	{width:50px !important}
+	.league_cont .league_schedule table .w04	{width:60px !important}
+	.league_cont .league_schedule table .w05	{width:66px !important}
+	.league_cont .league_schedule table tbody tr td	{padding:8px 0 4px 0; border-left:0; border-top:1px solid #d7d7d7; background:#fff; font-size:12px;}
+	.league_cont .league_schedule table tbody tr td .date	{font-size:12px}
+	.league_cont .league_schedule table tbody tr td .date .time	{font-size:11px}
+	.league_cont .league_schedule table tbody tr td .date .mblock	{color:#404040; font-size:10px; line-height:12px}
+	.league_cont .league_schedule table tbody tr td .vs	{font-size:14px; vertical-align:middle}
+	.league_cont .league_schedule table tbody tr td .vs .tk {font-size:10px;}
+	.league_cont .league_schedule table tbody tr td .btn_view	{display:inline-block; padding:3px 6px; height:22px; background:#4c89cd; font-size:12px; text-align:center; line-height:22px}
+
+	.league_schedule .table_wrap table tbody tr td .emb_wrap	{padding-left:0; font-size:11px; line-height:50px; text-align:center}
+	.league_schedule .table_wrap table tbody tr td .emb_wrap .emb	{position:static; display:block; margin:0 auto; width:17px; height:17px; line-height:0;}
+	.league_schedule .table_wrap table tbody tr td .emb_wrap .team	{display:block; margin-top:3px; font-size:10px; line-height:16px}
+	.league_schedule .table_wrap table tbody tr td .emb_wrap.right	{padding:0; text-align:center}
+	.league_schedule .table_wrap table tbody tr td .emb_wrap.right .emb	{position:static}
+
+	/* 리그 소개 */
+	.league_cont .league_info	{margin-top:30px}
+	.league_cont .league_info .info_cont	{padding:0;  font-size:15px; line-height:18px;}
+	.league_cont .league_info .info_cont .league_btn ul	{margin:0 auto; max-width:1000px}
+	.league_cont .league_info .info_cont .league_btn ul li	{width:50%;}
+	/*.league_cont .league_info .info_cont .league_btn ul li.b04	{width:100%}*/
+
+	.league_cont .league_info .info_cont .league_btn	{margin-top:15px}
+	.league_cont .league_info .info_cont .league_btn ul li a	{padding-left:0; background:#f2f2f2; text-align:center}
+	.league_cont .league_info .info_cont .league_btn ul li a span	{display:inline-block;}
+	.league_cont .league_info .info_cont .league_btn ul li.b02 a span	{padding-left:60px; background:url('/images/content/btn_league_02.png') no-repeat -20px center; background-size:auto 82px;}
+	.league_cont .league_info .info_cont .league_btn ul li.b03 a span	{padding-left:45px; background:url('/images/content/btn_league_03.png') no-repeat -20px center; background-size:auto 82px;}
+	.league_cont .league_info .info_cont .league_btn ul li.b04 a span	{padding-left:55px; background:url('/images/content/btn_league_04.png') no-repeat -15px center; background-size:auto 82px;}
+	.league_cont .league_info .info_cont .league_btn ul li.b05 a span	{padding-left:60px; background:url('/images/content/btn_league_05.png') no-repeat -10px center; background-size:auto 82px;}
+
+	.league_locate_wrap .view_wrap .charge_wrap	.table_wrap .sub_title	{position:relative; /*padding-left:26px;*/ color:#2c3c57; font-size:18px; line-height:24px; margin:10px 0;}
+	.league_cont .league_info .info_cont p	{margin-top:20px; font-size:15px; line-height:20px}
+	.league_cont .league_info .info_cont p strong	{font-size:20px}
+
+	.league_locate_wrap .view_wrap .charge_wrap .cont	{margin-top:7px; max-height:46px}
+	.league_locate_wrap .view_wrap .charge_wrap .cont .tit	{padding-left:10px; font-size:15px; line-height:46px}
+	.league_locate_wrap .view_wrap .charge_wrap .cont button	{width:46px; height:46px; background-size:16px auto !important}
+	.league_locate_wrap .view_wrap .charge_wrap .cont .table_wrap	{margin-top:5px}
+	/*.league_locate_wrap .view_wrap .charge_wrap .cont.on	{max-height:400px}*/
+	.league_locate_wrap .view_wrap .charge_wrap .cont img {width:100%;}
+	.league_locate_wrap .view_wrap .charge_wrap	.table_wrap{margin:0;}
+
+	/* 팀목록 */
+	.league_cont .teams_table	{margin-top:35px;}
+	.league_cont .teams_table .select	{width:80px; height:26px}
+	.league_cont .teams_table .select label	{height:26px; font-size:13px; line-height:26px}
+	.league_cont .teams_table .select select	{height:26px; line-height:26px}
+
+	.league_cont .teams_table .search	{margin:0; padding:10px 7px; background:#2c3c57; line-height:26px;}
+	.league_cont .teams_table .search .select	{margin-bottom:1%; width:100%; height:26px}
+	.league_cont .teams_table .search .select:first-child	{margin-left:0; width:100%}
+	.league_cont .teams_table .search .select label		{font-size:12px; line-height:24px}
+	.league_cont .teams_table .search .select select	{height:24px; line-height:24px}
+	.league_cont .teams_table .search .btn_search		{width:100%; font-size:12px; line-height:26px;}
+
+	.league_cont .teams_table .search_wrap	{position:initial;width:100%;}
+	.league_cont .teams_table .search_wrap input	{padding:0 3px; width:70%; height:26px; font-size:12px; vertical-align:top}
+	.league_cont .teams_table .search_wrap button	{display:inline-block;position:initial; width:30%; height:26px;}
+	.league_cont .teams_table .search_wrap button span	{padding-right:15px; background-size:auto 26px; font-size:12px;}
+
+	.league_cont .teams_table .table_wrap table	{border:0}
+	.league_cont .teams_table .table_wrap table .w01	{width:35px !important}
+	.league_cont .teams_table .table_wrap table .w02	{width:42px !important}
+	.league_cont .teams_table .table_wrap table .w03	{width:42px !important}
+	.league_cont .teams_table .table_wrap table .w04	{width:42px !important}
+	.league_cont .teams_table .table_wrap table .w05	{width:42px !important}
+	.league_cont .teams_table .table_wrap table .w06	{width:42px !important}
+	.league_cont .teams_table .table_wrap table .w07	{width:60px !important}
+	.league_cont .teams_table .table_wrap table .w08	{width:100px !important}
+	.league_cont .teams_table .table_wrap table thead tr th	{font-size:12px;}
+	.league_cont .teams_table .table_wrap table thead tr th .up		{padding-right:0; background:none}
+	.league_cont .teams_table .table_wrap table thead tr th .down	{padding-right:0; background:none}
+	.league_cont .teams_table .table_wrap table tbody tr td	{padding:4px 0; height:24px; font-size:12px; line-height:24px}
+	.league_cont .teams_table .table_wrap table tbody tr td .num	{width:auto; height:24px; background:none !important; color:#383838; font-size:12px; line-height:24px;}
+
+	.league_cont .teams_table .table_wrap table tbody tr td .emb_wrap	{margin:0 10px; padding-left:30px; font-size:11px; line-height:24px}
+	.league_cont .teams_table .table_wrap table tbody tr td .emb_wrap .emb	{width:24px; height:24px;}
+	.league_cont .teams_table .table_wrap table tbody tr td .btn_view	{display:inline-block; padding:3px 6px; height:22px; background:#4c89cd; font-size:12px; text-align:center; line-height:22px}
+	.table_wrap table tbody tr td .emb_wrap .emb img	{width:100%; height:auto;}
+
+
+	/* 팀순위 */
+	.league_cont .rank_table	{margin-top:35px; padding-top:26px}
+	.league_cont .rank_table .select	{width:80px; height:26px}
+	.league_cont .rank_table .select label	{height:26px; font-size:13px; line-height:26px}
+	.league_cont .rank_table .select select	{height:26px; line-height:26px}
+
+	.league_cont .rank_table .search	{margin:0; padding:10px 7px; background:#2c3c57; line-height:26px;}
+	.league_cont .rank_table .search .select	{margin-bottom:1%; width:100%; height:26px}
+	.league_cont .rank_table .search .select:first-child	{margin-left:0; width:100%}
+	.league_cont .rank_table .search .select label		{font-size:12px; line-height:24px}
+	.league_cont .rank_table .search .select select	{height:24px; line-height:24px}
+	.league_cont .rank_table .search .btn_search		{width:100%; font-size:12px; line-height:26px;}
+
+	.league_cont .rank_table .search_wrap	{position:initial;width:100%;}
+	.league_cont .rank_table .search_wrap input	{padding:0 3px; width:70%; height:26px; font-size:12px; vertical-align:top}
+	.league_cont .rank_table .search_wrap button	{display:inline-block;position:initial; width:30%; height:26px;}
+	.league_cont .rank_table .search_wrap button span	{padding-right:15px; background-size:auto 26px; font-size:12px;}
+
+	.league_cont .rank_table .table_wrap table	{border:0}
+	.league_cont .rank_table .table_wrap table .w01	{width:35px !important}
+	.league_cont .rank_table .table_wrap table .w02	{width:42px !important}
+	.league_cont .rank_table .table_wrap table .w03	{width:42px !important}
+	.league_cont .rank_table .table_wrap table .w04	{width:42px !important}
+	.league_cont .rank_table .table_wrap table .w05	{width:42px !important}
+	.league_cont .rank_table .table_wrap table .w06	{width:42px !important}
+	.league_cont .rank_table .table_wrap table thead tr th	{font-size:12px;}
+	.league_cont .rank_table .table_wrap table thead tr th .up		{padding-right:0; background:none}
+	.league_cont .rank_table .table_wrap table thead tr th .down	{padding-right:0; background:none}
+	.league_cont .rank_table .table_wrap table tbody tr td	{padding:4px 0; height:24px; font-size:12px; line-height:24px}
+	.league_cont .rank_table .table_wrap table tbody tr td .num	{width:auto; height:24px; background:none !important; color:#383838; font-size:12px; line-height:24px;}
+
+	.league_cont .rank_table .table_wrap table tbody tr td .emb_wrap	{margin:0 10px; padding-left:38px; font-size:11px; line-height:24px}
+	.league_cont .rank_table .table_wrap table tbody tr td .emb_wrap .emb	{width:24px; height:24px}
+
+	/* 개인순위 */
+	.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap	{line-height:30px; padding-left: 50px}
+		.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic{top: -4px; width: 33px; height:42px}
+	.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic img {height:42px; width:33px;}
+	.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .name	{font-size:11px}
+
+	.layer_popup .table_wrap.indi table tbody tr td .pic	{display:inline-block; width:100px; height:auto}
+	.layer_popup .table_wrap.indi table tbody tr td .pic img	{width:100%}
+	.layer_popup .table_wrap.indi table .w01	{width:108px !important}
+	.layer_popup .table_wrap.indi table .w02	{width:auto !important}
+	.layer_popup .mt25	{margin-top:10px !important}
+
+	.league_cont .detail_score	{margin-top:30px;}
+	.league_cont .detail_score .h_bar	{margin-top:30px}
+
+	.league_cont .detail_score .table_wrap.indi table .w01	{width:108px !important}
+	.league_cont .detail_score .table_wrap.indi table .w02	{width:auto !important}
+
+	.league_cont .detail_score .table_wrap.indi table tbody tr th	{padding:1px 0;}
+	.league_cont .detail_score .table_wrap.indi table tbody tr td	{padding:1px 0;}
+	.league_cont .detail_score .table_wrap.indi table tbody tr td .pic	{display:inline-block; width:100px; height:auto}
+	.league_cont .detail_score .table_wrap.indi table tbody tr td .pic img	{width:100%; height: auto}
+	.league_cont .detail_score .table_wrap.indi table tbody tr td .pic.emblem img	{width:100%; height: auto}
+
+	.league_cont .detail_score .table_wrap.small table thead tr th	{padding:8px 0; font-size:12px;}
+	.league_cont .detail_score .table_wrap.small table tbody tr td	{padding:1px 0; font-size:12px;}
+
+	.league_cont .detail_score .btn_wrap	{margin-top:30px}
+
+
+	/* 리그 등록 */
+	.league_regi	{margin-top:30px; padding:0 10px}
+
+	.league_regi .write_wrap .code	{padding-right:80px}
+	.league_regi .write_wrap .code button	{width:80px; height:38px; font-size:14px; line-height:38px;}
+	.league_regi .write_wrap .code .t_help	{bottom:-15px; font-size:11px; line-height:14px}
+
+/* 팀상세정보 */
+.team .tab_wrap + .rank_table	{padding-top:0}
+.league_cont .detail_score.team	{margin-bottom:25px;}
+.league_cont .detail_score .table_wrap.indi table .w01	{width:110px !important}
+.league_cont .detail_score .table_wrap.indi table .w02	{width:24% !important}
+.league_cont .detail_score.team .table_wrap.indi table tbody tr td	{padding:1px 5px}
+.league_cont .detail_score.team .table_wrap.indi table tbody tr td .pic	{width:100%; height:auto}
+
+.team .tab_wrap + .league_schedule	{margin-top:35px; padding-top:25px}
+.team .tab_wrap + .league_schedule .sel_wrap	{position:absolute; top:0; right:auto; left:0}
+.team .tab_wrap + .league_schedule .sel_wrap .select	{width:75px}
+
+.league_cont .rank_table.player	{padding-top:25px}
+
+	/* 고객센터 */
+	.btn_base.qna span	{padding-right:30px; background-size:22px auto}
+
+	/* 공지사항 */
+	.notice_wrap.list .w01	{width:50px !important}
+	.notice_wrap.list .w02	{width:70px !important}
+
+	/* QnA */
+	.qna_wrap.list .w01	{width:50px !important}
+
+	.write_wrap h4:first-child	{margin-bottom:5px}
+
+	.write_wrap dl dt	{margin-top:7px; font-size:14px; line-height:30px}
+	.write_wrap dl dd input	{height:38px; font-size:12px;}
+	.write_wrap dl dd .select	{height:38px}
+	.write_wrap dl dd .select label	{height:36px; font-size:12px; line-height:36px}
+	.write_wrap dl dd .select select	{height:36px; line-height:36px}
+	.write_wrap dl dd textarea	{height:150px !important}
+
+	.write_wrap .upload_wrap .act_wrap .name_wrap	{width:auto; margin-right:105px; height:36px; font-size:12px;}
+	.write_wrap .upload_wrap .act_wrap .name_wrap .btn_file	{margin-top:5px; width:64px; height:26px; font-size:12px; line-height:24px;}
+	.write_wrap .upload_wrap .act_wrap .name_wrap .t_info		{font-size:12px; line-height:36px}
+	.write_wrap .upload_wrap .act_wrap .btn_file	{width:100px; height:38px; font-size:14px; line-height:38px;}
+
+	.write_wrap .upload_wrap .act_wrap .file_list	{margin-top:10px}
+	.write_wrap .upload_wrap .act_wrap .file_list li	{line-height:20px}
+	.write_wrap .upload_wrap .act_wrap .file_list  .name	{padding-left:5px; font-size:12px; line-height:20px;}
+	.write_wrap .upload_wrap .act_wrap .file_list  .file_dell	{width:14px; height:14px; background:url('/images/common/btn_file_dell.png') no-repeat 0 0; background-size:14px auto}
+
+	.write_wrap .btn_wrap	{margin-top:15px; padding-top:17px; border-top:1px solid #353535}
+	.write_wrap .btn_wrap .btn_big	{max-width:150px; width:48%}
+
+	/* 상세 */
+	.view_wrap .top	{padding:13px 5px 10px 5px; border-top:2px solid #2c3c57; border-bottom:1px solid #d5d8dd}
+	.view_wrap .top .tit	{font-size:13px; line-height:20px}
+	.view_wrap .top dl	{margin-top:9px}
+	.view_wrap .top dl dt	{padding-right:7px; font-size:12px; line-height:20px}
+	.view_wrap .top dl dd	{padding-right:16px; font-size:12px; line-height:20px}
+
+	.view_wrap .info	{padding:5px 0;}
+	.view_wrap .info img	{margin:10px 0;}
+	.view_wrap .info p	{font-size:12px; line-height:19px}
+
+	.view_wrap .info_text	{padding:5px 0; font-size:14px; }
+	.view_wrap .info_text img	{margin:10px 0;}
+	.view_wrap .info_text p	{font-size:12px; line-height:19px}
+
+	.view_wrap .btn_wrap	{margin-top:9px !important;}
+
+	.view_wrap .reply	{margin-top:10px; }
+	.view_wrap .reply table tbody th	{font-size:13px}
+	.view_wrap .reply table tbody td	{padding:12px 10px; font-size:13px; line-height:20px}
+
+	.view_wrap .list_pn	{margin-top:10px; }
+	.view_wrap .list_pn table tbody th	{font-size:13px}
+	.view_wrap .list_pn table tbody td	{padding:12px 10px; font-size:12px; line-height:18px}
+	.view_wrap .list_pn table tbody th .prev	{padding-right:16px; background-size:8px auto}
+	.view_wrap .list_pn table tbody th .next	{padding-right:16px; background-size:8px auto}
+
+	.view_wrap .reply .w01	{width:90px !important}
+	.view_wrap .list_pn .w01	{width:90px !important}
+
+	/* 갤러리 */
+	.gallery_list ul li	{position:static !important; width:100%}
+	.gallery_list ul li a .txt	{padding:15px 7px; font-size:13px; line-height:22px;}
+
+	.gallery_popup .btn_closed	{width:50px; height:50px; background-size:50px 50px}
+	.gallery_popup .slide_wrap ul li a .txt	{font-size:15px; line-height:24px}
+	.gallery_popup .slide_wrap .bx-controls a	{margin-top:15px; width:45px; height:50px;}
+	.gallery_popup .slide_wrap .bx-controls .bx-prev	{background:url('/images/content/btn_slide_prev_m.png') no-repeat center center !important; background-size:45px auto !important}
+	.gallery_popup .slide_wrap .bx-controls .bx-next	{background:url('/images/content/btn_slide_next_m.png') no-repeat center center !important; background-size:45px auto !important}
+
+
+	/* HM SPORTS */
+	/* 소개 */
+	.about_wrap .info	{padding:0 5px}
+
+	.about_wrap .partners_wrap	{margin-top:90px; padding:50px 0 40px 0;}
+	.about_wrap .partners_wrap .cont	{margin:0 auto; max-width:1200px}
+	.about_wrap .partners_wrap .cont img	{width:100%}
+
+	.about_wrap .sponsors_wrap	{padding:50px 0 40px 0}
+	.about_wrap .sponsors_wrap .cont	{margin:0 auto; max-width:1200px}
+	.about_wrap .sponsors_wrap .cont img	{width:100%}
+
+	/* 연혁 */
+	.history_wrap	{padding:125px 10px 0 10px !important}
+	.history_wrap:after	{left:10px; margin:0; width:300px; height:59px; background:url('/images/content/logo_history_m.png') no-repeat 0 0; background-size:300px auto}
+	.history_wrap .cont	{margin-top:21px; padding:0 0 0 27px !important}
+	.history_wrap .cont:first-child	{margin-top:0}
+	.history_wrap .cont:nth-child(2n-1)	{text-align:left}
+
+	.history_wrap .cont:after	{left:7px; width:1px}
+	.history_wrap .cont:first-child:after	{top:-60px;}
+
+	.history_wrap .cont .year	{font-size:33px; line-height:55px}
+	.history_wrap .cont .year:after		{right:11px; left:11px}
+	.history_wrap .cont .year:before	{right:auto !important; left:-26px !important; width:11px; height:11px; margin-top:-5px;}
+
+	.history_wrap .cont ul	{margin-top:13px;}
+	.history_wrap .cont ul li	{font-size:13px; line-height:20px; letter-spacing:-0.5px}
+
+	/* 로그인 */
+	.member_wrap	{padding-top:30px !important; padding-bottom:30px !important;}
+	.member_wrap h1	{width:80px; height:80px; background-size:80px auto}
+	.member_wrap .btn_middle	{height:45px; font-size:14px; line-height:45px;}
+
+	.member_wrap .bot_info	{margin-top:20px;}
+	.member_wrap .bot_info .logo	{width:80px; height:20px; background-size:80px auto}
+	.member_wrap .bot_info .copy	{margin-top:0;}
+
+	.login_wrap dl	{margin-top:25px}
+	.login_wrap dl dd	{margin-top:10px}
+	.login_wrap dl dd input	{height:40px}
+	.login_wrap .chk	{margin-top:8px}
+	.login_wrap .chk label		{font-size:13px;}
+	.login_wrap .btn_middle	{margin-top:20px;}
+	.login_wrap .btn_wrap		{margin-top:24px; padding-top:12px;}
+	.login_wrap .btn_wrap a	{margin-left:13px; font-size:12px; line-height:26px;}
+	.login_wrap .btn_wrap a:after	{left:-6px; margin-top:-5px; height:10px;}
+
+	.login_wrap .sns_login	{margin-top:30px;}
+	.login_wrap .sns_login .tit	{font-size:14px; line-height:20px;}
+	.login_wrap .sns_login a	{margin-top:5px; padding-left:50px; font-size:14px; line-height:45px; background-size:auto 45px !important}
+	.login_wrap .sns_login a:after	{width:50px; height:45px; background-size:auto 45px !important}
+
+
+	/* 아이디 패스워드 찾기 */
+	.layer_popup.find	{padding:35px 45px !important;}
+	.layer_popup.find h1	{font-size:20px; font-weight:700; line-height:30px;}
+	.layer_popup.find .find_wrap input	{margin-top:6px; height:40px}
+	.layer_popup.find .find_wrap .btn_wrap	{margin-top:15px}
+	.layer_popup.find .find_wrap .btn_wrap .btn_middle	{min-width:150px; height:45px; font-size:16px; line-height:45px;}
+
+	.layer_popup.find .find_comp	{padding-top:105px}
+	.layer_popup.find .find_comp.id	{background-position:center 10px; background-size:80px auto}
+	.layer_popup.find .find_comp p	{font-size:14px; line-height:30px;}
+	.layer_popup.find .find_comp p span	{font-size:14px; font-weight:700}
+
+	.layer_popup.find .find_comp.pass	{margin:0 -40px; background-size:80px auto}
+	.layer_popup.find .find_comp.pass p	{font-size:13px; line-height:20px;}
+	.layer_popup.find .find_comp.pass p span	{font-size:13px}
+
+	.layer_popup.find .find_comp .btn_wrap	{margin-top:20px}
+	.layer_popup.find .find_comp .btn_wrap .btn_middle	{height:35px; line-height:35px}
+
+
+	/* 회원가입 */
+	.join_wrap	{padding-top:20px;}
+	.join_wrap .chk	{margin-top:25px}
+	.join_wrap .chk label	{font-size:15px;}
+	.join_wrap .chk label span	{font-size:12px;}
+	.join_wrap .chk:first-child label	{line-height:18px; background-position:0 2px !important}
+
+	.join_wrap .turm_wrap	{padding:5px; margin-top:5px; height:70px;}
+	.join_wrap .turm_wrap p	{font-size:13px; line-height:18px}
+	.join_wrap .turm_wrap .mt	{margin-top:15px}
+
+	.join_wrap .btn_wrap	{margin-top:25px;}
+	.join_wrap.info .btn_wrap .btn_big{width:100%; height:40px; line-height:40px; background:#4c89cd; font-size: 14px}
+
+	.join_wrap.info dl dt	{margin-top:16px; font-size:16px; line-height:24px}
+	.join_wrap.info dl dt span	{color:#003e94; font-size:12px;}
+	.join_wrap.info dl dd input	{height:45px}
+	.join_wrap.info dl dd .auth_wrap input				{width:63%}
+	.join_wrap.info dl dd .auth_wrap .btn_middle	{width:35%; font-size:14px; line-height:45px}
+	.join_wrap.info dl dd .t_help	{margin-top:4px; font-size:11px; line-height:16px}
+	.join_wrap.info dl dd .auth_wrap .succes			{margin-top:5px; padding:0 5px; height:45px; font-size:14px; line-height:43px;}
+	.join_wrap.info dl dd .txt	{font-size:16px; line-height:30px}
+	.join_wrap.info .btn_wrap .btn_middle	{width:100%}
+	.join_wrap.info dl dd .auth_wrap2 span {line-height:45px; font-size:16px;}
+	.join_wrap.info dl dd .auth_wrap2 .btn_middle	{width:35%; line-height:45px; font-size:14px}
+
+	.layer_popup.find .find_comp.comp	{padding-top:130px; background-size:90px auto}
+	.layer_popup.find .find_comp.comp p	{line-height:20px}
+
+
+	/* 약관 */
+	.terms_wrap	{padding-top:26px}
+	.terms_wrap .h_bar	{margin-top:30px;}
+	.terms_wrap p		{margin-left:0; color:#383838; font-size:14px; line-height:24px}
+	.terms_wrap .tit	{margin-top:24px; font-weight:700}
+	.terms_wrap ul		{margin-left:0;}
+	.terms_wrap ul li	{color:#383838; font-size:14px; line-height:24px}
+
+	/* 취급방침 */
+	.privacy_wrap	{}
+	.privacy_wrap p	{margin-bottom:19px; font-size:12px; line-height:19px}
+	.privacy_wrap .h_bar	{margin-top:30px}
+	.privacy_wrap .h_bar.first	{margin-top:20px}
+
+	.privacy_wrap .t_info .num li	{padding-left:30px; font-size:15px; line-height:24px;}
+	.privacy_wrap .t_info .num li span	{top:3px; width:18px; background:#2c3c57; font-size:14px; line-height:18px;}
+
+	.privacy_wrap .t_txt	{margin:10px 0 -3px 15px; font-size:12px; line-height:20px; letter-spacing:-0.7px}
+	.privacy_wrap .t_info	{margin-top:9px; padding:8px; border:1px solid #b8babc; background:#f3f3f3}
+	.privacy_wrap .t_info p	{margin-bottom:20px; font-size:12px; line-height:20px}
+	.privacy_wrap .t_info ul	{margin-bottom:20px}
+	.privacy_wrap .t_info ul li	{font-size:12px; line-height:20px}
+	.privacy_wrap .t_info .tit	{margin:0; font-size:16px; line-height:26px}
+
+	/* 이메일무단수집거부 */
+	.mail_wrap	{padding:200px 0 85px 0 !important; background:#f3f3f3 url('/images/content/icon_find_pass.png') no-repeat center 80px; background-size:75px auto}
+	.mail_wrap p	{font-size:15px; line-height:20px;}
+}
+
+
+/* 아이패드 프로 리그 이미지 */
+@media screen and (max-width:1024px)	{
+	.league_locate_wrap .view_wrap .charge_wrap .cont img {width:100%;}
+	.league_cont .league_info .info_cont .league_btn ul li	{width:100%}
+}
+
+.league_cont .flex-video {position: relative;padding-top: 1.5625rem;padding-bottom: 56.55%;height: 0;overflow: hidden;}
+.league_cont .flex-video iframe {position: absolute;width: 100%;height: 100%;display: block;}
+

@@ -1,0 +1,159 @@
+
+
+.overlay .popup table th, .overlay .popup table td {
+    border: 1px solid #c2c2c2;
+    height: 70px;
+    
+    
+}
+.popup table tbody tr th {
+    background: #f0f1f3;
+    color: #2c3c57;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+}
+.popup table th, .popup table td {
+    border-top: 1px solid #636363;
+    border-left: 1px solid #636363;
+    font-size: 12px;
+    vertical-align: middle;
+    border: 0 none;
+}
+table th {
+    font-weight: normal;
+
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+.popup table {
+    width: 100%;
+    border: 1px solid #c2c2c2;;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    border-collapse: separate;
+    
+    width: 100%;
+    border: 0 none;
+    border-collapse: collapse;
+    
+
+    border-collapse: separate;
+    
+
+    
+    min-width: 320px;
+    color: #403d3f;
+    font-size: 18px;
+    
+    font-weight: normal;
+    line-height: 26px;
+    -webkit-text-size-adjust: none;
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+    
+    min-width: 320px;
+    color: #403d3f;
+    font-size: 18px;
+    
+    font-weight: normal;
+    line-height: 26px;
+    -webkit-text-size-adjust: none;
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+    font-family:none;
+}
+
+
+
+
+
+.overlay .popup table tbody tr td.al_left {
+    padding: 10px;
+}
+.overlay .popup table tbody tr td {
+    padding: 10px 0;
+    height: 45px;
+}
+.popup table tbody tr td.al_left {
+    padding-left: 20px;
+    text-align: left;
+}
+.overlay .popup table th, .overlay .popup table td {
+    border-top: 1px solid #c2c2c2;
+    border-left: 1px solid #c2c2c2;
+}
+.popup table tbody tr td {
+    padding: 18px 0;
+    height: 20px;
+    color: #2a2a2a;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    word-break: keep-all;
+}
+.popup table th, .popup table td {
+    border-top: 1px solid #636363;
+    border-left: 1px solid #636363;
+    font-size: 12px;
+    vertical-align: middle;
+}
+.al_left {
+    text-align: left !important;
+}
+
+
+
+
+
+
+.popup td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
+.popup textarea {
+	resize:none;
+	width: 100%;
+	height: 100%;
+	border:0;
+	height:100px;
+	
+}
+.popup textarea:focus {
+  outline: none;
+}
+.h_bar:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 5px;
+    height: 30px;
+    background: #2c3c57;
+}
+.h_bar:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 5px;
+    height: 6px;
+    background: #aec8f4;
+}
+.h_bar {
+    position: relative;
+    padding-left: 26px;
+    color: #2c3c57;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: -2px;
+}
