@@ -59,7 +59,7 @@ function whenErrorlogin(){
 		
 		<div id="navtop">
 			<div id="navtop_logo">
-				<a href=""><img src="img/logo2.png" width="95px" height="120px"></a>
+				
 			</div>
 			<div id="navtop_menu">
 				<ul class="menu">

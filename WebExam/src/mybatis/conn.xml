@@ -6,10 +6,15 @@
 		<typeAlias type="model.MemberDto" alias="MemberDto"/>
 		<typeAlias type="vo.YonglistDto" alias="YonglistDto"/>
 		<typeAlias type="vo.QnaDto" alias="QnaDto"/>
+		<typeAlias type="vo.MatchlistDto" alias="MatchlistDto"/>
 		<typeAlias type="vo.PageInfo" alias="PageInfo"/>
 		<typeAlias type="model.QnaSearchDto" alias="QnaSearchDto"/>
+		<typeAlias type="model.TeamDto" alias="TeamDto"/>
 		<typeAlias type="model.BranchDto" alias="BranchDto"/>
+		<typeAlias type="model.GroundDto" alias="GroundDto"/>
 		<typeAlias type="model.ReservationDto" alias="ReservationDto"/>
+		<typeAlias type="model.TeamBoardListDto" alias="TeamBoardListDto"/>
+		
 	</typeAliases>
 
 

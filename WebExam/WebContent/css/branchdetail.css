@@ -1,0 +1,71 @@
+.tdbranch1 {
+	word-break: break-all;
+	font-size: 20px;
+	float: left;
+	margin-right: 38px;
+}
+
+.tdbranch2 {
+	word-break: break-all;
+	font-size: 20px;
+	float: left;
+}
+
+.tdbranch3 {
+	float: left;
+	margin-right: 18px;
+}
+
+.prebranch1 {
+	width: 570px;
+	height: 520px;
+	overflow: hidden;
+	padding: 25px 25px 5px 25px;
+}
+
+.prebranch2 {
+	width: 570px;
+	height: 520px;
+	overflow: hidden;
+	padding: 25px 25px 25px 25px;
+}
+
+.prebranch3 {
+	font-size: 18px;
+	width: 510px;
+	height: 520px;
+	overflow: hidden;
+	padding: 25px 25px 25px 25px;
+}
+
+.prebranch4 {
+	font-size: 17px;
+	font-weight: bold;
+	width: 650px;
+	height: 520px;
+	padding: 25px 25px 25px 25px;
+}
+
+.branchdetailicon {
+	width: 98px;
+	height: 98px;
+	float: left;
+}
+
+.telfont {
+	height: 50px;
+	font-size: 18px;
+}
+
+.branchsubject {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.branchnamebig {
+	height: 100px;
+	font-size: 35px;
+	font-weight: bold;
+	color: navy;
+}
+

@@ -7,25 +7,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.BranchDto;
 import model.BranchList_Action;
-import model.GroundDto;
 
-public class BranchList_Service implements Cominterface {
-	static BranchList_Service impl = new BranchList_Service();
 
-	public static BranchList_Service instance() {
+
+public class Index_Service implements Cominterface {
+	static Index_Service impl = new Index_Service();
+
+	public static Index_Service instance() {
 		return impl;
 
 	}
 
 	@Override
 	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("BoardListAction.java");
 		request.setCharacterEncoding("UTF-8");
 
 		BranchList_Action branchmodel = BranchList_Action.instance();
 		ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) branchmodel.getBranchList();
 
 		request.setAttribute("BranchList", BranchList);
-		return "branchlist.jsp";
+		return "index2.jsp";
 
 	}
 }

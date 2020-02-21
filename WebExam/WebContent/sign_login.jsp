@@ -13,31 +13,8 @@
 	session.setAttribute("headerurl", headerurl);
 %>
 
-
-<!----------------------------alam form 추가 2020.01.06-------------------------->
-<script type="text/javascript">
-			$(document).ready(function() {
-				$(".mypage").click(function(e) {          
-					e.preventDefault();
-					$("fieldset#mypage_menu").toggle();
-					$(".mypage").toggleClass("menu-open");
-				});		
-				$("fieldset#mypage_menu").mouseup(function() {
-					return false
-				});
-				$(document).mouseup(function(e) {
-					if($(e.target).parent("a.mypage").length!=1) {
-						$(".mypage").removeClass("menu-open");
-						$("fieldset#mypage_menu").hide();
-					}
-				});			
-				
-			});
-	</script>
-
-<!--마이페이지 접근 위한 css 파일 추가 2020.01.15-->
-<link href="css/frontlogin.css" media="screen, projection" rel="stylesheet" type="text/css">  
-
+<!--마이페이지 접근 위한 css 파일 추가-->
+<link href="css/frontlogin.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 <body>
 	<jsp:include page="quickbar.jsp" />
@@ -62,19 +39,19 @@
 						<ul>
 							<li><a href="match_apply.jsp">매치신청</a></li>
 							<li><a href="yonglist_1.jsp">용병등록</a></li>
-							<li><a href="#">팀원모집</a></li>
+							<li><a href="teamlist.do">팀원모집</a></li>
 						</ul></li>
 					<li class="borderRightLeft"><a href="league.jsp">리그</a></li>
 					<li class="borderRightLeft"><a href="galList.bo">팀커뮤니티</a>
 						<ul>
-							<li><a href="galList.bo">팀갤러리</a></li>
+							<li><a href="galist.bo">팀갤러리</a></li>
 							<li><a href="#">팀게시판</a></li>
-							<li><a href="#">팀관리</a></li>
+							<li><a href="teamlist.do?command=teamlist">팀관리</a></li>
 							<li><a href="#">팀가입</a></li>
 						</ul></li>
 					<li class="borderRightLeft"><a href="qna.jsp">고객센터</a>
 						<ul style="width: 210px;">
-							<li><a href="#">공지사항</a></li>
+							<li><a href="notice.jsp">공지사항</a></li>
 							<li><a href="qna.jsp">Q&A</a></li>
 							<li><a href="futsalground.jsp">구장등록</a></li>
 						</ul></li>
@@ -88,12 +65,12 @@
 						</a>
 					</div>
 				</div>
-				<a href="login" class="signin" style="float: left; line-height: 25px;"><u style="font-size: 17px; font-weight: 300;"><%=uss%></u> ∨</a>
+				<a href="login" class="signin" style="float: left; line-height: 27px;"><u style="font-size: 20px; font-weight: 300;"><%=uss%> ∨</u></a>
 				<fieldset id="signin_menu">
 					<form name="login" method="post" id="signin">
 
 						<p class="forgot">
-							<a href="Mypage.jsp" id="signin">My Page</a>
+							<a href="logincom.jsp" id="signin">My Page</a>
 						</p>
 						<p class="forgot">
 							<a id="booking" href="">예약조회 </a>
@@ -128,15 +105,13 @@
 		</div>
 
 		<div id="navmid">
-			<div id="navmid_1" class="slideDown">
-				<a href="">팀매치신청</a>
-			</div>
-			<div id="navmid_2" class="slideDown">
-				<a href="">용병등록</a>
-			</div>
-			<div id="navmid_3" class="slideDown">
-				<a href="">팀원모집</a>
-			</div>
+			<a id="navmid_1" class="slideDown" href="match_apply.jsp">팀매치신청</a>
+			
+			
+				<a id="navmid_2" class="slideDown" href="yonglist_1.jsp">용병등록</a>
+			
+			
+				<a id="navmid_3" class="slideDown" href="teamlist.do?command=teamlist">팀원모집</a>
 		</div>
 	</header>
 </body>

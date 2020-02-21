@@ -1,3 +1,4 @@
+<%@page import="model.GroundDto"%>
 <%@page import="model.BranchDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -17,9 +18,11 @@
 	//수정부분 끝
 %>
 
-<%ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) request.getAttribute("BranchList");%>
-<!--  ArrayList<GroundDto> GroundList = (ArrayList<GroundDto>) request.getAttribute("GroundList");
--->
+<%
+ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) request.getAttribute("BranchList");
+%>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -313,6 +316,13 @@ nav ul.megamenu ul li a:hover {
 	color: #4096ee;
 }
 </style>
+<style>
+.branchdetailicon {
+	width: 86px;
+	height: 86px;
+	float: left;
+}
+</style>
 <!-- --------- -->
 <!-- 한글글씨체적용 /아이디찾기 제목-->
 <link rel="stylesheet" href="css/galboardstyle.css">
@@ -329,34 +339,48 @@ nav ul.megamenu ul li a:hover {
 			<li class="submenu"><a href="#" title="Unser Produktsortiment" style="pointer-events: none; cursor: default; text-decoration: none; color: white; text-align: bold; font-weight: bold; font-size: 22px;">전체지점보기</a>
 				<ul class="megamenu">
 					<ul>
+						<%
+							if (BranchList != null) {
+							%>
 						<h4>서울, 경기 지역</h4>
-						<li><a href="#" style="text-decoration: none; color: black;">동대문점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">서수원점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">안산 고잔점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">일산점</a></li>
+						<%for (int i = 0; i < BranchList.size(); i++) { %>
+						<li><a href="branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>" style="text-decoration: none; color: black;">
+						<%if(BranchList.get(i).getBranch_location().contains("서울") || BranchList.get(i).getBranch_location().contains("경기")){%>
+						<%= BranchList.get(i).getBranch_name()%><%} %></a></li>
+						<%} %>
+					
 					</ul>
 					<ul>
 						<h4>대전, 충청 지역</h4>
-						<li><a href="#" style="text-decoration: none; color: black;">대전 탄방점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">동대전점</a></li>
+						<%for (int i = 0; i < BranchList.size(); i++) { %>
+						<li><a href="branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>" style="text-decoration: none; color: black;">
+						<%if(BranchList.get(i).getBranch_location().contains("대전") || BranchList.get(i).getBranch_location().contains("충청")){%>
+						<%= BranchList.get(i).getBranch_name()%><%} %></a></li>
+						<%} %>
 					</ul>
 					<ul>
 						<h4>부산, 경상 지역</h4>
-						<li><a href="#" style="text-decoration: none; color: black;">부산 가야점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">부산 북구점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">울산 남구점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">울산 북구점</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">창원점</a></li>
+						<%for (int i = 0; i < BranchList.size(); i++) { %>
+						<li><a href="branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>" style="text-decoration: none; color: black;">
+						<%if(BranchList.get(i).getBranch_location().contains("부산") || BranchList.get(i).getBranch_location().contains("경상")){%>
+						<%= BranchList.get(i).getBranch_name()%><%} %></a></li>
+						<%} %>
 					</ul>
 					<ul>
 						<h4>광주, 전라 지역</h4>
-						<li><a href="#" style="text-decoration: none; color: black;">전주 완산점</a></li>
+						<%for (int i = 0; i < BranchList.size(); i++) { %>
+						<li><a href="branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>" style="text-decoration: none; color: black;">
+						<%if(BranchList.get(i).getBranch_location().contains("광주") || BranchList.get(i).getBranch_location().contains("전라")){%>
+						<%= BranchList.get(i).getBranch_name()%><%} %></a></li>
+						<%} %>
 					</ul>
 					<ul>
 						<h4>제주 지역</h4>
-						<li><a href="#" style="text-decoration: none; color: black;">가천대학교 운동장</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">GLOBAL ARENA (Japan)</a></li>
-						<li><a href="#" style="text-decoration: none; color: black;">Seogwipo, JEJU</a></li>
+						<%for (int i = 0; i < BranchList.size(); i++) { %>
+						<li><a href="branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>" style="text-decoration: none; color: black;">
+						<%if(BranchList.get(i).getBranch_location().contains("제주")){%>
+						<%= BranchList.get(i).getBranch_name()%><%} %></a></li>
+						<%} %>
 					</ul>
 				</ul></li>
 		</ul>
@@ -387,21 +411,36 @@ nav ul.megamenu ul li a:hover {
 					<center>
 						<div class="writeboardtitle" style="text-align: center; font-size: 45px; margin-bottom: 70px;">풋살장 목록</div>
 					</center>
-
 					<table>
-						<%
-							if (BranchList != null) {
-						%>
 						<tbody>
+							<tr>
 							<%
 								for (int i = 0; i < BranchList.size(); i++) {
+									String[] convenarr = BranchList.get(i).getBranch_convenience().split(",");
 							%>
-							<tr>
-								<td rowspan="4"><img src="img/ground1.jpg" style="width: 430px; height: 270px;"></td>
+								<td rowspan="6"><img src="img/<%=BranchList.get(i).getBranch_pic()%>" style="width: 430px; height: 285px; "></td>
+
+								
+								
 								<td style="color: #1b4367; width: 675px; height: 80px; font-weight: bold; font-size: 30px; padding-left: 20px;">
+								
 									<!-- 지점이름 --> <%=BranchList.get(i).getBranch_name()%>
 									<hr style="width: 720px; border-top: 2.3px solid #254765;">
 								</td>
+								</tr>
+								<tr>
+								<td style="padding-left: 20px;">
+								<div style="display: inline-flex;">
+<img src=<%if (convenarr[0].contains("o")) {%> "img/parking_o.png"<%} else if (convenarr[0].contains("x")) {%>"img/parking_x.png"<%}%> alt="주차장" class="branchdetailicon" />
+<img src=<%if (convenarr[1].contains("o")) {%> "img/aircon_o.png"<%} else if (convenarr[1].contains("x")) {%>"img/aircon_x.png"<%}%> alt="냉난방" class="branchdetailicon" />
+<img src=<%if (convenarr[2].contains("o")) {%> "img/shower_o.png"<%} else if (convenarr[2].contains("x")) {%>"img/shower_x.png"<%}%> alt="샤워실" class="branchdetailicon" />
+<img src=<%if (convenarr[3].contains("o")) {%> "img/ball_o.png"<%} else if (convenarr[3].contains("x")) {%>"img/ball_x.png"<%}%> alt="공대여" class="branchdetailicon" />
+<img src=<%if (convenarr[4].contains("o")) {%> "img/vest_o.png"<%} else if (convenarr[4].contains("x")) {%>"img/vest_x.png"<%}%> alt="팀조끼대여" class="branchdetailicon" />
+<img src=<%if (convenarr[5].contains("o")) {%> "img/shoes_o.png"<%} else if (convenarr[5].contains("x")) {%>"img/shoes_x.png"<%}%> alt="풋살화대여" class="branchdetailicon" />
+
+</div>
+</td>
+								</tr>
 							<tr>
 								<td style="padding-left: 20px; font-size: 17px;"><img src="img/iconlocation.png" style="padding-right: 12px;"> <!-- 지점주소 --><%=BranchList.get(i).getBranch_location()%></td>
 							</tr>
@@ -409,11 +448,14 @@ nav ul.megamenu ul li a:hover {
 								<td style="padding-left: 20px; font-size: 17px; letter-spacing: 2px;"><img src="img/iconphone.png" style="padding-right: 12px;"> <!-- 지점전화번호 --><%=BranchList.get(i).getBranch_tel()%></td>
 							</tr>
 							<tr>
-								<td><input type="button" value="예약하기" class="signbutton signbutton5" style="float: left; margin-left: 200px;" onclick="script: location.href='reservation.jsp'"> <input type="button" value="지점소개" onclick="script: location.href='branchdetail.jsp'" class="signbutton2 signbutton2_5" style="float: left;"></td>
+								<td>
+								<input type="button" value="지점소개" onclick="script: location.href='branchlist.do?command=branchdetail&branch_no=<%=BranchList.get(i).getBranch_no()%>'" style="float: left; margin-left: 250px;"class="signbutton2 signbutton2_5">
+
+								<input type="button" value="대관하기" class="signbutton signbutton5"  style="float: left;" onclick="script: location.href='branchlist.do?command=reservationclick&branch_no=<%=BranchList.get(i).getBranch_no()%>'">
+								</td>
 							</tr>
 						</tbody>
-					
-					<hr>
+
 					<%
 						}
 					%>

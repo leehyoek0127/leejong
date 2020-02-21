@@ -8,5 +8,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/jai_codec.jar"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/jai_core.jar"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/mybatis-3.2.8.jar"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/mysql-connector-java-5.1.48-bin.jar"/>
+	<classpathentry kind="lib" path="D:/giteclipse/leejong/WebExam/WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

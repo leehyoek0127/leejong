@@ -78,9 +78,28 @@ public class ControllerServlet extends HttpServlet {
 					out.println("<script>alert('삭제가 완료되었습니다.')</script>");
 				}
 			}
-			else if(command.equals("team_regist")){  //qna 검색 출력
-				System.out.println("팀 등록 컨트롤러");
-				inter = QnaSearch.instance();
+			else if(command.equals("teamlist")){  //팀리스트  출력
+				System.out.println("teamlist 출력");
+				inter = TeamListView_Service.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teaminfo")){  //팀정보 출력
+				System.out.println("teaminfo 출력");
+				inter = TeamInfoService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("team_regist")){  //팀등록 
+			
+				response.setContentType("text/html;charset=UTF-8");
+				inter = TeamRegistService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("team_modify")){  //팀관리  출력
+				System.out.println("team modify 출력");
+				inter = TeamModifyService.instance();
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
@@ -92,13 +111,56 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
-			
-			
-			
+			else if(command.equals("index")){
+				System.out.println("인덱스컨트롤러들어옴");
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				inter = Index_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("branchlistview")){
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				inter = BranchList_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}else if(command.equals("branchdetail")){
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				inter = BranchDetail_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
 			else if(command.equals("qnasearch")){  //qna 검색 출력
 				System.out.println("qna 검색 출력");
 				inter = QnaSearch.instance();
 				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamboardlist")){  
+				System.out.println("팀게시판컨트롤러");
+				inter = TeamBoardListService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("team_board_list_writeform")){  
+				System.out.println("팀게시판글쓰기폼으로");
+				viewName = "team_board_list_writeform.jsp";		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("team_board_list_write")){  
+				System.out.println("팀게시판글쓰기");
+				response.setContentType("text/html;charset=UTF-8");
+				inter = TeamboardListWriteService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if (command.equals("reservationclick")) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = ReservationClick_Service.instance();
+				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			else {

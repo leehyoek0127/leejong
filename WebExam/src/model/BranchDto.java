@@ -6,6 +6,14 @@ public class BranchDto {
 	String branch_location;
 	String branch_tel;
 	String branch_convenience;
+	String branch_pic;
+	
+	public String getBranch_pic() {
+		return branch_pic;
+	}
+	public void setBranch_pic(String branch_pic) {
+		this.branch_pic = branch_pic;
+	}
 	public int getBranch_no() {
 		return branch_no;
 	}

@@ -118,6 +118,7 @@ session.setAttribute("url",url);
 		}
 	});
 </script>
+
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
 <!----------------------------오버레이 화면 띄우는 스크립트------------------------------------>
@@ -144,6 +145,20 @@ session.setAttribute("url",url);
 			alert("리스트에러");
 		}
 </script>
+
+<!-- 수정하기 javascript -->
+<script>
+function modisubmit(teamcode){
+	var pwd=document.getElementById("pwd").value;
+	var contents = document.getElementById("contents").value;
+	var titles = document.getElementById("titles").value;
+	
+	
+}
+	
+</script>
+
+
 <style>
 
 .league_regi .write_wrap {
@@ -507,8 +522,14 @@ button {
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
+<%//2020_01_22 로그인정보에 따라서 
+	if(uss.equals("GUEST")||!uss.equals(request.getParameter("tid"))){
+		out.println("<script>alert('권한이 없습니다.');location.href='teamlist.do?command=teamlist';</script>");
 	
+		
+	}else{
+
+%>	
 	
 	
 	<header>
@@ -534,19 +555,17 @@ button {
 				<div class="cbox">
 					<div class="write_wrap">
 						<h4 class="h_bar line">팀 정보수정</h4>
-						<form name="reg_form" id="reg_form" method="post" action="team_reg_step2.asp" enctype="multipart/form-data" target="HiddenFrame">
+						<form name="modify_form" id="modify_form" method="post" action="modify.do?command=team_modify&t_code=<%=request.getParameter("teamcode") %>" role="form"
+							autocomplete="off" >
 						<div class="fl_wrap">
 							<dl class="fl_left">
 								<dt>팀분류</dt>
 								<dd>
-									<span class="select" style="width:100%"> 
-										<label for="select02">팀분류를 선택해 주세요.</label>
-										<select id="select02" name="t_type"> 
+										<select  class="select" style="width:100%" id="t_type" name="t_type"> 
 										<option value="">팀분류를 선택해 주세요.</option>
-										<option value="1">초등부</option>
-										<option value="2">성인부</option>
+										<option value="초등부">초등부</option>
+										<option value="성인부">성인부</option>
 										</select>
-									</span>
 								</dd>
 							</dl>
 							
@@ -590,7 +609,7 @@ button {
 											<span class="name"></span>
 										</span>
 										<button type="button" class="btn_file" onclick="document.getElementById('file').click();">찾아보기</button>
-										<input name="t_emblem" type="file" accept=".gif, .jpg, .jpeg, .png" id="file" placeholder="" onchange="fileTypeChk(this)" style="display:none">
+										<input name="t_logo" type="file" accept=".gif, .jpg, .jpeg, .png" id="file" placeholder="" onchange="fileTypeChk(this)" style="display:none">
 									</div>
 								</div>
 							</dd>
@@ -600,9 +619,10 @@ button {
 							
 						</div>
 
+
 						<div class="btn_wrap">
-							<a href="javascript:;" class="btn_big" onclick="fn_frmSubmit();">수정하기</a>
-							<a href="/league/league.asp" class="btn_big gray">취소하기</a>
+							<a href="javascript:;" class="btn_big" onclick="document.getElementById('modify_form').submit();">수정하기</a>
+							<a href="teamlist.do?command=teamlist" class="btn_big gray">취소하기</a>
 						</div>
 					</form>
 					</div>
@@ -614,5 +634,6 @@ button {
 	<footer id="footer">
 		<jsp:include page="Footer.jsp" />
 	</footer>
+	<%} %>
 </body>
 </html>

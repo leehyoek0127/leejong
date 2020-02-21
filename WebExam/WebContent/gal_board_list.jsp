@@ -40,7 +40,7 @@
 <meta name="Description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>게시판</title>
+<title>팀갤러리</title>
 <link rel="stylesheet" href="css/galboardstyle.css">
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/signbutton.css">
@@ -157,6 +157,69 @@
 	float: left;
 	border: 1px;
 }
+#galtablenav{
+	width: 100%;
+    float: left;
+    text-align: center;
+}
+.tab_wrap {
+    border: 1px solid #4b4b4b;
+    height: 72px;
+}
+.t03 {
+    margin: 0px;
+    padding: 0px;
+}
+.t03 ul {
+    list-style-type: disc;
+}
+.tab_wrap ul li.on {
+    z-index: 10;
+}
+.tab_wrap ul.t03 li {
+    width: 50%;
+}
+.tab_wrap ul li {
+    position: relative;
+    float: left;
+}
+.t03 li {
+    list-style: none;
+}
+.t03 li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.tab_wrap ul li:first-child > a {
+    border-left: 0;
+}
+.tab_wrap ul li.on > a {
+    background: #2c3c57;
+    color: #fff;
+}
+.tab_wrap ul li > a {
+    display: block;
+    position: relative;
+    border-left: 1px solid #2c3c57;
+    background: #fff;
+    color: #2c3c57;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 70px;
+    text-align: center;
+}
+.tab_wrap ul li.on > a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -13px;
+    margin-left: -6px;
+    width: 13px;
+    height: 13px;
+    background: url(img/bg_tab_arr.png) no-repeat 0 0;
+}
+
 </style>
 </head>
 <body>
@@ -216,31 +279,24 @@
 						</tbody>
 					</table>
 				</div>
-				<input type="button" value="글쓰기" class="signbutton signbutton5 buttonmargin" onClick="script: location.href='galWriteForm.bo'">
 				
-				<div class="container">
-					<aside style="margin-left: -25px;">
-						<div id="wrap">
-							<div class="product-head">
+				
+				<div id="galtablenav">
+					<div class="tab_wrap">
+						<ul class="t03">
+							<li class="on"><a href="galList.bo">팀 갤러리</a></li>
+							<li><a href="teamboardlist.do?command=teamboardlist">팀 게시판</a></li>
+						</ul>
+					</div>
+					<div class="writeboardtitle" style="margin-top: 50px;">Green Computer 팀 갤러리</div>
+					<input type="button" value="글쓰기" class="signbutton signbutton5 buttonmargin" onClick="script: location.href='galWriteForm.bo'" style="margin-right: 34px;">
+				
+				</div>
+				
+				<div class="container" style="width: 1193px;">
+					
 
-								<div id="form"></div>
-								<div class="subli logolistmargin">
-									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Liverpool/">Green Computer</a></li>
-									<li><img src="img/mu.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester United/">Blue Computer</a></li>
-									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester City/">Red Computer</a></li>
-									<li><img src="img/chelsea.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">White Computer</a></li>
-									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">Yellow Computer</a></li>
-									<li><img src="img/arsenal.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									
-								</div>
-							</div>
-						</div>
-					</aside>
-
-					<table class="table table-striped" style="width: 850px; float: left; margin-left:44px;">
+					<table class="table table-striped" style="width: 976px; float: left; ">
 
 						<%
 							if (articleList != null && listCount > 0) {
@@ -265,6 +321,27 @@
 						</tbody>
 
 					</table>
+					
+					<aside style="margin-left: -25px;position: relative;top: -282px;">
+						<div id="wrap">
+							<div class="product-head">
+
+								<div id="form"></div>
+								<div class="subli logolistmargin">
+									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Liverpool/">Green Computer</a></li>
+									<li><img src="img/mu.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester United/">Blue Computer</a></li>
+									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester City/">Red Computer</a></li>
+									<li><img src="img/chelsea.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">White Computer</a></li>
+									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">Yellow Computer</a></li>
+									<li><img src="img/arsenal.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
+									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
+									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
+									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
+									
+								</div>
+							</div>
+						</div>
+					</aside>
 
 
 					<section id="pageList" style="clear:both; text-align: center;">

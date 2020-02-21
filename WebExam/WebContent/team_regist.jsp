@@ -17,8 +17,7 @@ session.setAttribute("url",url);
 		includeurl = "sign_login.jsp";
 	}
 	//수정부분 끝
-	//2020.01.14 로그인 id 수정
-	String yid = (String) session.getAttribute("id");
+
 %>
 <!doctype html>
 <html lang="en">
@@ -120,29 +119,46 @@ session.setAttribute("url",url);
 </script>
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
-<!----------------------------오버레이 화면 띄우는 스크립트------------------------------------>
-<script>						
-	function selectOne(index,yid) {
-		$.ajax({
-		type:"get",
-		
-		url:"./yongSelectOne.jsp",       
-		data:{
+
+<script>
+function teamregistsubmit()
+{
 	
-			index:index,
-			yid:yid
-		},	
-		success:whenSuccess2,
-		error:whenError2
-		});
+	//var getName= (/^[가-힣]+$/);
+	var uniform_home_top = reg_form.t_h_uniform_t.value.length
+	var uniform_home_bottom = reg_form.t_h_uniform_b.value.length
+	var uniform_home_socks=  reg_form.t_h_uniform_s.value.length
+	var uniform_away_top = reg_form.t_a_uniform_t.value.length
+	var uniform_away_bottom = reg_form.t_a_uniform_b.value.length
+	var uniform_away_socks=  reg_form.t_a_uniform_s.value.length
+	var t_logo = reg_form.t_logo.value.length
+	var emaillen = reg_form.t_email.value.length
+	var teamlen =reg_form.t_name.value.length
+	
+	if(reg_form.t_type.value=='none'){
+		alert("팀분류를 선택하세요.");
+		reg_form.t_type.focus();	
+	}else if(teamlen<=0){
+		alert("팀 이름을 입력하세요.");
+		reg_form.t_name.focus();
+	}else if(emaillen<=0){
+		alert("이메일 주소를 입력하세요.");
+		reg_form.t_email.focus()
+	}else if(uniform_home_top<=0 || uniform_home_bottom <=0 || uniform_home_socks <=0){
+		alert("홈 유니폼을 선택하세요.");
+		reg_form.t_t_h_uniform_t.focus();
+	}else if(uniform_away_top<=0 || uniform_away_bottom <=0 || uniform_away_socks <=0){
+		alert("어웨이 유니폼을 선택하세요.");
+		reg_form.t_t_h_uniform_t.focus();
+	}else if(t_logo<=0){
+		alert("팀 로고를 등록하세요.");
+		reg_form.t_email.focus()
+	}else
+	{
+		document.reg_form.submit();
 	}
-		function whenSuccess2(resdata){
-			console.log(resdata);
-			$("#innerpop").html(resdata);
-		}
-		function whenError2(){
-			alert("리스트에러");
-		}
+
+}
 </script>
 <style>
 
@@ -522,10 +538,14 @@ button {
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
+<%//2020_01_22 로그인정보에 따라서 
+	if(uss.equals("GUEST")){
+		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='teamlist.do?command=teamlist';</script>");
 	
-	
-	
+		
+	}else{
+
+%>	
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
@@ -549,19 +569,17 @@ button {
 				<div class="cbox">
 					<div class="write_wrap">
 						<h4 class="h_bar line">팀 등록</h4>
-						<form name="reg_form" id="reg_form" method="post" action="regi.do?command=team_regist" enctype="multipart/form-data" >
+						<form name="reg_form" id="reg_form" method="post" action="regist.do?command=team_regist" role="form"
+							autocomplete="off" >
 						<div class="fl_wrap">
 							<dl class="fl_left">
 								<dt>팀분류</dt>
 								<dd>
-									<span class="select" style="width:100%"> 
-										<label for="select02">팀분류를 선택해 주세요.</label>
-										<select id="select02" name="t_type"> 
+										<select  class="select" style="width:100%" id="t_type" name="t_type"> 
 										<option value="">팀분류를 선택해 주세요.</option>
-										<option value="1">초등부</option>
-										<option value="2">성인부</option>
+										<option value="초등부">초등부</option>
+										<option value="성인부">성인부</option>
 										</select>
-									</span>
 								</dd>
 							</dl>
 							
@@ -605,7 +623,7 @@ button {
 											<span class="name"></span>
 										</span>
 										<button type="button" class="btn_file" onclick="document.getElementById('file').click();">찾아보기</button>
-										<input name="t_emblem" type="file" accept=".gif, .jpg, .jpeg, .png" id="file" placeholder="" onchange="fileTypeChk(this)" style="display:none">
+										<input name="t_logo" type="file" accept=".gif, .jpg, .jpeg, .png" id="file" placeholder="" onchange="fileTypeChk(this)" style="display:none">
 									</div>
 								</div>
 							</dd>
@@ -616,10 +634,11 @@ button {
 						</div>
 
 						<div class="btn_wrap">
-							<input type="submit" class="btn_big" style="border:none;" value="등록하기">
+							<input type="button" class="btn_big" onClick="teamregistsubmit()" style="border:none;" value="등록하기">
 							
 							<a href="/league/league.asp" class="btn_big gray">취소하기</a>
 						</div>
+						<input type="hidden" name="id" id="id" value="<%=uss%>" />
 					</form>
 					</div>
 				</div>
@@ -637,5 +656,6 @@ button {
 	<footer id="footer">
 		<jsp:include page="Footer.jsp" />
 	</footer>
+	<%} %>
 </body>
 </html>

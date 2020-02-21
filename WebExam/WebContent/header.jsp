@@ -20,11 +20,11 @@ function loginajax() {
 		username:$('#username').val(),
 		password:$('#password').val()
 	},	
-	success:whenSuccesslogin,
+	success:whenSeccesslogin,
 	error:whenErrorlogin
 	});
 }
-function whenSuccesslogin(resdata){
+function whenSeccesslogin(resdata){
 	
 	$("#LoginAjax").html(resdata);
 	
@@ -75,19 +75,19 @@ function whenErrorlogin(){
 						<ul>
 							<li><a href="match_apply.jsp">매치신청</a></li>
 							<li><a href="yonglist_1.jsp">용병등록</a></li>
-							<li><a href="#">팀원모집</a></li>
+							<li><a href="teamlist.do">팀원모집</a></li>
 						</ul></li>
 					<li class="borderRightLeft"><a href="league.jsp">리그</a></li>
 					<li class="borderRightLeft"><a href="galList.bo">팀커뮤니티</a>
 						<ul>
 							<li><a href="galList.bo">팀갤러리</a></li>
 							<li><a href="#">팀게시판</a></li>
-							<li><a href="#">팀관리</a></li>
+							<li><a href="teamlist.do?command=teamlist">팀관리</a></li>
 							<li><a href="#">팀가입</a></li>
 						</ul></li>
 					<li class="borderRightLeft"><a href="qna.jsp">고객센터</a>
 						<ul style="width: 210px;">
-							<li><a href="#">공지사항</a></li>
+							<li><a href="notice.jsp">공지사항</a></li>
 							<li><a href="qna.jsp">Q&A</a></li>
 							<li><a href="futsalground.jsp">구장등록</a></li>
 						</ul></li>
@@ -97,7 +97,7 @@ function whenErrorlogin(){
 				<!--회원상태 창-->
 
 
-				<a href="sign.jsp" style="float: left; line-height: 25px;">회원가입</a>
+				<a href="sign.jsp" style="float: left; line-height: 27px;">회원가입</a>
 				<div id="container" style="float: left;">
 					<div id="topnav" class="topnav">
 						<a href="login" class="signin"> <span><%=log%></span>
@@ -126,15 +126,15 @@ function whenErrorlogin(){
 
 		</div>
 		<div id="navmid">
-			<div id="navmid_1" class="slideDown">
-				<a href="">팀매치신청</a>
-			</div>
-			<div id="navmid_2" class="slideDown">
-				<a href="">용병등록</a>
-			</div>
-			<div id="navmid_3" class="slideDown">
-				<a href="">팀원모집</a>
-			</div>
+			
+				<a id="navmid_1" class="slideDown" href="match_apply.jsp">팀매치신청</a>
+			
+			
+				<a id="navmid_2" class="slideDown" href="yonglist_1.jsp">용병등록</a>
+			
+			
+				<a id="navmid_3" class="slideDown" href="teamlist.do?command=teamlist">팀원모집</a>
+			
 		</div>
 	</header>
 </body>

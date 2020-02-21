@@ -121,11 +121,7 @@ body{
 #navtop_logo {
     top: 3px;
 }
-.close{
-	position: relative;
-    top: -157px;
-    left: 127px;
-}
+
 .wrap {position: absolute;left: 3px;bottom: 43px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
 .wrap * {padding: 0;margin: 0;}
 .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
@@ -189,8 +185,8 @@ var positions = [
 			     '            </div>' + 
 			     '        </div>' + 
 			     '    </div>' +    
-			     '</div>' +
-				 '<div class="close" onclick="closeOverlay()" title="닫기">dd</div>',
+			     '</div>' ,
+				 
         title: '카카오', 
         latlng: new kakao.maps.LatLng(37.55799, 127.08698)
     },
@@ -212,8 +208,8 @@ var positions = [
 			     '            </div>' + 
 			     '        </div>' + 
 			     '    </div>' +    
-			     '</div>' +
-				 '<div class="close" onclick="closeOverlay()" title="닫기">dd</div>',
+			     '</div>' ,
+				 
         title: '생태연못', 
         latlng: new kakao.maps.LatLng(37.53799, 127.08398)
     },
@@ -235,8 +231,8 @@ var positions = [
 			     '            </div>' + 
 			     '        </div>' + 
 			     '    </div>' +    
-			     '</div>' +
-				 '<div class="close" onclick="closeOverlay()" title="닫기">dd</div>',
+			     '</div>' ,
+				 
         title: '텃밭', 
         latlng: new kakao.maps.LatLng(37.53799, 127.10598)
     },
@@ -258,8 +254,8 @@ var positions = [
 			     '            </div>' + 
 			     '        </div>' + 
 			     '    </div>' +    
-			     '</div>' +
-				 '<div class="close" onclick="closeOverlay()" title="닫기">dd</div>',
+			     '</div>' ,
+				 
         title: '근린공원',
         latlng: new kakao.maps.LatLng(37.55599, 127.10398)
     }
@@ -272,7 +268,7 @@ var imageSrc = "http://localhost:8080/WebExam/img/starmarker.png";
     
     
     
-for (var i = 0; i < positions.length; i ++) {
+for (let i = 0; i < positions.length; i ++) {
     
     // 마커 이미지의 이미지 크기 입니다
     var imageSize = new kakao.maps.Size(30,45); 
@@ -290,6 +286,9 @@ for (var i = 0; i < positions.length; i ++) {
     
     
     
+    
+    /*
+    
     var closeBtn = document.createElement('button');
     closeBtn.innerHTML = '<div>닫기</div>';
     closeBtn.onclick = function () {
@@ -297,7 +296,7 @@ for (var i = 0; i < positions.length; i ++) {
     };
     
     positions[i].content.appendChild(closeBtn);
-    
+    */
     var overlay = new kakao.maps.CustomOverlay({
         content: positions[i].content,
         map: map,
@@ -308,7 +307,7 @@ for (var i = 0; i < positions.length; i ++) {
     
     //overlay.setContent(content);
     
-    
+    overlay.setMap(null);
     
  	// 마커에 표시할 인포윈도우를 생성합니다 
     var infowindow = new kakao.maps.InfoWindow({
@@ -347,9 +346,9 @@ function makeOutListener(map, marker, overlay) {
     };
 }
 //커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-//function closeOverlay() {
-//        overlay.setMap(null);        
-//}
+function closeOverlay() {
+        overlay.setMap(null);        
+}
 
 </script>
 

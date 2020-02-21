@@ -14,4 +14,19 @@
 <select id="qnacontents" parameterType="QnaSearchDto" resultType="QnaSearchDto">select * from qnaboard_tb  where q_b_contents like concat('%' , #{q_b_title}, '%');</select>
 <insert id="input_reservation" parameterType="ReservationDto">insert into reservation_tb (RES_NO, RES_DATE, RES_TIME, PAYMENT_CHARGE, ID, GROUND_NO) values(#{res_no},#{res_date},#{res_time},#{payment_charge},#{id},#{ground_no});</insert>
 <select id="branchlist_view" parameterType="BranchDto" resultType="BranchDto">select * from branch_tb; </select>
+<select id="branchdetail_view" parameterType="String" resultType="BranchDto">select * from branch_tb where BRANCH_NO=#{branch_no};</select>
+<select id="grounddetail_view" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+
+<select id="click_reservation" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+
+<!-- 팀관련 sql 모음 by Pang -->
+<select id="teamlist_view" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb; </select>
+<select id="teamone" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb  where T_CODE = #{t_code};</select>
+<select id="registplayer_view" parameterType="TeamDto" resultType="TeamDto">select * from teamplayer_tb; </select>
+<update id = "Teammodify" parameterType="TeamDto">update teaminfo_tb set T_NAME = #{t_name},T_CLASS = #{t_class}, T_EMAIL = #{t_email}, T_UNIFORM_HOME = #{t_uniform_home}, T_UNIFORM_AWAY = #{t_uniform_away}, T_LOGO = #{t_logo} where T_CODE=#{t_code} ; </update>
+<insert id="Teaminsert" parameterType="TeamDto">insert into teaminfo_tb (ID, T_NAME, T_CODE, T_LOGO, T_EMAIL, T_UNIFORM_HOME, T_UNIFORM_AWAY, T_CLASS) values(#{id},#{t_name},#{t_code},#{t_logo},#{t_email},#{t_uniform_home},#{t_uniform_away},#{t_class});</insert>
+<!-- End -->
+
+<select id="teamboardlist" parameterType="TeamBoardListDto" resultType="TeamBoardListDto">select * from teamboard_tb; </select>
+<insert id="teamboardinsert" parameterType="TeamBoardListDto">insert into teamboard_tb (T_B_NO, T_B_CONTENTS, T_B_SUBJECT, T_B_DATE, T_B_READCOUNT, ID, T_CODE) values(#{T_B_NO},#{T_B_CONTENTS},#{T_B_SUBJECT},now(),0,#{id},305963);</insert>
 </mapper>
