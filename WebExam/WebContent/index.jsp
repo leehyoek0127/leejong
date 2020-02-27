@@ -24,8 +24,6 @@
 
 <%
 	ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>)request.getAttribute("BranchList");
-
-
 %>
 <script>
 function loginajax() {

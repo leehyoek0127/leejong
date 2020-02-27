@@ -23,7 +23,7 @@
   color: var(--color);
   position: relative;
   display: inline-block;
-  font-size: 4em;
+  font-size: 26px;
   line-height: 1em;
   transform: scale(1, 0.8);
   border: var(--border-width) solid transparent;
@@ -180,7 +180,7 @@
 		
 		<div id="navtop">
 			<div id="navtop_logo">
-				<a class="border-animation" href="">
+				<a class="border-animation" href="index.do?command=index">
     				<div class="border-animation__inner">GREEN FUTSAL PARK</div>
     			</a>
 			</div>
