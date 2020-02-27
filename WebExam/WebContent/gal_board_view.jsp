@@ -365,7 +365,7 @@
 <body>
 <%//2020_01_22 로그인정보에 따라서 
 	if(uss.equals("GUEST")){
-		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='boardList.bo';</script>");
+		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='galList.bo';</script>");
 	
 		
 	}else{
@@ -433,7 +433,11 @@
 									</td>
 								</tr>
 							</table>
-							
+							<%if(article.getId().equals(uss)){ %>
+							<div style="float:right;"><input type="button" id="Delete" class="signbutton signbutton5" value="삭제" onclick="location.href='galDeleteForm.bo?GB_NUM=<%=article.getG_b_no()%>&page=<%=nowPage%>'"/></div>
+							<div style="float:right;"><input type="button" id="Update" class="signbutton signbutton5" value="수정" onclick="location.href='galModifyForm.bo?GB_NUM=<%=article.getG_b_no()%>'"/></div>
+							<div style="float:right;"><input type="button" id="Update" class="signbutton signbutton5" value="목록" onclick="location.href='galList.bo?page=<%=nowPage%>'"/></div>
+							<%} %>
 							<form name="galRepInsert" class="form" method="post" action="galRepPro.bo" role="form" autocomplete="off" enctype="multipart/form-data">
 							<div id="rep">
 							
@@ -475,14 +479,7 @@
 						</div>
 
 							<!--@@@@@@@@@@@@@@@@  -->
-							<section id="commandList">
-								<a href="galReplyForm.bo?GB_NUM=<%=article.getG_b_no()%>&page=<%=nowPage%>"> [답변] </a>
-								<% if(uss.equals(article.getId())){%>
-								<a href="galModifyForm.bo?GB_NUM=<%=article.getG_b_no()%>"> [수정] </a>
-								<a href="galDeleteForm.bo?GB_NUM=<%=article.getG_b_no()%>&page=<%=nowPage%>"> [삭제] </a>
-								<%} %>
-								<a href="galList.bo?page=<%=nowPage%>">[목록]</a>&nbsp;&nbsp;
-							</section>
+							
 					</center>
 
 				</div>

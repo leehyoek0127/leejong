@@ -13,6 +13,27 @@ public class TeamDto {
 	String t_class;
 	int league_result_code;
 	String id;
+	String teamtype;
+	String branchcode;
+	String word;
+	public String getTeamtype() {
+		return teamtype;
+	}
+	public void setTeamtype(String teamtype) {
+		this.teamtype = teamtype;
+	}
+	public String getBranchcode() {
+		return branchcode;
+	}
+	public void setBranchcode(String branchcode) {
+		this.branchcode = branchcode;
+	}
+	public String getWord() {
+		return word;
+	}
+	public void setWord(String word) {
+		this.word = word;
+	}
 	public String getId() {
 		return id;
 	}

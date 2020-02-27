@@ -22,7 +22,8 @@ session.setAttribute("url",url);
 %>
 
 <%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");
-ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("RegistPlayer");%>
+ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("RegistPlayer");
+%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,7 +37,8 @@ ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("Reg
 <title>teamlist</title>
 
 <link rel="stylesheet" href="css/boardpop.css">
-
+<!-- 검색 배너 스타일 -->
+<link rel="stylesheet" href="css/leaguestyle.css" media="screen">
 
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
@@ -121,6 +123,21 @@ ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("Reg
 		}
 	});
 </script>
+<!-- 팀리스트 검색 script -->
+
+<script>
+function searchselect(){
+	var teamtype = document.getElementById("select01");//초등부 성인부
+	var tclass = teamtype.options[teamtype.selectedIndex].value;
+	var branchcode = document.getElementById("select02"); //지점코드
+	var bcode = branchcode.options[branchcode.selectedIndex].value; 
+	
+	var word = document.getElementById("search").value; //검색내용
+	alert(tclass+bcode+word);
+	document.location.href="teamsearch.do?command=teamsearch&teamtype="+tclass+"&branchcode="+bcode+"&word="+word;
+	
+	}
+</script>
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
 
@@ -195,50 +212,10 @@ ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("Reg
     filter: alpha(opacity=0);
 }
 
-.league_cont select {
-    margin: 0;
-    border: 1px solid #999;
-    line-height: 22px;
-    height: 22px;
-    color: #a6a6a6;
-    font-weight: bold;
-}
-.league_cont select {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark-color(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    -webkit-appearance: menulist;
-    box-sizing: border-box;
-    align-items: center;
-    white-space: pre;
-    -webkit-rtl-ordering: logical;
-    background-color: -internal-light-dark-color(white, black);
-    cursor: default;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    border-radius: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(169, 169, 169);
-    border-image: initial;
-}
-.league_cont option {
-    font-weight: normal;
-    display: block;
-    white-space: pre;
-    min-height: 1.2em;
-    padding: 0px 2px 1px;
-}
+
 .league_cont .teams_table .search_wrap {
     position: absolute;
-    top: 14px;
+    top: 10px;
     right: 14px;
     padding-right: 119px;
 }
@@ -655,7 +632,20 @@ body .league_cont{
     vertical-align: top;
     letter-spacing: 0;
 }
-
+#select02 {
+    width: 300px;
+    height: 50px;
+    float: left;
+    margin: 8px 20px;
+    font-size: 20px;
+}
+#select01 {
+    width: 200px;
+    height: 50px;
+    float: left;
+    margin: 8px 5px;
+    font-size: 20px;
+}
 
 </style>
 </head>
@@ -684,27 +674,20 @@ body .league_cont{
 		<section id="mainright">
 			<div id="matList">
 			
-				<div class="cbox">
+				
 					<div class="league_cont team">
 					<h3 class="h_tit">팀 리스트</h3>
 					<input class="signbutton signbutton5" type="button" value="팀등록" style="float: right; margin: 10px;" onClick="script:location.href='team_regist.jsp'">
+					<input class="signbutton signbutton5" type="button" value="팀목록" style="float: right; margin: 10px;" onClick="script:location.href='teamlist.do?command=teamlist'">
 					<div class="teams_table" style="clear:both;">
 						
 					
-						<div class="search">
-							<form name="frm_search" method="get" action="?">
-							<span class="select">
-								<label for="select01" style="width:100%;">전체</label>
-								<select id="select01" name="grade" class="select_box" style="width:100%;">
-									<option value="">전체</option>
-									<option value="2">성인부</option>
-									<option value="1">초등부</option>
-								</select>
-							</span>
-							<span class="select">
-								<label for="select02" style="width:100%;">전국현황</label>
-								<select id="select02" name="bcode" class="select_box" style="width:100%;" onchange="fn_SelBranch();">
-									<option value="">전국현황</option>
+						
+							<form name="frm_search" method="post" action="">
+							<div class="galsearch">
+							<img src="img/search.jpg" id="leaguesearchimg">
+								<select id="select02" name="branchcode" class="form-control">
+									<option>전국현황</option>
 									
 											<option value="HM0033">가천대학교 운동장</option>
 									
@@ -737,14 +720,24 @@ body .league_cont{
 											<option value="HM0032">Seogwipo, JEJU</option>
 									
 								</select>
-							</span>
-							<div class="search_wrap">
-								<input type="text" name="search" value="" placeholder="팀명을 입력 하세요">
-								<button type="button" class="search_button" onclick="this.form.submit();"><span>검색</span></button>
+								<select id="select01" name="teamtype" class="form-control">
+									<option>전체</option>
+									<option value="성인부">성인부</option>
+									<option value="초등부">초등부</option>
+								</select>
+								<div class="search_wrap">
+								<input type="text" name="search" id="search" placeholder="팀명을 입력 하세요">
+								<button type="button" class="search_button" onclick="searchselect()"><span>검색</span></button>
 							</div>
+							</div>
+							
+								
+								
+							
+							
 							<input type="hidden" name="id" id="id" value="<%=uss%>" />
 							</form>
-						</div>
+					
 						<div class="table_wrap">
 							<table>
 							<caption>팀 테이블</caption>
@@ -810,7 +803,7 @@ body .league_cont{
 					</div>
 				</div>
 				</div>
-			</div>
+			
 			
 		</section>
 	</section>

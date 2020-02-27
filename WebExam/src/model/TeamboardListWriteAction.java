@@ -15,7 +15,9 @@ public class TeamboardListWriteAction {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	public void insertinform(TeamBoardListDto teamBoardListDto) {
+		
 		SqlSession sqlSession = factory.openSession();
+		System.out.println("액션에서 제목: "+teamBoardListDto.getT_B_SUBJECT());
 		sqlSession.insert("teamboardinsert", teamBoardListDto); // mapper.xml의 ,<select> id
 		sqlSession.commit();
 

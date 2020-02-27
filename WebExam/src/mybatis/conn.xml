@@ -14,7 +14,9 @@
 		<typeAlias type="model.GroundDto" alias="GroundDto"/>
 		<typeAlias type="model.ReservationDto" alias="ReservationDto"/>
 		<typeAlias type="model.TeamBoardListDto" alias="TeamBoardListDto"/>
-		
+		<typeAlias type="model.TeamBoardRepDto" alias="TeamBoardRepDto"/>
+		<typeAlias type="model.LeagueResultDto" alias="LeagueResultDto"/>
+		<typeAlias type="model.PlayerRegistDto" alias="PlayerRegistDto"/>
 	</typeAliases>
 
 

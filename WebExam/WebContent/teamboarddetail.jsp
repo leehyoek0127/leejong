@@ -1,4 +1,20 @@
+<%@page import="model.TeamBoardRepDto"%>
+<%@page import="model.TeamBoardListDto"%>
+<%@page import="vo.GalRepDto"%>
+<%@page import="vo.GalBoardDto"%>
+
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+<%
+	TeamBoardListDto teamboarddetail = (TeamBoardListDto) request.getAttribute("teamBoardDetailOne");
+	
+	ArrayList<TeamBoardRepDto> teamboardrep = (ArrayList<TeamBoardRepDto>) request.getAttribute("teamBoardDetailRep");
+	
+%>
+
 
 <%
 	//2020_01_02 수정부분
@@ -24,14 +40,13 @@
 <meta name="Author" content="">
 <meta name="Keywords" content="">
 <meta name="Description" content="">
-<title>팀게시판글쓰기</title>
+<title>팀게시판상세보기</title>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/datepicker.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/common/form_check.js"></script>
-<link rel="stylesheet" type="text/css" href="css\join.css" />
-<link rel="stylesheet" href="css/galboardstyle.css">
+
 <link rel="stylesheet" href="css/classic.css">
 <link rel="stylesheet" href="css/classic.date.css">
 <link rel="stylesheet" href="css/signbutton.css">
@@ -41,11 +56,13 @@
 <link rel="stylesheet" href="css/style2.css" media="screen">
 <link rel="stylesheet" href="css/materialFormStyles2.css">
 <link rel="stylesheet" href="css/borderRightLeft.css" media="screen">
-<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <script src="js/materialForm.js"></script>
+<!--큰글씨 폰트 css 파일 추가-->
+<link rel="stylesheet" href="css/galboardstyle.css">
+<link rel="stylesheet" href="css/signbutton.css">
+<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
-
-
+<link rel="stylesheet" href="css/galstyle.css" media="screen">
 <!--기본적인 body등의 css-->
 <link rel="stylesheet" href="css/basicStyle.css" media="screen">
 <link rel="stylesheet" href="css/navmid33.css">
@@ -276,40 +293,86 @@
 		}
 	}
 </script>
+
 <style>
-.formtotalsize {
-	height: 450px;
+#galview table {
+	border: 1px;
+	height: 900px;
+	align: center;
 }
 
-.contentbox {
-	width: 730px;
-	resize: none;
-	height: 440px;
+.viewsubject {
+	text-align: center;
+	font-size: 20px;
+	width: 100px;
+	font-weight: bold;
 }
 
-.buttonmargin {
-	margin-left: 45px;
-	margin-top: 40px;
+.viewform {
+	font-size: 13px;
+	width: 750px;
 }
 
-.buttongal {
-	width: 120px;
-	font-size: 23px;
-	letter-spacing: 5px;
+#viewform2 {
+	font-size: 13px;
+	width: 750px;
+	height: 400px;
+}
+.h_tit:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -49px;
+    width: 98px;
+    height: 2px;
+    background: #bfc4cc;
+}
+.h_tit {
+    position: relative;
+    margin-bottom: 45px;
+    padding-bottom: 24px;
+    font-size: 60px;
+   
+    line-height: 60px;
+    text-align: center;
+}
+#rep{
+	width:100%; height:60px;
+	
+	padding-top:15px;
+	
+}
+#GB_REP_CONTENTS{
+	width:91%; height:35px;
+	float:left;
+}
+#repSubmit{
+	float:left;
+	position: relative;
+    top: -4px;
+}
+#repContents{
+	width:82%;
+}
+#repId{
+	width:10%;
+}
+#repDate{
+	width:15%;
 }
 </style>
 </head>
 <body>
-
 <%//2020_01_22 로그인정보에 따라서 
 	if(uss.equals("GUEST")){
-		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='List.do?command=teamboardlist';</script>");
+		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='teamboardlist.do?command=teamboardlist';</script>");
 	
 		
 	}else{
 
 %>
-
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
@@ -328,51 +391,101 @@
 
 
 	</div>
-	<section id="main" >
+	<section id="main">
 
 
-		<section id="mainright" >
-			<div id="matList" >
+		<section id="mainright">
+			<div id="matList">
 
-				<div class="container margin1 fontsize" id="formOutterWrapper">
+				<div class="container" id="formOutterWrapper">
 					<center>
-						<div class="writeboardtitle">게시글 작성</div>
+						<div class="writeboardtitle h_tit">갤러리 상세보기</div>
+						
+
+						<div class="container" id="formInnerWrapper">
+
+							<table>
+								<tr style="padding: 15px 15px 22px 15px;border-top: 2px solid #2c3c57;">
+									
+									<td class="viewform" colspan="2" style="font-size:55px;padding-left: 40px;"><%=teamboarddetail.getT_B_SUBJECT()%></td>
+								</tr>
+								<tr style="padding: 15px 15px 22px 15px; border-bottom: 1px solid #d5d8dd;padding-left: 40px;">
+									<td class="viewsubject"><%=teamboarddetail.getT_B_DATE() %></td>
+									<td class="viewform"><%=teamboarddetail.getId()%></td>
+								</tr>
+								<tr>
+									<td rowspan="2" class="viewsubject"  style="border-bottom: 2px solid #2c3c57;">내용</td>
+									
+								</tr>
+								<tr style="border-bottom: 2px solid #2c3c57;">
+									
+									
+									<td class="viewform" style="height: 100px;">
+										<%=teamboarddetail.getT_B_CONTENTS()%>
+									</td>
+								</tr>
+							</table>
+							<%if(teamboarddetail.getId().equals(uss)){ %>
+							<div style="float:right;"><input type="button" id="Delete" class="signbutton signbutton5" value="삭제" onclick="teamboarddelete();"/></div>
+							<div style="float:right;"><input type="button" id="Update" class="signbutton signbutton5" value="수정" onclick="location.href='teamboardmodify.do?command=teamboardmodifyform&teamBoardNo=<%=teamboarddetail.getT_B_NO()%>'"/></div>
+							<%} %>
+							<form name="galRepInsert" class="form" method="post" action="teamboardrepinsert.do?command=teamboardrepinsert" style="clear:both;">
+							<div id="rep">
+								<input type="hidden" id="T_B_NO"name="T_B_NO" value="<%=teamboarddetail.getT_B_NO() %>" style="position:fixed;" />
+								<input type="hidden" name="GB_ID" value="<%=teamboarddetail.getId() %>" style="position:fixed;" />
+								<input type="text" name="TB_REP_CONTENTS" id="GB_REP_CONTENTS" />
+								<input type="submit" id="repSubmit" class="signbutton signbutton5" value="답글"/>
+							
+								
+								
+							</div>
+							
+							
+							</form>
+							<script>
+								function teamboarddelete() {
+									var deletecheck=confirm("정말 삭제하시겠습니까?");
+									if(deletecheck==true){
+										location.href="teamboarddelete.do?command=teamboarddelete&teamBoardNo=<%=teamboarddetail.getT_B_NO()%>"
+										
+									}
+									
+								}
+							</script>
+							
+							<div id="innerRep">
+								<table class="table table-condensed">
+								<%
+									for(int i=0; i<teamboardrep.size(); i++){
+								%>	
+										<tr>
+											
+											<td id="repContents"><%=teamboardrep.get(i).getTb_rep_contents() %></td>
+											<td id="repId"><%=teamboardrep.get(i).getId() %></td>
+											<td id="repDate"><%=teamboardrep.get(i).getTb_rep_date() %></td>
+										</tr>
+								<% 
+									}
+								%>
+								
+								
+								
+								
+								
+								</table>
+							
+							
+							</div>
+						</div>
+
+							<!--@@@@@@@@@@@@@@@@  -->
+							
 					</center>
-					<div class="container" id="formInnerWrapper">
-						<form action="team_board_list_write.do?command=team_board_list_write" method="post" name="boardform" role="form" >
-							<div class="form-group margin2">
-								<div class="col-xs-2"></div>
-								<div class="col-xs-8">
-									<label class="labels" for="GB_SUBJECT" style="font-size: 16px; letter-spacing: normal;">제목</label> <input type="text" class="formInput" id="GB_SUBJECT" name="GB_SUBJECT" style="letter-spacing:normal; font-size:14px;">
-								</div>
 
-							</div>
-							
-
-							<div class="form-group formtotalsize">
-								<div class="col-xs-2"></div>
-								<div class="col-xs-8">
-									<textarea name="GB_CONTENTS" id="GB_CONTENTS" class="contentbox" placeholder="내용을 입력하세요." style="letter-spacing:normal; font-size:14px;"></textarea>
-								</div>
-
-							</div>
-
-							
-
-							<div class="form-group">
-								<div class="col-xs-4"></div>
-								<div class="col-xs-4 buttonmargin">
-
-									<input type="submit" value="글쓰기" class="signbutton signbutton5 buttongal" style="font-size: 15px;"> <input type="button" value="취소" class="signbutton signbuttoncancel buttongal margin3" style="font-size: 15px; margin-top: 14px;" onClick="script: location.href='team_board_list.do?command=teamboardlist'">
-								</div>
-							</div>
-
-							<input type="hidden" value="<%=uss %>" name="GB_ID" />
-						</form>
-					</div>
 				</div>
-				<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-				<script src="js/materialForm.js"></script>
+			
+			<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+			<script src="js/materialForm.js"></script>
 			</div>
 
 		</section>

@@ -8,12 +8,12 @@
 
 <%
 	ArrayList<TeamBoardListDto> teamboardlist = (ArrayList<TeamBoardListDto>) request.getAttribute("teamboardlist");
-	/*PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 	int listCount = pageInfo.getListCount();
 	int nowPage = pageInfo.getPage();
 	int maxPage = pageInfo.getMaxPage();
 	int startPage = pageInfo.getStartPage();
-	int endPage = pageInfo.getEndPage();*/
+	int endPage = pageInfo.getEndPage();
 %>
 
 <%
@@ -929,7 +929,7 @@ body .league_cont{
 									
 									<td>
 										<div class="emb_wrap">
-											<a href="team_info.do?command=teaminfo&teamcode=<%=teamboardlist.get(i).getT_B_SUBJECT()%>">
+											<a href="teamboarddetail.do?command=teamboarddetail&teamBoardNo=<%=teamboardlist.get(i).getT_B_NO()%>">
 											
 											<span class="team"><%=teamboardlist.get(i).getT_B_SUBJECT()%></span></a>
 										</div>
@@ -946,9 +946,51 @@ body .league_cont{
 							</table>
 						</div>
 						<!-- Page -->
-						<div class="pager_wrap">
-							<a href="team_list.asp?page=1" class="btn_page prev"><span class="hide">이전 페이지</span></a><span class="page"><a href="team_list.asp?page=1" class="on">1</a><a href="team_list.asp?page=2">2</a><a href="team_list.asp?page=3">3</a><a href="team_list.asp?page=4">4</a><a href="team_list.asp?page=5">5</a><a href="team_list.asp?page=6">6</a><a href="team_list.asp?page=7">7</a><a href="team_list.asp?page=8">8</a><a href="team_list.asp?page=9">9</a><a href="team_list.asp?page=10">10</a></span><a href="team_list.asp?page=11" class="btn_page next"><span class="hide">다음 페이지</span></a>
-						</div>
+						<section id="pageList" style="clear:both; text-align: center;">
+					<ul class="pagination">
+						<%
+							if (nowPage <= 1) {
+						%>
+						<li><a style="color:black;">이전</a></li>&nbsp;
+						<%
+							} else {
+						%>
+						
+						<li><a href="teamboardlist.do?command=teamboardlist&page=<%=nowPage - 1%>">이전</a></li>&nbsp;
+						<%
+							}
+						%>
+
+						<%
+							for (int a = startPage; a <= endPage; a++) {
+									if (a == nowPage) {
+						%>
+						<li><a style="color:black;"><%=a%></a></li>
+						<%
+							} else {
+						%>
+						<li><a href="teamboardlist.do?command=teamboardlist&page=<%=a%>"><%=a%>
+						</a></li>&nbsp;
+						<%
+							}
+						%>
+						<%
+							}
+						%>
+
+						<%
+							if (nowPage >= maxPage) {
+						%>
+						<li><a style="color:black;">다음</a></li>
+						<%
+							} else {
+						%>
+						<li><a href="teamboardlist.do?command=teamboardlist&page=<%=nowPage + 1%>">다음</a></li>
+						<%
+							}
+						%>
+						</ul>
+					</section>
 						<!-- //Page -->
 					</div>
 					</div>

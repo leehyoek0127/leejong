@@ -3,15 +3,14 @@ package controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberDto;
-import model.SigninsertAction;
 import model.TeamBoardListDto;
 import model.TeamboardListWriteAction;
+import model.TeamboardmodifyAction;
 
-public class TeamboardListWriteService implements Cominterface{
+public class Teamboardmodify_Service implements Cominterface{
 
-	static TeamboardListWriteService teamregi = new TeamboardListWriteService();
-	public static TeamboardListWriteService instance() { 
+	static Teamboardmodify_Service teamregi = new Teamboardmodify_Service();
+	public static Teamboardmodify_Service instance() { 
 		return teamregi;
 
 	}
@@ -22,7 +21,7 @@ public class TeamboardListWriteService implements Cominterface{
 		
 		response.setContentType("text/html;charset=UTF-8");
 		String id = request.getParameter("GB_ID");
-		
+		int T_B_NO=Integer.parseInt(request.getParameter("T_B_NO"));
 		String subject = request.getParameter("GB_SUBJECT");
 		subject = new String(subject.getBytes("8859_1"), "utf-8");
 		System.out.println(subject);
@@ -30,14 +29,15 @@ public class TeamboardListWriteService implements Cominterface{
 		contents = new String(contents.getBytes("8859_1"), "utf-8");
 		TeamBoardListDto teamBoardListDto = new TeamBoardListDto();
 		teamBoardListDto.setId(id);
+		teamBoardListDto.setT_B_NO(T_B_NO);
 		teamBoardListDto.setT_B_SUBJECT(subject);
 		teamBoardListDto.setT_B_CONTENTS(contents);
 		
 		
 
-		TeamboardListWriteAction model = TeamboardListWriteAction.instance();
-		model.insertinform(teamBoardListDto);
-		return "teamboardlist.do?command=teamboardlist";
+		TeamboardmodifyAction model = TeamboardmodifyAction.instance();
+		model.teamboardmodify(teamBoardListDto);
+		return "teamboarddetail.do?command=teamboarddetail&teamBoardNo="+T_B_NO;
 	}
 
 }

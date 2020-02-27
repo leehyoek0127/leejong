@@ -1,5 +1,13 @@
+<%@page import="model.TeamBoardRepDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.TeamBoardListDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%
+	TeamBoardListDto teamboarddetail = (TeamBoardListDto) request.getAttribute("teamBoardDetailOne");
+	
+	ArrayList<TeamBoardRepDto> teamboardrep = (ArrayList<TeamBoardRepDto>) request.getAttribute("teamBoardDetailRep");
+	
+%>
 <%
 	//2020_01_02 수정부분
 	String includeurl = "header.jsp";
@@ -24,7 +32,7 @@
 <meta name="Author" content="">
 <meta name="Keywords" content="">
 <meta name="Description" content="">
-<title>팀게시판글쓰기</title>
+<title>팀게시판글수정</title>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/datepicker.js"></script>
@@ -336,14 +344,14 @@
 
 				<div class="container margin1 fontsize" id="formOutterWrapper">
 					<center>
-						<div class="writeboardtitle">게시글 작성</div>
+						<div class="writeboardtitle">게시글 수정</div>
 					</center>
 					<div class="container" id="formInnerWrapper">
-						<form action="team_board_list_write.do?command=team_board_list_write" method="post" name="boardform" role="form" >
+						<form action="team_board_list_write.do?command=teamboardmodify&T_B_NO=<%=teamboarddetail.getT_B_NO() %>" method="post" name="boardform" role="form" >
 							<div class="form-group margin2">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
-									<label class="labels" for="GB_SUBJECT" style="font-size: 16px; letter-spacing: normal;">제목</label> <input type="text" class="formInput" id="GB_SUBJECT" name="GB_SUBJECT" style="letter-spacing:normal; font-size:14px;">
+									<input type="text" class="formInput" id="GB_SUBJECT" name="GB_SUBJECT" value="<%=teamboarddetail.getT_B_SUBJECT() %>" style="letter-spacing:normal; font-size:14px;">
 								</div>
 
 							</div>
@@ -352,7 +360,7 @@
 							<div class="form-group formtotalsize">
 								<div class="col-xs-2"></div>
 								<div class="col-xs-8">
-									<textarea name="GB_CONTENTS" id="GB_CONTENTS" class="contentbox" placeholder="내용을 입력하세요." style="letter-spacing:normal; font-size:14px;"></textarea>
+									<textarea name="GB_CONTENTS" id="GB_CONTENTS" class="contentbox" placeholder="내용을 입력하세요." style="letter-spacing:normal; font-size:14px;" ><%=teamboarddetail.getT_B_CONTENTS()%></textarea>
 								</div>
 
 							</div>
@@ -363,7 +371,7 @@
 								<div class="col-xs-4"></div>
 								<div class="col-xs-4 buttonmargin">
 
-									<input type="submit" value="글쓰기" class="signbutton signbutton5 buttongal" style="font-size: 15px;"> <input type="button" value="취소" class="signbutton signbuttoncancel buttongal margin3" style="font-size: 15px; margin-top: 14px;" onClick="script: location.href='team_board_list.do?command=teamboardlist'">
+									<input type="submit" value="글수정" class="signbutton signbutton5 buttongal" style="font-size: 15px;"> <input type="button" value="취소" class="signbutton signbuttoncancel buttongal margin3" style="font-size: 15px; margin-top: 14px;" onClick="script: location.href='teamboarddetail.do?command=teamboarddetail&teamBoardNo=<%=teamboarddetail.getT_B_NO()%>'">
 								</div>
 							</div>
 

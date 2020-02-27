@@ -27,7 +27,7 @@ public class Index_Service implements Cominterface {
 		ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) branchmodel.getBranchList();
 
 		request.setAttribute("BranchList", BranchList);
-		return "index2.jsp";
+		return "index.jsp";
 
 	}
 }

@@ -103,6 +103,24 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
+			else if(command.equals("teamsearch")){  //ÆÀ¸®½ºÆ® °Ë»ö  Ãâ·Â
+				System.out.println("team search Ãâ·Â");
+				inter = TeamSearchService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamranking")){  //ÆÀ·©Å·  Ãâ·Â
+				System.out.println("team ranking Ãâ·Â");
+				inter = TeamRanking_Service.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamplayer")){  //ÆÀ·©Å·  Ãâ·Â
+				System.out.println("team player Ãâ·Â");
+				inter = TeamPlayer_Service.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
 			else if(command.equals("branchlistview")){
 				System.out.println("ÄÁÆ®·Ñ·¯µé¾î¿È");
 				response.setContentType("text/html;charset=UTF-8");
@@ -146,7 +164,7 @@ public class ControllerServlet extends HttpServlet {
 			}
 			else if(command.equals("team_board_list_writeform")){  
 				System.out.println("ÆÀ°Ô½ÃÆÇ±Û¾²±âÆûÀ¸·Î");
-				viewName = "team_board_list_writeform.jsp";		
+				viewName = "team_board_list_writeform.jsp";
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			else if(command.equals("team_board_list_write")){  
@@ -163,6 +181,41 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
+			else if(command.equals("teamboarddetail")){  
+				System.out.println("teamboarddetail");
+				inter = TeamBoardDetail_Service.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamboardrepinsert")){  
+				System.out.println("teamboardrepinsert");
+				response.setContentType("text/html;charset=UTF-8");
+				inter = TeamBoardRepInsert_Service.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamboardmodifyform")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = Teamboardmodifyform_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamboardmodify")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = Teamboardmodify_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamboarddelete")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = Teamboarddelete_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			
 			else {
 				viewName = "error.html";
 				response.sendRedirect(viewName);

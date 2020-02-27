@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="model.TeamDto"%>
-
+<%@ page import="java.util.Enumeration" %>
 <%@ page import="java.util.ArrayList"%>
+
 
 <%@ page import="java.util.Date"%>
 <%
-String url = request.getServletPath();
-session.setAttribute("url",url);
+//request URL 받아오기 나중에 쓸지도 ?
+Enumeration param = request.getParameterNames();
+String strParam = "";
+while(param.hasMoreElements()) {
+    String name = (String)param.nextElement();
+    String value = request.getParameter(name);
+    strParam += name + "=" + value + "&";
+}
+String URL = request.getRequestURL() + "?" + strParam;
+
+//URL 받기 끝
+
 	//2020_01_02 수정부분
 	String includeurl = "header.jsp";
 	String uss = (String) session.getAttribute("id");
@@ -21,7 +32,11 @@ session.setAttribute("url",url);
 	//2020.01.14 로그인 id 수정
 	String yid = (String) session.getAttribute("id");
 %>
-<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");%>
+<!-- 팀 상세보기 리스트  -->
+<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");
+session.setAttribute("TeamListDetail",TeamList);
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -591,7 +606,7 @@ th {
     text-align: -internal-center;
 }
 .tab_wrap ul.t03 li {
-    width: 33.3%;
+    width: 33.33%;
 }
 .tab_wrap ul li.on {
     z-index: 10;
@@ -613,7 +628,7 @@ li {
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
+
 	
 	
 	
@@ -679,8 +694,8 @@ li {
 					<div class="tab_wrap">
 						<ul class="t03">
 							<li class="on"><a href="team_info.jsp">팀일정</a></li>
-							<li><a href="team_ranking.jsp">팀순위</a></li>
-							<li><a href="team_players.jsp">선수명단</a></li>
+							<li><a href="team_ranking.do?command=teamranking&teamcode=<%=TeamList.get(0).getT_code()%>">팀순위</a></li>
+							<li><a href="team_ranking.do?command=teamplayer&teamcode=<%=TeamList.get(0).getT_code()%>">선수명단</a></li> 
 						</ul>
 					</div>
 

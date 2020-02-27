@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="model.TeamDto"%>
+<%@page import="model.PlayerRegistDto" %>
 <%@ page import="java.util.ArrayList"%>
 
 <%@ page import="java.util.Date"%>
+
+
 <%
 String url = request.getServletPath();
 session.setAttribute("url",url);
@@ -19,6 +22,11 @@ session.setAttribute("url",url);
 	//수정부분 끝
 	//2020.01.14 로그인 id 수정
 	String yid = (String) session.getAttribute("id");
+%>
+<!-- 가져온 팀 상세보기 리스트 getAttribute -->
+<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) session.getAttribute("TeamListDetail");
+ArrayList<PlayerRegistDto> PlayerList = (ArrayList<PlayerRegistDto>) request.getAttribute("PlayerList");
+
 %>
 <!doctype html>
 <html lang="en">
@@ -293,7 +301,7 @@ td {
 }
 .league_cont .detail_score.team .table_wrap.indi table tbody tr td .pic {
     width: 240px;
-    height: 240px;
+    height: auto;
 }
 .league_cont .detail_score .table_wrap.indi table tbody tr td .pic {
     display: inline-block;
@@ -589,7 +597,7 @@ th {
     text-align: -internal-center;
 }
 .tab_wrap ul.t03 li {
-    width: 33.3%;
+    width: 33.33%;
 }
 .tab_wrap ul li.on {
     z-index: 10;
@@ -702,14 +710,114 @@ th {
 th .down,.up {
 	color:#000;
 }
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 55px;
+    height: 71px;
+}
+.table_wrap table tbody tr td .pic {
+    display: inline-block;
+    width: 90px;
+    height: 105px;
+    /* background: url(/images/content/bg_pic_info.jpg) no-repeat 0 0; */
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+}
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap .pic img {
+    width: 55px;
+    height: 71px;
+}
 
+img {
+    border: 0 none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.table_wrap table tbody tr td .pic {
+    display: inline-block;
+    width: 90px;
+    height: 105px;
+    /* background: url(/images/content/bg_pic_info.jpg) no-repeat 0 0; */
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+.league_cont .rank_table .table_wrap table tbody tr td .pic_wrap {
+    position: relative;
+    padding-left: 80px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: left;
+}
+.league_cont .rank_table .table_wrap table tbody tr td {
+    padding: 10px 0;
+    border-top: 0;
+    border-bottom: 1px solid #d5d8dd;
+    border-left: 1px solid #d5d8dd;
+    background: #fff;
+    font-size: 18px;
+    line-height: 50px;
+}
+.table_wrap table tbody tr td {
+    padding: 18px 0;
+    height: 20px;
+    color: #2a2a2a;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    word-break: keep-all;
+}
+.table_wrap table th, .table_wrap table td {
+    border-top: 1px solid #636363;
+    border-left: 1px solid #636363;
+    font-size: 12px;
+    vertical-align: middle;
+}
+table {
+    width: 100%;
+    border: 0 none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+user agent stylesheet
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+body {
+    *overflow-y: ;
+    min-width: 320px;
+    color: #403d3f;
+    font-size: 18px;
+    font-family: 'Nanum Gothic','NanumBarunGothic','AppleGothic','Dotum', sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+    -webkit-text-size-adjust: none;
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+}
+    
 
 
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
-	
+
 	
 	
 	<header>
@@ -734,8 +842,8 @@ th .down,.up {
 			
 				<div class="cbox">
 					<div class="league_cont team">
-					<h3 class="h_tit">불사조</h3>
-					<input class="signbutton signbutton5" type="button" value="가입신청" style="float: right; margin: 10px;" onClick="script:location.href='teamRegister.jsp'">
+					<h3 class="h_tit"><%=TeamList.get(0).getT_name() %></h3>
+					<input class="signbutton signbutton5" type="button" value="가입신청(어떤 방식으로 할지..)" style="float: right; margin: 10px;" onClick="script:location.href='teamRegister.jsp'">
 					<div class="detail_score team">
 						<p class="h_bar">팀 상세 정보</p>
 						<div class="table_wrap indi">
@@ -749,22 +857,22 @@ th .down,.up {
 								<tbody>
 									<tr>
 										<td rowspan="4" class="pic">
-											<span class="pic emblem"><img src="/images/content/default_team.png" alt=""></span>
+											<span class="pic emblem"><img src="img/<%=TeamList.get(0).getT_logo() %>" alt=""></span>
 										</td>
-										<th scope="row">지점</th>
-										<td>부산 북구점</td>
+										<th scope="row">팀 생성일</th>
+										<td><%=TeamList.get(0).getT_birth() %></td>
 									</tr>
 									<tr>
 										<th scope="row">팀분류</th>
-										<td> 성인부</td>
+										<td> <%=TeamList.get(0).getT_class() %></td>
 									</tr>
 									<tr>
 										<th scope="row">팀관리자</th>
-										<td>이종혁</td>
+										<td>이종혁(어떻게 할것인가)</td>
 									</tr>
 									<tr>
 										<th scope="row">팀유니폼</th>
-										<td>홈 : black / red / blue<br>원정 :  blue / black / red</td>
+										<td>Home :<%=TeamList.get(0).getT_uniform_home() %><br>Away : <%=TeamList.get(0).getT_uniform_away() %></td>
 									</tr>
 								</tbody>
 							</table>
@@ -773,13 +881,13 @@ th .down,.up {
 					</div>
 					<div class="tab_wrap">
 						<ul class="t03">
-							<li><a href="team_info.jsp">팀일정</a></li>
-							<li><a href="team_ranking.jsp">팀순위</a></li>
-							<li class="on"><a href="team_players.jsp">선수명단</a></li>
+							<li><a href="team_info.do?command=teaminfo&teamcode=<%=TeamList.get(0).getT_code()%>">팀일정</a></li>
+							<li><a href="team_ranking.do?command=teamranking&teamcode=<%=TeamList.get(0).getT_code()%>">팀순위</a></li>
+							<li class="on"><a href="team_players.do?command=teamplayer&teamcode=<%=TeamList.get(0).getT_code()%>">선수명단</a></li>
 						</ul>
 					</div>
 
-					<div class="rank_table player">
+					<div class="league_schedule">
 							<form name="form" method="get" action="?">
 							<input type="hidden" name="tcode" value="T1769">
 							<span class="select">
@@ -817,7 +925,26 @@ th .down,.up {
 								</tr>
 							</thead>
 							<tbody>
-							
+							<%for(int i=0; i<PlayerList.size();i++){ %>
+								<tr>
+									<td>플레이어정보에는없다..</td>
+									<td>
+										<div class="pic_wrap">
+											<a href="#">
+												<span class="pic"><img src="img/arsenal.png" alt="" style="width:55px; height:71px;"></span> 
+												<span class="name">이름도 마찬가지로 talbe이다름</span>
+											</a>
+										</div>
+									</td>
+									<td class="tb">
+										공격수(다른테이블)
+									</td>
+									<td><%=PlayerList.get(i).getPlayer_games()%></td>
+									<td><%=PlayerList.get(i).getPlayer_goals()%></td>
+									<td><%=PlayerList.get(i).getPlayer_yellow()%></td>
+									<td><%=PlayerList.get(i).getPlayer_red()%></td>
+								</tr>
+								<%} %>
 							</tbody>
 							</table>
 						</div>

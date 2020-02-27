@@ -524,7 +524,7 @@ button {
 <body>
 <%//2020_01_22 로그인정보에 따라서 
 	if(uss.equals("GUEST")||!uss.equals(request.getParameter("tid"))){
-		out.println("<script>alert('권한이 없습니다.');location.href='teamlist.do?command=teamlist';</script>");
+		out.println("<script>alert('권한이 없습니다.'); history.back();</script>");
 	
 		
 	}else{
