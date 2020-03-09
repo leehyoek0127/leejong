@@ -1,0 +1,5 @@
+package model;
+
+public class League_join_teamcheck_Action {
+
+}

@@ -1,0 +1,35 @@
+.signbutton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 9px 36px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.signbutton5:hover {
+  background-color: #555555;
+  color: white;
+  
+}
+
+.signbutton5 {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+.signbuttoncancel:hover{
+ background-color: #e0e0e0;
+  color: #c8c8c8;
+}
+
+.signbuttoncancel {
+  background-color: #e0e0e0;
+  color: black;
+}

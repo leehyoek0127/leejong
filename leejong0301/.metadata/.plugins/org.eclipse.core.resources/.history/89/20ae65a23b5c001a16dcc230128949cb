@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ㅡmodel.Action에서 실행 --> <!-- resultType=return=결과값을 남기자 --> <!-- 형태는 늘 Dto -->
+<mapper namespace="abc">
+ <select id="IDCheck" parameterType="String" resultType="MemberDto">select * from member_tb where ID=#{id};</select>
+ <select id="Login" parameterType="MemberDto" resultType="MemberDto">select * from member_tb where ID=#{id} and PW=#{pw};</select>
+ <insert id="Signinsert" parameterType="MemberDto">insert into member_tb (ID, NAME, PW, TEL, EMAIL, GENDER, ADDRESS_CODE, ADDRESS_BASIC, ADDRESS_DETAIL, BIRTH, PIC, LEVEL, POSITION, SECOND_PW, SECOND_PWC, BANK_CODE, ACCOUNT_CODE, ACCOUNT_HOLDER) values(#{id},#{name},#{pw},#{tel},#{email},#{gender},#{address_code},#{address_basic},#{address_detail},#{birth},#{pic},#{level},#{position},#{second_pw},#{second_pwc},#{bank_code},#{account_code},#{account_holder});</insert>
+<update id = "modifyPw" parameterType="MemberDto">update member_tb set PW = #{pw} where ID=#{id}; </update>
+<update id = "modifySign" parameterType="MemberDto">update member_tb set PW = #{pw}, TEL = #{tel}, EMAIL = #{email}, ADDRESS_CODE = #{address_code}, ADDRESS_BASIC = #{address_basic}, ADDRESS_DETAIL = #{address_detail}, BIRTH = #{birth}, PIC = #{pic}, LEVEL = #{level}, POSITION = #{position}, SECOND_PW = #{second_pw}, SECOND_PWC= #{second_pwc}, BANK_CODE= #{bank_code}, ACCOUNT_CODE = #{account_code}, ACCOUNT_HOLDER= #{account_holder}  where ID=#{id}; </update>
+<select id="selectMember"  parameterType="String" resultType="MemberDto">select * from member_tb where ID = #{id};</select>
+<delete id = "delSign" parameterType="MemberDto">delete from member_tb where ID = #{id};</delete>
+<select id="qnatitle" parameterType="QnaSearchDto" resultType="QnaSearchDto">select * from qnaboard_tb  where q_b_title like concat('%' , #{q_b_title}, '%');</select>
+<select id="qnacontents" parameterType="QnaSearchDto" resultType="QnaSearchDto">select * from qnaboard_tb  where q_b_contents like concat('%' , #{q_b_title}, '%');</select>
+<insert id="input_reservation" parameterType="ReservationDto">insert into reservation_tb (RES_NO, RES_DATE, RES_TIME, PAYMENT_CHARGE, ID, GROUND_NO) values(#{res_no},#{res_date},#{res_time},#{payment_charge},#{id},#{ground_no});</insert>
+<select id="branchlist_view" parameterType="BranchDto" resultType="BranchDto">select * from branch_tb; </select>
+<select id="branchdetail_view" parameterType="String" resultType="BranchDto">select * from branch_tb where BRANCH_NO=#{branch_no};</select>
+<select id="grounddetail_view" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+
+<select id="click_reservation" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+
+<!-- 팀관련 sql 모음 by Pang -->
+<select id="teamlist_view" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb; </select>
+<select id="teamone" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb  where T_CODE = #{t_code};</select>
+<select id="registplayer_view" parameterType="TeamDto" resultType="TeamDto">select * from teamplayer_tb; </select>
+<update id = "Teammodify" parameterType="TeamDto">update teaminfo_tb set T_NAME = #{t_name},T_CLASS = #{t_class}, T_EMAIL = #{t_email}, T_UNIFORM_HOME = #{t_uniform_home}, T_UNIFORM_AWAY = #{t_uniform_away}, T_LOGO = #{t_logo} where T_CODE=#{t_code} ; </update>
+<insert id="Teaminsert" parameterType="TeamDto">insert into teaminfo_tb (ID, T_NAME, T_CODE, T_LOGO, T_EMAIL, T_UNIFORM_HOME, T_UNIFORM_AWAY, T_CLASS) values(#{id},#{t_name},#{t_code},#{t_logo},#{t_email},#{t_uniform_home},#{t_uniform_away},#{t_class});</insert>
+
+<select id="searchteamlist" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb  <where><if test="teamtype!=null">T_CLASS in (#{teamtype}) </if><if test="word!=null"> and T_NAME like concat('%' , #{word}, '%')</if></where>;</select>
+<select id="league_result" parameterType="LeagueResultDto" resultType="LeagueResultDto">select * from league_result_tb where T_CODE = #{t_code}; </select>
+<select id="player_list" parameterType="PlayerRegistDto" resultType="PlayerRegistDto">select * from player_regist_tb where T_CODE = #{t_code}; </select>
+
+
+<!-- End -->
+
+
+<!-- 팀게시판 sql 모음 by Hyeok -->
+<select id="teamboardlist" parameterType="int" resultType="TeamBoardListDto">select * from teamboard_tb order by T_B_NO desc limit #{startrow},9; </select>
+<insert id="teamboardinsert" parameterType="TeamBoardListDto">
+	<selectKey resultType="int" keyProperty="T_B_NO" order="BEFORE">
+        SELECT MAX(T_B_NO)+1 FROM teamboard_tb        
+    </selectKey>
+	insert into teamboard_tb (T_B_NO, T_B_CONTENTS, T_B_SUBJECT, T_B_DATE, T_B_READCOUNT, ID, T_CODE) values(#{T_B_NO},#{T_B_CONTENTS},#{T_B_SUBJECT},now(),0,#{id},305963);
+</insert>
+<update id="teamboardreadcount" parameterType="TeamBoardListDto"> update teamboard_tb set T_B_READCOUNT=T_B_READCOUNT+1 where T_B_NO=#{T_B_NO};</update>
+<select id="teamboarddetail" parameterType="TeamBoardListDto" resultType="TeamBoardListDto">
+	select * from teamboard_tb where T_B_NO=#{T_B_NO};
+</select>
+<select id="teamboardrep" parameterType="TeamBoardRepDto" resultType="TeamBoardRepDto">select * from teamboardrep_tb where T_B_NO=#{T_B_NO}; </select>
+<insert id="teamboardrepinsert" parameterType="TeamBoardRepDto">
+	<selectKey resultType="int" keyProperty="tb_rep_no" order="BEFORE">
+        SELECT MAX(TB_REP_NO)+1 FROM teamboardrep_tb        
+    </selectKey>
+	insert into teamboardrep_tb (TB_REP_NO,TB_REP_CONTENTS, TB_REP_DATE, T_B_NO, ID) values(#{tb_rep_no},#{tb_rep_contents},now(),#{t_b_no},#{id});
+</insert>
+<select id="teamboardrepmax" resultType="TeamBoardRepDto">select max(TB_REP_NO) from teamboardrep_tb; </select>
+<select id="getteamboardcount" resultType="int">select count(*) from teamboard_tb; </select>
+<update id="teamboardmodify" parameterType="TeamBoardListDto"> update teamboard_tb set T_B_CONTENTS=#{T_B_CONTENTS}, T_B_SUBJECT=#{T_B_SUBJECT} where T_B_NO=#{T_B_NO};</update>
+<delete id = "teamboarddelete" parameterType="TeamBoardListDto">delete from teamboard_tb where T_B_NO = #{T_B_NO};</delete>
+<!-- End -->
+
+<select id="leaguelist" resultType="LeagueDto">select * from league_tb; </select>
+<select id="leaguebranchlist" parameterType="java.util.ArrayList" resultType="BranchDto">
+select * from branch_tb where 
+<choose>
+	<when test="list.size != 0">
+		BRANCH_NO in 
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+		#{item.value}
+		</foreach>
+	</when>
+</choose>
+
+</select>
+
+
+
+
+
+
+
+</mapper>

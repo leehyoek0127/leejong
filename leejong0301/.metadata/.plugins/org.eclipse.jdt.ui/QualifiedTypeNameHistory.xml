@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="model.BranchDto"/>
+<fullyQualifiedTypeName name="model.League_BranchList_Action"/>
+<fullyQualifiedTypeName name="model.GroundDto"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="model.League_join_step2_Action"/>
+<fullyQualifiedTypeName name="model.LeagueDto"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="model.TeamDto"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="model.LeagueResultDto"/>
+<fullyQualifiedTypeName name="model.League_join_teamcheck_Action"/>
+<fullyQualifiedTypeName name="model.League_join_step3_Action"/>
+<fullyQualifiedTypeName name="model.PlayerRegistDto"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

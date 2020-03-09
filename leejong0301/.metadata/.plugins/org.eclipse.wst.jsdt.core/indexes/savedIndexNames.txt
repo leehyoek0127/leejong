@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\Users\daero\Desktop\leejong0301\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2212463353.index
+2200369617.index
+1823562332.index
+559549990.index
+3157763160.index
+184855022.index
+3726217595.index
+3457769312.index
+92352147.index

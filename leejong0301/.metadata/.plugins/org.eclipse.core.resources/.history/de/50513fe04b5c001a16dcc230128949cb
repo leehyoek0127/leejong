@@ -1,0 +1,37 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import mybatis.SqlMapConfig;
+
+public class League_BranchList_Action {
+
+	static League_BranchList_Action model = new League_BranchList_Action();
+
+	public static League_BranchList_Action instance() {
+		return model;
+	}
+
+	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
+
+	public List<BranchDto> getLeagueBranchList(List<LeagueDto> LeagueList) {
+		System.out.println("브랜치넘버는: "+LeagueList.get(0).getBranch_no());
+		ArrayList<String> leaguebranchNo = new ArrayList<String>();
+		for(int i=0; i<LeagueList.size(); i++) {
+			leaguebranchNo.add(Integer.toString(LeagueList.get(i).getBranch_no()));
+		}
+		
+		System.out.println("리그넘버리스트들은: "+leaguebranchNo);
+		
+		List<BranchDto> leagueBranchList = null;
+		SqlSession sqlSession = factory.openSession();
+		leagueBranchList = sqlSession.selectList("leaguebranchlist",leaguebranchNo);
+		sqlSession.close();
+		return leagueBranchList;
+	}
+
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="model.MemberDto" alias="MemberDto"/>
+		<typeAlias type="vo.YonglistDto" alias="YonglistDto"/>
+		<typeAlias type="vo.QnaDto" alias="QnaDto"/>
+		<typeAlias type="vo.MatchlistDto" alias="MatchlistDto"/>
+		<typeAlias type="vo.PageInfo" alias="PageInfo"/>
+		<typeAlias type="model.QnaSearchDto" alias="QnaSearchDto"/>
+		<typeAlias type="model.TeamDto" alias="TeamDto"/>
+		<typeAlias type="model.BranchDto" alias="BranchDto"/>
+		<typeAlias type="model.GroundDto" alias="GroundDto"/>
+		<typeAlias type="model.ReservationDto" alias="ReservationDto"/>
+		<typeAlias type="model.TeamBoardListDto" alias="TeamBoardListDto"/>
+		<typeAlias type="model.TeamBoardRepDto" alias="TeamBoardRepDto"/>
+		<typeAlias type="model.LeagueResultDto" alias="LeagueResultDto"/>
+		<typeAlias type="model.PlayerRegistDto" alias="PlayerRegistDto"/>
+		
+	</typeAliases>
+
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://localhost/futsal?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="username" value="root" />
+				<property name="password" value="0000" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<mapper resource="mybatis/mapper.xml" />
+	</mappers>
+
+</configuration>
