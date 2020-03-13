@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.sql.DataSource;
 
+import model.TeamDto;
 import vo.GalBoardDto;
 import vo.GalRepDto;
 
@@ -72,6 +73,81 @@ public class BoardDAO {
 
 			pstmt = con.prepareStatement(board_list_sql);
 			pstmt.setInt(1, startrow);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				board = new GalBoardDto();
+
+				board.setId(rs.getString("ID"));
+
+				board.setG_b_subject(rs.getString("G_B_SUBJECT"));
+				board.setG_b_contents(rs.getString("G_B_CONTENTS"));
+
+				board.setG_b_no(rs.getInt("G_B_NO"));
+				board.setG_b_date(rs.getDate("G_B_DATE"));
+				board.setG_b_readcount(rs.getInt("G_B_READCOUNT"));
+
+				board.setG_b_file(rs.getString("G_B_FILE"));
+
+				articleList.add(board);
+
+			}
+
+		} catch (Exception ex) {
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return articleList;
+
+	}
+	
+	
+	
+	//팀눌렀을때의 팀걸래리 보기
+	public int selectListCountTeam(String t_code) {
+
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			pstmt = con.prepareStatement("select count(*) from galboard_tb where T_CODE="+t_code);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		} catch (Exception ex) {
+
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return listCount;
+
+	}
+
+	// 글 목록 보기.
+	public ArrayList<GalBoardDto> selectArticleListTeam(int page, String t_code) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String board_list_sql = "select * from galboard_tb where T_CODE = ? order by G_B_NO desc limit ?,9";
+		ArrayList<GalBoardDto> articleList = new ArrayList<GalBoardDto>();
+		GalBoardDto board = null;
+		int startrow = (page - 1) * 9; // 읽기 시작할 row 번호..
+
+		try {
+
+			pstmt = con.prepareStatement(board_list_sql);
+			pstmt.setString(1, t_code);
+			pstmt.setInt(2, startrow);
 
 			rs = pstmt.executeQuery();
 
@@ -247,7 +323,7 @@ public class BoardDAO {
 				num = 1;
 
 			sql = "insert into galboard_tb (G_B_SUBJECT,G_B_CONTENTS,G_B_NO,";
-			sql += "G_B_READCOUNT, G_B_FILE, ID, G_B_DATE" + ") values(?,?,?,?,?,?,now())";
+			sql += "G_B_READCOUNT, G_B_FILE, ID, G_B_DATE, T_CODE" + ") values(?,?,?,?,?,?,now(),?)";
 
 			pstmt = con.prepareStatement(sql);
 
@@ -258,7 +334,7 @@ public class BoardDAO {
 			pstmt.setInt(4, 1);
 			pstmt.setString(5, article.getG_b_file());
 			pstmt.setString(6, article.getId());
-
+			pstmt.setInt(7, article.getT_code());
 			insertCount = pstmt.executeUpdate();
 
 		} catch (Exception ex) {
@@ -346,6 +422,62 @@ public class BoardDAO {
 		}
 
 		return articleList;
+
+	}
+	
+	public ArrayList<TeamDto> selectTeamList() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String gal_sql = "select * from teaminfo_tb";
+		ArrayList<TeamDto> teamList = new ArrayList<TeamDto>();
+		TeamDto teamdto = new TeamDto();
+		try {
+			pstmt = con.prepareStatement(gal_sql);
+			
+			rs = pstmt.executeQuery();
+			
+
+			while (rs.next()) {
+				teamdto.setT_code(rs.getInt("T_CODE"));
+				teamdto.setT_name(rs.getString("T_NAME"));
+				teamdto.setT_logo(rs.getString("T_LOGO"));
+				teamList.add(teamdto);
+			}
+		} catch (SQLException ex) {
+		} finally {
+			close(pstmt);
+		}
+
+		return teamList;
+
+	}
+	
+	public ArrayList<TeamDto> selectTeamListId(String id) {
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		String gal_sql = "select * from teaminfo_tb where ID = ?";
+		ArrayList<TeamDto> teamList = new ArrayList<TeamDto>();
+		TeamDto teamdto = new TeamDto();
+		try {
+			pstmt = con.prepareStatement(gal_sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+
+			while (rs.next()) {
+				
+				teamdto.setT_code(rs.getInt("T_CODE"));
+				teamdto.setT_name(rs.getString("T_NAME"));
+				teamdto.setT_logo(rs.getString("T_LOGO"));
+				teamList.add(teamdto);
+			}
+		} catch (SQLException ex) {
+		} finally {
+			close(pstmt);
+		}
+		
+		return teamList;
 
 	}
 

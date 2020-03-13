@@ -11,6 +11,8 @@ public class PlayerRegistDto {
 	String id;
 	int league_code;
 	int t_code;
+	String player_position;
+	int player_uniformnum;
 	public int getPlayer_games() {
 		return player_games;
 	}
@@ -53,5 +55,17 @@ public class PlayerRegistDto {
 	public void setT_code(int t_code) {
 		this.t_code = t_code;
 	}
-
+	public String getPlayer_position() {
+		return player_position;
+	}
+	public void setPlayer_position(String player_position) {
+		this.player_position = player_position;
+	}
+	public int getPlayer_uniformnum() {
+		return player_uniformnum;
+	}
+	public void setPlayer_uniformnum(int player_uniformnum) {
+		this.player_uniformnum = player_uniformnum;
+	}
+	
 }

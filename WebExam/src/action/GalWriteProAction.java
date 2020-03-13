@@ -36,7 +36,7 @@ public class GalWriteProAction implements Action {
 		boardBean = new GalBoardDto();
 		boardBean.setG_b_subject(multi.getParameter("GB_SUBJECT"));
 		boardBean.setId(multi.getParameter("GB_ID"));
-		
+		boardBean.setT_code(Integer.parseInt(multi.getParameter("teamcode")));
 		boardBean.setG_b_contents(multi.getParameter("GB_CONTENTS"));
 		boardBean.setG_b_file(
 		multi.getOriginalFileName((String)multi.getFileNames().nextElement()));

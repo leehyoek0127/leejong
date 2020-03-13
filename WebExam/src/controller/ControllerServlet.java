@@ -2,12 +2,15 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.GroundDto;
 
 public class ControllerServlet extends HttpServlet {
 
@@ -18,6 +21,7 @@ public class ControllerServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		Cominterface inter = null;
 		String viewName = "";
+		
 
 		try {
 			if (command.equals("idcheck")) {
@@ -25,7 +29,7 @@ public class ControllerServlet extends HttpServlet {
 				PrintWriter out=response.getWriter();
 				inter = ConfirmIdService.instance();;
 				String count = inter.showData(request, response);
-				System.out.println("222");
+				
 				String id = request.getParameter("id");
 				if(count.equals("123")) {
 					out.println(id + "는(은) 이미 사용중인 ID입니다");
@@ -215,9 +219,138 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
+			else if(command.equals("league_join_step1")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_join_step1_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("league_join_step2")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_join_step2_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if (command.equals("leaguestep2teamcheck")) { // reservation.jsp
+				
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				inter = League_join_teamcheck_Service.instance();
+				String leagueteamresult = inter.showData(request, response);
+				System.out.println("컨트롤러에가져온 true는 있을까 : "+leagueteamresult);
+				
+				if (leagueteamresult.equals("true")) {
+					out.println(
+							"[ {" 
+							+ "\"leagueteamresult\": \'" + "ture" + "\'"
+							+ "}" + "]");
+				}else if(leagueteamresult.equals("true+")) {
+					out.println(
+							"[ {" 
+							+ "\"leagueteamresult\": \'" + "ture+" + "\'"
+							+ "}" + "]");
+				}
+			}
+			else if(command.equals("league_join_step3")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_join_step3_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("league_team_step1")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_team_step1_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("league_team_step2")){  
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_team_step2_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if (command.equals("leagueteamstep2teamcheck")) { // reservation.jsp
+				
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				inter = League_team_teamcheck_Service.instance();
+				String leagueteamresult = inter.showData(request, response);
+				System.out.println("컨트롤러에가져온 true는 있을까 : "+leagueteamresult);
+				
+				if (leagueteamresult.equals("true")) {
+					out.println(
+							"[ {" 
+							+ "\"leagueteamresult\": \'" + "ture" + "\'"
+							+ "}" + "]");
+				}else if(leagueteamresult.equals("true+")) {
+					out.println(
+							"[ {" 
+							+ "\"leagueteamresult\": \'" + "ture+" + "\'"
+							+ "}" + "]");
+				}
+			}
+			else if(command.equals("league_team_step3")){  
+				
+				response.setContentType("text/html;charset=UTF-8");
+				inter = League_team_step3_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			
+			
+			else if (command.equals("branchlistview")) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = BranchList_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			} else if (command.equals("branchdetail")) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = BranchDetail_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			} else if (command.equals("reservationclick")) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = ReservationClick_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			} else if (command.equals("reservation_input")) { // 풋살장 대관
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = Reservation_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			} 
+			else if (command.equals("selectground")) { // reservation.jsp
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				inter = SelectgroundService.instance();
+				String count = inter.showData(request, response);
+				ArrayList<GroundDto> GroundList = (ArrayList<GroundDto>) request.getAttribute("data");
+				if (count.equals("123")) {
+					out.println(
+							"[ {" 
+							+ "\"clickground_no\": '" + GroundList.get(0).getGround_no() + "',"
+							+ "\"weekAM_charge\": '" + GroundList.get(0).getGround_weekdaydaytime_charge() + "',"
+							+ "\"weekPM_charge\": '" + GroundList.get(0).getGround_weekdaynight_charge() + "',"
+							+ "\"weekendAM_charge\": '" + GroundList.get(0).getGround_weekenddaytime_charge() + "',"
+							+ "\"weekendPM_charge\": '" + GroundList.get(0).getGround_weekendnight_charge() + "'"
+							+ "}" + "]");
+				}
+			}
+			
+			
 			
 			else {
-				viewName = "error.html";
+				viewName = "error.jsp";
 				response.sendRedirect(viewName);
 			}
 		} catch (Exception e) {

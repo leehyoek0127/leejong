@@ -1,3 +1,5 @@
+<%@page import="model.TeamDto"%>
+<%@page import="model.LeagueDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.ArrayList"%>
@@ -19,6 +21,18 @@ session.setAttribute("url",url);
 	//수정부분 끝
 	//2020.01.14 로그인 id 수정
 	String yid = (String) session.getAttribute("id");
+%>
+<%
+	if (uss == "GUEST"){
+%>
+	<script>alert('로그인이 필요합니다.'); window.history.back(); </script>
+<%
+	}
+%>
+<%
+	String branch_name = (String)request.getAttribute("branch_name");
+	ArrayList<LeagueDto> leaguecode = (ArrayList<LeagueDto>)request.getAttribute("leaguecode");
+	ArrayList<TeamDto> teamlist = (ArrayList<TeamDto>)request.getAttribute("teamlist");
 %>
 <!doctype html>
 <html lang="en">
@@ -290,7 +304,6 @@ dd {
     height: 38px;
     line-height: 38px;
     vertical-align: top;
-    opacity: 0;
     filter: alpha(opacity=0);
 }
 select {
@@ -565,32 +578,40 @@ button {
 			
 				<div class="cbox">
 					<div class="write_wrap">
-						<h4 class="h_bar line">리그접수</h4>
-						<form name="reg_form" id="reg_form" method="post" action="league_join_step3.asp" target="HiddenFrame">
+						<h4 class="h_bar line">선수등록</h4>
+						<form name="reg_form" id="reg_form" method="post" action="league_join_step3.do?command=league_join_step3" target="HiddenFrame">
 						<input type="hidden" name="branch_code" value="HM0007">
 						<div class="fl_wrap">
+							
 							<dl class="fl_left">
-								<dt>팀명</dt>
-								<dd><input type="text" name="team_name" style="width:100%;" readonly=""></dd>
-							</dl>
-							<dl class="fl_right">
-								<dt>팀코드선택</dt>
+								<dt>팀선택</dt>
 								<dd>
 									<span class="select" style="width:100%"> 
-										<label for="select02">팀코드</label>
-										<select id="select02" name="league_code"> 
-										<option value="">컵/리그</option>
+										<label for="select03">팀이름</label>
+										<select id="select03" name="team_name"> 
+										<option value="">팀이름</option>
+										<%for(int i=0; i<teamlist.size(); i++){ %>
+										<option value="<%=teamlist.get(i).getT_name() %>"><%=teamlist.get(i).getT_name() %></option>
+										<%} %>
 										</select>
+										<input type=hidden name="team_code" id="team_code" value="" />
 									</span>
 								</dd>
 							</dl>
-							<dl class="fl_left">
-								<dt>신청자명</dt>
-								<dd><input type="text" title="" name="t_manager" style="width:100%"></dd>
-							</dl>
+							
 							<dl class="fl_right">
 								<dt>소속지점</dt>
-								<dd><input type="text" name="branch_name" style="width:100%;" readonly=""></dd>
+								<dd><input type="text" name="branch_name" style="width:100%;" readonly value=<%=branch_name %>></dd>
+							</dl>
+							
+							<dl class="fl_left">
+								<dt>포지션</dt>
+								<dd><input type="text" name="position" style="width:100%;"  value=></dd>
+							</dl>
+							
+							<dl class="fl_right">
+								<dt>등번호</dt>
+								<dd><input type="text" name="uniformnum" style="width:100%;"  value=></dd>
 							</dl>
 							
 						</div>
@@ -599,17 +620,94 @@ button {
 							<dd>
 								<span class="select" style="width:100%"> 
 									<label for="select02">컵/리그</label>
-									<select id="select02" name="league_code"> 
+									<select id="select02" > 
 									<option value="">컵/리그</option>
+									<%for(int i=0; i<leaguecode.size(); i++){ %>
+									<option value="<%=leaguecode.get(i).getLeague_name() %>"><%=leaguecode.get(i).getLeague_name() %></option>
+									<%} %>
 									</select>
+									<input type=hidden name="league_code" id="league_code" value="" />
+									<input type=hidden name="id" id="id" value="<%=uss %>" />
 								</span>
+								
 							</dd>
 						</dl>
 						<div class="btn_wrap">
-							<a href="javascript:fn_frmSubmit();" class="btn_big" "="">등록하기</a>
+							<a href="javascript:league_step2_teamcheck();" class="btn_big" "="">등록하기</a>
 							<a href="league_join_step1.asp" class="btn_big gray">취소하기</a>
 						</div>
 						</form>
+						<script>
+						$(document).ready(function() {
+							$("#select02").change(function(e) {
+								var x = this.selectedIndex;
+								var y = this.options;
+								var idx = y[x].index;
+								console.log("선택한 index:"+idx);
+								var leaguecodeList = [];
+								<%for(int i=0; i<leaguecode.size(); i++){ %>
+									leaguecodeList[<%=i%>]='<%=leaguecode.get(i).getLeague_code()%>'
+								<%}%>
+								console.log("지점넘버 리스트:"+leaguecodeList);
+								$("#league_code").val(leaguecodeList[idx-1]);
+							});
+							$("#select03").change(function(e) {
+								var x1 = this.selectedIndex;
+								var y1 = this.options;
+								var idx1 = y1[x1].index;
+								console.log("선택한팀의 index:"+idx1);
+								var teamcodeList = [];
+								<%for(int i=0; i<teamlist.size(); i++){ %>
+								teamcodeList[<%=i%>]='<%=teamlist.get(i).getT_code()%>'
+								<%}%>
+								console.log("팀코드넘버 리스트:"+teamcodeList);
+								$("#team_code").val(teamcodeList[idx1-1]);
+							});
+						});
+						
+						
+						
+						
+							
+							function league_step2_teamcheck() {
+
+								$.ajax({
+									type : "post",
+									url : "./leaguestep2submit.do?command=leaguestep2teamcheck",
+									dataType : "json",
+									data : {
+										team_name : $("#select03").val(),
+										team_code : $("#team_code").val(),
+										league_code : $("#league_code").val(),
+										id : $("#id").val()
+									},
+									success : whenSuccesscheck,
+									error : whenErrorcheck
+								});
+							}
+							
+							function whenSuccesscheck(resdata) {
+								
+								var leagueteamresult = resdata[0].leagueteamresult;
+								var reg_form = $("#reg_form");
+								if(leagueteamresult=="ture"){
+									
+									
+									reg_form.submit();
+								}else if(leagueteamresult=="ture+"){
+									alert("이미 참가완료된 회원입니다.");
+									
+								}else{
+									alert("오류가발생했습니다.(ajax.whenSuccesscheck)");
+								}
+									
+							}
+							function whenErrorcheck() {
+								var team_name = $("#select03").val();
+								var league_name = $("#select02").val();
+								alert(team_name+" 팀은 "+league_name+" 리그에 접수되어있지 않습니다.");
+							}
+						</script>
 					</div>
 				</div>
 			</div>

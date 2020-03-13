@@ -208,7 +208,7 @@ p {
 			<div id="matList">
 				<div class="container" id="formOutterWrapper">
 					<center>
-						<div id="sign_title">${id}'sMypage</div>
+						<div id="sign_title">${name}'sMypage</div>
 					</center>
 					<div class="container">
 						<div class="row">

@@ -6,8 +6,8 @@
  * Released under the MIT license
  * https://github.com/RUBYMAGE/angular-datepicker/blob/master/LICENSE
  */
-
 (function () {
+	
     'use strict';
 
     var Module = angular.module('rmDatepicker', []);
@@ -18,7 +18,7 @@
         maxState: "decade",
         minState: "month",
         toggleState: true,
-
+       	
         decadeSize: 12,
         monthSize: 42, /* "auto" || fixed nr. (35 or 42) */
 
@@ -38,7 +38,9 @@
                     if (conf.hasOwnProperty(prop))
                         if (scope.rmConfig[prop] != undefined) conf[prop] = scope.rmConfig[prop];
             }
-            if (conf.min) conf.min.setHours(0, 0, 0, 0);
+            console.log(conf.min);
+            if (conf.min) conf.min = new Date();	//conf는 34행에서 달력을 복사해둔것(원본유지해서 비교하기위해) 
+            console.log(conf.min);
             if (conf.max) conf.max.setHours(23, 59, 59, 999);
 
             var isInput = element[0].tagName.toUpperCase() == "INPUT";
@@ -93,7 +95,7 @@
                 month: function (oDate) {
                     var Y = oDate.getFullYear(),
                         m = oDate.getMonth(),
-                        startDate = new Date(Y, m, 1, 3, 0, 1, 0),
+                        startDate = new Date(Y, m, 1, 3, 0, 1, 0),	//여기 Y를 2010으로 바꾸면 날짜 누를때 2010년으로 잡힌다
                         n;
                     var startPos = startDate.getDay() || 7;
                     if (scope.mondayStart) startPos = startPos - 1 || 7;
@@ -117,6 +119,8 @@
                     return aDates;
                 }
             };
+   
+        				
             var refresh = function (state) {
                 state = state || scope.state;
                 scope.aDates = gen[state](scope.j);
@@ -149,13 +153,18 @@
 
                 return oDate1 < oDate2;
             };
-            scope.isOff = function (oDate) {
+            
+            scope.isOff = function (oDate) { //날짜비활성화?? 클래스off하는곳
+            	console.log(oDate);
                 if (!conf.min && !conf.max)
                     return false;
                 if (conf.min && isBefore(oDate, conf.min))
                     return true;
                 if (conf.max && isBefore(conf.max, oDate))
                     return true;
+//                if("리스트에서 받아온 값을 oDate 에 포함하고있으면 true를 return한다."){
+//                	
+//                }
             };
             scope.isActive = {
                 year: function (oDate) {
@@ -241,17 +250,16 @@
             };
 
             scope.mondayStart = conf.mondayStart;
-            scope.aWeekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            scope.aWeekDay = ["일", "월", "화", "수", "목", "금", "토"];
             if (scope.mondayStart) scope.aWeekDay.push(scope.aWeekDay.shift());
-
             scope.aStates = ["decade", "year", "month"];
             scope.state = conf.initState;
 
             //TODO: this(together with rmInclude directive below) is a quick implementation, maybe there is a better idea
             scope.activeDateTpl = {
-                decade: "{{aDates[0].getFullYear()}} - {{aDates[aDates.length-1].getFullYear()}}",
-                year: "{{j.getFullYear()}}",
-                month: "{{j | date: 'MMMM yyyy'}}",
+                decade: "{{aDates[0].getFullYear()}}년 - {{aDates[aDates.length-1].getFullYear()}}년",
+                year: "{{j.getFullYear()}}년",
+                month: "{{j | date: 'M월 yyyy년'}}",
                 week: "{{ j | date: 'd MMMM yyyy' }}"
             };
 
@@ -332,7 +340,7 @@
             }
             else {
                 scope.show = true;
-                element.append($compile(TEMPLATE)(scope));
+                element.append($compile(TEMPLATE)(scope));	//밑에 템플릿 css 적용하는 곳
             }
         };
 
@@ -344,7 +352,7 @@
                 '<a class="back waves-effect" ng-click="toggleState(-1)" rm-include="activeDateTpl[state]"></a>' +
                 '<a class="adjacent waves-effect" ng-click="prev()"><i class="mi_keyboard_arrow_up"></i></a>' +
                 '<a class="adjacent waves-effect" ng-click="next()"><i class="mi_keyboard_arrow_down"></i></a>' +
-                '<a class="today waves-effect" ng-click="now()">Today</a>' +
+                '<a class="today waves-effect" id="Todayclick" ng-click="now()">오늘</a>' +
             '</div>' +
             '<div class="body" ng-include="\'rm-\' + state + \'.html\'"></div>' +
         '</div>' +
@@ -352,7 +360,7 @@
         '<script type="text/ng-template" id="rm-decade.html">' +
             '<div class="ng-class: state; square date">' +
                 '<div ng-repeat="oDate in aDates" ng-class="{j: isActive[\'year\'](oDate), off: isOff(oDate)}">' +
-                    '<a ng-click="go(oDate)" class="waves-effect"><span>{{oDate | date: \'yyyy\'}}</span></a>' +
+                    '<a ng-click="go(oDate)" class="waves-effect"><span>{{oDate | date: \'yyyy년\'}}</span></a>' +
                 '</div>' +
             '</div>' +
         '</script>' +
@@ -360,7 +368,7 @@
         '<script type="text/ng-template" id="rm-year.html">' +
             '<div class="ng-class: state; square date">' +
                 '<div ng-repeat="oDate in aDates" ng-class="{j: isActive[\'month\'](oDate), off: isOff(oDate)}">' +
-                    '<a ng-click="go(oDate)" class="waves-effect"><span>{{oDate | date: \'MMM\'}}</span></a>' +
+                    '<a ng-click="go(oDate)" class="waves-effect"><span>{{oDate | date: \'M월\'}}</span></a>' +
                 '</div>' +
             '</div>' +
         '</script>' +
@@ -371,7 +379,7 @@
             '</div>' +
             '<div class="ng-class: state; square date">' +
                 '<div ng-repeat="oDate in aDates" ng-class="{j: isActive[\'date\'](oDate), off: isOff(oDate), out: !isActive[\'month\'](oDate)}">' +
-                    '<a ng-click="go(oDate)" class="waves-effect"><span>{{oDate.getDate()}}</span></a>' +
+                    '<a ng-click="go(oDate)" class="waves-effect" style="cursor:pointer;text-decoration: none;"><span>{{oDate.getDate()}}</span></a>' +
                 '</div>' +
             '</div>' +
         '</script>';

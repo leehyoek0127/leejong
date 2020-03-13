@@ -23,7 +23,6 @@ public class BranchList_Action {
 	private SqlSessionFactory factory = SqlMapConfig.getSqlSession();
 
 	public List<BranchDto> getBranchList() {
-		System.out.println("액션까지옴");
 		List<BranchDto> BranchList = null;
 		SqlSession sqlSession = factory.openSession();
 		BranchList = sqlSession.selectList("branchlist_view");

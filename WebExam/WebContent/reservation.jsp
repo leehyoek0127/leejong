@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="model.BranchDto"%>
 <%@page import="model.GroundDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -18,6 +20,7 @@
 	//수정부분 끝
 %>
 <%
+	ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) request.getAttribute("BranchList");
 	ArrayList<GroundDto> GroundList = (ArrayList<GroundDto>) request.getAttribute("GroundList");
 %>
 <!-- datepicker -->
@@ -74,40 +77,19 @@
 <script src="js/selectindex.js"></script>
 <!----------------------------서브메뉴마우스오버기능-------------------------->
 <link rel="stylesheet" type="text/css" href="css/subMenuMouseOver.css">
-<!----------------------------회원가입스크립트랑 스타일(따로 빼면 에러)-------------------------->
-<script type='text/javascript'>
-	$(function() {
-		$('#forgot_username_link').tipsy({
-			gravity : 'w'
-		});
-	});
+
+<script>
+var list111 = new Array();
+var temp0000 = "2020-02-02";
+<%for(int i=0; i<10; i++){ %>
+
+list111[<%=i%>] = temp0000;
+
+<%}%>
+console.log(list111);
 </script>
-<link href="css/front.css" media="screen, projection" rel="stylesheet" type="text/css">
-<script src="js/jquery2.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-
-		$(".signin").click(function(e) {
-			e.preventDefault();
-			$("fieldset#signin_menu").toggle();
-			$(".signin").toggleClass("menu-open");
-		});
-
-		$("fieldset#signin_menu").mouseup(function() {
-			return false
-		});
-		$(document).mouseup(function(e) {
-			if ($(e.target).parent("a.signin").length == 0) {
-				$(".signin").removeClass("menu-open");
-				$("fieldset#signin_menu").hide();
-			}
-		});
-
-	});
-</script>
-<!----------------------------회원가입스크립트랑 스타일여기까지------------------------------------>
-
-<script type="text/javascript">
+	var temp000 = 1;
 	$(window).load(function() {
 		$('#featured').orbit();
 	});
@@ -135,6 +117,45 @@
 		}
 	});
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<!-- <script src="http://fian.my.id/Waves/static/waves.min.js?v=0.7.4"></script> -->
+<script src="js/rm-datepicker.js"></script>
+
+<script>
+	var app = angular.module("myApp", [ "rmDatepicker" ]);
+
+	/* Datepicker global configuration */
+	app.config([ "rmDatepickerConfig", function(rmDatepickerConfig) {
+		rmDatepickerConfig.mondayStart = true;
+		rmDatepickerConfig.initState = "month";
+	} ]);
+</script>
+<script>
+
+	(function() {
+		var app = angular.module("myApp");
+		var MyCtrl = function($scope) {
+			/* Datepicker local configuration */
+			$scope.rmConfig1 = {
+				mondayStart : false,
+				initState : "month", /* decade || year || month */
+				maxState : "decade",
+				minState : "month",
+				decadeSize : 12,
+				monthSize : 42, /* "auto" || fixed nr. (35 or 42) */
+				min : new Date('2000-11-21'),
+				max : new Date('2023-11-21'),
+				format : "yyyy-MM-dd" /* https://docs.angularjs.org/api/ng/filter/date */
+			};
+			$scope.oDate1 = new Date();
+			$scope.oDate2 = new Date();
+		};
+		app.controller("MyCtrl", [ '$scope', MyCtrl ]);
+	}());
+	// Init waves (OPTIONAL) :)
+	// window.onload = Waves.init();
+</script>
 <SCRIPT type="text/javascript">
 	
 </SCRIPT>
@@ -153,10 +174,10 @@ h1 {
 	line-height: 15px;
 }
 
-input {
+/* input {
 	width: 100%;
 	height: 20px;
-}
+} */
 </style>
 <!-- -------- -->
 <style>
@@ -278,10 +299,10 @@ code {
 	padding: 0 8px;
 }
 
-#reservation_select{
-    width: 1002px;
-    height: 47px;
-    font-size: 17px;
+#ground_name {
+	width: 1002px;
+	height: 47px;
+	font-size: 17px;
 }
 </style>
 
@@ -291,7 +312,7 @@ code {
 		<jsp:include page="<%=includeurl%>" />
 	</header>
 
-	<div id="mainleft">
+	<div id="mainleft" style="height: 1600px;">
 		<div id="leftbanner">
 			<div id="banner1">
 				<img src="img/20191211.jpg" width="100%" height="100%" />
@@ -306,7 +327,9 @@ code {
 
 	<section id="main">
 		<section id="mainright" style="margin-top: 60px;">
-			<form name="join" id="materialForm" class="form" method="post" action="reservation.do?command=reservation_input" role="form" autocomplete="off">
+			<form name="reservation_input" id="materialForm" class="form" method="post"
+			action="reservation.do?command=reservation_input" role="form"
+			autocomplete="off">
 
 				<%
 					if (GroundList != null) {
@@ -318,105 +341,117 @@ code {
 					<div rm-datepicker ng-model="oDate1" rm-config="rmConfig1" class="datepick"></div>
 					<br>
 					<div style="font-size: 18px; text-align: left; letter-spacing: 1px;">
-						<input type="hidden" name="res_time" value="{{oDate1 | date: 'yyyy-MM-dd'}}" id="hiddendate"> 날짜선택 : {{oDate1 | date: 'yyyy-MM-dd'}} <label id="weeklabel"></label>
+						<input type="hidden" name="hiddendate" value="{{oDate1 | date: 'yyyy-MM-dd'}}" id="hiddendate">
+						날짜선택 : {{oDate1 | date: 'yyyy-MM-dd'}}
+						<label id="weeklabel" for="weeklabel"></label>
 
 						<script type="text/javascript">
-							$(document)
-									.ready(
-											function() {
-												$(".datepick")
-														.click(
-																function(e) {
-																	var date = document
-																			.getElementById("hiddendate");
-																	var week = [
-																			'일',
-																			'월',
-																			'화',
-																			'수',
-																			'목',
-																			'금',
-																			'토' ];
-																	var pickdate = new Date(
-																			date.value);
-																	var dayOfWeek = week[pickdate
-																			.getDay()];
-																	$(
-																			"#weeklabel")
-																			.html(
-																					dayOfWeek);
-																});
-											});
+							$(document).ready(function() {
+								$(".datepick").click(function(e) {
+									var date = document.getElementById("hiddendate");
+									var week = ['일','월','화','수','목','금','토' ];
+									var pickdate = new Date(date.value);
+									var dayOfWeek = week[pickdate.getDay()];
+									$("#weeklabel").html(dayOfWeek);
+									
+									 //groundchange이벤트를 선택할때!
+									 var gname = $("#ground_name option:selected").val();
+									if(gname=="구장"){
+										$("#ground_name").val("A구장");
+									}
+									var gname = $("#ground_name option:selected").val();
+
+									
+									selectAjax(gname);
+									var checkboxline = document.getElementById("checkboxline");
+									checkboxline.style.removeProperty("display");
+									
+									});
+							});
 						</script>
 					</div>
 					<hr>
 				</div>
-
-				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-				<!-- <script src="http://fian.my.id/Waves/static/waves.min.js?v=0.7.4"></script> -->
-				<script src="js/rm-datepicker.js"></script>
-
-				<script>
-					var app = angular.module("myApp", [ "rmDatepicker" ]);
-
-					/* Datepicker global configuration */
-					app.config([ "rmDatepickerConfig",
-							function(rmDatepickerConfig) {
-								rmDatepickerConfig.mondayStart = true;
-								rmDatepickerConfig.initState = "month";
-							} ]);
-				</script>
-				<script>
-					(function() {
-
-						var app = angular.module("myApp");
-
-						var MyCtrl = function($scope) {
-
-							/* Datepicker local configuration */
-							$scope.rmConfig1 = {
-								mondayStart : false,
-								initState : "month", /* decade || year || month */
-								maxState : "decade",
-								minState : "month",
-								decadeSize : 12,
-								monthSize : 42, /* "auto" || fixed nr. (35 or 42) */
-								min : new Date('2000-11-21'),
-								max : new Date('2023-11-21'),
-								format : "yyyy-MM-dd" /* https://docs.angularjs.org/api/ng/filter/date */
-							};
-
-							$scope.oDate1 = new Date();
-							$scope.oDate2 = new Date();
-						};
-						app.controller("MyCtrl", [ '$scope', MyCtrl ]);
-
-					}());
-
-					// Init waves (OPTIONAL) :)
-					// window.onload = Waves.init();
-				</script>
 				<!-- ---------------------------------------------------------------- -->
 				<script>
-					$(function() {
-						//셀렉트박스(구장명)선택시 label로 뽑기
-						$(".ground_name").change(function() {
-							console.log(this.value);
-							var selectvalue = $(".ground_name").val();				
-							$("#hiddenselectground").html(selectvalue);
+					function selectAjax(value) {
+
+						$.ajax({
+							type : "post",
+							url : "./groundselect.do?command=selectground",
+							dataType : "json",
+							data : {
+								ground_name : value
+							},
+							success : whenSuccesstime,
+							error : whenError
+						});
+					}
+					function whenSuccesstime(resdata) {
+
+						var x = document.getElementById("selectajax");
+
+						var clickground_no = resdata[0].clickground_no
+						var weekAM_charge = resdata[0].weekAM_charge
+						var weekPM_charge = resdata[0].weekPM_charge
+						var weekendAM_charge = resdata[0].weekendAM_charge
+						var weekendPM_charge = resdata[0].weekendPM_charge
+						
+						var weekweek = $("label[for='weeklabel']").text();
+						if (weekweek == "토") {
+							$(".weekAM_charge").html(weekendAM_charge);
+							$('.weekAM_charge').val(weekendAM_charge);
+							$(".weekPM_charge").html(weekendPM_charge);
+							$('.weekPM_charge').val(weekendPM_charge);
+						} else if (weekweek == "일") {
+							$(".weekAM_charge").html(weekendAM_charge);
+							$('.weekAM_charge').val(weekendAM_charge);
+							$(".weekPM_charge").html(weekendPM_charge);
+							$('.weekPM_charge').val(weekendPM_charge);
+						} else {
+							$(".weekAM_charge").html(weekAM_charge);
+							$('.weekAM_charge').val(weekAM_charge);
+							$(".weekPM_charge").html(weekPM_charge);
+							$('.weekPM_charge').val(weekPM_charge);
+						}
+						
+						var selectvalue = $(".ground_name").val();
+						//ground_name_id hidden 담기
+						$('#ground_name_id').val(selectvalue);
+						//res_date hidden 담기
+						var resdate = $("#hiddendate").val();
+						$('#res_date_id').val(resdate);
+						///ground_no hidden 담기
+						$('#ground_no_id').val(clickground_no);
+						console.log(clickground_no);
 							
-							
-						//
-							<%for(int i = 0; i < GroundList.size(); i++){%>
-								<% if(GroundList.get(i).getGround_name().contains("this.value")){%>
-								alert("됬다aaa");		 
-							<%}}%>
-						})
-					})
+					}
+					function whenError() {
+						alert("Error");
+					}
 				</script>
-				 
-				<select name="ground_name" class="ground_name" id="reservation_select">
-					<option value="">구장</option>
+
+				<script>
+					//셀렉트박스 change 이벤트
+					function groundchange(mege) {
+						var groundselect = this.value;
+						var selectvalue = $(".ground_name").val();
+
+						var weekweek = $("label[for='weeklabel']").text();
+
+						//구장선택에따라 스타일부여(display 보이게/안보이게)
+						var checkboxline = document.getElementById("checkboxline");
+						if (selectvalue == "구장") {
+							checkboxline.style.setProperty('display', 'none');
+						} else {
+							selectAjax(mege);
+							checkboxline.style.removeProperty("display");
+						}
+					}
+				</script>
+
+				<select name="ground_name" class="ground_name" id="ground_name" onChange="groundchange(this.value)">
+					<option value="구장">구장</option>
 					<%
 						for (int i = 0; i < GroundList.size(); i++) {
 					%>
@@ -426,68 +461,106 @@ code {
 						}
 					%>
 				</select>
-				<label id="hiddenselectground" name="hiddenselectground"></label>
-				
+
 				<div class="cont_heg_50"></div>
 				<div style="text-align: left; font-size: 17px; margin-top: 36px;"></div>
 
-<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
-				<div class="inputGroup">
-					<input type="checkbox" id="option1" class="checkboxsquere" name="res_time" value="08:00 AM ~ 10:00 AM, 오전가격">
-					<label for="option1"> 08:00 AM ~ 10:00 AM
-					<div name="timeprice1" id="timeprice1"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option2" class="checkboxsquere" name="res_time" value="10:00 AM ~ 12:00 PM, 오전가격">
-					<label for="option2"> 10:00 AM ~ 12:00 PM
-					<div name="timeprice2" id="timeprice2"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option3" class="checkboxsquere" name="res_time" value="12:00 PM ~ 02:00 PM, 오전가격">
-					<label for="option3"> 12:00 PM ~ 02:00 PM
-					<div name="timeprice3" id="timeprice3"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option4" class="checkboxsquere" name="res_time" value="02:00 PM ~ 04:00 PM, 오전가격">
-					<label for="option4"> 02:00 PM ~ 04:00 PM
-					<div name="timeprice4" id="timeprice4"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option5" class="checkboxsquere" name="res_time" value="04:00 PM ~ 06:00 PM, 오전가격">
-					<label for="option5"> 04:00 PM ~ 06:00 PM
-					<div name="timeprice5" id="timeprice5"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option6" class="checkboxsquere" name="res_time" value="06:00 PM ~ 08:00 PM, 오후가격">
-					<label for="option6"> 06:00 PM ~ 08:00 PM
-					<div name="timeprice6" id="timeprice6"></div></label>
-				</div>
-				<div class="inputGroup">
-					<input type="checkbox" id="option7" class="checkboxsquere" name="res_time" value="08:00 PM ~ 10:00 PM, 오후가격">
-					<label for="option6"> 08:00 PM ~ 10:00 PM
-					<div name="timeprice7" id="timeprice7"></div></label>
-				</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
-				<hr> 
-				<div style="text-align: right; font-size: 20px; margin-top: -9px;">
-					합계
-					<!--  <=payment_charge%> -->
-					(원)
-				</div>
-				<!-- 
-				<input type="hidden" name="ground_no" value="ground_no %>" />
-				<input type="hidden" name="id" value="id %>"" />
-				-->
+				<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+				<!-- Ajax 리턴받는곳 -->
+				<div id="selectajax" style="color: red; font-size: 12px;"></div>
 
+				<div name="checkboxline" id="checkboxline" style="display: none">
+					<div class="inputGroup">
+						<input type="radio" id="option1" class="checkboxsquere" name="check_time" value="08:00 AM ~ 10:00 AM">
+						<label for="option1"> 08:00 AM ~ 10:00 AM
+							<div name="click_charge" class="weekAM_charge" id="weekAM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option2" class="checkboxsquere" name="check_time" value="10:00 AM ~ 12:00 PM">
+						<label for="option2"> 10:00 AM ~ 12:00 PM
+							<div name="click_charge" class="weekAM_charge" id="weekAM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option3" class="checkboxsquere" name="check_time" value="12:00 PM ~ 02:00 PM">
+						<label for="option3"> 12:00 PM ~ 02:00 PM
+							<div name="click_charge" class="weekAM_charge" id="weekAM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option4" class="checkboxsquere" name="check_time" value="02:00 PM ~ 04:00 PM">
+						<label for="option4"> 02:00 PM ~ 04:00 PM
+							<div name="click_charge" class="weekAM_charge" id="weekAM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option5" class="checkboxsquere" name="check_time" value="04:00 PM ~ 06:00 PM">
+						<label for="option5"> 04:00 PM ~ 06:00 PM
+							<div name="click_charge" class="weekAM_charge" id="weekAM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option6" class="checkboxsquere" name="check_time" value="06:00 PM ~ 08:00 PM">
+						<label for="option6"> 06:00 PM ~ 08:00 PM
+							<div name="click_charge" class="weekPM_charge" id="weekPM_charge" value=""></div>
+						</label>
+					</div>
+					<div class="inputGroup">
+						<input type="radio" id="option7" class="checkboxsquere" name="check_time" value="08:00 PM ~ 10:00 PM">
+						<label for="option7"> 08:00 PM ~ 10:00 PM
+							<div name="click_charge" class="weekPM_charge" id="weekPM_charge" value=""></div>
+						</label>
+					</div>
+				</div>
+				<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+				<hr>
+				<script>
+				//체크박스 선택 이벤트 ->합계Ajax
+					$(document).ready(function() {
+						$(".checkboxsquere").change(function(e) {
+							if($("input:radio[name='check_time']").is(":checked") == true){
+								var checkclick = this.value;
+								var chargename =  $('#'+$(this).attr("id") +' + label div[name="click_charge"]').val();
+								$("#totalcharge").html(checkclick+'  '+chargename+' 원');
+								
+								$('#res_time_id').val(checkclick);
+								$('#res_pay_id').val(chargename);
+								
+							}else if($("input:checkbox[name='check_time']").is(":checked") == false)
+								$("#totalcharge").html(' ');
+						});
+					});
+				</script>
+				<div style="text-align: right;font-size: 20px;height: 10px;">
+					<div id="totalcharge" style="font-size: 16px;float:right;width: 260px;height: 100%;margin-top: 2px;color:#8e8e8e;">0 원</div>
+					<div style="font-size: 18px;float:right;width: 200px;height: 100%;color:#8e8e8e;">합계</div>
+				</div>
+				 
+				<!-- reservation_tb에 넘기기위해 hidden에 담음 -->
+				<input type="text" name="branch_no" value="<%=BranchList.get(0).getBranch_no()%>" >
+				<input type="text" name="ground_no" id="ground_no_id"  value="" >
+				
+				<input type="text" name="id" value="<%=uss%>" >
+				<input type="text" name="res_date" id="res_date_id" value="" >
+				<input type="text" name="res_time" id="res_time_id" value="" >
+				<input type="text" name="payment_charge" id="res_pay_id" value="" >
+				<input type="text" name="branch_name" id="branch_name_id" value="<%=BranchList.get(0).getBranch_name()%>" >
+				<input type="text" name="ground_name_id" id="ground_name_id" value="" >
+
+				<!-- <input type="text" name="res_no" id="res_no_id" value="" > -->
+				<!-- --------------------------------- -->
 				<%
 					}
 				%>
-			</form>
 			</div>
-
 			<br>
-			<hr style="margin-top: -10px;">
-			<div class="depthButton" style="height: 45px; width: 114px; text-align: center; font-size: 18px; padding-top: 10px; letter-spacing: 3px; float: right;">결제</div>
+			<hr style="margin-top: 13px;">
+			
+
+			<input type="submit" class="depthButton" style="height: 45px; width: 114px; text-align: center;
+			font-size: 17px; padding-top: 6px; letter-spacing: 13px; float: right;" value="결제">
+			</form>
 			</div>
 		</section>
 	</section>

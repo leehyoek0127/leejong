@@ -212,7 +212,7 @@ input[rm-datepicker] + .rm-datepicker {
 
 .rm-datepicker .nav .back {
   width: 50%;
-  max-width: 170px;
+  max-width: 178px;
   margin-left: -60px;
   padding-left: 32px;
 }
@@ -316,13 +316,16 @@ input[rm-datepicker] + .rm-datepicker {
   background-color: #E4E3E3 !important;
   opacity: 0.3;
   border-color: #BBB;
+  /*pointer-events: none;*/ /*다음달날짜 누를때, 다음달로 넘어가지않도록 (화살표로만 다음달,이전달 이동가능하게)*/
 }
 
+/*오늘 이전날짜(min비활했던 날짜)*/
 .rm-datepicker .date .off a {
-  background-color: #F2F2F2 !important;
-  opacity: 0.05;
-  border-color: #555;
-  cursor: not-allowed;
+ background-color: #E4E3E3 !important;
+  opacity: 0.3;
+  border-color: #BBB;
+  color:black;
+  pointer-events: none;
 }
 
 .rm-datepicker .decade.date > *:nth-child(-n+4) a,

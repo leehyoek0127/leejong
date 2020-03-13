@@ -1,3 +1,4 @@
+<%@page import="model.TeamDto"%>
 <%@page import="vo.GalBoardDto"%>
 <%@page import="vo.PageInfo"%>
 
@@ -8,6 +9,7 @@
 <%
 	ArrayList<GalBoardDto> articleList = (ArrayList<GalBoardDto>) request.getAttribute("articleList");
 	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+	ArrayList<TeamDto> teamList = (ArrayList<TeamDto>) request.getAttribute("teamList");
 	int listCount = pageInfo.getListCount();
 	int nowPage = pageInfo.getPage();
 	int maxPage = pageInfo.getMaxPage();
@@ -29,6 +31,11 @@
 		includeurl = "sign_login.jsp";
 	}
 	//수정부분 끝
+%>
+
+<%
+	String teamcode = request.getParameter("teamcode");
+	String teamname = request.getParameter("teamname");
 %>
 <!doctype html>
 <html lang="en">
@@ -288,8 +295,14 @@
 							<li><a href="teamboardlist.do?command=teamboardlist">팀 게시판</a></li>
 						</ul>
 					</div>
-					<div class="writeboardtitle" style="margin-top: 50px;">Green Computer 팀 갤러리</div>
-					<input type="button" value="글쓰기" class="signbutton signbutton5 buttonmargin" onClick="script: location.href='galWriteForm.bo'" style="margin-right: 34px;">
+					<div class="writeboardtitle" style="margin-top: 50px;">
+					<%if(teamcode==null){ %>
+						전체 팀 갤러리
+					<%}else{ %>
+						<%=teamname%> 팀 갤러리
+					<%} %>
+					</div>
+					<input type="button" value="글쓰기" class="signbutton signbutton5 buttonmargin" onClick="script: location.href='galWriteForm.bo?id=<%=uss %>'" style="margin-right: 34px;">
 				
 				</div>
 				
@@ -328,15 +341,12 @@
 
 								<div id="form"></div>
 								<div class="subli logolistmargin">
-									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Liverpool/">Green Computer</a></li>
-									<li><img src="img/mu.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester United/">Blue Computer</a></li>
-									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Manchester City/">Red Computer</a></li>
-									<li><img src="img/chelsea.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">White Computer</a></li>
-									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Chelsea/">Yellow Computer</a></li>
-									<li><img src="img/arsenal.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/liverpool.jpg" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/mcity.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
-									<li><img src="img/tottenham.png" align="absmiddle" class="subli_img" /> <a href="#/Arsenal/">Super Computer</a></li>
+								<%for(int i=0; i<teamList.size(); i++){ %>
+									<li><img src="img/<%=teamList.get(i).getT_logo() %>" align="absmiddle" class="subli_img" /> 
+									<a href="galList.bo?teamcode=<%=teamList.get(i).getT_code()%>&teamname=<%=teamList.get(i).getT_name()%>">
+									<%=teamList.get(i).getT_name() %></a></li>
+								<%} %>
+									
 									
 								</div>
 							</div>

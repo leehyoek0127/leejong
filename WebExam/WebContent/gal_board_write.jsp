@@ -1,3 +1,5 @@
+<%@page import="model.TeamDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -15,6 +17,8 @@
 
 	//수정사항 2020.01.14 로그인 ID에 대한 정보.
 	String logid = (String) session.getAttribute("id");
+	
+	ArrayList<TeamDto> teamList = (ArrayList<TeamDto>)request.getAttribute("teamList");
 %>
 <!doctype html>
 <html lang="en">
@@ -347,7 +351,21 @@
 								</div>
 
 							</div>
-							
+							<div class="form-group">
+								<div class="col-xs-2"></div>
+								<div class="col-xs-6">
+										<select name="teamcode" size="1" class=formInput
+											style="width: 340px; height: 30px; margin-left: -15px;">
+											<option value="Q01">팀 선택</option>
+											
+											<%for(int i=0; i<teamList.size(); i++){ %>
+											<option value="<%=teamList.get(i).getT_code() %>"><%=teamList.get(i).getT_name() %></option>
+											
+											<%} %>
+										</select>
+											
+								</div>
+							</div>
 
 							<div class="form-group formtotalsize">
 								<div class="col-xs-2"></div>

@@ -17,6 +17,7 @@
 		<typeAlias type="model.TeamBoardRepDto" alias="TeamBoardRepDto"/>
 		<typeAlias type="model.LeagueResultDto" alias="LeagueResultDto"/>
 		<typeAlias type="model.PlayerRegistDto" alias="PlayerRegistDto"/>
+		<typeAlias type="model.LeagueDto" alias="LeagueDto"/>
 	</typeAliases>
 
 

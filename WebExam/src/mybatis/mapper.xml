@@ -16,8 +16,13 @@
 <select id="branchlist_view" parameterType="BranchDto" resultType="BranchDto">select * from branch_tb; </select>
 <select id="branchdetail_view" parameterType="String" resultType="BranchDto">select * from branch_tb where BRANCH_NO=#{branch_no};</select>
 <select id="grounddetail_view" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
-
 <select id="click_reservation" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+
+
+<select id="click_ground_reservation" parameterType="String" resultType="GroundDto">select * from ground_tb where BRANCH_NO=#{branch_no};</select>
+<select id="click_branch_reservation" parameterType="String" resultType="BranchDto">select * from branch_tb where BRANCH_NO=#{branch_no};</select>
+<select id="GroundCheck" parameterType="String" resultType="GroundDto">select * from ground_tb where GROUND_NAME=#{ground_name};</select>
+
 
 <!-- 팀관련 sql 모음 by Pang -->
 <select id="teamlist_view" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb; </select>
@@ -32,6 +37,18 @@
 
 
 <!-- End -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- 팀게시판 sql 모음 by Hyeok -->
@@ -58,4 +75,31 @@
 <update id="teamboardmodify" parameterType="TeamBoardListDto"> update teamboard_tb set T_B_CONTENTS=#{T_B_CONTENTS}, T_B_SUBJECT=#{T_B_SUBJECT} where T_B_NO=#{T_B_NO};</update>
 <delete id = "teamboarddelete" parameterType="TeamBoardListDto">delete from teamboard_tb where T_B_NO = #{T_B_NO};</delete>
 <!-- End -->
+
+<select id="leaguelist" resultType="LeagueDto">select * from league_tb; </select>
+<select id="leaguebranchlist" resultType="BranchDto">
+select * from branch_tb where BRANCH_NO in (select BRANCH_NO from league_tb);
+</select>
+<select id="leagueselectone" parameterType="int" resultType="LeagueDto">select * from league_tb where BRANCH_NO=#{branch_no}; </select>
+<select id="teamleaguelist" parameterType="String" resultType="TeamDto">select * from teaminfo_tb where T_CODE=(select T_CODE from teamplayer_tb where ID=#{id}); </select>
+<select id="leagueteamcheck" parameterType="LeagueResultDto" resultType="LeagueResultDto">select * from league_result_tb where T_CODE = #{t_code} and LEAGUE_CODE = #{league_code}; </select>
+<insert id="leagueplayerregist" parameterType="PlayerRegistDto">insert into player_regist_tb (ID, LEAGUE_CODE, T_CODE, PLAYER_POSITION, PLAYER_UNIFORMNUM) values(#{id},#{league_code},#{t_code},#{player_position},#{player_uniformum);</insert>
+<select id="playerleaguecheck" parameterType="PlayerRegistDto" resultType="PlayerRegistDto">select * from player_regist_tb where T_CODE = #{t_code} and LEAGUE_CODE = #{league_code} and ID = #{id}; </select>
+<select id="leaguecheck" parameterType="LeagueResultDto" resultType="LeagueResultDto">select * from seoul_league_tb where T_CODE = #{t_code} and LEAGUE_CODE = #{league_code}; </select>
+<insert id="leagueteamregist" parameterType="LeagueResultDto">
+	<selectKey resultType="int" keyProperty="league_result_code" order="BEFORE">
+        SELECT MAX(LEAGUE_RESULT_CODE)+1 FROM league_result_tb        
+    </selectKey>
+	insert into league_result_tb (LEAGUE_RESULT_CODE, T_CODE, LEAGUE_CODE) values(#{league_result_code},#{t_code},#{league_code});
+</insert>
+<insert id="leagueteamregistseoul" parameterType="PlayerRegistDto">
+	insert into seoul_league_tb (T_CODE, LEAGUE_CODE, ID) values(#{t_code},#{league_code},#{id});
+</insert>
+
+
+
+
+
+
+
 </mapper>

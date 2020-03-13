@@ -227,9 +227,9 @@ body { background-color: #fff; color: #000; padding: 0; margin: 0; }
 								for (int i = 0; i < GroundList.size(); i++) {
 							%>
 
-<%=GroundList.get(i).getGround_name()%>구장 : (<%=GroundList.get(i).getGround_size()%>)
+<%=GroundList.get(i).getGround_name()%> : (<%=GroundList.get(i).getGround_size()%>)
 <%
-	}
+}
 %>
 
 <label style="float: left; font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 편의시설</label>

@@ -5,7 +5,7 @@ import java.sql.Date;
 public class ReservationDto {
 	int res_no;
 	Date res_date;
-	Date res_time;
+	String res_time;
 	int payment_charge;
 	//FK//
 	String id;
@@ -22,10 +22,10 @@ public class ReservationDto {
 	public void setRes_date(Date res_date) {
 		this.res_date = res_date;
 	}
-	public Date getRes_time() {
+	public String getRes_time() {
 		return res_time;
 	}
-	public void setRes_time(Date res_time) {
+	public void setRes_time(String res_time) {
 		this.res_time = res_time;
 	}
 	public int getPayment_charge() {

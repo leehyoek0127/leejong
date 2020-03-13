@@ -9,7 +9,7 @@ import static db.JdbcUtil.*;
 public class GalWriteProService {
 
 	public boolean registArticle(GalBoardDto boardBean) throws Exception{
-		System.out.println("BoardWriteProService.registArticle(BoardBean article)");
+		
 		
 		boolean isWriteSuccess = false;
 		Connection con = getConnection();

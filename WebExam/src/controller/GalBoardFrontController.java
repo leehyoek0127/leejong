@@ -15,6 +15,8 @@ import action.GalListAction;
 
 import action.GalRepWriteProAction;
 import action.GalWriteProAction;
+import action.GalWriteformAction;
+import action.WriteForwardAction;
 import action.GalDeleteProAction;
 import action.GalModifyFormAction;
 import action.GalModifyProAction;
@@ -34,8 +36,13 @@ public class GalBoardFrontController extends javax.servlet.http.HttpServlet
 		Action action=null;
 
 		if(command.equals("/galWriteForm.bo")){
-			forward=new ActionForward();
-			forward.setPath("/gal_board_write.jsp");
+			action = new GalWriteformAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		}
 		else if(command.equals("/galList.bo")){
 			action = new GalListAction();
@@ -85,9 +92,9 @@ public class GalBoardFrontController extends javax.servlet.http.HttpServlet
 			}
 		}
 		else if(command.equals("/galwrite.bo")){
-			System.out.println(0);
+			
 			action  = new GalWriteProAction();
-			System.out.println(1);
+			
 			try {
 				forward=action.execute(request, response );
 			} catch (Exception e) {

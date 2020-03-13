@@ -1,3 +1,5 @@
+<%@page import="model.BranchDto"%>
+<%@page import="model.LeagueDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.ArrayList"%>
@@ -20,6 +22,12 @@ session.setAttribute("url",url);
 	//2020.01.14 로그인 id 수정
 	String yid = (String) session.getAttribute("id");
 %>
+
+<%
+	ArrayList<BranchDto> leaguebranchlist = (ArrayList<BranchDto>)request.getAttribute("LeagueBranchList");
+	request.setAttribute("LeagueBranchList", leaguebranchlist);
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -258,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 38px;
     line-height: 38px;
     vertical-align: top;
-    opacity: 0;
+    
     filter: alpha(opacity=0);
 }
 select {
@@ -363,53 +371,58 @@ a:-webkit-any-link {
 					<div class="rese_wrap">
 				<h3 class="h_tit">지점선택</h3>
 				<div class="rese_start">
-					<p class="tit">대회 접수에 앞서 지점을 선택해 주세요.</p>
+					<p class="tit">선수 등록에 앞서 지점을 선택해 주세요.</p>
 					<div class="start_wrap">
 						<div class="cont">
-							<form id="reg_form" name="reg_form" method="post" action="league_join_step2.asp">
+							<form id="reg_form" name="reg_form" method="post" action="league.do?command=league_join_step2">
 							<span class="select" style="width:100%">
 								<label for="select01">지점선택</label>
-								<select id="select01" name="branch_code" class="select_box">
+								<select id="select01" name="branch_name" class="select_box">
 									<option value="">지점선택</option>
 									
-										<option value="HM0033">가천대학교 운동장</option>
+									<%for(int i=0; i<leaguebranchlist.size(); i++){ %>
+										<option value=<%=leaguebranchlist.get(i).getBranch_name() %>><%=leaguebranchlist.get(i).getBranch_name() %></option>
+									<%} %>
 										
-										<option value="HM0005">대전 탄방점</option>
-										
-										<option value="HM0001">동대문점</option>
-										
-										<option value="HM0006">동대전점 </option>
-										
-										<option value="HM0007">부산 가야점</option>
-										
-										<option value="HM0031">부산 북구점</option>
-										
-										<option value="HM0003">서수원점</option>
-										
-										<option value="HM0002">안산 고잔점</option>
-										
-										<option value="HM0008">울산 남구점</option>
-										
-										<option value="HM0024">울산 북구점</option>
-										
-										<option value="HM0004">일산점</option>
-										
-										<option value="HM0010">전주 완산점</option>
-										
-										<option value="HM0009">창원점</option>
-										
-										<option value="HM0028">GLOBAL ARENA (Japan)</option>
-										
-										<option value="HM0032">Seogwipo, JEJU</option>
 										
 								</select>
+								<input type=hidden id="branchNo" name="branchNo" value="" />
+								<input type=hidden id="id" name="id" value="<%=uss %>" />
 							</span>
 							</form>
 							<div class="btn_wrap">
-								<a href="javascript:fn_frmSubmit()" class="btn_big">대회 접수</a>
+								<a href="javascript:void(0);" onClick="leaguesubmit()" class="btn_big">선수 등록</a>
 							</div>
 						</div>
 					</div>
+					<script>
+						function leaguesubmit() {
+							if($("#branchNo").val()==""){
+								alert("구장을 다시 선택해주세요.");
+								$("#select01 option:eq(0)").attr("selected","selected");
+							}else{
+								reg_form=document.getElementById("reg_form");
+								reg_form.submit();
+								
+							}
+							
+							
+						}
+						$(document).ready(function() {
+							$("#select01").change(function(e) {
+								var x = this.selectedIndex;
+								var y = this.options;
+								var idx = y[x].index;
+								console.log("선택한 index:"+idx);
+								var branchNoList = [];
+								<%for(int i=0; i<leaguebranchlist.size(); i++){ %>
+									branchNoList[<%=i%>]='<%=leaguebranchlist.get(i).getBranch_no()%>'
+								<%}%>
+								console.log("지점넘버 리스트:"+branchNoList);
+								$("#branchNo").val(branchNoList[idx-1]);
+							});
+						});
+					</script>
 				</div>
 
 			</div>
